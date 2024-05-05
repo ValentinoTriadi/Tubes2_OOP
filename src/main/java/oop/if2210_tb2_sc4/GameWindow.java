@@ -7,19 +7,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainMenu extends Application {
+public class GameWindow extends Application {
 
-    Thread gameThread;
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GameWindow.fxml"));
         Scene scene = new Scene(loader.load(), 800, 600);
-        primaryStage.centerOnScreen();
-        primaryStage.setTitle("Hello, World!");
+        primaryStage.setTitle("Game Window");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
