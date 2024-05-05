@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class MainMenu extends Application {
 
-    Thread gameThread;
     public static void main(String[] args) {
         launch(args);
     }
