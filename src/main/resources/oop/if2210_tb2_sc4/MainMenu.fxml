@@ -4,13 +4,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.MainMenuController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
             <VBox alignment="CENTER" layoutX="247.0" layoutY="254.0" prefHeight="96.0" prefWidth="106.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Start" />
+                  <Button mnemonicParsing="false" onAction="#NewGame" prefHeight="25.0" prefWidth="121.0" text="Start" />
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Setting" />
                   <Button alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="158.0" text="Exit" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
                </children>

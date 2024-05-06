@@ -9,8 +9,13 @@ import java.io.IOException;
 
 public class MainMenu extends Application {
 
+    Thread gameThread;
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static FXMLLoader getScene() {
+        return new FXMLLoader();
     }
 
     @Override

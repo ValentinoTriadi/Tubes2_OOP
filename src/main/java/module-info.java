@@ -13,4 +13,7 @@ module oop.if2210_tb2_sc4 {
 
     opens oop.if2210_tb2_sc4 to javafx.fxml;
     exports oop.if2210_tb2_sc4;
+    exports oop.if2210_tb2_sc4.dropzone;
+    exports oop.if2210_tb2_sc4.draggable to javafx.graphics;
+
 }
