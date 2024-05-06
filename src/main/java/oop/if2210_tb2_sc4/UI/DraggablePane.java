@@ -27,6 +27,10 @@ public class DraggablePane extends Pane {
 
     private void OnClick(@NotNull MouseEvent e){
         setParent(root);
+        x = e.getSceneX() - tempParent.getLayoutX();
+        y = e.getSceneY() - tempParent.getLayoutY();
+        setLayoutX(e.getSceneX() - x);
+        setLayoutY(e.getSceneY() - y);
     }
 
     private void OnDrag(@NotNull MouseEvent e){
