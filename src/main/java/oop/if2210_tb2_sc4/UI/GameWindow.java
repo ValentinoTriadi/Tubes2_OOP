@@ -1,4 +1,4 @@
-package oop.if2210_tb2_sc4;
+package oop.if2210_tb2_sc4.UI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

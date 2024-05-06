@@ -10,10 +10,9 @@ module oop.if2210_tb2_sc4 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires annotations;
 
-    opens oop.if2210_tb2_sc4 to javafx.fxml;
-    exports oop.if2210_tb2_sc4;
-    exports oop.if2210_tb2_sc4.dropzone;
-    exports oop.if2210_tb2_sc4.draggable to javafx.graphics;
+    exports oop.if2210_tb2_sc4.UI;
+    opens oop.if2210_tb2_sc4.UI to javafx.fxml;
 
 }

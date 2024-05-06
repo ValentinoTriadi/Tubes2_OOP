@@ -1,4 +1,4 @@
-package oop.if2210_tb2_sc4;
+package oop.if2210_tb2_sc4.UI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +21,7 @@ public class MainMenu extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 800, 600);
+        Scene scene = new Scene(loader.load(), 1024, 720);
         primaryStage.centerOnScreen();
         primaryStage.setTitle("Hello, World!");
         primaryStage.setScene(scene);

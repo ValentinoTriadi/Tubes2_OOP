@@ -1,12 +1,12 @@
-package oop.if2210_tb2_sc4.dropzone;
+package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.layout.Pane;
 
-public class dropzone extends Pane {
+public class DropZone extends Pane {
 
     private final int x,y;
 
-    public dropzone(int x, int y) {
+    public DropZone(int x, int y) {
         super();
         this.x = x;
         this.y = y;
