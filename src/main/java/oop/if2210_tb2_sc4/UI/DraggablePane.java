@@ -12,8 +12,6 @@ public class DraggablePane extends Pane {
     private final Pane cardPane;
     private final DropZone[] dropZone = GameWindowController.ladang;
 
-    boolean isDragging = false;
-
     public DraggablePane(Pane parent) {
 
         root = parent;

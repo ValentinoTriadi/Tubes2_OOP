@@ -4,9 +4,9 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 
-public class Ladang extends GridPane {
+public class LadangUI extends GridPane {
 
-    public Ladang() {
+    public LadangUI() {
         setAlignment(javafx.geometry.Pos.CENTER);
         setGridLinesVisible(true);
         setHgap(30.0);

@@ -25,8 +25,5 @@ public class GameWindow extends Application {
         primaryStage.setMaxHeight(720);
         primaryStage.setResizable(false);
         primaryStage.show();
-
-        GameWindowController controller = loader.getController();
-        controller.initialize();
     }
 }
