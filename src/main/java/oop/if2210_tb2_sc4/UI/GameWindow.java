@@ -17,6 +17,7 @@ public class GameWindow extends Application {
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GameWindow.fxml"));
         Scene scene = new Scene(loader.load(), 1024, 720);
+        scene.getStylesheets().add(getClass().getResource("GameWindow.css").toExternalForm());
         primaryStage.setTitle("Game Window");
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(1024);

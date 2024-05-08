@@ -6,17 +6,18 @@ import javafx.scene.layout.Pane;
 import org.jetbrains.annotations.NotNull;
 
 public class DraggablePane extends Pane {
+
     private double x, y;
     private final Pane root;
-    private Pane parent, tempParent;
+    protected Pane parent, tempParent;
     private final Pane cardPane;
-    private final DropZone[] dropZone = GameWindowController.ladang;
+    private final DropZone[] dropZone;
 
-    public DraggablePane(Pane parent) {
-
-        root = parent;
+    public DraggablePane(Pane parent, DropZone[] dropZone) {
+        this.root = GameWindowController.rootStatic;
         this.parent = parent;
         cardPane = this;
+        this.dropZone = dropZone;
 
         setOnMousePressed(this::OnClick);
         setOnMouseDragged(this::OnDrag);
@@ -25,8 +26,13 @@ public class DraggablePane extends Pane {
 
     private void OnClick(@NotNull MouseEvent e){
         setParent(root);
-        x = e.getSceneX() - tempParent.getLayoutX();
-        y = e.getSceneY() - tempParent.getLayoutY();
+        Bounds tempParentBounds = tempParent.localToScene(tempParent.getBoundsInLocal());
+
+        //! DONT REMOVE THE +10 OR IT WILL BROKE
+        x = e.getSceneX() - tempParentBounds.getMinX() + 10;
+        y = e.getSceneY() - tempParentBounds.getMinY() + 10;
+
+
         setLayoutX(e.getSceneX() - x);
         setLayoutY(e.getSceneY() - y);
     }
@@ -40,7 +46,7 @@ public class DraggablePane extends Pane {
         boolean droppedOnDropZone = false;
         for (DropZone dz : dropZone) {
             // Check if the mouse position is within the dropzone
-            if (isMouseInDropZone(e, dz) && dz.getChildren().isEmpty()) {
+            if (isMouseInDropZone(e, dz) && dz.getChildren().isEmpty() && !dz.isDisabled()) {
 
                 System.out.println("Intersected with dropzone");
                 setLayoutX(0);
@@ -69,7 +75,7 @@ public class DraggablePane extends Pane {
         return dropzoneBounds.contains(e.getSceneX(), e.getSceneY());
     }
 
-    private void setParent(Pane newParent) {
+    public void setParent(Pane newParent) {
         if (parent != null) {
             parent.getChildren().remove(cardPane);
         }

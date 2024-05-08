@@ -4,4 +4,8 @@ import javafx.scene.layout.Pane;
 
 public class CardHolder extends Pane {
 
+    public CardHolder() {
+        super();
+    }
+
 }

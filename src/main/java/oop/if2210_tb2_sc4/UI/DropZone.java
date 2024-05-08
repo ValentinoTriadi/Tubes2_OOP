@@ -4,20 +4,7 @@ import javafx.scene.layout.Pane;
 
 public class DropZone extends Pane {
 
-    private final int x,y;
-
-    public DropZone(int x, int y) {
+    public DropZone() {
         super();
-        this.x = x;
-        this.y = y;
     }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
 }

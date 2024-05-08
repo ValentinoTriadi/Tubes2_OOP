@@ -1,10 +1,14 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.geometry.Pos;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 
 public class LadangUI extends GridPane {
+
+    private final DropZone[] ladang = new DropZone[20];
 
     public LadangUI() {
         setAlignment(javafx.geometry.Pos.CENTER);
@@ -30,6 +34,35 @@ public class LadangUI extends GridPane {
             row.setPrefHeight(100.0);
             row.setVgrow(javafx.scene.layout.Priority.SOMETIMES);
             getRowConstraints().add(row);
+        }
+
+        for (int i = 0; i < 20; i++) {
+            int col = i % 5;
+            int row = i / 5;
+            ladang[i] = new DropZone();
+            ladang[i].setPrefSize(50, 100);
+            ladang[i].setStyle("-fx-background-color: yellow;");
+            this.add(ladang[i], col, row);
+        }
+    }
+
+    public DropZone[] getLadang() {
+        return ladang;
+    }
+
+    public DropZone getLadang(int index) {
+        return ladang[index];
+    }
+
+    public void disableField(){
+        for (DropZone dz : ladang) {
+            dz.setDisable(true);
+        }
+    }
+
+    public void enableField(){
+        for(DropZone dz : ladang){
+            dz.setDisable(false);
         }
     }
 }
