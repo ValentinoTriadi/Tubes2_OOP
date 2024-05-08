@@ -5,13 +5,13 @@ public class PlantCard extends FarmResourceCard {
     private int age;
     private int harvestAge;
 
-    public PlantCard(String name, String image_path) {
-        super(name, image_path);
+    public PlantCard(String name) {
+        super(name);
         age = 0;
     }
 
-    public PlantCard(String name, String image_path, int age, int harvestAge) {
-        super(name, image_path);
+    public PlantCard(String name, int age, int harvestAge, ProductCard result) {
+        super(name, result);
         this.age = age;
         this.harvestAge = harvestAge;
     }

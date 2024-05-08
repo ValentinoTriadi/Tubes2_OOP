@@ -1,8 +1,8 @@
 package oop.if2210_tb2_sc4.card;
 
 public class DelayCard extends ItemCard{
-    public DelayCard(String name, String image_path) {
-        super(name, image_path);
+    public DelayCard(String name) {
+        super(name);
     }
 
     @Override

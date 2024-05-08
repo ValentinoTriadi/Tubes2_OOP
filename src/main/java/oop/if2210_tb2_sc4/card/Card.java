@@ -5,19 +5,13 @@ package oop.if2210_tb2_sc4.card;
  */
 public class Card {
     private String name;
-    private String image_path;
 
-    public Card(String name, String image_path) {
+    public Card(String name) {
         this.name = name;
-        this.image_path = image_path;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getImagePath() {
-        return image_path;
     }
 }
 

@@ -43,6 +43,14 @@ public class Player {
         return ladang.getCardinLadangCount();
     }
 
+    public void setLadang(Ladang ladang){
+        this.ladang = ladang;
+    }
+
+    public void setDeck(Deck deck){
+        this.deck = deck;
+    }
+
     public Ladang getLadang(){
         return ladang;
     }

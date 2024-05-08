@@ -28,6 +28,12 @@ public class Ladang {
         ladang[row][column] = card;
     }
 
+    public void setCard(String slot, FarmResourceCard card) {
+        int row = slot.charAt(0) - 'A';
+        int column = Integer.parseInt(slot.substring(1));
+        ladang[row][column] = card;
+    }
+
     public void removeCard(int row, int column) {
         ladang[row][column] = null;
     }

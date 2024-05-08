@@ -6,14 +6,14 @@ public abstract class FarmResourceCard extends Card{
     ProductCard productResult;
     List<EffectType> effectApplied;
 
-    public FarmResourceCard(String name, String image_path) {
-        super(name, image_path);
+    public FarmResourceCard(String name) {
+        super(name);
         this.productResult = null;
         this.effectApplied = null;
     }
 
-    public FarmResourceCard(String name, String image_path, ProductCard productResult) {
-        super(name, image_path);
+    public FarmResourceCard(String name, ProductCard productResult) {
+        super(name);
         this.productResult = productResult;
         this.effectApplied = null;
     }
@@ -56,5 +56,9 @@ public abstract class FarmResourceCard extends Card{
 
     public boolean isAccelerated() {
         return effectApplied.contains(EffectType.ACCELERATE);
+    }
+
+    public ProductCard harvest() {
+        return new ProductCard(this.productResult);
     }
 }

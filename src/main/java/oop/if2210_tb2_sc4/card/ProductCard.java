@@ -5,20 +5,20 @@ public class ProductCard extends Card{
     private final int price;
     private final int weightAddition;
 
-    public ProductCard(String name, String image_path) {
-        super(name, image_path);
+    public ProductCard(String name) {
+        super(name);
         price = 0;
         weightAddition = 0;
     }
 
     public ProductCard(ProductCard productCard) {
-        super(productCard.getName(), productCard.getImagePath());
+        super(productCard.getName());
         price = productCard.getPrice();
         weightAddition = productCard.getWeightAddition();
     }
 
-    public ProductCard(String name, String image_path, int price, int weightAddition) {
-        super(name, image_path);
+    public ProductCard(String name, int price, int weightAddition) {
+        super(name);
         this.price = price;
         this.weightAddition = weightAddition;
     }
