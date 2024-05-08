@@ -4,17 +4,14 @@ import oop.if2210_tb2_sc4.game_manager.GameData;
 import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.player.Player;
-import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.EffectType;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
+import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.shop.Shop;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 
@@ -43,13 +40,14 @@ public class LoadTXT implements Load {
             Scanner scanner = new Scanner(game_state_file);
             GameState.setCurrentPlayer(scanner.nextInt());
             GameState.setCountItems(scanner.nextInt());
-            Map<String, Integer> temp = new HashMap<String, Integer>();
+
+            Shop shop = new Shop();
             for (int i = 0; i < GameState.getCountItems(); i++){
                 String item = scanner.next();
                 Integer count = scanner.nextInt();
-                temp.put(item, count);
+                shop.addCard((ProductCard) GameData.getCard(item), count);
             }
-            GameState.setItems(temp);
+            GameState.setShop(shop);
             scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("Error: " + e.getMessage());
