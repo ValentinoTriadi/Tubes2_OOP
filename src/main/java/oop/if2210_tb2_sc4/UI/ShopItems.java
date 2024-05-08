@@ -2,8 +2,9 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
-public class ShopItems {
+public class ShopItems extends Pane {
     public Label productName;
     public ImageView Image;
     public Label labelHarga;

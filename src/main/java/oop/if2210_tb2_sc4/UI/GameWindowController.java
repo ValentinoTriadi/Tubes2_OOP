@@ -2,6 +2,7 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -51,7 +52,7 @@ public class GameWindowController {
         nextPlayerPane.setVisible(false);
     }
 
-    public void initializePlayer() throws IOException {
+    public void initializePlayer() {
 
         // Initialize player panes
         currentPlayerPane = new PlayerUI();
@@ -134,8 +135,7 @@ public class GameWindowController {
         // Init content of tabs
         initLadang();
         initShop();
-        initSave();
-        initLoad();
+        initSaveLoad();
         initAddPlugin();
     }
 
@@ -149,31 +149,33 @@ public class GameWindowController {
         // Init Shop
         AnchorPane shopPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Shop.fxml")));
         StackPane temp_shop = new StackPane();
+        temp_shop.setAlignment(Pos.CENTER);
         temp_shop.getChildren().add(shopPane);
+        temp_shop.setPadding(new Insets(10, 10, 10, 10));
         shop.setContent(temp_shop);
     }
 
-    private void initLoad() throws IOException {
-        // Init Load
-        AnchorPane loadPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Load.fxml")));
-        StackPane temp_load = new StackPane();
-        temp_load.getChildren().add(loadPane);
-        load.setContent(temp_load);
+    private void initSaveLoad() throws IOException {
+        save.setContent(makeSaveLoadPane());
+        load.setContent(makeSaveLoadPane());
     }
 
-    private void initSave() throws IOException {
-        // Init Save
-        AnchorPane savePane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Save.fxml")));
+    private StackPane makeSaveLoadPane() throws IOException {
+        AnchorPane savePane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SaveLoad.fxml")));
         StackPane temp_save = new StackPane();
+        temp_save.setAlignment(Pos.CENTER);
         temp_save.getChildren().add(savePane);
-        save.setContent(temp_save);
+        temp_save.setPadding(new Insets(10, 10, 10, 100));
+        return temp_save;
     }
 
     private void initAddPlugin() throws IOException {
         // Init Add Plugin
         AnchorPane addPluginPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPlugin.fxml")));
         StackPane temp_addPlugin = new StackPane();
+        temp_addPlugin.setAlignment(Pos.CENTER);
         temp_addPlugin.getChildren().add(addPluginPane);
+        temp_addPlugin.setPadding(new Insets(10, 10, 10, 100));
         addPlugin.setContent(temp_addPlugin);
     }
 

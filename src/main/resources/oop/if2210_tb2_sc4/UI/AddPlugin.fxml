@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="oop.if2210_tb2_sc4.UI.AddPlugin"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.AddPlugin">
+   <children>
+      <VBox alignment="CENTER" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="146.0" text="PLUGIN">
+               <font>
+                  <Font size="29.0" />
+               </font>
+               <padding>
+                  <Insets bottom="50.0" />
+               </padding>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="600.0" spacing="50.0">
+               <children>
+                  <Button fx:id="button" mnemonicParsing="false" prefHeight="26.0" prefWidth="141.0" text="Button" />
+                  <Label fx:id="message" prefHeight="31.0" prefWidth="377.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="upload" mnemonicParsing="false" text="Button">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
