@@ -10,12 +10,11 @@ public class Deck {
 
     public static List<Card> allCards;
 
-    private List<Card> currentDeck;
-    private Card[] activeCards;
+    private final List<Card> currentDeck;
+    private final Card[] activeCards;
 
     public static void initCards() {
         allCards = new ArrayList<Card>();
-        // Create all cards
     }
 
     public Deck() {
@@ -50,9 +49,7 @@ public class Deck {
     }
 
     public void addCardToDeck(List<Card> cards) {
-        for (Card card : cards) {
-            currentDeck.add(card);
-        }
+        currentDeck.addAll(cards);
     }
 
     public void setActiveCards(Card[] activeCards) {
@@ -60,9 +57,7 @@ public class Deck {
             throw new IllegalArgumentException("Active cards must be of size " + HAND_SIZE);
         }
 
-        for (int i = 0; i < HAND_SIZE; i++) {
-            this.activeCards[i] = activeCards[i];
-        }
+        System.arraycopy(activeCards, 0, this.activeCards, 0, HAND_SIZE);
     }
 
     public void setActiveCard(int index, Card card) {

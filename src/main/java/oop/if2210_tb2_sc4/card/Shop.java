@@ -8,7 +8,7 @@ public class Shop {
     Map<ProductCard, Integer> cardStock;
 
     public Shop() {
-        this.cardStock = new HashMap<ProductCard, Integer>();
+        this.cardStock = new HashMap<>();
     }
 
     public Shop(Map<ProductCard, Integer> cardStock) {
@@ -16,11 +16,19 @@ public class Shop {
     }
 
     public void addCard(ProductCard card, int stock) {
-        cardStock.put(card, cardStock.get(card) + stock);
+        if (cardStock.containsKey(card)) {
+            cardStock.put(card, cardStock.get(card) + stock);
+        } else {
+            cardStock.put(card, stock);
+        }
     }
 
     public void addCard(ProductCard card) {
-        cardStock.put(card, cardStock.get(card) + 1);
+        if (cardStock.containsKey(card)) {
+            cardStock.put(card, cardStock.get(card) + 1);
+        } else {
+            cardStock.put(card, 1);
+        }
     }
 
     public void removeCard(ProductCard card) {
@@ -44,12 +52,24 @@ public class Shop {
     }
 
     public int sellCardToShop(ProductCard card) {
-        cardStock.put(card, cardStock.get(card) + 1);
-        return card.getPrice();
+        try {
+            if (cardStock.get(card) == 0) {
+                throw new IllegalArgumentException("Card stock is empty");
+            } else {
+                return card.getPrice();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 
     public int sellCardToShop(ProductCard card, int stock) {
-        cardStock.put(card, cardStock.get(card) + stock);
+        if (cardStock.containsKey(card)) {
+            cardStock.put(card, cardStock.get(card) + stock);
+        } else {
+            cardStock.put(card, stock);
+        }
         return card.getPrice() * stock;
     }
 

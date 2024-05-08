@@ -11,8 +11,6 @@ module oop.if2210_tb2_sc4 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens oop.if2210_tb2_sc4 to javafx.fxml;
-    exports oop.if2210_tb2_sc4;
     exports oop.if2210_tb2_sc4.card;
     opens oop.if2210_tb2_sc4.card to javafx.fxml;
 }
