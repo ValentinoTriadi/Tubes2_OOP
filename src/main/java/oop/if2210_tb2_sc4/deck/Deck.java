@@ -9,18 +9,11 @@ public class Deck {
     public static final int HAND_SIZE = 6;
     public static final int GENERATED_CARD_COUNT = 4;
 
-    public static List<Card> allCards;
-
     private List<Card> currentDeck;
     private Card[] activeCards;
 
     private int cardsInDeck;
     private int cardsInHand;
-
-    public static void initCards() {
-        allCards = new ArrayList<Card>();
-        // Create all cards
-    }
 
     public Deck() {
         activeCards = new Card[HAND_SIZE];
