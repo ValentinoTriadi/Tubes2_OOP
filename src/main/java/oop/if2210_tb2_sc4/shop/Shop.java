@@ -5,12 +5,24 @@ import java.util.List;
 import java.util.Map;
 
 import oop.if2210_tb2_sc4.card.ProductCard;
+import oop.if2210_tb2_sc4.game_manager.GameData;
 
 public class Shop {
     Map<ProductCard, Integer> cardStock;
 
     public Shop() {
         this.cardStock = new HashMap<ProductCard, Integer>();
+
+        // Initialize card stock to 0
+        cardStock.put((ProductCard) GameData.getCard("Sirip Hiu"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Susu"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Daging Domba"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Daging Kuda"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Telur"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Daging Beruang"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Jagung"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Labu"), 0);
+        cardStock.put((ProductCard) GameData.getCard("Stroberi"), 0);
     }
 
     public Shop(Map<ProductCard, Integer> cardStock) {
