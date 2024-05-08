@@ -2,8 +2,10 @@ package oop.if2210_tb2_sc4.save_load;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.nio.file.FileAlreadyExistsException;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -11,9 +13,9 @@ import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 
 public class SaveTXT implements Save {
-    private String folderName;
-    private Player player1;
-    private Player player2;
+    private final String folderName;
+    private final Player player1;
+    private final Player player2;
 
     public SaveTXT(String folderName, Player player1, Player player2){
         this.folderName = folderName;
@@ -30,10 +32,12 @@ public class SaveTXT implements Save {
 
     private void savePlayer(int no_player){
         // Save player {no_player}
-        File player_file = new File("oop/if2210_tb2_sc4/" + folderName + "/player" + no_player + ".txt");
+        Path path = Paths.get("src/main/java/oop/if2210_tb2_sc4/state/" + folderName + "/player" + no_player + ".txt");
+        File file = handleNewFile(path);
+
         Player player = (no_player == 1) ? player1 : player2;
         try {
-            FileWriter writer = new FileWriter(player_file);
+            FileWriter writer = new FileWriter(file);
 
             writer.write(player.getJumlahGulden() + "\n");
             
@@ -53,13 +57,13 @@ public class SaveTXT implements Save {
             writer.write(player.getJumlahKartuLadang() + "\n"); // alternative use player.getKartuLadang().size()
 
             for (Map<String, Object> kartu : player.getKartuLadang()){
-                writer.write(kartu.get("lokasi") + " " + kartu.get("kartu") + " " + kartu.get("countItem"));
+                writer.write(kartu.get("lokasi") + " " + kartu.get("kartu") + " " + kartu.get("umur") + " " + kartu.get("countItem"));
 
                 assert kartu.get("items") instanceof List;
 
                 @SuppressWarnings("unchecked")
-                List<String> items = new ArrayList<String>((List<String>) kartu.get("items"));
-                items.stream().forEach(
+                List<Object> items = (List<Object>) kartu.get("item");
+                items.forEach(
                     item -> {
                         try {
                             writer.write(" " + item);
@@ -73,17 +77,17 @@ public class SaveTXT implements Save {
             }
 
             writer.close();
-        } catch (FileAlreadyExistsException e) {
-            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
     private void saveGameState(){
-        File game_state_file = new File("oop/if2210_tb2_sc4/" + folderName + "/game_state.txt");
+        Path path = Paths.get("src/main/java/oop/if2210_tb2_sc4/state/" + folderName + "/game_state.txt");
+        File file = handleNewFile(path);
+
         try {
-            FileWriter writer = new FileWriter(game_state_file);
+            FileWriter writer = new FileWriter(file);
 
             writer.write(GameState.getCurrentPlayer() + "\n");
             writer.write(GameState.getCountItems() + "\n");
@@ -98,10 +102,34 @@ public class SaveTXT implements Save {
             });
 
             writer.close();
-        } catch (FileAlreadyExistsException e) {
-            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    private File handleNewFile(Path path){
+        File file = null;
+        try {
+            // if folder does not exist, create new file
+            Files.createDirectories(path.getParent());
+
+            file = new File(path.toString());
+            if (!file.exists()) {
+                // if file does not exist, create new file
+                if (file.createNewFile()) {
+                    System.out.println("File created: " + file.getName());
+                } else {
+                    System.out.println("File creating failed.");
+                }
+            } else {
+                System.out.println("File " + file.getName() + " already exists.");
+                System.out.println("Save will overwrite the file.");
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            System.out.println();
+        }
+        return file;
     }
 }

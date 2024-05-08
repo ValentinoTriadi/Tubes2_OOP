@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4;
 import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 import oop.if2210_tb2_sc4.save_load.LoadTXT;
+import oop.if2210_tb2_sc4.save_load.SaveTXT;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +13,11 @@ public class tesSaveLoad {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         System.out.println("Hello, World!");
-        Player player1 = new Player();
-        Player player2 = new Player();
 
         LoadTXT load = new LoadTXT();
         load.loadGameState();
-        player1 = load.loadPlayer(1);
-        player2 = load.loadPlayer(2);
+        Player player1 = load.loadPlayer(1);
+        Player player2 = load.loadPlayer(2);
 
 
         System.out.println("Game State: ");
@@ -26,7 +25,7 @@ public class tesSaveLoad {
         System.out.println("Count Items: " + GameState.getCountItems());
         System.out.println("Items: ");
         for (String key : GameState.getItems().keySet()){
-            System.out.println(key + ": " + GameState.getItems().get(key));
+            System.out.println("    " + key + ": " + GameState.getItems().get(key));
         }
         System.out.println();
 
@@ -35,9 +34,7 @@ public class tesSaveLoad {
         System.out.println("Jumlah Deck: " + player1.getJumlahDeck());
         System.out.println("Jumlah Active Deck: " + player1.getJumlahDeckActive());
         System.out.println("Active Deck: ");
-        player1.getActiveDeck().forEach((key, value) -> {
-            System.out.println("    " + key + ": " + value);
-        });
+        player1.getActiveDeck().forEach((key, value) -> System.out.println("    " + key + ": " + value));
         System.out.println("Jumlah Kartu Ladang: " + player1.getJumlahKartuLadang());
         System.out.println("Kartu Ladang: ");
         List<Map<String, Object>> kartuLadang = player1.getKartuLadang();
@@ -52,15 +49,14 @@ public class tesSaveLoad {
                 System.out.println("        " + item);
             }
         }
+        System.out.println();
 
         System.out.println("Player 2: ");
         System.out.println("Gulden: " + player2.getJumlahGulden());
         System.out.println("Jumlah Deck: " + player2.getJumlahDeck());
         System.out.println("Jumlah Active Deck: " + player2.getJumlahDeckActive());
         System.out.println("Active Deck: ");
-        player2.getActiveDeck().forEach((key, value) -> {
-            System.out.println("    " + key + ": " + value);
-        });
+        player2.getActiveDeck().forEach((key, value) -> System.out.println("    " + key + ": " + value));
         System.out.println("Jumlah Kartu Ladang: " + player2.getJumlahKartuLadang());
         System.out.println("Kartu Ladang: ");
         kartuLadang = player2.getKartuLadang();
@@ -75,6 +71,10 @@ public class tesSaveLoad {
                 System.out.println("        " + item);
             }
         }
+
+
+        SaveTXT save = new SaveTXT("SAVE", player1, player2);
+        save.save();
 
     }
 }
