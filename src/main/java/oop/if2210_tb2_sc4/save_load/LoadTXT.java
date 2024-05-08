@@ -59,8 +59,9 @@ public class LoadTXT implements Load {
             Player player = new Player();
             
             player.setJumlahGulden(scanner.nextInt());
-            player.setJumlahDeck(scanner.nextInt());
-            player.setJumlahDeckActive(scanner.nextInt());
+            player.getDeck().setCardsInDeckCount(scanner.nextInt());
+            player.getDeck().setCardsInHandCount(scanner.nextInt());
+
 
             Map<String, String> temp_deck = new HashMap<String, String>();
             for (int i = 0; i < player.getJumlahDeckActive(); i++){

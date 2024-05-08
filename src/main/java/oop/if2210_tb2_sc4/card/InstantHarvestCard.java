@@ -7,14 +7,6 @@ public class InstantHarvestCard extends ItemCard{
 
     @Override
     public void applyEffect(FarmResourceCard card) {
-        if (card instanceof PlantCard) {
-            PlantCard plantCard = (PlantCard) card;
-            plantCard.setAge(plantCard.getHarvestAge());
-        }
-
-        if (card instanceof AnimalCard) {
-            AnimalCard animalCard = (AnimalCard) card;
-            animalCard.setWeight(animalCard.getHarvestWeight());
-        }
+        card.addEffect(EffectType.INSTANT_HARVEST);
     }
 }

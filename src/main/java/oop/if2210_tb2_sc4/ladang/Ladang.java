@@ -1,5 +1,6 @@
-package oop.if2210_tb2_sc4.card;
+package oop.if2210_tb2_sc4.ladang;
 
+import oop.if2210_tb2_sc4.card.FarmResourceCard;
 
 public class Ladang {
     public static final int LADANG_COLUMN = 5;
@@ -51,5 +52,17 @@ public class Ladang {
             }
         }
         return true;
+    }
+
+    public int getCardinLadangCount() {
+        int count = 0;
+        for (int i = 0; i < LADANG_ROW; i++) {
+            for (int j = 0; j < LADANG_COLUMN; j++) {
+                if (ladang[i][j] != null) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }

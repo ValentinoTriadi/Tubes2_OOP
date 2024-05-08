@@ -1,8 +1,10 @@
-package oop.if2210_tb2_sc4.card;
+package oop.if2210_tb2_sc4.shop;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import oop.if2210_tb2_sc4.card.ProductCard;
 
 public class Shop {
     Map<ProductCard, Integer> cardStock;

@@ -47,7 +47,7 @@ public class AnimalCard extends FarmResourceCard {
     }
 
     public boolean isHarvestable() {
-        return weight >= harvestWeight;
+        return weight >= harvestWeight || this.isInstantHarvest();
     }
 }
 

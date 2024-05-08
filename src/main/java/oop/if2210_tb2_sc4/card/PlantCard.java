@@ -33,6 +33,6 @@ public class PlantCard extends FarmResourceCard {
     }
 
     public boolean isHarvestable() {
-        return age >= harvestAge;
+        return age >= harvestAge || this.isInstantHarvest();
     }
 }

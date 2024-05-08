@@ -16,5 +16,7 @@ module oop.if2210_tb2_sc4 {
     exports oop.if2210_tb2_sc4.player;
     exports oop.if2210_tb2_sc4;
     exports oop.if2210_tb2_sc4.card;
+    exports oop.if2210_tb2_sc4.deck;
+    exports oop.if2210_tb2_sc4.ladang;
     opens oop.if2210_tb2_sc4.card to javafx.fxml;
 }

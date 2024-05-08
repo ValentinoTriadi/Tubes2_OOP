@@ -12,13 +12,11 @@ public class tesSaveLoad {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         System.out.println("Hello, World!");
-        Player player1 = new Player();
-        Player player2 = new Player();
 
         LoadTXT load = new LoadTXT();
         load.loadGameState();
-        player1 = load.loadPlayer(1);
-        player2 = load.loadPlayer(2);
+        Player player1 = load.loadPlayer(1);
+        Player player2 = load.loadPlayer(2);
 
 
         System.out.println("Game State: ");
