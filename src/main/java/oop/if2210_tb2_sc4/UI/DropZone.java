@@ -7,4 +7,10 @@ public class DropZone extends Pane {
     public DropZone() {
         super();
     }
+
+    public void onItemDrop() {
+        System.out.println("Item Processed");
+        CardUI card = (CardUI) this.getChildren().get(0);
+        this.getChildren().remove(1);
+    }
 }

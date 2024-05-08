@@ -5,13 +5,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import org.jetbrains.annotations.NotNull;
 
-public class DraggablePane extends Pane {
+public abstract class DraggablePane extends Pane {
 
     private double x, y;
     private final Pane root;
     protected Pane parent, tempParent;
     private final Pane cardPane;
-    private final DropZone[] dropZone;
+    protected DropZone[] dropZone;
 
     public DraggablePane(Pane parent, DropZone[] dropZone) {
         this.root = GameWindowController.rootStatic;
@@ -42,35 +42,15 @@ public class DraggablePane extends Pane {
         setLayoutY(e.getSceneY() - y);
     }
 
-    private void OnRelease(MouseEvent e){
-        boolean droppedOnDropZone = false;
-        for (DropZone dz : dropZone) {
-            // Check if the mouse position is within the dropzone
-            if (isMouseInDropZone(e, dz) && dz.getChildren().isEmpty() && !dz.isDisabled()) {
+    protected abstract void OnRelease(MouseEvent e);
 
-                System.out.println("Intersected with dropzone");
-                setLayoutX(0);
-                setLayoutY(0);
-                droppedOnDropZone = true;
-
-                setParent(dz);
-                break;
-            }
-        }
-
-        // If not dropped on a dropzone, return to default position
-        if (!droppedOnDropZone) {
-            resetPosition();
-        }
-    }
-
-    private void resetPosition() {
+    public void resetPosition() {
         setParent(tempParent);
         setLayoutX(0);
         setLayoutY(0);
     }
 
-    private boolean isMouseInDropZone(MouseEvent e, DropZone dz) {
+    boolean isMouseInDropZone(MouseEvent e, DropZone dz) {
         Bounds dropzoneBounds = dz.localToScene(dz.getBoundsInLocal());
         return dropzoneBounds.contains(e.getSceneX(), e.getSceneY());
     }

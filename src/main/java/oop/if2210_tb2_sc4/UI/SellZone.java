@@ -22,7 +22,7 @@ public class SellZone extends DropZone{
 
     public void onSell(){
         Pane droppedItems = (Pane) this.getChildren().get(0);
-        droppedItems.getChildren().clear();
+        this.getChildren().remove(0);
         // Make add money mechanism here
 
     }

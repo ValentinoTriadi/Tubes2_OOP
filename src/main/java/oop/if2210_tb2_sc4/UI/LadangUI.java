@@ -1,9 +1,7 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.geometry.Pos;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 
 public class LadangUI extends GridPane {

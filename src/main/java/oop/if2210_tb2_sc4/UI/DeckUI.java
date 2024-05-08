@@ -2,6 +2,8 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.layout.HBox;
 
+import javax.smartcardio.Card;
+
 public class DeckUI extends HBox {
 
     private final CardHolder[] activeDeck;
@@ -19,15 +21,6 @@ public class DeckUI extends HBox {
             activeDeck[i].setStyle("-fx-background-color: cyan;");
             this.getChildren().add(activeDeck[i]);
         }
-    }
-
-    public boolean isDeckEmpty() {
-        for (CardHolder ch : activeDeck) {
-            if (ch.getChildren().isEmpty()) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public boolean isEmpty(int index) {
@@ -48,6 +41,15 @@ public class DeckUI extends HBox {
         for (int i = 0; i < 6; i++) {
             if (activeDeck[i].getChildren().isEmpty()) {
                 card.setParent(activeDeck[i]);
+                break;
+            }
+        }
+    }
+
+    public void addItem(ItemUI item) {
+        for (int i = 0; i < 6; i++) {
+            if (activeDeck[i].getChildren().isEmpty()) {
+                item.setParent(activeDeck[i]);
                 break;
             }
         }

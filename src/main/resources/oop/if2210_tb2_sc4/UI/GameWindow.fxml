@@ -23,4 +23,5 @@
          <StackPane fx:id="rootPane" maxHeight="150.0" maxWidth="770.0" minHeight="150.0" minWidth="770.0" prefHeight="150.0" prefWidth="770.0" />
       </children>
    </VBox>
+   <Button layoutX="866.0" layoutY="43.0" mnemonicParsing="false" onAction="#addItem" text="Button" />
 </AnchorPane>

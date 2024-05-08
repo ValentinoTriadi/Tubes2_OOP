@@ -1,35 +1,40 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 
-public class ShopItems extends Pane {
-    public Label productName;
-    public ImageView Image;
-    public Label labelHarga;
-    public Label labelJumlah;
+public class ShopItems {
+
+    private final String productName;
+    private final String Image;
+    private final String labelHarga;
+    private final String labelJumlah;
+    private AnchorPane scene;
 
     public ShopItems(String productName, String Image, String labelHarga, String labelJumlah) {
-        this.productName = new Label(productName);
-        this.Image = new ImageView(Image);
-        this.labelHarga = new Label(labelHarga);
-        this.labelJumlah = new Label(labelJumlah);
+        this.productName = productName;
+        this.Image = Image;
+        this.labelHarga = labelHarga;
+        this.labelJumlah = labelJumlah;
+        initialize();
     }
 
-    public void setProductName(String productName) {
-        this.productName.setText(productName);
+    public void initialize(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopItems.fxml"));
+        try {
+            scene = fxmlLoader.load();
+            ShopItemsController controller = fxmlLoader.getController();
+            controller.productNameUI.setText(productName);
+            controller.labelHargaUI.setText(labelHarga);
+            controller.labelJumlahUI.setText(labelJumlah);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void setImage(String Image) {
-        this.Image.setImage(new javafx.scene.image.Image(Image));
+    public AnchorPane getScene() {
+        return scene;
     }
 
-    public void setLabelHarga(String labelHarga) {
-        this.labelHarga.setText(labelHarga);
-    }
 
-    public void setLabelJumlah(String labelJumlah) {
-        this.labelJumlah.setText(labelJumlah);
-    }
 }

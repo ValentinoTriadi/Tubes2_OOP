@@ -4,13 +4,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+
 import java.util.Objects;
 
-public class CardUI extends DraggablePane {
+public class ItemUI extends DraggablePane {
 
     private String name;
-
-    public CardUI(Pane parent, DropZone[] dropZone) {
+    public ItemUI(Pane parent, DropZone[] dropZone) {
         super(parent, dropZone);
         setPrefSize(100, 120);
         setStyle("-fx-background-color: white;");
@@ -41,28 +41,19 @@ public class CardUI extends DraggablePane {
     public void OnRelease(MouseEvent e){
         boolean droppedOnDropZone = false;
         for (DropZone dz : dropZone) {
-            // Check if the mouse position is within the Sell zone
-            if (dz instanceof SellZone) {
-                if (isMouseInDropZone(e, dz) && !dz.isDisabled()) {
-                    System.out.println("Intersected with sellzone");
-                    setLayoutX(0);
-                    setLayoutY(0);
-                    droppedOnDropZone = true;
-                    setParent(dz);
-                    ((SellZone) dz).onSell();
-                    break;
-                }
-            }
-
             // Check if the mouse position is within the dropzone
-            if (isMouseInDropZone(e, dz) && dz.getChildren().isEmpty() && !dz.isDisabled()) {
+            if (isMouseInDropZone(e, dz) && !dz.getChildren().isEmpty() && !dz.isDisabled()) {
 
-                System.out.println("Intersected with dropzone");
+                System.out.println("Intersected with enemy dropzone");
                 setLayoutX(0);
                 setLayoutY(0);
                 droppedOnDropZone = true;
 
+                // Set the parent to the dropzone
                 setParent(dz);
+
+                // Call the onDrop method of the dropzone
+                dz.onItemDrop();
                 break;
             }
         }
@@ -74,4 +65,7 @@ public class CardUI extends DraggablePane {
     }
 }
 
-
+enum Target {
+    SELF,
+    ENEMY
+}

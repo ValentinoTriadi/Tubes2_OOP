@@ -4,6 +4,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.*;
 
+import java.util.Arrays;
+
 public class PlayerUI extends StackPane {
 
     private final Pane root;
@@ -53,11 +55,36 @@ public class PlayerUI extends StackPane {
         String[] cardNames = {"hewan/bear", "hewan/chicken", "hewan/cow", "hewan/sheep", "hewan/horse"};
         String name = cardNames[(int) (Math.random() * cardNames.length)];
 
-        CardUI card = new CardUI(root, myLadang.getLadang());
+        DropZone[] dropZones = myLadang.getLadang();
+        dropZones = Arrays.copyOf(dropZones, dropZones.length + 1);
+        dropZones[dropZones.length - 1] = GameWindowController.sellZone;
+        CardUI card = new CardUI(root, dropZones);
         card.initCard(name);
 
         System.out.println("Card" + name +" spawned");
 
         activeDeckHBox.addCard(card);
+    }
+
+    public void addItem(int index, Target target){
+        String[] cardNames = {"hewan/bear", "hewan/chicken", "hewan/cow", "hewan/sheep", "hewan/horse"};
+        String name = cardNames[(int) (Math.random() * cardNames.length)];
+
+        DropZone[] dropZones = new DropZone[0];
+        if (target == Target.SELF){
+            dropZones = myLadang.getLadang();
+        } else {
+            if (index % 2 == 0){
+                dropZones = GameWindowController.ladang2.getLadang();
+            } else {
+                dropZones = GameWindowController.ladang1.getLadang();
+            }
+        }
+        ItemUI card = new ItemUI(root, dropZones);
+        card.initCard(name);
+
+        System.out.println("Item " + name +" spawned");
+
+        activeDeckHBox.addItem(card);
     }
 }

@@ -6,61 +6,50 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.ShopItems">
+<AnchorPane onMouseClicked="#buyItem" prefHeight="118.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.ShopItemsController">
    <children>
-      <HBox layoutX="14.0" layoutY="14.0" prefHeight="371.0" prefWidth="568.0">
+      <HBox prefHeight="120.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="371.0" prefWidth="289.0">
+            <VBox alignment="TOP_CENTER" prefHeight="106.0" prefWidth="147.0">
                <children>
-                  <ImageView fx:id="Image" fitHeight="251.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ImageUI" fitHeight="61.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@pngtree-borobudur-temple-vector-png-image_6639062.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="productName" alignment="CENTER" prefHeight="82.0" prefWidth="276.0" text="Product Name">
+                  <Label fx:id="productNameUI" alignment="CENTER" prefHeight="61.0" prefWidth="83.0" text="Very Long name for testing" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="Bell MT" size="22.0" />
+                        <Font name="Bell MT" size="14.0" />
                      </font>
                   </Label>
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="115.0" prefWidth="279.0">
+            <VBox alignment="CENTER" prefHeight="102.0" prefWidth="168.0">
                <children>
-                  <VBox alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="104.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
-                     <padding>
-                        <Insets bottom="50.0" left="50.0" />
-                     </padding>
                      <children>
-                        <Label prefHeight="26.0" prefWidth="162.0" text="Harga">
+                        <Label prefHeight="20.0" prefWidth="105.0" text="Harga">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelHarga" prefHeight="32.0" prefWidth="168.0" text="Label">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </Label>
+                        <Label fx:id="labelHargaUI" prefHeight="30.0" prefWidth="106.0" text="Label" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <padding>
-                        <Insets bottom="50.0" left="50.0" top="50.0" />
-                     </padding>
+                  <VBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="168.0">
                      <children>
-                        <Label prefHeight="28.0" prefWidth="182.0" text="Jumlah">
+                        <Label alignment="TOP_LEFT" graphicTextGap="0.0" prefHeight="28.0" prefWidth="182.0" text="Jumlah">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelJumlah" prefHeight="16.0" prefWidth="186.0" text="Label">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
+                        <Label fx:id="labelJumlahUI" prefHeight="16.0" prefWidth="186.0" text="Label" />
                      </children>
                      <opaqueInsets>
                         <Insets />

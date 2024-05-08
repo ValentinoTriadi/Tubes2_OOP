@@ -39,7 +39,10 @@ public class GameWindowController {
     private Tab load;
     private Tab addPlugin;
 
+    public static SellZone sellZone;
     private static int roundrobin = 0;
+    public static LadangUI ladang1;
+    public static LadangUI ladang2;
 
     public void initialize() throws IOException {
         rootStatic = root;
@@ -63,6 +66,9 @@ public class GameWindowController {
 
         currentPlayerPane.initPlayerUI("Player 1", ladang);
         nextPlayerPane.initPlayerUI("Player 2", ladangMusuh);
+
+        ladang1 = currentPlayerPane.getLadang();
+        ladang2 = nextPlayerPane.getLadang();
 
         // Set properties
         currentPlayerPane.setAlignment(Pos.CENTER);
@@ -105,6 +111,11 @@ public class GameWindowController {
 
     public void addCard() {
         currentPlayerPane.addCard();
+    }
+
+    public void addItem() {
+        currentPlayerPane.addItem(roundrobin, Target.SELF);
+        currentPlayerPane.addItem(roundrobin, Target.ENEMY);
     }
 
     public void initMainTab() throws IOException {
@@ -220,38 +231,40 @@ public class GameWindowController {
     }
 
     public void openLadang(){
+        currentPlayerPane.enableField();
         if (roundrobin % 2 == 0){
-            currentPlayerPane.enableField();
             tabPane.getSelectionModel().select(ladang);
         } else {
-            currentPlayerPane.enableField();
             tabPane.getSelectionModel().select(ladangMusuh);
         }
     }
 
     public void openLadangMusuh(){
+        currentPlayerPane.disableField();
         if (roundrobin % 2 == 0){
-            currentPlayerPane.disableField();
             tabPane.getSelectionModel().select(ladangMusuh);
         } else {
-            currentPlayerPane.disableField();
             tabPane.getSelectionModel().select(ladang);
         }
     }
 
     public void openShop(){
+        currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(shop);
     }
 
     public void openSave(){
+        currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(save);
     }
 
     public void openLoad(){
+        currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(load);
     }
 
     public void openAddPlugin(){
+        currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(addPlugin);
     }
 }
