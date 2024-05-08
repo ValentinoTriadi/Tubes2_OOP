@@ -11,6 +11,12 @@ public class ProductCard extends Card{
         weightAddition = 0;
     }
 
+    public ProductCard(ProductCard productCard) {
+        super(productCard.getName(), productCard.getImagePath());
+        price = productCard.getPrice();
+        weightAddition = productCard.getWeightAddition();
+    }
+
     public ProductCard(String name, String image_path, int price, int weightAddition) {
         super(name, image_path);
         this.price = price;
