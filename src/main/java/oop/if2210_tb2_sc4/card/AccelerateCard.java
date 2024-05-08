@@ -8,14 +8,6 @@ public class AccelerateCard extends ItemCard{
 
     @Override
     public void applyEffect(FarmResourceCard card) {
-        if (card instanceof PlantCard) {
-            PlantCard plantCard = (PlantCard) card;
-            plantCard.setAge(plantCard.getAge() + 2);
-        }
-
-        if (card instanceof AnimalCard) {
-            AnimalCard animalCard = (AnimalCard) card;
-            animalCard.setWeight(animalCard.getWeight() + 8);
-        }
+        card.addEffect(EffectType.ACCELERATE);
     }
 }
