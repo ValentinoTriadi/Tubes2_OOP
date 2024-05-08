@@ -12,5 +12,7 @@ module oop.if2210_tb2_sc4 {
     requires com.almasb.fxgl.all;
 
     opens oop.if2210_tb2_sc4 to javafx.fxml;
+    exports oop.if2210_tb2_sc4.game_manager;
+    exports oop.if2210_tb2_sc4.player;
     exports oop.if2210_tb2_sc4;
 }
