@@ -5,10 +5,14 @@ public class DestroyCard  extends ItemCard{
         super(name);
     }
 
+    public DestroyCard(DestroyCard destroyCard) {
+        super(destroyCard.name);
+    }
+
     @Override
     public void applyEffect(FarmResourceCard card) {
-       if (card.getEffect().contains(EffectType.PROTECTION)) {
-           card.removeEffect(EffectType.PROTECTION);
+       if (card.getEffect().contains(EffectType.PROTECT)) {
+           card.removeEffect(EffectType.PROTECT);
        } else {
            card = null;
        }

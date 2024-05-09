@@ -1,21 +1,22 @@
 package oop.if2210_tb2_sc4.card;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class FarmResourceCard extends Card{
-    ProductCard productResult;
+    protected ProductCard productResult;
     List<EffectType> effectApplied;
 
     public FarmResourceCard(String name) {
         super(name);
         this.productResult = null;
-        this.effectApplied = null;
+        this.effectApplied = new ArrayList<>();
     }
 
     public FarmResourceCard(String name, ProductCard productResult) {
         super(name);
         this.productResult = productResult;
-        this.effectApplied = null;
+        this.effectApplied = new ArrayList<>();
     }
 
     public ProductCard getProductResult() {
@@ -39,7 +40,7 @@ public abstract class FarmResourceCard extends Card{
     }
 
     public boolean isProtected() {
-        return effectApplied.contains(EffectType.PROTECTION);
+        return effectApplied.contains(EffectType.PROTECT);
     }
 
     public boolean isDelayed() {

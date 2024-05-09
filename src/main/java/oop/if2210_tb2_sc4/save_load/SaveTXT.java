@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Map;
 
+import oop.if2210_tb2_sc4.card.*;
 import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 
@@ -45,23 +45,35 @@ public class SaveTXT implements Save {
             
             writer.write(player.getJumlahDeckActive() + "\n"); // alternative use player.getActiveDeck().size()
             
-            Map<String, String> active_deck = player.getActiveDeck();
-            active_deck.forEach((key, value) -> {
+            Card[] active_deck = player.getActiveDeck();
+            for (int i = 0; i < player.getJumlahDeckActive(); i++) {
+                Card card = active_deck[i];
                 try {
-                    writer.write(key + " " + value + "\n");
+                    writer.write((char) (i+'A') + "01 " + card.getName() + "\n");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-            });
+            }
 
             writer.write(player.getJumlahKartuLadang() + "\n"); // alternative use player.getKartuLadang().size()
 
-            for (Map<String, Object> kartu : player.getLadang()){
-                writer.write(kartu.get("lokasi") + " " + kartu.get("kartu") + " " + kartu.get("umur") + " " + kartu.get("countItem"));
+            Map<String, FarmResourceCard> kartu_ladang = player.getLadang().getAllCardwithLocationinLadang();
+            for (Map.Entry<String, FarmResourceCard> kartu : kartu_ladang.entrySet()) {
+                FarmResourceCard card = kartu.getValue();
 
-                @SuppressWarnings("unchecked")
-                List<Object> items = (List<Object>) kartu.get("item");
-                items.forEach(
+                // write lokasi, nama kartu
+                writer.write(kartu.getKey() + " " + card.getName());
+                if (card instanceof AnimalCard){
+                    writer.write(" " + ((AnimalCard) card).getWeight());
+                } else if (card instanceof PlantCard) {
+                    writer.write(" " + ((PlantCard) card).getAge());
+                }
+
+                // write jumlah efek
+                writer.write(" " + card.getEffect().size());
+
+                // write effect
+                card.getEffect().forEach(
                     item -> {
                         try {
                             writer.write(" " + item);
@@ -89,10 +101,10 @@ public class SaveTXT implements Save {
             writer.write(GameState.getCurrentPlayer() + "\n");
             writer.write(GameState.getCountItems().toString());
 
-            Map<String, Integer> items = GameState.getItems();
+            Map<ProductCard, Integer> items = GameState.getShopItems();
             items.forEach((key, value) -> {
                 try {
-                    writer.write("\n" + key + " " + value );
+                    writer.write("\n" + key.getName() + " " + value );
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

@@ -2,7 +2,7 @@ package oop.if2210_tb2_sc4.card;
 
 public enum EffectType {
     TRAP, 
-    PROTECTION,
+    PROTECT,
     ACCELERATE, 
     DELAY, 
     INSTANT_HARVEST

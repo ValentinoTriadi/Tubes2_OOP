@@ -15,6 +15,13 @@ public class AnimalCard extends FarmResourceCard {
         type = AnimalType.OMNIVORE; // Default type is set to "omnivore"
     }
 
+    public AnimalCard(AnimalCard animalCard) {
+        super(animalCard.getName(), animalCard.productResult);
+        weight = animalCard.getWeight();
+        type = animalCard.getType();
+        harvestWeight = animalCard.getHarvestWeight();
+    }
+
     public AnimalCard(String name, int weight, int harvestWeight, AnimalType type, ProductCard result) {
         super(name, result);
         this.weight = weight;

@@ -19,7 +19,6 @@ class LoadTXTTest {
         load = new LoadTXT();
         load.loadGameState();
 
-        // check loaded value
         load = new LoadTXT();
         Scanner scanner = new Scanner(load.getGameStateFile());
 
@@ -27,11 +26,12 @@ class LoadTXTTest {
         assertEquals(GameState.getCurrentPlayer(), scanner.nextInt());
 
         // get count items
-        assertEquals(GameState.getCountItems(), scanner.nextInt());
+        int countItem = scanner.nextInt();
+        assertEquals(GameState.getCountItems(), countItem);
 
         // get items from file
         Map<String, Integer> items = new HashMap<>();
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < countItem; i++) {
             String item = scanner.next();
             int count = scanner.nextInt();
             items.put(item, count);
@@ -40,8 +40,11 @@ class LoadTXTTest {
         // get shop items from GameState
         Map<ProductCard, Integer> shopItems = GameState.getShopItems();
 
-        // map to compare
-        Map<String, Integer> expectedItems = shopItems.keySet().stream().collect(HashMap::new, (m, v) -> m.put(v.getName(), shopItems.get(v)), HashMap::putAll);
+        // map shop items into string and integer (name and count)
+        Map<String, Integer> expectedItems = new HashMap<>();
+        for (Map.Entry<ProductCard, Integer> entry : shopItems.entrySet()) {
+            expectedItems.put(entry.getKey().getName(), entry.getValue());
+        }
 
         assertEquals(items, expectedItems);
         scanner.close();
@@ -97,6 +100,7 @@ class LoadTXTTest {
         */
 
         // Temporary testing
+        scanner.nextLine(); // ignore next line
         assertEquals("A01 DOMBA 5 3 ACCELERATE DELAY PROTECT", scanner.nextLine());
         scanner.close();
 
@@ -140,6 +144,7 @@ class LoadTXTTest {
          */
 
         // Temporary testing
+        scanner.nextLine(); // ignore next line
         assertEquals("B02 AYAM 0 0", scanner.nextLine());
         scanner.close();
     }

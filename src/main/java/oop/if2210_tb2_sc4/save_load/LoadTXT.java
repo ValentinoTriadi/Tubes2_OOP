@@ -25,6 +25,7 @@ public class LoadTXT implements Load {
         game_state_file = getClass().getResourceAsStream("default/gamestate.txt");
         player_1_file = getClass().getResourceAsStream("default/player1.txt");
         player_2_file = getClass().getResourceAsStream("default/player2.txt");
+        GameData.initCards();
     }
     
     public LoadTXT(String folderName){
@@ -60,17 +61,17 @@ public class LoadTXT implements Load {
             InputStream temp = (no_player == 1) ? player_1_file : player_2_file;
             Scanner scanner = new Scanner(temp);
             Player player = new Player();
-            
-            player.setJumlahGulden(scanner.nextInt());
-            player.getDeck().setCardsInDeckCount(scanner.nextInt());
-            player.getDeck().setCardsInHandCount(scanner.nextInt());
-
-
             Deck tempDeck = new Deck();
-            for (int i = 0; i < player.getJumlahDeckActive(); i++){
-                String card = scanner.next();
+
+            player.setJumlahGulden(scanner.nextInt());
+            tempDeck.setCardsInDeckCount(scanner.nextInt());
+            tempDeck.setCardsInHandCount(scanner.nextInt());
+
+
+            for (int i = 0; i < tempDeck.getActiveCardinHandCount(); i++){
+                String slot = scanner.next();
                 String card_id = scanner.next();
-                tempDeck.setActiveCard(card, GameData.createCard(card_id));
+                tempDeck.setActiveCard(slot, GameData.createCard(card_id));
             }
             player.setDeck(tempDeck);
 
@@ -85,7 +86,9 @@ public class LoadTXT implements Load {
                 int count = scanner.nextInt();
 
                 FarmResourceCard newCard = (FarmResourceCard) GameData.createCard(kartu);
-                assert newCard != null;
+
+                // check if newCard null
+                assert newCard != null : "Card not found";
 
                 if (newCard instanceof oop.if2210_tb2_sc4.card.PlantCard){
                     ((oop.if2210_tb2_sc4.card.PlantCard) newCard).setAge(umur);
@@ -102,8 +105,8 @@ public class LoadTXT implements Load {
                         newCard.addEffect(EffectType.DELAY);
                     }  else if (Objects.equals(item, "INSTANT_HARVEST")){
                         newCard.addEffect(EffectType.INSTANT_HARVEST);
-                    } else if (Objects.equals(item, "PROTECTION")){
-                        newCard.addEffect(EffectType.PROTECTION);
+                    } else if (Objects.equals(item, "PROTECT")){
+                        newCard.addEffect(EffectType.PROTECT);
                     } else if (Objects.equals(item, "TRAP")){
                         newCard.addEffect(EffectType.TRAP);
                     }

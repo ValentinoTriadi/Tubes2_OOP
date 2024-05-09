@@ -17,7 +17,7 @@ public class Deck {
 
     public Deck() {
         activeCards = new Card[HAND_SIZE];
-        currentDeck = new ArrayList<Card>();
+        currentDeck = new ArrayList<>();
         cardsInDeck = DECK_SIZE;
     }
 
@@ -30,7 +30,7 @@ public class Deck {
     }
 
     public List<Card> generateCards() {
-        List<Card> cards = new ArrayList<Card>();
+        List<Card> cards = new ArrayList<>();
         
         // Get 4 random cards
         for (int i = 0; i < GENERATED_CARD_COUNT; i++) {
@@ -57,10 +57,7 @@ public class Deck {
     }
 
     public void setActiveCards(Card[] activeCards) {
-        if (activeCards.length != HAND_SIZE) {
-            throw new IllegalArgumentException("Active cards must be of size " + HAND_SIZE);
-        }
-
+        // Dalam setiap waktu, tiap pemain hanya bisa memiliki 6 kartu dalam deck aktif, bila kartu yang di-generate oleh deck melebihi kapasitas deck aktif maka hanya sebagian kartu yang bisa masuk ke dalam deck aktif sesuai dengan sisa kapasitas deck yang tersedia
         for (int i = 0; i < HAND_SIZE; i++) {
             this.activeCards[i] = activeCards[i];
         }

@@ -29,12 +29,21 @@ public class Shop {
         this.cardStock = cardStock;
     }
 
+    public Shop(Shop shop) {
+        this.cardStock = shop.getCardStock();
+    }
+
     public void addCard(ProductCard card, int stock) {
-        cardStock.put(card, cardStock.get(card) + stock);
+        if (cardStock.get(card) != null) {
+            cardStock.put(card, cardStock.get(card) + stock);
+        } else {
+            cardStock.put(card, stock);
+        }
+        cardStock.remove(null);
     }
 
     public void addCard(ProductCard card) {
-        cardStock.put(card, cardStock.get(card) + 1);
+        addCard(card, 1);
     }
 
     public void removeCard(ProductCard card) {

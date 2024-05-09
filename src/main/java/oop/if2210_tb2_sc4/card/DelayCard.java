@@ -5,10 +5,14 @@ public class DelayCard extends ItemCard{
         super(name);
     }
 
+    public DelayCard(DelayCard delayCard) {
+        super(delayCard.name);
+    }
+
     @Override
     public void applyEffect(FarmResourceCard card) {
-        if (card.getEffect().contains(EffectType.PROTECTION)) {
-            card.removeEffect(EffectType.PROTECTION);
+        if (card.getEffect().contains(EffectType.PROTECT)) {
+            card.removeEffect(EffectType.PROTECT);
         } else {
             card.addEffect(EffectType.DELAY);
         }

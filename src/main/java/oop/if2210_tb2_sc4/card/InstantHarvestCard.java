@@ -5,6 +5,10 @@ public class InstantHarvestCard extends ItemCard{
         super(name);
     }
 
+    public InstantHarvestCard(InstantHarvestCard instantHarvestCard) {
+        super(instantHarvestCard.name);
+    }
+
     @Override
     public void applyEffect(FarmResourceCard card) {
         card.addEffect(EffectType.INSTANT_HARVEST);
