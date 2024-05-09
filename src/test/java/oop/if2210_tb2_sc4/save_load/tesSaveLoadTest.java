@@ -1,16 +1,20 @@
-package oop.if2210_tb2_sc4;
+package oop.if2210_tb2_sc4.save_load;
 
 import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
-import oop.if2210_tb2_sc4.save_load.LoadTXT;
-import oop.if2210_tb2_sc4.save_load.SaveTXT;
+import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-public class tesSaveLoad {
-    @SuppressWarnings("unchecked")
-    public static void main(String[] args) {
+import static org.junit.jupiter.api.Assertions.*;
+class tesSaveLoadTest {
+
+    @Test
+    void main() {
         LoadTXT load = new LoadTXT();
         load.loadGameState();
         Player player1 = load.loadPlayer(1);
@@ -28,7 +32,6 @@ public class tesSaveLoad {
             textGameState.append("    ").append(key).append(": ").append(GameState.getItems().get(key)).append("\n");
         }
         textGameState.append("\n");
-
 
         textPlayer1.append("Player 1: \n");
         textPlayer1.append("Gulden: ").append(player1.getJumlahGulden()).append("\n");
@@ -78,12 +81,70 @@ public class tesSaveLoad {
         }
         textPlayer1.append("\n");
 
-        System.out.println(textGameState);
-        System.out.println(textPlayer1);
-        System.out.println(textPlayer2);
+        assertEquals(textGameState.toString(),
+                """
+                        Game State:\s
+                        Current Player: 1
+                        Count Items: 5
+                        Items:\s
+                            SIRIP_HIU: 5
+                            SUSU: 2
+                            DAGING_DOMBA: 3
+                            DAGING_BERUANG: 1
+                            DAGING_KUDA: 10
+
+                        """);
+
+        assertEquals(textPlayer1.toString(),
+                """
+                        Player 1:\s
+                        Gulden: 500
+                        Jumlah Deck: 39
+                        Jumlah Active Deck: 1
+                        Active Deck:\s
+                            A01: BERUANG
+                        Jumlah Kartu Ladang: 1
+                        Kartu Ladang:\s
+                            Lokasi: A01
+                            Kartu: DOMBA
+                            Umur: 5
+                            Count Item: 3
+                            Items:\s
+                                ACCELERATE
+                                DELAY
+                                PROTECT
+                        
+                        
+                        """);
+
+        assertEquals(textPlayer2.toString(), """
+                Player 2:\s
+                Gulden: 300
+                Jumlah Deck: 38
+                Jumlah Active Deck: 2
+                Active Deck:\s
+                    A01: BERUANG
+                    B01: BERUANG
+                Jumlah Kartu Ladang: 1
+                Kartu Ladang:\s
+                    Lokasi: B02
+                    Kartu: AYAM
+                    Umur: 0
+                    Count Item: 0
+                    Items:\s
+                """);
 
         SaveTXT save = new SaveTXT("SAVE", player1, player2);
         save.save();
+        try {
+            assertEquals(new String(Objects.requireNonNull(getClass().getResourceAsStream("SAVE/gamestate.txt")).readAllBytes(), StandardCharsets.UTF_8), new String(Objects.requireNonNull(getClass().getResourceAsStream("default/gamestate.txt")).readAllBytes(), StandardCharsets.UTF_8));
+            assertEquals(new String(Objects.requireNonNull(getClass().getResourceAsStream("SAVE/player1.txt")).readAllBytes(), StandardCharsets.UTF_8), new String(Objects.requireNonNull(getClass().getResourceAsStream("default/player1.txt")).readAllBytes(), StandardCharsets.UTF_8));
+            assertEquals(new String(Objects.requireNonNull(getClass().getResourceAsStream("SAVE/player2.txt")).readAllBytes(), StandardCharsets.UTF_8), new String(Objects.requireNonNull(getClass().getResourceAsStream("default/player2.txt")).readAllBytes(), StandardCharsets.UTF_8));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        System.out.println("Test Successfully");
     }
+
 }

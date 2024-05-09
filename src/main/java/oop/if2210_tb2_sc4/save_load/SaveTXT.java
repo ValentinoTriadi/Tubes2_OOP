@@ -32,7 +32,7 @@ public class SaveTXT implements Save {
 
     private void savePlayer(int no_player){
         // Save player {no_player}
-        Path path = Paths.get("src/main/java/oop/if2210_tb2_sc4/state/" + folderName + "/player" + no_player + ".txt");
+        Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/player" + no_player + ".txt");
         File file = handleNewFile(path);
 
         Player player = (no_player == 1) ? player1 : player2;
@@ -59,8 +59,6 @@ public class SaveTXT implements Save {
             for (Map<String, Object> kartu : player.getKartuLadang()){
                 writer.write(kartu.get("lokasi") + " " + kartu.get("kartu") + " " + kartu.get("umur") + " " + kartu.get("countItem"));
 
-                assert kartu.get("items") instanceof List;
-
                 @SuppressWarnings("unchecked")
                 List<Object> items = (List<Object>) kartu.get("item");
                 items.forEach(
@@ -73,7 +71,6 @@ public class SaveTXT implements Save {
                     }
                 );
 
-                writer.write("\n");
             }
 
             writer.close();
@@ -83,23 +80,24 @@ public class SaveTXT implements Save {
     }
 
     private void saveGameState(){
-        Path path = Paths.get("src/main/java/oop/if2210_tb2_sc4/state/" + folderName + "/game_state.txt");
+        Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/gamestate.txt");
         File file = handleNewFile(path);
 
         try {
             FileWriter writer = new FileWriter(file);
 
             writer.write(GameState.getCurrentPlayer() + "\n");
-            writer.write(GameState.getCountItems() + "\n");
+            writer.write(GameState.getCountItems().toString());
 
             Map<String, Integer> items = GameState.getItems();
             items.forEach((key, value) -> {
                 try {
-                    writer.write(key + " " + value + "\n");
+                    writer.write("\n" + key + " " + value );
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             });
+
 
             writer.close();
         } catch (Exception e) {

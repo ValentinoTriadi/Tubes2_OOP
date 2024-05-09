@@ -3,8 +3,7 @@ package oop.if2210_tb2_sc4.save_load;
 import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,20 +12,20 @@ import java.util.Scanner;
 
 
 public class LoadTXT implements Load {
-    private File game_state_file;
-    private File player_1_file;
-    private File player_2_file;
+    private final InputStream game_state_file;
+    private final InputStream player_1_file;
+    private final InputStream player_2_file;
 
     public LoadTXT(){
-        game_state_file = new File("src/main/java/oop/if2210_tb2_sc4/state/default/gamestate.txt");
-        player_1_file = new File("src/main/java/oop/if2210_tb2_sc4/state/default/player1.txt");
-        player_2_file = new File("src/main/java/oop/if2210_tb2_sc4/state/default/player2.txt");
+        game_state_file = getClass().getResourceAsStream("default/gamestate.txt");
+        player_1_file = getClass().getResourceAsStream("default/player1.txt");
+        player_2_file = getClass().getResourceAsStream("default/player2.txt");
     }
     
     public LoadTXT(String folderName){
-        game_state_file = new File("oop/if2210_tb2_sc4/state/" + folderName + "/gamestate.txt");
-        player_1_file = new File("oop/if2210_tb2_sc4/" + folderName + "/player1.txt");
-        player_2_file = new File("oop/if2210_tb2_sc4/" + folderName + "/player2.txt");
+        game_state_file = getClass().getResourceAsStream(folderName + "/gamestate.txt");
+        player_1_file = getClass().getResourceAsStream(folderName + "/player1.txt");
+        player_2_file = getClass().getResourceAsStream(folderName + "/player2.txt");
     }
 
     @Override
@@ -36,7 +35,7 @@ public class LoadTXT implements Load {
             Scanner scanner = new Scanner(game_state_file);
             GameState.setCurrentPlayer(scanner.nextInt());
             GameState.setCountItems(scanner.nextInt());
-            Map<String, Integer> temp = new HashMap<String, Integer>();
+            Map<String, Integer> temp = new HashMap<>();
             for (int i = 0; i < GameState.getCountItems(); i++){
                 String item = scanner.next();
                 Integer count = scanner.nextInt();
@@ -44,8 +43,6 @@ public class LoadTXT implements Load {
             }
             GameState.setItems(temp);
             scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -54,7 +51,7 @@ public class LoadTXT implements Load {
     @Override
     public Player loadPlayer(int no_player){
         try {
-            File temp = (no_player == 1) ? player_1_file : player_2_file;
+            InputStream temp = (no_player == 1) ? player_1_file : player_2_file;
             Scanner scanner = new Scanner(temp);
             Player player = new Player();
             
@@ -62,7 +59,7 @@ public class LoadTXT implements Load {
             player.setJumlahDeck(scanner.nextInt());
             player.setJumlahDeckActive(scanner.nextInt());
 
-            Map<String, String> temp_deck = new HashMap<String, String>();
+            Map<String, String> temp_deck = new HashMap<>();
             for (int i = 0; i < player.getJumlahDeckActive(); i++){
                 String card = scanner.next();
                 String card_id = scanner.next();
@@ -99,14 +96,23 @@ public class LoadTXT implements Load {
             player.setKartuLadang(temp_ladang);
 
             scanner.close();
-            System.out.println("OutSafely" + no_player);
             return player;
             
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         } 
         return null;
+    }
+
+    public InputStream getGameStateFile() {
+        return game_state_file;
+    }
+
+    public InputStream getPlayer1File() {
+        return player_1_file;
+    }
+
+    public InputStream getPlayer2File() {
+        return player_2_file;
     }
 }
