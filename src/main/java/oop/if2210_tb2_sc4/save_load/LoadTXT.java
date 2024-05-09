@@ -1,14 +1,19 @@
 package oop.if2210_tb2_sc4.save_load;
 
+import oop.if2210_tb2_sc4.game_manager.GameData;
 import oop.if2210_tb2_sc4.game_manager.GameState;
+import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.player.Player;
+import oop.if2210_tb2_sc4.card.EffectType;
+import oop.if2210_tb2_sc4.card.FarmResourceCard;
+import oop.if2210_tb2_sc4.card.ProductCard;
+import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.shop.Shop;
 
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
+
 
 
 public class LoadTXT implements Load {
@@ -35,13 +40,14 @@ public class LoadTXT implements Load {
             Scanner scanner = new Scanner(game_state_file);
             GameState.setCurrentPlayer(scanner.nextInt());
             GameState.setCountItems(scanner.nextInt());
-            Map<String, Integer> temp = new HashMap<>();
+
+            Shop shop = new Shop();
             for (int i = 0; i < GameState.getCountItems(); i++){
                 String item = scanner.next();
-                Integer count = scanner.nextInt();
-                temp.put(item, count);
+                int count = scanner.nextInt();
+                shop.addCard((ProductCard) GameData.getCard(item), count);
             }
-            GameState.setItems(temp);
+            GameState.setShop(shop);
             scanner.close();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -56,48 +62,60 @@ public class LoadTXT implements Load {
             Player player = new Player();
             
             player.setJumlahGulden(scanner.nextInt());
-            player.setJumlahDeck(scanner.nextInt());
-            player.setJumlahDeckActive(scanner.nextInt());
+            player.getDeck().setCardsInDeckCount(scanner.nextInt());
+            player.getDeck().setCardsInHandCount(scanner.nextInt());
 
-            Map<String, String> temp_deck = new HashMap<>();
+
+            Deck tempDeck = new Deck();
             for (int i = 0; i < player.getJumlahDeckActive(); i++){
                 String card = scanner.next();
                 String card_id = scanner.next();
-                temp_deck.put(card, card_id);
+                tempDeck.setActiveCard(card, GameData.createCard(card_id));
             }
-            player.setActiveDeck(temp_deck);
+            player.setDeck(tempDeck);
 
-            player.setJumlahKartuLadang(scanner.nextInt());
+            int countCardinLandang = scanner.nextInt();
 
-            List<Map<String, Object>> temp_ladang = new ArrayList<>();
-            for (int i = 0; i < player.getJumlahKartuLadang(); i++){
-                Map<String, Object> temp_card = new HashMap<>();
+            Ladang tempLadang = new Ladang();
+            for (int i = 0; i < countCardinLandang; i++){
                 
                 String lokasi = scanner.next();
-                temp_card.put("lokasi", lokasi);
-                
                 String kartu = scanner.next();
-                temp_card.put("kartu", kartu);
-
                 int umur = scanner.nextInt();
-                temp_card.put("umur", umur);
-
                 int count = scanner.nextInt();
-                temp_card.put("countItem", count);
 
-                List<String> temp_item = new ArrayList<>();
-                for (int j = 0; j < count; j++){
-                    temp_item.add(scanner.next());
+                FarmResourceCard newCard = (FarmResourceCard) GameData.createCard(kartu);
+                assert newCard != null;
+
+                if (newCard instanceof oop.if2210_tb2_sc4.card.PlantCard){
+                    ((oop.if2210_tb2_sc4.card.PlantCard) newCard).setAge(umur);
+                } else if (newCard instanceof oop.if2210_tb2_sc4.card.AnimalCard){
+                    ((oop.if2210_tb2_sc4.card.AnimalCard) newCard).setWeight(umur);
                 }
-                temp_card.put("item", temp_item);
 
-                temp_ladang.add(temp_card);
+                for (int j = 0; j < count; j++){
+                    String item = scanner.next();
+
+                    if (Objects.equals(item, "ACCELERATE")){
+                        newCard.addEffect(EffectType.ACCELERATE);
+                    } else if (Objects.equals(item, "DELAY")){
+                        newCard.addEffect(EffectType.DELAY);
+                    }  else if (Objects.equals(item, "INSTANT_HARVEST")){
+                        newCard.addEffect(EffectType.INSTANT_HARVEST);
+                    } else if (Objects.equals(item, "PROTECTION")){
+                        newCard.addEffect(EffectType.PROTECTION);
+                    } else if (Objects.equals(item, "TRAP")){
+                        newCard.addEffect(EffectType.TRAP);
+                    }
+                }
+
+                tempLadang.setCard(lokasi, newCard);
             }
-            player.setKartuLadang(temp_ladang);
+            player.setLadang(tempLadang);
 
             scanner.close();
             return player;
-            
+
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         } 

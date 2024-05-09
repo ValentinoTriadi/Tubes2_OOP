@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/AddPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/Load.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/Shop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AccelerateCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DestroyCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/EffectType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/FarmResourceCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ItemCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/PlantCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProductCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProtectCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/TrapCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/ladang/Ladang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/shop/Shop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/AddPlugin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MainMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/Shop.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/ShopItems.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/bear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/chicken.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/cow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/hiu darat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/horse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/sheep.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Accelerate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Delay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Destroy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Instant Harvest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Protect.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/bear trap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/Daging Beruang.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/Daging Domba.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/Daging Kuda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/corn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/pumpkin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/shark-fin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/strawberry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/susu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/telur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/corn seeds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/pumpkin seeds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/strawberry seeds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/pngtree-borobudur-temple-vector-png-image_6639062.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/tesSaveLoad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/tesSaveLoadTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2g3dE3jQnMy7qrfZY12Qu5rmHKC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DraggableTest.executor": "Debug",
+    "Application.GameWindow.executor": "Debug",
+    "Application.Main.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Merging save-load",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "F:/VsCode/Java/Tubes2_OOP/src/main/java/oop/if2210_tb2_sc4/UI",
+    "last_opened_file_path": "F:/VsCode/Java/Tubes2_OOP",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\VsCode\Java\Tubes2_OOP\src\main\resources\oop\if2210_tb2_sc4\UI" />
+      <recent name="D:\VsCode\Java\Tubes2_OOP\src\main\resources\oop\if2210_tb2_sc4\UI" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.TesSaveLoad">
+    <configuration name="GameWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="oop.if2210_tb2_sc4.UI.GameWindow" />
+      <module name="IF2210_TB2_SC4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="oop.if2210_tb2_sc4.UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="oop.if2210_tb2_sc4.UI.Main" />
+      <module name="IF2210_TB2_SC4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="oop.if2210_tb2_sc4.UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TesSaveLoad" type="JUnit" factoryName="JUnit">
+      <module name="IF2210_TB2_SC4" />
+      <option name="PACKAGE_NAME" value="oop.if2210_tb2_sc4.save_load" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.GameWindow" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.TesSaveLoad" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.GameWindow" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="" />
+      <created>1714930081603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714930081603</updated>
+      <workItem from="1714930083720" duration="7506000" />
+      <workItem from="1714968778966" duration="3809000" />
+      <workItem from="1714972819685" duration="334000" />
+      <workItem from="1714973181300" duration="4040000" />
+      <workItem from="1714990296269" duration="240000" />
+      <workItem from="1714998828184" duration="12853000" />
+      <workItem from="1715011871427" duration="460000" />
+      <workItem from="1715025199960" duration="6040000" />
+      <workItem from="1715054992588" duration="2910000" />
+      <workItem from="1715088171953" duration="719000" />
+      <workItem from="1715089514278" duration="8049000" />
+      <workItem from="1715101339983" duration="21214000" />
+      <workItem from="1715148296151" duration="557000" />
+      <workItem from="1715148875056" duration="5558000" />
+      <workItem from="1715163035374" duration="941000" />
+      <workItem from="1715164039046" duration="11862000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="jdk.internal.loader.ClassLoaders$PlatformClassLoader" memberName="parent" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="currentPlayerPane.setEnemyField(nextPlayerPane.getField());&#10;        nextPlayerPane.setEnemyField(currentPlayerPane.getField());" />
+        <watch expression="currentPlayerPane" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Tubes2_OOP$tesSaveLoad.ic" NAME="tesSaveLoad Coverage Results" MODIFIED="1715205384385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Tubes2_OOP$LoadTXTTest_loadGameState.ic" NAME="LoadTXTTest.loadGameState Coverage Results" MODIFIED="1715206151754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>oop.if2210_tb2_sc4.save_load.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Tubes2_OOP$LoadTXTTest_loadPlayer.ic" NAME="LoadTXTTest.loadPlayer Coverage Results" MODIFIED="1715205946783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>oop.if2210_tb2_sc4.save_load.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Tubes2_OOP$tesLoad.ic" NAME="tesLoad Coverage Results" MODIFIED="1715259262638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+  </component>
+</project>

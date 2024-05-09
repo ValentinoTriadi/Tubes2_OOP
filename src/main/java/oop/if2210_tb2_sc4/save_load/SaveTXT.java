@@ -56,7 +56,7 @@ public class SaveTXT implements Save {
 
             writer.write(player.getJumlahKartuLadang() + "\n"); // alternative use player.getKartuLadang().size()
 
-            for (Map<String, Object> kartu : player.getKartuLadang()){
+            for (Map<String, Object> kartu : player.getLadang()){
                 writer.write(kartu.get("lokasi") + " " + kartu.get("kartu") + " " + kartu.get("umur") + " " + kartu.get("countItem"));
 
                 @SuppressWarnings("unchecked")
