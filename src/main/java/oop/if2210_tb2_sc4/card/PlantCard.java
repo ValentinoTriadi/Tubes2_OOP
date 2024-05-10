@@ -16,6 +16,12 @@ public class PlantCard extends FarmResourceCard {
         this.harvestAge = harvestAge;
     }
 
+    public PlantCard(PlantCard plantCard) {
+        super(plantCard.getName(), plantCard.productResult);
+        this.age = plantCard.getAge();
+        this.harvestAge = plantCard.getHarvestAge();
+    }
+
     public int getAge() {
         return age;
     }

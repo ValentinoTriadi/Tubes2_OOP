@@ -2,6 +2,9 @@ package oop.if2210_tb2_sc4.ladang;
 
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class Ladang {
     public static final int LADANG_COLUMN = 5;
     public static final int LADANG_ROW = 4;
@@ -30,7 +33,7 @@ public class Ladang {
 
     public void setCard(String slot, FarmResourceCard card) {
         int row = slot.charAt(0) - 'A';
-        int column = Integer.parseInt(slot.substring(1));
+        int column = Integer.parseInt(slot.substring(1)) - 1;
         ladang[row][column] = card;
     }
 
@@ -70,5 +73,31 @@ public class Ladang {
             }
         }
         return count;
+    }
+
+    public FarmResourceCard[] getCardListinLadang() {
+        FarmResourceCard[] cardList = new FarmResourceCard[getCardinLadangCount()];
+        int index = 0;
+        for (int i = 0; i < LADANG_ROW; i++) {
+            for (int j = 0; j < LADANG_COLUMN; j++) {
+                if (ladang[i][j] != null) {
+                    cardList[index] = ladang[i][j];
+                    index++;
+                }
+            }
+        }
+        return cardList;
+    }
+
+    public Map<String, FarmResourceCard> getAllCardwithLocationinLadang() {
+        Map<String, FarmResourceCard> cardList = new HashMap<>();
+        for (int i = 0; i < LADANG_ROW; i++) {
+            for (int j = 0; j < LADANG_COLUMN; j++) {
+                if (ladang[i][j] != null) {
+                    cardList.put((char) (i + 'A') + "0" + (j+1), ladang[i][j]);
+                }
+            }
+        }
+        return cardList;
     }
 }

@@ -144,7 +144,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>oop.if2210_tb2_sc4/oop.if2210_tb2_sc4.UI.Main</mainClass>
+                            <mainClass>oop.if2210_tb2_sc4/oop.if2210_tb2_sc4/Main.java</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

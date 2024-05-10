@@ -5,8 +5,12 @@ public class ProtectCard extends ItemCard{
         super(name);
     }
 
+    public ProtectCard(ProtectCard protectCard) {
+        super(protectCard.name);
+    }
+
     @Override
     public void applyEffect(FarmResourceCard card) {
-        card.addEffect(EffectType.PROTECTION);
+        card.addEffect(EffectType.PROTECT);
     }
 }

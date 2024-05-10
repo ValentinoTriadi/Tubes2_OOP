@@ -11,10 +11,11 @@ module oop.if2210_tb2_sc4 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires annotations;
-    requires java.smartcardio;
 
     exports oop.if2210_tb2_sc4.UI;
     opens oop.if2210_tb2_sc4.UI to javafx.fxml;
+
+    requires java.smartcardio;
 
     opens oop.if2210_tb2_sc4 to javafx.fxml;
     exports oop.if2210_tb2_sc4.game_manager;
@@ -27,7 +28,5 @@ module oop.if2210_tb2_sc4 {
     opens oop.if2210_tb2_sc4.card to javafx.fxml;
     exports oop.if2210_tb2_sc4.save_load;
     opens oop.if2210_tb2_sc4.save_load to javafx.fxml;
-    exports oop.if2210_tb2_sc4.UI;
-    opens oop.if2210_tb2_sc4.UI to javafx.fxml;
 
 }

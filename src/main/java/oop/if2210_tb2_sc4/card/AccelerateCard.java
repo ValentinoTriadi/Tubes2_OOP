@@ -6,6 +6,10 @@ public class AccelerateCard extends ItemCard{
         super(name);
     }
 
+    public AccelerateCard(AccelerateCard accelerateCard) {
+        super(accelerateCard.name);
+    }
+
     @Override
     public void applyEffect(FarmResourceCard card) {
         card.addEffect(EffectType.ACCELERATE);

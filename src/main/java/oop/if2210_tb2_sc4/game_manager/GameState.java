@@ -6,15 +6,15 @@ import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.shop.Shop;
 
 public class GameState {
-    private static Integer current_player = 1;
-    private static Integer count_items = 0;
+    private static int current_player = 1;
+    private static int count_items = 0;
     private static Shop shop = new Shop();
 
-    public static Integer getCurrentPlayer(){
+    public static int getCurrentPlayer(){
         return current_player;
     }
 
-    public static void setCurrentPlayer(Integer player){
+    public static void setCurrentPlayer(int player){
         current_player = player;
     }
 
@@ -22,7 +22,7 @@ public class GameState {
         return count_items;
     }
 
-    public static void setCountItems(Integer count){
+    public static void setCountItems(int count){
         count_items = count;
     }
 
@@ -31,6 +31,6 @@ public class GameState {
     }
 
     public static void setShop(Shop shop){
-        GameState.shop = shop;
+        GameState.shop = new Shop(shop);
     }
 }
