@@ -4,9 +4,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
-public class CardUI extends DraggablePane {
+public class CardUI extends DraggablePane implements UICard {
 
     private String name;
 
@@ -35,6 +37,11 @@ public class CardUI extends DraggablePane {
     public void initCard(String name){
         setName(name);
         setImage();
+    }
+
+    @Override
+    public void OnClick(@NotNull MouseEvent e) {
+        super.OnClick(e);
     }
 
     @Override

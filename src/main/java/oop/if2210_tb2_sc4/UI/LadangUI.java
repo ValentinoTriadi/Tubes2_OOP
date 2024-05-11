@@ -3,12 +3,15 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import oop.if2210_tb2_sc4.ladang.Ladang;
+import oop.if2210_tb2_sc4.player.Player;
 
 public class LadangUI extends GridPane {
 
     private final DropZone[] ladang = new DropZone[20];
+    private Ladang ladangData;
 
-    public LadangUI() {
+    public LadangUI(Player player) {
         setAlignment(javafx.geometry.Pos.CENTER);
         setGridLinesVisible(true);
         setHgap(30.0);
@@ -42,6 +45,7 @@ public class LadangUI extends GridPane {
             ladang[i].setStyle("-fx-background-color: yellow;");
             this.add(ladang[i], col, row);
         }
+        this.ladangData = player.getLadang();
     }
 
     public DropZone[] getLadang() {

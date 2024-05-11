@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import oop.if2210_tb2_sc4.GameEngine.DataManager;
 
 import java.io.IOException;
 
@@ -13,7 +14,10 @@ public class MainMenuController {
     public AnchorPane root;
 
     @FXML
-    protected void NewGame(ActionEvent event) throws IOException {
+    public void NewGame(ActionEvent event) throws IOException {
+
+        DataManager.StartNewGame();
+
         // Close the current window
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.close();

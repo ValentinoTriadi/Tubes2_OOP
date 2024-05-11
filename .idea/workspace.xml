@@ -4,34 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="merge: class-save-load">
+    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="Feat : Integrate Player UI and player class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameEngine/DataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UICard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SelectCards.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AccelerateCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AccelerateCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DestroyCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DestroyCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/EffectType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/EffectType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/FarmResourceCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/FarmResourceCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/PlantCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/PlantCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProtectCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProtectCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/TrapCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/ladang/Ladang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/ladang/Ladang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/shop/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/shop/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/state/SAVE/game_state.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/state/SAVE/player1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/state/SAVE/player2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/state/default/gamestate.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/state/default/player1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/state/default/player2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/tesSaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/tesSaveLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/bear.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/BERUANG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/chicken.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/AYAM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/cow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/SAPI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/hiu darat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/HIU_DARAT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/horse.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/KUDA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/sheep.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Hewan/DOMBA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Accelerate.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/ACCELERATE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Delay.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/DELAY.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Destroy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/DESTROY.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Instant Harvest.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/INSTANT HARVEST.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/Protect.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/PROTECTION.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/bear trap.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Item/TRAP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/Daging Beruang.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/DAGING_BERUANG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/Daging Domba.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/DAGING_DOMBA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/Daging Kuda.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/DAGING_KUDA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/corn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/JAGUNG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/pumpkin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/LABU.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/shark-fin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/SIRIP_HIU.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/strawberry.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/STROBERI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/susu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/SUSU.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/telur.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Produk/TELUR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/corn seeds.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/BIJI_JAGUNG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/pumpkin seeds.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/BIJI_LABU.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/strawberry seeds.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/assets/card/Tanaman/BIJI_STROBERI.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +61,34 @@
         <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="MainWindow" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Loxenary&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ValentinoTriadi/Tubes2_OOP.git&quot;,
+    &quot;accountId&quot;: &quot;86207a52-63ad-40ae-b5f1-74b13b468961&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -63,37 +101,38 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2g3dE3jQnMy7qrfZY12Qu5rmHKC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DraggableTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.GameWindow.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;MainWindow&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;F:/VsCode/Java/Tubes2_OOP/src/main/java/oop/if2210_tb2_sc4/UI&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/VsCode/Java/Tubes2_OOP&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DraggableTest.executor": "Debug",
+    "Application.GameWindow.executor": "Debug",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "GameEngine",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/java/oop/if2210_tb2_sc4/UI",
+    "last_opened_file_path": "C:/Users/Dave/Downloads/Plants-Vs-Zombies/Plants-Vs-Zombies-master/Plants-Vs-Zombies-master",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\VsCode\Java\Tubes2_OOP\src\main\resources\oop\if2210_tb2_sc4\UI" />
@@ -137,8 +176,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -166,13 +205,50 @@
       <workItem from="1715148875056" duration="5558000" />
       <workItem from="1715163035374" duration="941000" />
       <workItem from="1715164039046" duration="11862000" />
+      <workItem from="1715164039046" duration="5413000" />
+      <workItem from="1715357087724" duration="2298000" />
+      <workItem from="1715399962531" duration="13189000" />
+      <workItem from="1715415620438" duration="1455000" />
+      <workItem from="1715422576100" duration="4391000" />
+      <workItem from="1715426986090" duration="15616000" />
+      <workItem from="1715442988413" duration="2698000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feat : Integrate Player UI and player class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat : Integrate Player UI and player class" />
+  </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.String" memberName="value" />
+        <PinnedItemInfo parentTag="oop.if2210_tb2_sc4.UI.CardsChoiceUI" memberName="cardImages" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="currentPlayerPane.setEnemyField(nextPlayerPane.getField());&#10;        nextPlayerPane.setEnemyField(currentPlayerPane.getField());" />

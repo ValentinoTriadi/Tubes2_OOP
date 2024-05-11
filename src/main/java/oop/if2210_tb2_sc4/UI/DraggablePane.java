@@ -24,7 +24,7 @@ public abstract class DraggablePane extends Pane {
         setOnMouseReleased(this::OnRelease);
     }
 
-    private void OnClick(@NotNull MouseEvent e){
+    protected void OnClick(@NotNull MouseEvent e){
         setParent(root);
         Bounds tempParentBounds = tempParent.localToScene(tempParent.getBoundsInLocal());
 
@@ -32,12 +32,11 @@ public abstract class DraggablePane extends Pane {
         x = e.getSceneX() - tempParentBounds.getMinX() + 10;
         y = e.getSceneY() - tempParentBounds.getMinY() + 10;
 
-
         setLayoutX(e.getSceneX() - x);
         setLayoutY(e.getSceneY() - y);
     }
 
-    private void OnDrag(@NotNull MouseEvent e){
+    protected void OnDrag(@NotNull MouseEvent e){
         setLayoutX(e.getSceneX() - x);
         setLayoutY(e.getSceneY() - y);
     }

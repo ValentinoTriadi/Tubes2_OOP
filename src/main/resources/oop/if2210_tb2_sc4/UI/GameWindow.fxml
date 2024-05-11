@@ -1,27 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" maxHeight="720.0" maxWidth="1024.0" minHeight="600.0" minWidth="800.0" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
-   <VBox alignment="TOP_CENTER" layoutX="808.0" layoutY="163.0" prefHeight="394.0" prefWidth="168.0" spacing="45.0" AnchorPane.bottomAnchor="162.60000000000002" AnchorPane.leftAnchor="808.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="163.0">
-      <children>
-         <Button fx:id="MyFieldButton" mnemonicParsing="false" onAction="#openLadang" prefHeight="26.0" prefWidth="192.0" text="LADANG" />
-         <Button fx:id="EnemyFieldButton" mnemonicParsing="false" onAction="#openLadangMusuh" prefHeight="26.0" prefWidth="221.0" text="ENEMY LADANG" />
-         <Button fx:id="ShopButton" mnemonicParsing="false" onAction="#openShop" prefHeight="26.0" prefWidth="281.0" text="SHOP" />
-         <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#openSave" prefHeight="26.0" prefWidth="282.0" text="SAVE" />
-         <Button fx:id="LoadButton" mnemonicParsing="false" onAction="#openLoad" prefHeight="26.0" prefWidth="210.0" text="LOAD" />
-         <Button fx:id="AddPluginButton" mnemonicParsing="false" onAction="#openAddPlugin" prefHeight="26.0" prefWidth="270.0" text="ADD PLUGIN" />
-      </children>
-   </VBox>
-   <Pane layoutX="804.0" layoutY="580.0" prefHeight="100.0" prefWidth="176.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="804.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="580.0" />
-   <Button layoutX="860.0" layoutY="94.0" mnemonicParsing="false" onAction="#switchToNextPlayer" text="End Turn" AnchorPane.bottomAnchor="600.4" AnchorPane.leftAnchor="860.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="94.0" />
-   <Button layoutX="834.0" layoutY="68.0" mnemonicParsing="false" onAction="#addCard" text="DEBUG ADD CARD" />
-   <VBox layoutX="14.0" layoutY="14.0" maxHeight="700.0" maxWidth="798.0" prefHeight="683.0" prefWidth="770.0">
-      <children>
-         <TabPane fx:id="tabPane" prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" />
-         <StackPane fx:id="rootPane" maxHeight="150.0" maxWidth="770.0" minHeight="150.0" minWidth="770.0" prefHeight="150.0" prefWidth="770.0" />
-      </children>
-   </VBox>
-   <Button layoutX="866.0" layoutY="43.0" mnemonicParsing="false" onAction="#addItem" text="Button" />
-</AnchorPane>
+<StackPane fx:id="RootStack" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
+   <children>
+      <AnchorPane fx:id="root" maxHeight="720.0" maxWidth="1024.0" minHeight="600.0" minWidth="800.0" prefHeight="720.0" prefWidth="1024.0">
+         <VBox alignment="TOP_CENTER" layoutX="808.0" layoutY="229.0" prefHeight="394.0" prefWidth="168.0" spacing="45.0" AnchorPane.bottomAnchor="96.60000000000002" AnchorPane.leftAnchor="808.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="229.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#switchToNextPlayer" prefHeight="26.0" prefWidth="168.0" text="End Turn" />
+               <Button fx:id="MyFieldButton" mnemonicParsing="false" onAction="#openLadang" prefHeight="26.0" prefWidth="192.0" text="LADANG" />
+               <Button fx:id="EnemyFieldButton" mnemonicParsing="false" onAction="#openLadangMusuh" prefHeight="26.0" prefWidth="221.0" text="ENEMY LADANG" />
+               <Button fx:id="ShopButton" mnemonicParsing="false" onAction="#openShop" prefHeight="26.0" prefWidth="281.0" text="SHOP" />
+               <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#openSave" prefHeight="26.0" prefWidth="282.0" text="SAVE" />
+               <Button fx:id="LoadButton" mnemonicParsing="false" onAction="#openLoad" prefHeight="26.0" prefWidth="210.0" text="LOAD" />
+               <Button fx:id="AddPluginButton" mnemonicParsing="false" onAction="#openAddPlugin" prefHeight="26.0" prefWidth="270.0" text="ADD PLUGIN" />
+            </children>
+         </VBox>
+         <Pane prefHeight="100.0" prefWidth="176.0" />
+         <VBox layoutX="14.0" layoutY="14.0" maxHeight="700.0" maxWidth="798.0" prefHeight="683.0" prefWidth="770.0">
+            <children>
+               <TabPane fx:id="tabPane" prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" />
+               <StackPane fx:id="rootPane" maxHeight="150.0" maxWidth="770.0" minHeight="150.0" minWidth="770.0" prefHeight="150.0" prefWidth="770.0" />
+            </children>
+         </VBox>
+         <Pane layoutX="813.0" layoutY="7.0" prefHeight="107.0" prefWidth="160.0">
+            <children>
+               <Ellipse fill="#ebebeb" layoutX="80.0" layoutY="54.0" radiusX="49.0" radiusY="36.0" stroke="#a6a6a6" strokeType="INSIDE" strokeWidth="4.0" />
+               <Label alignment="TOP_CENTER" contentDisplay="RIGHT" layoutX="55.0" layoutY="32.0" prefHeight="32.0" prefWidth="50.0" text="Turn" textAlignment="CENTER">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Label>
+               <Label fx:id="CurrentTurn" layoutX="74.0" layoutY="49.0" text="2">
+                  <font>
+                     <Font name="Bell MT" size="26.0" />
+                  </font>
+               </Label>
+            </children>
+         </Pane>
+         <Label fx:id="Player2Gold" layoutX="808.0" layoutY="171.0" prefHeight="32.0" prefWidth="176.0" text="Player 2 : ">
+            <font>
+               <Font name="Bell MT" size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="Player1Gold" layoutX="808.0" layoutY="138.0" prefHeight="25.0" prefWidth="168.0" text="Player 1 : ">
+            <font>
+               <Font name="Bell MT" size="20.0" />
+            </font>
+         </Label>
+         <Label layoutX="808.0" layoutY="100.0" text="Gold: ">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </AnchorPane>
+      <AnchorPane fx:id="EndScreen" visible="false">
+         <children>
+            <Pane opacity="0.38" prefHeight="720.0" prefWidth="1088.0" style="-fx-background-color: #000000;" />
+            <Pane fx:id="EndPane" layoutX="156.0" layoutY="143.0" prefHeight="411.0" prefWidth="712.0" style="-fx-background-color: #FDE8E9;" AnchorPane.bottomAnchor="165.66666666666674" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="143.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="132.0" layoutY="30.0" prefHeight="115.0" prefWidth="512.0" text="Congratulations" textAlignment="CENTER">
+                     <font>
+                        <Font name="Courier New" size="54.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="152.0" layoutY="193.0" prefHeight="115.0" prefWidth="471.0" text="YOU WIN" textAlignment="CENTER">
+                     <font>
+                        <Font name="Courier New" size="42.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="152.0" layoutY="112.0" prefHeight="115.0" prefWidth="471.0" text="Player" textAlignment="CENTER" textFill="#ff2929">
+                     <font>
+                        <Font name="Courier New" size="48.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" layoutX="275.0" layoutY="299.0" mnemonicParsing="false" onAction="#StartNewGame" prefHeight="86.0" prefWidth="225.0" style="-fx-background-color: #1F2232;" text="Start New Game" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <font>
+                        <Font name="Chiller" size="33.0" />
+                     </font>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets top="40.0" />
+               </padding>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

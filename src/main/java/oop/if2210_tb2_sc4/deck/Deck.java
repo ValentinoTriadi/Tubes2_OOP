@@ -108,5 +108,9 @@ public class Deck {
         this.cardsInHand = cardsInHand;
     }
 
-    
+    public boolean isFull(){
+        return this.cardsInHand == HAND_SIZE;
+    }
+
+
 }

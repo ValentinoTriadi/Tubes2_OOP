@@ -79,25 +79,7 @@ public class GameData {
     }
 
     private static Card returnCard(Card card){
-        if (card instanceof ProductCard) {
-            return new ProductCard((ProductCard) card);
-        } else if (card instanceof AnimalCard) {
-            return new AnimalCard((AnimalCard) card);
-        } else if (card instanceof PlantCard) {
-            return new PlantCard((PlantCard) card);
-        } else if (card instanceof DelayCard) {
-            return new DelayCard((DelayCard) card);
-        } else if (card instanceof AccelerateCard) {
-            return new AccelerateCard((AccelerateCard) card);
-        } else if (card instanceof ProtectCard) {
-            return new ProtectCard((ProtectCard) card);
-        } else if (card instanceof TrapCard) {
-            return new TrapCard((TrapCard) card);
-        } else if (card instanceof InstantHarvestCard) {
-            return new InstantHarvestCard((InstantHarvestCard) card);
-        } else if (card instanceof DestroyCard) {
-            return new DestroyCard((DestroyCard) card);
-        }
+
         return null;
     }
 
