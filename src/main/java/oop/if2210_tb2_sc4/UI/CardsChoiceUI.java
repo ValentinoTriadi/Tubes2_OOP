@@ -17,8 +17,9 @@ import java.util.Objects;
 public class CardsChoiceUI {
 
     private final ImageView[] cardImages = new ImageView[4];
-    private final String[] generatedCardNames = new String[4];
-    private AnchorPane outerPane;
+    private final Card[] availableCard = new Card[4];
+
+    private final AnchorPane outerPane;
     private GridPane parent = new GridPane();
     private Deck playerDeck;
     public CardsChoiceUI(GridPane parent, AnchorPane outerPane, Deck currentDeck) {
@@ -73,8 +74,17 @@ public class CardsChoiceUI {
         // Remove the ImageView from the parent GridPane
         parent.getChildren().remove(cardImages[index]);
 
-        // Add your custom event handling logic here
-        GameWindowController.addCard(generatedCardNames[index]);
+        Card card = availableCard[index];
+        String cardName = CardFolderType(card) + "/" + card.getName();
+        boolean isCardProduct = isCardProduct(card);
+        if(isCardProduct){
+            System.out.println("Add Item");
+            System.out.println("Folder: "+ CardFolderType(card));
+            GameWindowController.addItem(cardName);
+        }else{
+            System.out.println("Add Card");
+            GameWindowController.addCard(cardName);
+        }
 
         if(playerDeck.isFull()){
             outerPane.setVisible(false);
@@ -108,17 +118,18 @@ public class CardsChoiceUI {
 
         List<Card> generatedCard= playerDeck.generateCards();
         // Check if the total number of images is sufficient
-        for (int i = 0; i < cardImages.length; i++) {
-            Card card = generatedCard.get(i);
-            boolean isCardProduct = isCardProduct(card);
-            String folderName = CardFolderType(card);
-            String path = folderPath + folderName + "/" + card.getName() + ".png";
-            Image image = new Image(Objects.requireNonNull(getClass().getResource(path)).toExternalForm());
-            cardImages[i].setImage(image);
+       if(cardImages.length >= generatedCard.size()){
+           for (int i = 0; i < cardImages.length; i++) {
+               Card card = generatedCard.get(i);
 
-
-            generatedCardNames[i] = folderName + "/"+card.getName();
-        }
+               String folderName = CardFolderType(card);
+               System.out.println("Folder: "+ CardFolderType(card));
+               String path = folderPath + folderName + "/" + card.getName() + ".png";
+               Image image = new Image(Objects.requireNonNull(getClass().getResource(path)).toExternalForm());
+               cardImages[i].setImage(image);
+               availableCard[i] = card;
+           }
+       }
     }
 
 }

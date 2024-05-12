@@ -15,7 +15,6 @@ public class MainMenuController {
 
     @FXML
     public void NewGame(ActionEvent event) throws IOException {
-
         DataManager.StartNewGame();
 
         // Close the current window

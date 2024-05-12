@@ -11,7 +11,7 @@ public class LadangUI extends GridPane {
     private final DropZone[] ladang = new DropZone[20];
     private Ladang ladangData;
 
-    public LadangUI(Player player) {
+    public LadangUI(Ladang ladangData) {
         setAlignment(javafx.geometry.Pos.CENTER);
         setGridLinesVisible(true);
         setHgap(30.0);
@@ -45,7 +45,11 @@ public class LadangUI extends GridPane {
             ladang[i].setStyle("-fx-background-color: yellow;");
             this.add(ladang[i], col, row);
         }
-        this.ladangData = player.getLadang();
+        this.ladangData = ladangData;
+    }
+
+    public void UpdateCards(Ladang ladang){
+
     }
 
     public DropZone[] getLadang() {

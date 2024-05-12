@@ -31,7 +31,10 @@ public class Deck {
 
     public List<Card> generateCards() {
         List<Card> cards = new ArrayList<>();
-        
+
+        if(currentDeck.isEmpty()){
+            return null;
+        }
         // Get 4 random cards
         for (int i = 0; i < GENERATED_CARD_COUNT; i++) {
             int randomIndex = (int) (Math.random() * currentDeck.size());

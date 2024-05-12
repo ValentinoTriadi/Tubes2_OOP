@@ -14,12 +14,16 @@ public class PlayerUI extends StackPane {
     private final Pane root;
     private DeckUI activeDeckHBox;
     private LadangUI myLadang;
-    private Player playerData;
+    private final Player playerData;
 
     public PlayerUI(Player playerData) {
         super();
         this.playerData = playerData;
         this.root = GameWindowController.rootStatic;
+    }
+
+    public Player getPlayerData(){
+        return playerData;
     }
 
     public void initPlayerUI(String name, Tab ladang) {
@@ -34,7 +38,7 @@ public class PlayerUI extends StackPane {
         this.getChildren().add(playerUI);
 
         // Init Ladang
-        myLadang = new LadangUI(playerData);
+        myLadang = new LadangUI(playerData.getLadang());
         ladang.setContent(myLadang);
 
         // Init Deck
@@ -69,17 +73,15 @@ public class PlayerUI extends StackPane {
         activeDeckHBox.addCard(card);
     }
 
-    public void addItem(int index, Target target){
-        String[] cardNames = {"hewan/bear", "hewan/chicken", "hewan/cow", "hewan/sheep", "hewan/horse"};
-        String name = cardNames[(int) (Math.random() * cardNames.length)];
+    public void addItem(String name,int index, Target target){
 
         DropZone[] dropZones = new DropZone[0];
         if (target == Target.SELF){
             dropZones = myLadang.getLadang();
         } else {
-            if (index % 2 == 0){
+            if (index % 2 == 0){ // Player 2
                 dropZones = GameWindowController.ladang2.getLadang();
-            } else {
+            } else { // Player 1
                 dropZones = GameWindowController.ladang1.getLadang();
             }
         }

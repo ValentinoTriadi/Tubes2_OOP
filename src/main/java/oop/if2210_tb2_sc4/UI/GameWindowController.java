@@ -12,7 +12,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 import javafx.geometry.Pos;
 import javafx.scene.text.Font;
-import oop.if2210_tb2_sc4.GameEngine.DataManager;
+
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.deck.Deck;
 import oop.if2210_tb2_sc4.game_manager.GameData;
@@ -20,17 +20,19 @@ import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 public class GameWindowController {
 
-    private
-    static PlayerUI currentPlayerPane;
+//  Ui Related Variable
+    private static PlayerUI currentPlayerPane;
     private static PlayerUI nextPlayerPane;
+
+    private static PlayerUI player1;
+    private static PlayerUI player2;
 
     @FXML
     public AnchorPane root;
@@ -66,6 +68,16 @@ public class GameWindowController {
 
     public SelectCardsController cardPicker;
 
+    //    Make GameWindowController as Singleton obj
+    public static GameWindowController instance;
+
+    public static GameWindowController getInstance(){
+        if(instance == null){
+            instance = new GameWindowController();
+        }
+        return instance;
+    }
+
     public void initialize() throws IOException {
         rootStatic = root;
         roundrobin = 0;
@@ -93,16 +105,20 @@ public class GameWindowController {
     public void initializePlayer() {
 
         // Initialize Player Data
-        Player player1 = DataManager.getInstance().getPlayer1();
-        Player player2 = DataManager.getInstance().getPlayer2();
+        Player player1Data = new Player();
+        Player player2Data = new Player();
 
         //Initialize Decks
-        initializeDeck(player1);
-        initializeDeck(player2);
+        initializeDeck(player1Data);
+        initializeDeck(player2Data);
 
-        // Initialize player panes
-        currentPlayerPane = new PlayerUI(player1);
-        nextPlayerPane = new PlayerUI(player2);
+        // Initialize Player panes
+        player1 = new PlayerUI(player1Data);
+        player2 = new PlayerUI(player2Data);
+
+        // Initialize player current and next panes
+        currentPlayerPane = player1;
+        nextPlayerPane = player2;
 
         ladang = new Tab();
         ladangMusuh = new Tab();
@@ -128,8 +144,8 @@ public class GameWindowController {
 
     public boolean TryEndGame(){
         if(roundrobin + 1 >= 20) {
-            int player1gold = DataManager.getInstance().getPlayer1().getJumlahGulden();
-            int player2gold = DataManager.getInstance().getPlayer2().getJumlahGulden();
+            int player1gold = player1.getPlayerData().getJumlahGulden();
+            int player2gold = player2.getPlayerData().getJumlahGulden();
             Label Header = (Label)EndPane.getChildren().get(0);
             Label Winner = (Label)EndPane.getChildren().get(1);
             Label EndTitle = (Label)EndPane.getChildren().get(2);
@@ -162,6 +178,7 @@ public class GameWindowController {
         }
         // Show the next player's pane
         nextPlayerPane.setVisible(true);
+        currentPlayerPane.getPlayerData().setJumlahGulden(200);
 
         // Swap the current and next player's pane
         PlayerUI temp = currentPlayerPane;
@@ -189,9 +206,13 @@ public class GameWindowController {
 
     }
 
-    public void addItem() {
-        currentPlayerPane.addItem(roundrobin, Target.SELF);
-        currentPlayerPane.addItem(roundrobin, Target.ENEMY);
+    public static PlayerUI getCurrentPlayerPane(){
+        return currentPlayerPane;
+    }
+
+    public static void addItem(String name) {
+        currentPlayerPane.addItem(name,roundrobin, Target.SELF);
+        currentPlayerPane.addItem(name,roundrobin, Target.ENEMY);
     }
 
     public void initMainTab() throws IOException {
@@ -355,8 +376,8 @@ public class GameWindowController {
 
 
     public void UpdateGame(){
-        int gold1 = DataManager.getInstance().getPlayer1().getJumlahGulden();
-        int gold2 = DataManager.getInstance().getPlayer2().getJumlahGulden();
+        int gold1 = 0;
+        int gold2 = 0;
         Player1Gold.setText("Player1: " + gold1);
         Player2Gold.setText("Player2: " + gold2);
         CurrentTurn.setText(String.valueOf(roundrobin + 1));
