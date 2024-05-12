@@ -66,9 +66,8 @@ public class Shop {
         return cardStock;
     }
 
-    public int sellCardToShop(ProductCard card) {
+    public void sellCardToShop(ProductCard card) {
         cardStock.put(card, cardStock.get(card) + 1);
-        return card.getPrice();
     }
 
     public int sellCardToShop(ProductCard card, int stock) {

@@ -121,7 +121,6 @@ public class LadangUI extends GridPane {
                 counter++;
             }
         }
-        System.out.println("Ladang Change: "+ counter);
     }
 
 }

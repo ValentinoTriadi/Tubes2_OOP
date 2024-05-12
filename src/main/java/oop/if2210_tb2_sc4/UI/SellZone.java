@@ -7,10 +7,8 @@ import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.player.Player;
 
 public class SellZone extends DropZone{
-    private ShopUI shopData;
     public SellZone(ShopUI shop) {
         super();
-        shopData = shop;
     }
 
     public void initializeSellZone(){
@@ -34,7 +32,7 @@ public class SellZone extends DropZone{
         Player currPlayer = GameWindowController.getCurrentPlayerPane().getPlayerData();
         currPlayer.addGulden(card.getPrice());
 
-        shopData.getShopData().sellCardToShop(card);
+        GameWindowController.getShop().getShopData().sellCardToShop(card);
     }
 
     //  Check if intersect with sellzone
@@ -50,7 +48,7 @@ public class SellZone extends DropZone{
                     card.setLayoutY(0);
                     card.setParent(dz);
                     ((SellZone) dz).onSell(productCard);
-                    ((SellZone) dz).shopData.findItem(checkedCard.getName()).addJumlah(1);
+                    GameWindowController.getShop().findItem(checkedCard.getName()).addJumlah(1);
                     return true;
                 }
                 return  false;

@@ -22,7 +22,7 @@ public class ShopUI {
     private Shop shopData;
     public static int itemCount;
     ScrollPane scrollPane;
-    private List<ShopItems> shopItems = new ArrayList<>();
+    private final List<ShopItems> shopItems = new ArrayList<>();
 
     public ShopUI() {
         shopGrid = new GridPane();

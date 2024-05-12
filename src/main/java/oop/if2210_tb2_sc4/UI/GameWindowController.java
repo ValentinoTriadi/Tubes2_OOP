@@ -107,7 +107,7 @@ public class GameWindowController {
     }
 
     private void gameLoop(){
-        final int TARGET_UPDATE_TIME = 1;
+        final int TARGET_UPDATE_TIME = 60;
         final long UPDATE_TIME = 1000000000L / TARGET_UPDATE_TIME;
 
         long lastUpdated = System.nanoTime();
@@ -140,7 +140,6 @@ public class GameWindowController {
     }
 
     private void update() {
-        System.out.println("TESTESTESTESTS");
         int gold1 = player1.getPlayerData().getJumlahGulden();
         int gold2 = player2.getPlayerData().getJumlahGulden();
         String player1GoldText = "Player1: " + gold1;
@@ -298,6 +297,9 @@ public class GameWindowController {
         //currentPlayerPane.addItem(name,roundrobin, Target.ENEMY);
     }
 
+    public static ShopUI getShop(){
+        return shopUI;
+    }
     public void initMainTab() throws IOException {
         // Disable tab closing and enable tab reordering
         tabPane.setTabDragPolicy(TabPane.TabDragPolicy.REORDER);
