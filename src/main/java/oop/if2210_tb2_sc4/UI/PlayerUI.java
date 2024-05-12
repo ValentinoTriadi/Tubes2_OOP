@@ -3,7 +3,7 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.*;
-import oop.if2210_tb2_sc4.card.Card;
+import oop.if2210_tb2_sc4.card.*;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.player.Player;
 
@@ -26,6 +26,10 @@ public class PlayerUI extends StackPane {
         return playerData;
     }
 
+    public DeckUI getDeckUI(){
+        return activeDeckHBox;
+    }
+
     public void initPlayerUI(String name, Tab ladang) {
 
         VBox playerUI = new VBox();
@@ -42,7 +46,7 @@ public class PlayerUI extends StackPane {
         ladang.setContent(myLadang);
 
         // Init Deck
-        activeDeckHBox = new DeckUI();
+        activeDeckHBox = new DeckUI(playerData.getDeck());
         activeDeckHBox.setAlignment(Pos.CENTER);
         activeDeckHBox.initializeActiveDeck();
         playerUI.getChildren().add(activeDeckHBox);
@@ -60,35 +64,32 @@ public class PlayerUI extends StackPane {
         myLadang.enableField();
     }
 
-    public void addCard(String name){
+    public void addCard(Card cardData){
         DropZone[] dropZones = myLadang.getLadang();
-        dropZones = Arrays.copyOf(dropZones, dropZones.length + 1);
-        dropZones[dropZones.length - 1] = GameWindowController.sellZone;
         CardUI card = new CardUI(root, dropZones);
-        Card dataCard = new Card(name);
-        card.initCard(name);
-        playerData.getDeck().addActiveCard(dataCard);
-        System.out.println("Card" + name +" spawned");
+
+        card.initCard(cardData);
+        playerData.getDeck().addActiveCard(cardData);
+        System.out.println("Card" + cardData.getName() +" spawned");
 
         activeDeckHBox.addCard(card);
     }
 
-    public void addItem(String name,int index, Target target){
+    public void addItem(Card cardData){
 
         DropZone[] dropZones = new DropZone[0];
-        if (target == Target.SELF){
-            dropZones = myLadang.getLadang();
-        } else {
-            if (index % 2 == 0){ // Player 2
-                dropZones = GameWindowController.ladang2.getLadang();
-            } else { // Player 1
-                dropZones = GameWindowController.ladang1.getLadang();
-            }
+        if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
+            dropZones = GameWindowController.getNextPlayerPane().getLadang().getLadang();
+        }else{
+            dropZones = GameWindowController.getCurrentPlayerPane().getLadang().getLadang();
         }
+        dropZones = Arrays.copyOf(dropZones, dropZones.length + 1);
+        dropZones[dropZones.length - 1] = GameWindowController.sellZone;
         ItemUI card = new ItemUI(root, dropZones);
-        card.initCard(name);
+        card.initCard(cardData);
+        playerData.getDeck().addActiveCard(cardData);
 
-        System.out.println("Item " + name +" spawned");
+        System.out.println("Item " + cardData.getName() +" spawned");
 
         activeDeckHBox.addItem(card);
     }

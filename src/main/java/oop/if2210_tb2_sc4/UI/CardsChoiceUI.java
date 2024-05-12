@@ -7,12 +7,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import oop.if2210_tb2_sc4.card.*;
 import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.util.ImageUtil;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class CardsChoiceUI {
 
@@ -22,6 +19,7 @@ public class CardsChoiceUI {
     private final AnchorPane outerPane;
     private GridPane parent = new GridPane();
     private Deck playerDeck;
+
     public CardsChoiceUI(GridPane parent, AnchorPane outerPane, Deck currentDeck) {
         this.parent = parent;
         this.playerDeck = currentDeck;
@@ -43,7 +41,7 @@ public class CardsChoiceUI {
 
     public void  ResetCards(Deck currentDeck){
         playerDeck = currentDeck;
-        if(currentDeck.isFull()){
+        if(currentDeck.isHandFull()){
             // Hand is full
             return;
         }
@@ -75,18 +73,17 @@ public class CardsChoiceUI {
         parent.getChildren().remove(cardImages[index]);
 
         Card card = availableCard[index];
-        String cardName = CardFolderType(card) + "/" + card.getName();
+
         boolean isCardProduct = isCardProduct(card);
         if(isCardProduct){
             System.out.println("Add Item");
-            System.out.println("Folder: "+ CardFolderType(card));
-            GameWindowController.addItem(cardName);
+            GameWindowController.addItem(card);
         }else{
             System.out.println("Add Card");
-            GameWindowController.addCard(cardName);
+            GameWindowController.addCard(card);
         }
 
-        if(playerDeck.isFull()){
+        if(playerDeck.isHandFull()){
             outerPane.setVisible(false);
         }else{
             System.out.println(playerDeck.getActiveCardinHandCount());
@@ -100,32 +97,15 @@ public class CardsChoiceUI {
     private boolean isCardProduct(Card card){
         return !(card instanceof AnimalCard) && !(card instanceof PlantCard);
     }
-    private  String CardFolderType(Card card){
-        if(card instanceof AnimalCard){
-            return "Hewan";
-        }else if(card instanceof PlantCard){
-            return "Tanaman";
-        }else if(card instanceof ProductCard){
-            return "Produk";
-        }else{
-            return "Item";
-        }
-    }
+
        public void randomGenerateCards() {
-
-        // Load images from the specified folders
-        String folderPath = "assets/card/";
-
         List<Card> generatedCard= playerDeck.generateCards();
+        System.out.println("Amount of deck: "+ playerDeck.getCardsInDeckCount());
         // Check if the total number of images is sufficient
-       if(cardImages.length >= generatedCard.size()){
+        if(cardImages.length >= generatedCard.size()){
            for (int i = 0; i < cardImages.length; i++) {
                Card card = generatedCard.get(i);
-
-               String folderName = CardFolderType(card);
-               System.out.println("Folder: "+ CardFolderType(card));
-               String path = folderPath + folderName + "/" + card.getName() + ".png";
-               Image image = new Image(Objects.requireNonNull(getClass().getResource(path)).toExternalForm());
+               Image image = ImageUtil.getCardImage(card);
                cardImages[i].setImage(image);
                availableCard[i] = card;
            }

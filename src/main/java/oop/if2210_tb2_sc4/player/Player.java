@@ -21,6 +21,14 @@ public class Player {
 
     public void addGulden(Integer gulden){
         jumlah_gulden += gulden;
+        System.out.println("Jumlah Gulden: "+ gulden);
+    }
+
+    public void reduceGulden(int gulden){
+        if(gulden > this.jumlah_gulden){
+            throw new IllegalArgumentException();
+        }
+        this.jumlah_gulden -= gulden;
     }
 
     public void setJumlahGulden(Integer gulden){

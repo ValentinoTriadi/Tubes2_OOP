@@ -1,17 +1,22 @@
 package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.layout.HBox;
+import oop.if2210_tb2_sc4.deck.Deck;
 
 import javax.smartcardio.Card;
 
 public class DeckUI extends HBox {
 
+    private final Deck deckData;
     private final CardHolder[] activeDeck;
 
-    public DeckUI() {
+    public DeckUI(Deck userDeck) {
+        this.deckData = userDeck;
         this.activeDeck = new CardHolder[6];
         this.setSpacing(20);
     }
+
+    public Deck getDeckData(){return deckData;}
 
     public void initializeActiveDeck() {
         // Initialize activeDeck
@@ -55,4 +60,13 @@ public class DeckUI extends HBox {
             }
         }
     }
+
+    public void UpdateDataDeck(){
+        for (int i = 0; i < 6; i++) {
+            if (activeDeck[i].getChildren().isEmpty()) {
+                deckData.removeActiveCard(i);
+            }
+        }
+    }
+
 }

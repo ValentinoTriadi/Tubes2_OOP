@@ -2,18 +2,29 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import oop.if2210_tb2_sc4.card.ProductCard;
+import oop.if2210_tb2_sc4.shop.Shop;
+import oop.if2210_tb2_sc4.util.ImageUtil;
+import oop.if2210_tb2_sc4.util.StringUtil;
 
-public class Shop {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class ShopUI {
 
     @FXML
     public AnchorPane paneGrid;
     private final GridPane shopGrid;
     public Pane SellZone;
-    public static int itemCount = 0;
+    private Shop shopData;
+    public static int itemCount;
     ScrollPane scrollPane;
+    private List<ShopItems> shopItems = new ArrayList<>();
 
-    public Shop() {
+    public ShopUI() {
         shopGrid = new GridPane();
         scrollPane = new ScrollPane(shopGrid);
 
@@ -35,17 +46,34 @@ public class Shop {
         AnchorPane.setLeftAnchor(scrollPane, 0.0);
         AnchorPane.setRightAnchor(scrollPane, 0.0);
         paneGrid.getChildren().add(scrollPane);
-        DebugShop();
     }
 
-    private void DebugShop(){
-        ShopItems item = new ShopItems("item", "image", "harga", "jumlah");
-        addShopItem(item);
-        ShopItems item2 = new ShopItems("DAVIS", "image", "GRATIS", "1");
-        addShopItem(item2);
+    public Shop getShopData(){return shopData;};
+
+
+    public void initializeShopData() {
+        // Initialize the shop data
+        shopData = new Shop();
+
+        // Add cards to the shop UI based on the shop's card stock
+        for (Map.Entry<ProductCard, Integer> entry : shopData.getCardStock().entrySet()) {
+            ProductCard card = entry.getKey();
+            int stock = entry.getValue();
+            Image cardImage = ImageUtil.getCardImage(card);
+            ShopItems item = new ShopItems(StringUtil.toTitleCase(card.getName()), cardImage, String.valueOf(card.getPrice()), String.valueOf(stock));
+            addShopItem(item);
+            shopItems.add(item);
+        }
     }
 
-
+    public ShopItems findItem(String productName) {
+        for (ShopItems item : shopItems) {
+            if (item.getProductName().equalsIgnoreCase(productName)) {
+                return item;
+            }
+        }
+        return null;
+    }
 
     public void addShopItem(ShopItems item) {
 
@@ -72,7 +100,7 @@ public class Shop {
     }
 
     public void initializeSellZone(){
-        GameWindowController.sellZone = new SellZone();
+        GameWindowController.sellZone = new SellZone(this);
         // Sellzone fill parent
         GameWindowController.sellZone.setMinSize(100, 100);
         // Set style
@@ -80,4 +108,5 @@ public class Shop {
 
         SellZone.getChildren().add(GameWindowController.sellZone);
     }
+
 }

@@ -21,7 +21,8 @@ public class SelectCardsController {
     }
 
     public void InvokePanel(){
-        selectedGrids.ResetCards(DataManager.getCurrentPlayer().getDeck());
+        Deck deck = GameWindowController.getCurrentPlayerPane().getPlayerData().getDeck();
+        selectedGrids.ResetCards(deck);
     }
 
     public void ShuffleCards(){

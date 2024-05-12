@@ -22,7 +22,7 @@ public class DataManager {
         DataManager.getInstance().player1 = new Player();
         DataManager.getInstance().player2 = new Player();
 
-        GameState.setShop(new Shop());
+        //GameState.setShop(new Shop());
     }
 
     public static Player getCurrentPlayer(){

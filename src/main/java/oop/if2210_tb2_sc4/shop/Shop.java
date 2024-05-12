@@ -6,6 +6,7 @@ import java.util.Map;
 
 import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.game_manager.GameData;
+import oop.if2210_tb2_sc4.util.StringUtil;
 
 public class Shop {
     Map<ProductCard, Integer> cardStock;
@@ -14,15 +15,15 @@ public class Shop {
         this.cardStock = new HashMap<>();
 
         // Initialize card stock to 0
-        cardStock.put((ProductCard) GameData.getCard("Sirip Hiu"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Susu"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Daging Domba"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Daging Kuda"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Telur"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Daging Beruang"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Jagung"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Labu"), 0);
-        cardStock.put((ProductCard) GameData.getCard("Stroberi"), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Sirip Hiu")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Susu")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Daging Domba")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Daging Kuda")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Telur")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Daging Beruang")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Jagung")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Labu")), 0);
+        cardStock.put((ProductCard) GameData.getCard(StringUtil.toUpperSnakeCase("Stroberi")), 0);
     }
 
     public Shop(Map<ProductCard, Integer> cardStock) {
@@ -50,7 +51,6 @@ public class Shop {
         if (cardStock.get(card) == 0) {
             throw new IllegalArgumentException("Card stock is empty");
         }
-
         cardStock.put(card, cardStock.get(card) - 1);
     }
 

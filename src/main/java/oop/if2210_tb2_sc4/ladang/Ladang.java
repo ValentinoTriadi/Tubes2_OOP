@@ -100,4 +100,9 @@ public class Ladang {
         }
         return cardList;
     }
+    public void removeCard(String location) {
+        int row = location.charAt(0) - 'A';
+        int column = Integer.parseInt(location.substring(1)) - 1;
+        ladang[row][column] = null;
+    }
 }

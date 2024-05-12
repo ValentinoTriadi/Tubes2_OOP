@@ -18,7 +18,7 @@ public class Deck {
     public Deck() {
         activeCards = new Card[HAND_SIZE];
         currentDeck = new ArrayList<>();
-        cardsInDeck = DECK_SIZE;
+        cardsInDeck = 0;
     }
 
     public Card[] getActiveCards() {
@@ -39,11 +39,7 @@ public class Deck {
         for (int i = 0; i < GENERATED_CARD_COUNT; i++) {
             int randomIndex = (int) (Math.random() * currentDeck.size());
             cards.add(currentDeck.get(randomIndex));
-            currentDeck.remove(randomIndex);
-
         }
-
-        cardsInDeck -= GENERATED_CARD_COUNT;
         return cards;
     }
 
@@ -70,6 +66,7 @@ public class Deck {
         activeCards[index] = card;
     }
 
+
     public void setActiveCard(String slot, Card card) {
         int index = slot.charAt(0) - 'A';
 
@@ -81,6 +78,9 @@ public class Deck {
     }
 
     public void removeActiveCard(int index) {
+        if(activeCards[index] == null){
+            return;
+        }
         activeCards[index] = null;
         cardsInHand--;
     }
@@ -111,9 +111,14 @@ public class Deck {
         this.cardsInHand = cardsInHand;
     }
 
-    public boolean isFull(){
-        return this.cardsInHand == HAND_SIZE;
+    public int getMaxCards(){
+        return DECK_SIZE;
     }
 
-
+    public boolean isHandFull(){
+        return this.cardsInHand == HAND_SIZE;
+    }
+    public boolean isDeckFull(){
+        return this.cardsInDeck == DECK_SIZE;
+    }
 }

@@ -1,9 +1,12 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +16,7 @@ import javafx.scene.layout.*;
 import javafx.geometry.Pos;
 import javafx.scene.text.Font;
 
+import javafx.util.Duration;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.deck.Deck;
 import oop.if2210_tb2_sc4.game_manager.GameData;
@@ -34,6 +38,8 @@ public class GameWindowController {
     private static PlayerUI player1;
     private static PlayerUI player2;
 
+    private static ShopUI shopUI;
+
     @FXML
     public AnchorPane root;
     public StackPane rootPane;
@@ -53,6 +59,7 @@ public class GameWindowController {
     public AnchorPane EndScreen;
     public Pane EndPane;
     public StackPane RootStack;
+    public Label AvailableDeck;
 
     private Tab ladang;
     private Tab ladangMusuh;
@@ -65,11 +72,14 @@ public class GameWindowController {
     private static int roundrobin = 0;
     public static LadangUI ladang1;
     public static LadangUI ladang2;
+    private  boolean running;
 
-    public SelectCardsController cardPicker;
+    private SelectCardsController cardPicker;
+
+    private Thread gameThread;
 
     //    Make GameWindowController as Singleton obj
-    public static GameWindowController instance;
+    private static GameWindowController instance;
 
     public static GameWindowController getInstance(){
         if(instance == null){
@@ -83,22 +93,90 @@ public class GameWindowController {
         roundrobin = 0;
         CurrentTurn.setText(String.valueOf(roundrobin + 1));
         initializePlayer();
-
         initMainTab();
         startGame();
         initCardPicker();
         cardPicker.ShuffleCards();
+        initializeThread();
+    }
+
+    private void initializeThread(){
+        gameThread = new Thread(this::gameLoop); // Create a new thread with the gameLoop as the target
+        running = true; // Set the running flag to true to start the game loop
+        gameThread.start(); // Start the thread to execute the game loop
+    }
+
+    private void gameLoop(){
+        final int TARGET_UPDATE_TIME = 1;
+        final long UPDATE_TIME = 1000000000L / TARGET_UPDATE_TIME;
+
+        long lastUpdated = System.nanoTime();
+        long elapsedTime = 0;
+
+        while (running) {
+            long currentTimeNs = System.nanoTime();
+            long passedTimeNs = currentTimeNs - lastUpdated;
+            lastUpdated = currentTimeNs;
+
+            elapsedTime += passedTimeNs;
+
+            // Update the game if it's time for an update
+            while (elapsedTime >= UPDATE_TIME) {
+                update(); // Update game logic
+                elapsedTime -= UPDATE_TIME;
+            }
+
+            // Add a sleep to control the update rate
+            long sleepTimeMs = (UPDATE_TIME - elapsedTime) / 1_000_000L; // Convert nanoseconds to milliseconds
+            if (sleepTimeMs > 0) {
+                try {
+                    Thread.sleep(sleepTimeMs);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    private void update() {
+        System.out.println("TESTESTESTESTS");
+        int gold1 = player1.getPlayerData().getJumlahGulden();
+        int gold2 = player2.getPlayerData().getJumlahGulden();
+        String player1GoldText = "Player1: " + gold1;
+        String player2GoldText = "Player2: " + gold2;
+        int maxDeck = currentPlayerPane.getPlayerData().getDeck().getMaxCards();
+        int usedCard = currentPlayerPane.getPlayerData().getDeck().getCardsInDeckCount();
+        String availableDeckText = usedCard + "/" + maxDeck;
+        String currentTurnText = String.valueOf(roundrobin + 1);
+
+        currentPlayerPane.getDeckUI().UpdateDataDeck();
+        currentPlayerPane.getLadang().UpdateLadangData();
+        // Update UI components on JavaFX Application Thread
+        Platform.runLater(() -> {
+            Player1Gold.setText(player1GoldText);
+            Player2Gold.setText(player2GoldText);
+            AvailableDeck.setText(availableDeckText);
+            CurrentTurn.setText(currentTurnText);
+        });
     }
 
     private void startGame(){
         nextPlayerPane.setVisible(false);
     }
 
+//    private void initialize
+
     private void initializeDeck(Player player){
-        GameData.initCards();
         List<Card> allCards = GameData.getAllCards();
         Deck newDeck = new Deck();
         newDeck.addCardToDeck(allCards);
+        for(Card card : allCards){
+            if(newDeck.isDeckFull()){
+                break;
+            }
+            newDeck.addCardToDeck(card);
+        }
         player.setDeck(newDeck);
     }
 
@@ -108,6 +186,7 @@ public class GameWindowController {
         Player player1Data = new Player();
         Player player2Data = new Player();
 
+        GameData.initCards();
         //Initialize Decks
         initializeDeck(player1Data);
         initializeDeck(player2Data);
@@ -119,7 +198,6 @@ public class GameWindowController {
         // Initialize player current and next panes
         currentPlayerPane = player1;
         nextPlayerPane = player2;
-
         ladang = new Tab();
         ladangMusuh = new Tab();
 
@@ -128,8 +206,6 @@ public class GameWindowController {
 
         ladang1 = currentPlayerPane.getLadang();
         ladang2 = nextPlayerPane.getLadang();
-
-        UpdateGame();
 
         // Set properties
         currentPlayerPane.setAlignment(Pos.CENTER);
@@ -142,8 +218,13 @@ public class GameWindowController {
         rootPane.getChildren().addAll(currentPlayerPane, nextPlayerPane);
     }
 
+    private void StopThread(){
+        running = false;
+    }
+
     public boolean TryEndGame(){
         if(roundrobin + 1 >= 20) {
+            running = false;
             int player1gold = player1.getPlayerData().getJumlahGulden();
             int player2gold = player2.getPlayerData().getJumlahGulden();
             Label Header = (Label)EndPane.getChildren().get(0);
@@ -178,17 +259,17 @@ public class GameWindowController {
         }
         // Show the next player's pane
         nextPlayerPane.setVisible(true);
-        currentPlayerPane.getPlayerData().setJumlahGulden(200);
 
         // Swap the current and next player's pane
         PlayerUI temp = currentPlayerPane;
         currentPlayerPane = nextPlayerPane;
+
         nextPlayerPane = temp;
+
         GameState.setCurrentPlayer((roundrobin) % 2);
 
         roundrobin++;
         cardPicker.InvokePanel();
-        UpdateGame();
         resetFieldLock();
         // TODO: MAKE THE SWITCHING ANIMATION
         openLadang();
@@ -201,18 +282,20 @@ public class GameWindowController {
         nextPlayerPane.enableField();
     }
 
-    public static void addCard(String name) {
-        currentPlayerPane.addCard(name);
-
+    public static void addCard(Card card) {
+        currentPlayerPane.addCard(card);
     }
 
     public static PlayerUI getCurrentPlayerPane(){
         return currentPlayerPane;
     }
+    public static PlayerUI getNextPlayerPane(){
+        return nextPlayerPane;
+    }
 
-    public static void addItem(String name) {
-        currentPlayerPane.addItem(name,roundrobin, Target.SELF);
-        currentPlayerPane.addItem(name,roundrobin, Target.ENEMY);
+    public static void addItem(Card card) {
+        currentPlayerPane.addItem(card);
+        //currentPlayerPane.addItem(name,roundrobin, Target.ENEMY);
     }
 
     public void initMainTab() throws IOException {
@@ -262,14 +345,15 @@ public class GameWindowController {
 
     private void initShop() throws IOException {
         // Init Shop
-
-        AnchorPane shopPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Shop.fxml")));
+        FXMLLoader loaderShop = new FXMLLoader(Objects.requireNonNull(getClass().getResource("Shop.fxml")));
+        AnchorPane shopPane = loaderShop.load();
         StackPane temp_shop = new StackPane();
         temp_shop.setAlignment(Pos.CENTER);
         temp_shop.getChildren().add(shopPane);
         temp_shop.setPadding(new Insets(10, 10, 10, 10));
         shop.setContent(temp_shop);
-
+        shopUI = loaderShop.getController();
+        shopUI.initializeShopData();
     }
 
     private void initSaveLoad() throws IOException {
@@ -309,6 +393,7 @@ public class GameWindowController {
         Tab tabPane = new Tab();
         tabPane.setClosable(false);
         tabPane.setContent(new Pane());
+
         return tabPane;
     }
 
@@ -372,15 +457,6 @@ public class GameWindowController {
     public void openAddPlugin(){
         currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(addPlugin);
-    }
-
-
-    public void UpdateGame(){
-        int gold1 = 0;
-        int gold2 = 0;
-        Player1Gold.setText("Player1: " + gold1);
-        Player2Gold.setText("Player2: " + gold2);
-        CurrentTurn.setText(String.valueOf(roundrobin + 1));
     }
 
     public void StartNewGame(ActionEvent actionEvent) {
