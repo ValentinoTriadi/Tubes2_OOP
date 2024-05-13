@@ -1,0 +1,78 @@
+{
+  "GameState": {
+    "CurrentPlayer": 1,
+    "TotalItems": 5,
+    "Items": [
+      {
+        "Name": "SIRIP_HIU",
+        "Count": 5
+      },
+      {
+        "Name": "SUSU",
+        "Count": 2
+      },
+      {
+        "Name": "DAGING_DOMBA",
+        "Count": 3
+      },
+      {
+        "Name": "DAGING_BERUANG",
+        "Count": 1
+      },
+      {
+        "Name": "DAGING_KUDA",
+        "Count": 10
+      }
+    ]
+  },
+  "Player1": {
+    "Gulden": 500,
+    "TotalDeck": 39,
+    "TotalActive": 1,
+    "ActiveDeck": [
+      {
+        "Name": "BERUANG",
+        "Location": "A01"
+      }
+    ],
+    "TotalLadang": 1,
+    "CardLadang": [
+      {
+        "Name": "DOMBA",
+        "Location": "A01",
+        "AgeorWeight": 5,
+        "TotalEffect": 3,
+        "Effects": [
+          "ACCELERATE",
+          "DELAY",
+          "PROTECT"
+        ]
+      }
+    ]
+  },
+  "Player2": {
+    "Gulden": 300,
+    "TotalDeck": 38,
+    "TotalActive": 2,
+    "ActiveDeck": [
+      {
+        "Name": "BERUANG",
+        "Location": "A01"
+      },
+      {
+        "Name": "BERUANG",
+        "Location": "B01"
+      }
+    ],
+    "TotalLadang": 1,
+    "CardLadang": [
+      {
+        "Name": "AYAM",
+        "Location": "B02",
+        "AgeorWeight": 0,
+        "TotalEffect": 0,
+        "Effects": []
+      }
+    ]
+  }
+}

@@ -13,29 +13,23 @@ import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 
 public class SaveTXT implements Save {
-    private final String folderName;
-    private final Player player1;
-    private final Player player2;
+    private String folderName;
 
-    public SaveTXT(String folderName, Player player1, Player player2){
-        this.folderName = folderName;
-        this.player1 = player1;
-        this.player2 = player2;
+    public SaveTXT(){
     }
 
     @Override
-    public void save() {
-        saveGameState();
-        savePlayer(1);
-        savePlayer(2);
+    public void save(String folderName, Player player1, Player player2) {
+        this.folderName = folderName;
+        saveGameState(folderName);
+        savePlayer(folderName, player1, 1);
+        savePlayer(folderName, player2, 2);
     }
 
-    private void savePlayer(int no_player){
-        // Save player {no_player}
+    private void savePlayer(String folderName, Player player, int no_player){
         Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/player" + no_player + ".txt");
         File file = handleNewFile(path);
 
-        Player player = (no_player == 1) ? player1 : player2;
         try {
             FileWriter writer = new FileWriter(file);
 
@@ -91,7 +85,7 @@ public class SaveTXT implements Save {
         }
     }
 
-    private void saveGameState(){
+    private void saveGameState(String folderName){
         Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/gamestate.txt");
         File file = handleNewFile(path);
 

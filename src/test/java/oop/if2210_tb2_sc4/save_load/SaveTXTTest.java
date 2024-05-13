@@ -17,8 +17,8 @@ class SaveTXTTest {
         Player p1 = load.loadPlayer(1);
         Player p2 = load.loadPlayer(2);
 
-        SaveTXT save = new SaveTXT("SAVETEST", p1, p2);
-        save.save();
+        SaveTXT save = new SaveTXT();
+        save.save("SAVETEST", p1, p2);
 
         try {
             Scanner sc1 = new Scanner(new File("src/main/resources/oop/if2210_tb2_sc4/save_load/default/gamestate.txt"));
