@@ -35,12 +35,8 @@ public class CardUI extends DraggablePane implements UICard {
         return cardData;
     }
 
-    private void setCard(Card card) {
+    public void setCard(Card card){
         this.cardData = card;
-    }
-
-    public void initCard(Card card){
-        setCard(card);
         setImage();
     }
 
@@ -62,6 +58,8 @@ public class CardUI extends DraggablePane implements UICard {
                 setLayoutY(0);
                 droppedOnDropZone = true;
                 setParent(dz);
+                //Update Realtime LadangUI data
+                GameWindowController.getCurrentPlayerPane().getLadang().UpdateLadangData();
                 break;
             }
         }

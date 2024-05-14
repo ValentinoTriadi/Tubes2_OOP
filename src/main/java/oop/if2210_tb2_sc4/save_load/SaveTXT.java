@@ -46,10 +46,15 @@ public class SaveTXT implements Save {
             writer.write(player.getJumlahDeckActive() + "\n"); // alternative use player.getActiveDeck().size()
             
             Card[] active_deck = player.getActiveDeck();
+
             for (int i = 0; i < player.getJumlahDeckActive(); i++) {
                 Card card = active_deck[i];
                 try {
+                    if(card == null){
+                        continue;
+                    }
                     writer.write((char) (i+'A') + "01 " + card.getName() + "\n");
+
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -82,6 +87,8 @@ public class SaveTXT implements Save {
                         }
                     }
                 );
+
+                writer.write("\n");
 
             }
 

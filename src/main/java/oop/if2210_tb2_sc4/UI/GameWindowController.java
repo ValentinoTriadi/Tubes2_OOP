@@ -73,8 +73,6 @@ public class GameWindowController {
 
     private SelectCardsController cardPicker;
 
-
-
     public void initialize() throws IOException {
         GameState instance = GameState.getInstance();
         rootStatic = root;
@@ -97,15 +95,7 @@ public class GameWindowController {
 //    private void initialize
 
     private void initializeDeck(Player player){
-        List<Card> allCards = GameData.getAllCards();
-        Deck newDeck = new Deck();
-        newDeck.addCardToDeck(allCards);
-        for(Card card : allCards){
-            if(newDeck.isDeckFull()){
-                break;
-            }
-            newDeck.addCardToDeck(card);
-        }
+        Deck newDeck = player.getDeck().initializeDeck(new Deck());
         player.setDeck(newDeck);
     }
 

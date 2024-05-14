@@ -5,6 +5,7 @@ import java.util.List;
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
+import oop.if2210_tb2_sc4.game_manager.GameData;
 
 public class Deck {
     public static final int DECK_SIZE = 40;
@@ -23,6 +24,7 @@ public class Deck {
         cardsInDeck = 0;
     }
 
+    //Deck in terms of hands
     public Card[] getActiveCards() {
         return activeCards;
     }
@@ -46,6 +48,18 @@ public class Deck {
             cards.add(currentDeck.get(randomIndex));
         }
         return cards;
+    }
+
+    public Deck initializeDeck(Deck deck){
+        List<Card> allCards = GameData.getAllCards();
+        deck.addCardToDeck(allCards);
+        for(Card card : allCards){
+            if(deck.isDeckFull()){
+                break;
+            }
+            deck.addCardToDeck(card);
+        }
+        return deck;
     }
 
     public void addCardToDeck(Card card) {
@@ -138,6 +152,6 @@ public class Deck {
         return this.cardsInHand == HAND_SIZE;
     }
     public boolean isDeckFull(){
-        return this.cardsInDeck == DECK_SIZE;
+        return this.currentDeck.size() == DECK_SIZE;
     }
 }

@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import oop.if2210_tb2_sc4.Exception.GameException;
+import oop.if2210_tb2_sc4.Exception.InvalidInputException;
 
 import java.io.File;
 
@@ -44,8 +46,17 @@ public class SaveLoad {
     }
 
 
-    public void OnSaveLoad() {
-        // Just A Button Holder so the other class can access it
+    protected void OnSaveLoad() throws GameException{
+        handleInput();
     }
 
+    protected void handleInput() throws GameException {
+        if (choice.getValue() == null) {
+            throw new InvalidInputException("Please Select the extension of the File");
+        }
+
+        if (getFolderName().equalsIgnoreCase("")) {
+            throw new InvalidInputException("Please Input a folder");
+        }
+    }
 }

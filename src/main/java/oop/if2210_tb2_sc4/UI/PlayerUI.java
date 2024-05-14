@@ -29,10 +29,13 @@ public class PlayerUI extends StackPane {
 
     public void setPlayerData(Player playerData){
         this.playerData = playerData;
+        this.getLadang().setLadangData(playerData.getLadang());
+        this.getDeckUI().setDeckData(playerData.getDeck());
     }
     public DeckUI getDeckUI(){
         return activeDeckHBox;
     }
+
 
     public void initPlayerUI(String name, Tab ladang) {
 
@@ -70,10 +73,9 @@ public class PlayerUI extends StackPane {
 
     public void addCard(Card cardData) throws FullActiveHandsException {
 
-        DropZone[] dropZones = myLadang.getLadang();
+        DropZone[] dropZones = DropZoneAlocation(cardData);
         CardUI card = new CardUI(root, dropZones);
-
-        card.initCard(cardData);
+        card.setCard(cardData);
         playerData.getDeck().addActiveCard(cardData);
         System.out.println("Card" + cardData.getName() +" spawned");
 
@@ -82,24 +84,26 @@ public class PlayerUI extends StackPane {
 
     public void addItem(Card cardData) throws FullActiveHandsException {
 
-        DropZone[] dropZones = new DropZone[0];
-        if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
-            dropZones = GameWindowController.getNextPlayerPane().getLadang().getLadang();
-        }else{
-            dropZones = GameWindowController.getCurrentPlayerPane().getLadang().getLadang();
-        }
-        dropZones = Arrays.copyOf(dropZones, dropZones.length + 1);
-        dropZones[dropZones.length - 1] = GameWindowController.sellZone;
+        DropZone[] dropZones = DropZoneAlocation(cardData);
         ItemUI card = new ItemUI(root, dropZones);
-        card.initCard(cardData);
+        card.setCard(cardData);
         playerData.getDeck().addActiveCard(cardData);
-
-        System.out.println("Item " + cardData.getName() +" spawned");
-
-        activeDeckHBox.addItem(card);
+        activeDeckHBox.addCard(card);
     }
 
-    public void UpdateUIPlayer(){
-
+    public DropZone[] DropZoneAlocation(Card cardData){
+        DropZone[] dropZones;
+        if(cardData instanceof FarmResourceCard){ // Add Animal and Plants
+            dropZones = myLadang.getLadang();
+        }else{ // Add Product and Power Card
+            if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
+                dropZones = GameWindowController.getCurrentPlayerPane().getLadang().getLadang();
+            }else{
+                dropZones = GameWindowController.getNextPlayerPane().getLadang().getLadang();
+            }
+            dropZones = Arrays.copyOf(dropZones, dropZones.length + 1);
+            dropZones[dropZones.length - 1] = GameWindowController.sellZone;
+        }
+        return dropZones;
     }
 }

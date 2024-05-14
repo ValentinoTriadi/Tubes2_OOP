@@ -100,7 +100,7 @@ public class UpdateThread implements Runnable {
 
             updatePlayerGold(player1, player2);
             updateAvailableDeck(GameWindowController.getCurrentPlayerPane().getPlayerData());
-            updatePlayerDeck(GameWindowController.getCurrentPlayerPane().getDeckUI());
+            //updatePlayerDeck(GameWindowController.getCurrentPlayerPane().getDeckUI());
             updateLadang(GameWindowController.getCurrentPlayerPane().getLadang());
             updateCurrentTurn(currentTurn);
         }catch (Exception e){
@@ -132,7 +132,7 @@ public class UpdateThread implements Runnable {
 
     private void updateAvailableDeck(Player currentPlayer) {
         int maxDeck = currentPlayer.getDeck().getCurrentDeck().size();
-        int usedCard = currentPlayer.getJumlahDeck();
+        int usedCard = maxDeck - currentPlayer.getJumlahDeck();
         String availableDeckText = usedCard + "/" + maxDeck;
 
         Platform.runLater(() -> {

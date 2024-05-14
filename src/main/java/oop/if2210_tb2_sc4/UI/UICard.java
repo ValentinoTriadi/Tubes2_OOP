@@ -4,6 +4,5 @@ import javafx.scene.input.MouseEvent;
 import org.jetbrains.annotations.NotNull;
 
 public interface UICard {
-    String name = "";
-    public void OnClick(@NotNull MouseEvent e);
+
 }

@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import javafx.scene.Node;
@@ -91,17 +92,38 @@ public class LadangUI extends GridPane {
                 Node child = dropZone.getChildren().isEmpty() ? null : dropZone.getChildren().get(0);
                 if (child instanceof CardUI cardUI) {
                     FarmResourceCard cardData = (FarmResourceCard) cardUI.getCardData();
-                    ladangData.setCard(String.valueOf(columnIndex + rowIndex * 5), cardData);
+                    ladangData.setCard(rowIndex, columnIndex, cardData);
                 } else {
                     // If no card is present, you may want to handle this case according to your application's logic
-                    ladangData.setCard(String.valueOf(columnIndex + rowIndex * 5), null);
+                    ladangData.setCard(rowIndex,columnIndex, null);
                 }
             }
         }
     }
 
     public void UpdateLadangUI(){
+        for (DropZone dropZone : ladang) {
+            // Get the column and row index of the DropZone in the GridPane
+            Integer columnIndex = GridPane.getColumnIndex(dropZone);
+            Integer rowIndex = GridPane.getRowIndex(dropZone);
 
+            if (columnIndex != null && rowIndex != null) {
+                FarmResourceCard card = ladangData.getCard(rowIndex, columnIndex);
+                if(card == null){
+                    if(!dropZone.getChildren().isEmpty()){
+                        dropZone.getChildren().remove(0);
+                    }
+                }else{
+                    if(!dropZone.getChildren().isEmpty()){
+                        dropZone.getChildren().remove(0);
+                    }
+                    CardUI cardUI = new CardUI(dropZone, ladang);
+                    cardUI.setParent(dropZone);
+                    cardUI.setCard(card);
+                    cardUI.resetPosition();
+                }
+            }
+        }
     }
 
 }

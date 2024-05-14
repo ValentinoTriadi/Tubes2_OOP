@@ -6,13 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
+import oop.if2210_tb2_sc4.Exception.GameException;
 import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
 import oop.if2210_tb2_sc4.save_load.SaveTXT;
 
 import java.io.IOException;
 
-public class SaveUI{
+public class SaveUI {
     private SaveLoad controller;
     private Save saver;
     private AnchorPane scene;
@@ -35,6 +36,7 @@ public class SaveUI{
     }
 
     private void handleTextInputChange(String choice){
+
         String path = controller.getFolderName();
 
         switch (choice.toLowerCase()) {
@@ -58,17 +60,20 @@ public class SaveUI{
     public SaveLoad getController(){return  controller; }
 
     public void OnSaveLoad(MouseEvent mouseEvent) {
-        // Get the text from the ComboBox
-        String newText = controller.choice.getValue();
+        try{
+            controller.OnSaveLoad();
 
-        // Do something with the new text, such as invoking a function
-        handleTextInputChange(newText);
-        if(saver == null){
-            MessageBox.showErrorMessage("Non Exist Choice", "Tolong pilih salah satu jenis file yang akan disave");
-            return;
+            String newText = controller.choice.getValue();
+            handleTextInputChange(newText);
+            if(saver == null){
+                MessageBox.showErrorMessage("Non Exist Choice", "Tolong pilih salah satu jenis file yang akan disave");
+                return;
+            }
+
+            GameWindowController gamewindow;
+            saver.save();
+        }catch (GameException e){
+            e.ShowErrorPanel();
         }
-        controller.OnSaveLoad();
-        GameWindowController gamewindow;
-        saver.save();
     }
 }

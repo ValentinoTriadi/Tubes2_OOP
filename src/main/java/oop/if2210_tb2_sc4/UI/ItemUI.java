@@ -10,7 +10,7 @@ import oop.if2210_tb2_sc4.util.ImageUtil;
 
 import java.util.Objects;
 
-public class ItemUI extends DraggablePane {
+public class ItemUI extends DraggablePane implements UICard {
 
     private Card cardItem;
     public ItemUI(Pane parent, DropZone[] dropZone) {
@@ -30,18 +30,16 @@ public class ItemUI extends DraggablePane {
         getChildren().add(imageView);
     }
 
-    private void setName(Card card) {
+    public void setCard(Card card) {
         this.cardItem = card;
+        setImage();
     }
 
     public Card getCard(){
         return this.cardItem;
     }
 
-    public void initCard(Card card){
-        setName(card);
-        setImage();
-    }
+
 
     @Override
     public void OnRelease(MouseEvent e){
