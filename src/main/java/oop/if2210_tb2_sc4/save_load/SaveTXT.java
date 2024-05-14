@@ -98,10 +98,11 @@ public class SaveTXT implements Save {
         try {
             FileWriter writer = new FileWriter(file);
 
-            writer.write(GameState.getCurrentPlayer() + "\n");
-            writer.write(GameState.getCountItems().toString());
+            GameState instance = GameState.getInstance();
+            writer.write(instance.getCurrentPlayer() + "\n");
+            writer.write(instance.getCountItems().toString());
 
-            Map<ProductCard, Integer> items = GameState.getShopItems();
+            Map<ProductCard, Integer> items = instance.getShopItems();
             items.forEach((key, value) -> {
                 try {
                     writer.write("\n" + key.getName() + " " + value );

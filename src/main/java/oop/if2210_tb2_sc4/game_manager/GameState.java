@@ -6,31 +6,45 @@ import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.shop.Shop;
 
 public class GameState {
-    private static int current_player = 1;
-    private static int count_items = 0;
-    private static Shop shop = new Shop();
 
-    public static int getCurrentPlayer(){
-        return current_player;
+    private static GameState instance;
+
+    public static GameState getInstance(){
+        if(instance == null){
+            instance = new GameState();
+        }
+        return instance;
     }
 
-    public static void setCurrentPlayer(int player){
-        current_player = player;
+    private int current_turn = 1;
+    private Shop shop = new Shop();
+
+    public int getCurrentPlayer(){
+        return instance.current_turn;
     }
 
-    public static Integer getCountItems(){
-        return count_items;
+    public void setCurrentPlayer(int player){
+        instance.current_turn = player;
     }
 
-    public static void setCountItems(int count){
-        count_items = count;
+    public Shop getShop(){
+        return instance.shop;
+    }
+    public Integer getCountItems(){
+        int itemCount= 0;
+        for(Map.Entry<ProductCard, Integer> entry : instance.shop.getCardStock().entrySet()){
+            itemCount += entry.getValue();
+        }
+        return itemCount;
     }
 
-    public static Map<ProductCard, Integer> getShopItems(){
-        return shop.getCardStock();
+
+    public Map<ProductCard, Integer>
+    getShopItems(){
+        return instance.shop.getCardStock();
     }
 
-    public static void setShop(Shop shop){
-        GameState.shop = new Shop(shop);
+    public void setShop(Shop shop){
+        instance.shop = new Shop(shop);
     }
 }

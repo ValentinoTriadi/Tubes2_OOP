@@ -4,6 +4,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.ProductCard;
+import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 
 public class SellZone extends DropZone{
@@ -32,7 +33,7 @@ public class SellZone extends DropZone{
         Player currPlayer = GameWindowController.getCurrentPlayerPane().getPlayerData();
         currPlayer.addGulden(card.getPrice());
 
-        GameWindowController.getShop().getShopData().sellCardToShop(card);
+        GameState.getInstance().getShop().sellCardToShop(card);
     }
 
     //  Check if intersect with sellzone

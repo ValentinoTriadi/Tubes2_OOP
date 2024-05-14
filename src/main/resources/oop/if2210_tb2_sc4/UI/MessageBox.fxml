@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.MessageBox">
+   <children>
+      <Pane layoutX="169.0" layoutY="106.0" prefHeight="418.0" prefWidth="551.0" style="-fx-background-color: #F2EFE9; -fx-border-color: #564E58; -fx-border-width: 5;">
+         <children>
+            <Pane prefHeight="59.0" prefWidth="551.0" style="-fx-background-color: #564E58;">
+               <children>
+                  <Label fx:id="ErrorTitle" layoutX="14.0" layoutY="4.0" prefHeight="47.0" prefWidth="523.0" text="ERROR" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="509.0" onMouseClicked="#CloseMessageBox" prefHeight="40.0" prefWidth="37.0" text="X" textFill="#ff344c">
+                     <font>
+                        <Font name="Fira Code Bold" size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <TextArea fx:id="ErrorMessage" layoutY="46.0" prefHeight="374.0" prefWidth="551.0" promptText="Error Message" style="-fx-background-color: #F2EFE9; -fx-border-color: #564E58; -fx-border-width: 10;" text="Error Message">
+               <font>
+                  <Font size="14.0" />
+               </font></TextArea>
+
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

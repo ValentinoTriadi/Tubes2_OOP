@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.*;
+import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.*;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.player.Player;
@@ -14,7 +15,7 @@ public class PlayerUI extends StackPane {
     private final Pane root;
     private DeckUI activeDeckHBox;
     private LadangUI myLadang;
-    private final Player playerData;
+    private Player playerData;
 
     public PlayerUI(Player playerData) {
         super();
@@ -26,6 +27,9 @@ public class PlayerUI extends StackPane {
         return playerData;
     }
 
+    public void setPlayerData(Player playerData){
+        this.playerData = playerData;
+    }
     public DeckUI getDeckUI(){
         return activeDeckHBox;
     }
@@ -64,7 +68,8 @@ public class PlayerUI extends StackPane {
         myLadang.enableField();
     }
 
-    public void addCard(Card cardData){
+    public void addCard(Card cardData) throws FullActiveHandsException {
+
         DropZone[] dropZones = myLadang.getLadang();
         CardUI card = new CardUI(root, dropZones);
 
@@ -75,7 +80,7 @@ public class PlayerUI extends StackPane {
         activeDeckHBox.addCard(card);
     }
 
-    public void addItem(Card cardData){
+    public void addItem(Card cardData) throws FullActiveHandsException {
 
         DropZone[] dropZones = new DropZone[0];
         if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){

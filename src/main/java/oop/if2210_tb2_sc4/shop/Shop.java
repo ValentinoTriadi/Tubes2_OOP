@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import oop.if2210_tb2_sc4.Exception.ZeroItemStockException;
+import oop.if2210_tb2_sc4.UI.GameWindowController;
 import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.game_manager.GameData;
 import oop.if2210_tb2_sc4.util.StringUtil;
@@ -67,7 +69,17 @@ public class Shop {
     }
 
     public void sellCardToShop(ProductCard card) {
-        cardStock.put(card, cardStock.get(card) + 1);
+        if(cardStock.containsKey(card)){
+            cardStock.put(card, cardStock.get(card) + 1);
+        }else{
+            for (Map.Entry<ProductCard, Integer> entry : cardStock.entrySet()) {
+                ProductCard key = entry.getKey();
+                if (key.getName().equals(card.getName())) {
+                    cardStock.put(key, cardStock.get(key) + 1);
+                    return;
+                }
+            }
+        }
     }
 
     public int sellCardToShop(ProductCard card, int stock) {
@@ -75,9 +87,9 @@ public class Shop {
         return card.getPrice() * stock;
     }
 
-    public ProductCard buyCardFromShop(ProductCard card) {
+    public ProductCard buyCardFromShop(ProductCard card) throws ZeroItemStockException {
         if (cardStock.get(card) == 0) {
-            throw new IllegalArgumentException("Card stock is empty");
+            throw new ZeroItemStockException();
         }
 
         cardStock.put(card, cardStock.get(card) - 1);

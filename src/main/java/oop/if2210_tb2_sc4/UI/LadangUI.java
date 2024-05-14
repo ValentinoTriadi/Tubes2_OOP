@@ -52,16 +52,20 @@ public class LadangUI extends GridPane {
         this.ladangData = ladangData;
     }
 
-    public void UpdateCards(Ladang ladang){
-
-    }
-
     public DropZone[] getLadang() {
         return ladang;
     }
 
+    public void setLadangData(Ladang ladang){
+        this.ladangData = ladang;
+    }
+
     public DropZone getLadang(int index) {
         return ladang[index];
+    }
+
+    public Ladang getLadangData(){
+        return ladangData;
     }
 
     public void disableField(){
@@ -76,51 +80,28 @@ public class LadangUI extends GridPane {
         }
     }
 
-    public Map<String, FarmResourceCard> getAllCardWithLocationinLadang() {
-        Map<String, FarmResourceCard> cardList = new HashMap<>();
-        for (int i = 0; i < 20; i++) {
-            int col = i % 5;
-            int row = i / 5;
-            DropZone dropZone = ladang[i];
-            if (dropZone.getChildren().isEmpty()) {
-                continue; // Skip empty DropZone
-            }
-            CardUI cardUI = (CardUI) dropZone.getChildren().get(0);
-            if (cardUI != null && cardUI.getCardData() != null) {
-                FarmResourceCard card = (FarmResourceCard) cardUI.getCardData();
-                String location = String.format("%c%d", 'A' + row, col + 1);
-                cardList.put(location, card);
+    public void UpdateLadangData() {
+        for (DropZone dropZone : ladang) {
+            // Get the column and row index of the DropZone in the GridPane
+            Integer columnIndex = GridPane.getColumnIndex(dropZone);
+            Integer rowIndex = GridPane.getRowIndex(dropZone);
+
+            if (columnIndex != null && rowIndex != null) {
+                // Get the child node (CardUI) of the DropZone
+                Node child = dropZone.getChildren().isEmpty() ? null : dropZone.getChildren().get(0);
+                if (child instanceof CardUI cardUI) {
+                    FarmResourceCard cardData = (FarmResourceCard) cardUI.getCardData();
+                    ladangData.setCard(String.valueOf(columnIndex + rowIndex * 5), cardData);
+                } else {
+                    // If no card is present, you may want to handle this case according to your application's logic
+                    ladangData.setCard(String.valueOf(columnIndex + rowIndex * 5), null);
+                }
             }
         }
-        return cardList;
     }
 
+    public void UpdateLadangUI(){
 
-    public void UpdateLadangData() {
-        Map<String, FarmResourceCard> oldCardList = ladangData.getAllCardwithLocationinLadang();
-        Map<String, FarmResourceCard> newCardList = getAllCardWithLocationinLadang();
-
-        int counter = 0;
-        // Check for removed cards
-        for (String oldLocation : oldCardList.keySet()) {
-            if (!newCardList.containsKey(oldLocation)) {
-                // Remove the card from the ladangData
-                ladangData.removeCard(oldLocation);
-            }
-        }
-
-        // Check for added cards or updated cards
-        for (String newLocation : newCardList.keySet()) {
-            FarmResourceCard newCard = newCardList.get(newLocation);
-            FarmResourceCard oldCard = oldCardList.get(newLocation);
-            if (oldCard == null || !oldCard.equals(newCard)) {
-                // Add or update the card in the ladangData
-                int row = newLocation.charAt(0) - 'A';
-                int column = Integer.parseInt(newLocation.substring(1)) - 1;
-                ladangData.setCard(row, column, newCard);
-                counter++;
-            }
-        }
     }
 
 }

@@ -71,6 +71,10 @@ public class CardUI extends DraggablePane implements UICard {
             resetPosition();
         }
     }
+
+    public void UpdateLadangData(){
+
+    }
 }
 
 

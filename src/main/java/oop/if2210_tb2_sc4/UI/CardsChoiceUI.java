@@ -41,13 +41,14 @@ public class CardsChoiceUI {
 
     public void  ResetCards(Deck currentDeck){
         playerDeck = currentDeck;
-        if(currentDeck.isHandFull()){
-            // Hand is full
+        if(currentDeck.isHandFull() || currentDeck.isDeckEmpty()){
             return;
         }
 
         outerPane.setVisible(true);
-        for (int i = 0; i < cardImages.length; i++) {
+        int generatedCount = Math.min(Deck.GENERATED_CARD_COUNT, playerDeck.getCardsInDeckCount());
+
+        for (int i = 0; i < generatedCount; i++) {
             cardImages[i] = new ImageView();
             cardImages[i].setFitHeight(150);
             cardImages[i].setFitWidth(150);
@@ -68,25 +69,21 @@ public class CardsChoiceUI {
         // Remove the ImageView from the parent GridPane
         parent.getChildren().remove(cardImages[index]);
 
-        // Add your custom event handling logic here
-        // Remove the ImageView from the parent GridPane
-        parent.getChildren().remove(cardImages[index]);
-
         Card card = availableCard[index];
 
         boolean isCardProduct = isCardProduct(card);
         if(isCardProduct){
-            System.out.println("Add Item");
             GameWindowController.addItem(card);
         }else{
-            System.out.println("Add Card");
             GameWindowController.addCard(card);
         }
 
+        playerDeck.removeCardFromDeck();
         if(playerDeck.isHandFull()){
             outerPane.setVisible(false);
-        }else{
-            System.out.println(playerDeck.getActiveCardinHandCount());
+            for (int i = 0; i < cardImages.length; i++) {
+                parent.getChildren().remove(cardImages[i]);
+            }
         }
 
         if(parent.getChildren().isEmpty()){
@@ -99,6 +96,8 @@ public class CardsChoiceUI {
     }
 
        public void randomGenerateCards() {
+
+
         List<Card> generatedCard= playerDeck.generateCards();
         System.out.println("Amount of deck: "+ playerDeck.getCardsInDeckCount());
         // Check if the total number of images is sufficient

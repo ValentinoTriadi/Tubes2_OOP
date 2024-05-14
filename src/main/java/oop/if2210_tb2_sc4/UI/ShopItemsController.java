@@ -2,9 +2,12 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import oop.if2210_tb2_sc4.card.Card;
+import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
+import oop.if2210_tb2_sc4.Exception.NotEnoughMoneyException;
+import oop.if2210_tb2_sc4.Exception.ZeroItemStockException;
 import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.game_manager.GameData;
+import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.util.StringUtil;
 
 public class ShopItemsController {
@@ -27,16 +30,27 @@ public class ShopItemsController {
         return index;
     }
 
-    public void buyItem() {
-        try{
-            String productName= StringUtil.toUpperSnakeCase(productNameUI.getText());
-            ShopUI shop = GameWindowController.getShop();
-            ProductCard card = shop.getShopData().buyCardFromShop((ProductCard) GameData.getCard(productName));
-            GameWindowController.getCurrentPlayerPane().getPlayerData().getDeck().addActiveCard(card);
-            shop.findItem(productName).reduceJumlah();
 
-        }catch (IllegalArgumentException i){
-            System.out.println(i.getMessage());
+
+    public void buyItem() {
+        ShopUI shop = GameWindowController.getShop();
+        String productName= StringUtil.toUpperSnakeCase(productNameUI.getText());
+        ProductCard tempCard = null;
+        try{
+            ProductCard card = GameState.getInstance().getShop().buyCardFromShop((ProductCard) GameData.getCard(productName));
+            tempCard = card;
+            GameWindowController.getCurrentPlayerPane().getPlayerData().reduceGulden(card.getPrice(), card.getName());
+            GameWindowController.getCurrentPlayerPane().addItem(tempCard);
+            shop.findItem(productName).reduceJumlah();
+        }catch (ZeroItemStockException err){
+            err.ShowErrorPanel();
+        }catch (NotEnoughMoneyException err){
+            GameState.getInstance().getShop().addCard((ProductCard) GameData.getCard(productName));
+            err.ShowErrorPanel();
+        }catch (FullActiveHandsException err){
+            GameState.getInstance().getShop().addCard((ProductCard) GameData.getCard(productName));
+            GameWindowController.getCurrentPlayerPane().getPlayerData().addGulden(tempCard.getPrice());
+            err.ShowErrorPanel();
         }
     }
 }

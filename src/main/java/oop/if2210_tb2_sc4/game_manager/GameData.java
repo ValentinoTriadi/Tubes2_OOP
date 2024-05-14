@@ -79,8 +79,14 @@ public class GameData {
     }
 
     private static Card returnCard(Card card){
-
-        return null;
+        if (card instanceof AnimalCard){
+            return (AnimalCard) card;
+        } else if (card instanceof PlantCard){
+            return (PlantCard) card;
+        } else if (card instanceof ProductCard){
+            return (ProductCard) card;
+        }
+        return card;
     }
 
     public GameData() {
