@@ -9,7 +9,7 @@
    <children>
       <VBox alignment="CENTER" layoutX="-1.0" layoutY="-2.0" prefHeight="406.0" prefWidth="600.0">
          <children>
-            <Label fx:id="tittle" alignment="CENTER" prefHeight="70.0" prefWidth="182.0" text="TITLE">
+            <Label fx:id="title" alignment="CENTER" prefHeight="70.0" prefWidth="550.0" text="TITLE">
                <padding>
                   <Insets bottom="10.0" />
                </padding>
@@ -23,7 +23,7 @@
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin></Label>
-                  <ComboBox fx:id="choice" prefHeight="26.0" prefWidth="568.0" />
+                  <ComboBox fx:id="choice" prefHeight="26.0" prefWidth="580.0" />
                </children>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="600.0">
@@ -32,13 +32,13 @@
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin></Label>
-                  <TextField prefHeight="26.0" prefWidth="466.0" />
+                  <TextField fx:id="FolderPath" prefHeight="26.0" prefWidth="474.0" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="895.0" text="Button">
+            <Button fx:id="clickButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="895.0" text="Button">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Button>

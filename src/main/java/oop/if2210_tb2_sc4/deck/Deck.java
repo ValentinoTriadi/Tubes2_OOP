@@ -2,15 +2,18 @@ package oop.if2210_tb2_sc4.deck;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
+import oop.if2210_tb2_sc4.game_manager.GameData;
 
 public class Deck {
     public static final int DECK_SIZE = 40;
     public static final int HAND_SIZE = 6;
     public static final int GENERATED_CARD_COUNT = 4;
 
-    private List<Card> currentDeck;
-    private Card[] activeCards;
+    private final List<Card> currentDeck;
+    private final Card[] activeCards;
 
     private int cardsInDeck;
     private int cardsInHand;
@@ -21,6 +24,7 @@ public class Deck {
         cardsInDeck = 0;
     }
 
+    //Deck in terms of hands
     public Card[] getActiveCards() {
         return activeCards;
     }
@@ -35,12 +39,27 @@ public class Deck {
         if(currentDeck.isEmpty()){
             return null;
         }
+
+        int amountToGenerate = Math.min(GENERATED_CARD_COUNT, getCardsInDeckCount());
+
         // Get 4 random cards
-        for (int i = 0; i < GENERATED_CARD_COUNT; i++) {
+        for (int i = 0; i < amountToGenerate; i++) {
             int randomIndex = (int) (Math.random() * currentDeck.size());
             cards.add(currentDeck.get(randomIndex));
         }
         return cards;
+    }
+
+    public Deck initializeDeck(Deck deck){
+        List<Card> allCards = GameData.getAllCards();
+        deck.addCardToDeck(allCards);
+        for(Card card : allCards){
+            if(deck.isDeckFull()){
+                break;
+            }
+            deck.addCardToDeck(card);
+        }
+        return deck;
     }
 
     public void addCardToDeck(Card card) {
@@ -63,6 +82,9 @@ public class Deck {
     }
 
     public void setActiveCard(int index, Card card) {
+        if(activeCards[index] == null){
+            cardsInHand++;
+        }
         activeCards[index] = card;
     }
 
@@ -84,8 +106,15 @@ public class Deck {
         activeCards[index] = null;
         cardsInHand--;
     }
+
+    public void removeCardFromDeck(){
+        cardsInDeck--;
+    }
         
-    public void addActiveCard(Card card) {
+    public void addActiveCard(Card card) throws FullActiveHandsException {
+        if(isHandFull()){
+            throw new FullActiveHandsException();
+        }
         for (int i = 0; i < HAND_SIZE; i++) {
             if (activeCards[i] == null) {
                 activeCards[i] = card;
@@ -97,6 +126,10 @@ public class Deck {
 
     public int getCardsInDeckCount() {
         return cardsInDeck;
+    }
+
+    public boolean isDeckEmpty(){
+        return getCardsInDeckCount() == 0;
     }
 
     public void setCardsInDeckCount(int cardsInDeck) {
@@ -119,6 +152,6 @@ public class Deck {
         return this.cardsInHand == HAND_SIZE;
     }
     public boolean isDeckFull(){
-        return this.cardsInDeck == DECK_SIZE;
+        return this.currentDeck.size() == DECK_SIZE;
     }
 }

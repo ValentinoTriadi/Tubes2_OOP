@@ -39,16 +39,16 @@ public class LoadTXT implements Load {
         // Load game state
         try {
             Scanner scanner = new Scanner(game_state_file);
-            GameState.setCurrentPlayer(scanner.nextInt());
-            GameState.setCountItems(scanner.nextInt());
+            GameState.getInstance().setCurrentPlayer(scanner.nextInt());
+            int countItem = scanner.nextInt();
 
             Shop shop = new Shop();
-            for (int i = 0; i < GameState.getCountItems(); i++){
+            for (int i = 0; i < countItem; i++){
                 String item = scanner.next();
                 int count = scanner.nextInt();
                 shop.addCard((ProductCard) GameData.getCard(item), count);
             }
-            GameState.setShop(shop);
+            GameState.getInstance().setShop(shop);
             scanner.close();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

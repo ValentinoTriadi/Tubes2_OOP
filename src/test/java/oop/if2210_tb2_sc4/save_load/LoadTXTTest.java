@@ -23,11 +23,11 @@ class LoadTXTTest {
         Scanner scanner = new Scanner(load.getGameStateFile());
 
         // get current player
-        assertEquals(GameState.getCurrentPlayer(), scanner.nextInt());
+        assertEquals(GameState.getInstance().getCurrentPlayer(), scanner.nextInt());
 
         // get count items
         int countItem = scanner.nextInt();
-        assertEquals(GameState.getCountItems(), countItem);
+        assertEquals(GameState.getInstance().getCountItems(), countItem);
 
         // get items from file
         Map<String, Integer> items = new HashMap<>();
@@ -38,7 +38,7 @@ class LoadTXTTest {
         }
 
         // get shop items from GameState
-        Map<ProductCard, Integer> shopItems = GameState.getShopItems();
+        Map<ProductCard, Integer> shopItems = GameState.getInstance().getShopItems();
 
         // map shop items into string and integer (name and count)
         Map<String, Integer> expectedItems = new HashMap<>();

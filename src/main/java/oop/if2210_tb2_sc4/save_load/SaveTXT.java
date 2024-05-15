@@ -46,10 +46,15 @@ public class SaveTXT implements Save {
             writer.write(player.getJumlahDeckActive() + "\n"); // alternative use player.getActiveDeck().size()
             
             Card[] active_deck = player.getActiveDeck();
+
             for (int i = 0; i < player.getJumlahDeckActive(); i++) {
                 Card card = active_deck[i];
                 try {
+                    if(card == null){
+                        continue;
+                    }
                     writer.write((char) (i+'A') + "01 " + card.getName() + "\n");
+
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -83,6 +88,8 @@ public class SaveTXT implements Save {
                     }
                 );
 
+                writer.write("\n");
+
             }
 
             writer.close();
@@ -98,10 +105,11 @@ public class SaveTXT implements Save {
         try {
             FileWriter writer = new FileWriter(file);
 
-            writer.write(GameState.getCurrentPlayer() + "\n");
-            writer.write(GameState.getCountItems().toString());
+            GameState instance = GameState.getInstance();
+            writer.write(instance.getCurrentPlayer() + "\n");
+            writer.write(instance.getCountItems().toString());
 
-            Map<ProductCard, Integer> items = GameState.getShopItems();
+            Map<ProductCard, Integer> items = instance.getShopItems();
             items.forEach((key, value) -> {
                 try {
                     writer.write("\n" + key.getName() + " " + value );

@@ -28,6 +28,7 @@ public class Ladang {
     }
 
     public void setCard(int row, int column, FarmResourceCard card) {
+
         ladang[row][column] = card;
     }
 

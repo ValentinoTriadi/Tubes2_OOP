@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.*;
+import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.*;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.player.Player;
@@ -14,7 +15,7 @@ public class PlayerUI extends StackPane {
     private final Pane root;
     private DeckUI activeDeckHBox;
     private LadangUI myLadang;
-    private final Player playerData;
+    private Player playerData;
 
     public PlayerUI(Player playerData) {
         super();
@@ -26,9 +27,15 @@ public class PlayerUI extends StackPane {
         return playerData;
     }
 
+    public void setPlayerData(Player playerData){
+        this.playerData = playerData;
+        this.getLadang().setLadangData(playerData.getLadang());
+        this.getDeckUI().setDeckData(playerData.getDeck());
+    }
     public DeckUI getDeckUI(){
         return activeDeckHBox;
     }
+
 
     public void initPlayerUI(String name, Tab ladang) {
 
@@ -64,37 +71,39 @@ public class PlayerUI extends StackPane {
         myLadang.enableField();
     }
 
-    public void addCard(Card cardData){
-        DropZone[] dropZones = myLadang.getLadang();
-        CardUI card = new CardUI(root, dropZones);
+    public void addCard(Card cardData) throws FullActiveHandsException {
 
-        card.initCard(cardData);
+        DropZone[] dropZones = DropZoneAlocation(cardData);
+        CardUI card = new CardUI(root, dropZones);
+        card.setCard(cardData);
         playerData.getDeck().addActiveCard(cardData);
         System.out.println("Card" + cardData.getName() +" spawned");
 
         activeDeckHBox.addCard(card);
     }
 
-    public void addItem(Card cardData){
+    public void addItem(Card cardData) throws FullActiveHandsException {
 
-        DropZone[] dropZones = new DropZone[0];
-        if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
-            dropZones = GameWindowController.getNextPlayerPane().getLadang().getLadang();
-        }else{
-            dropZones = GameWindowController.getCurrentPlayerPane().getLadang().getLadang();
-        }
-        dropZones = Arrays.copyOf(dropZones, dropZones.length + 1);
-        dropZones[dropZones.length - 1] = GameWindowController.sellZone;
+        DropZone[] dropZones = DropZoneAlocation(cardData);
         ItemUI card = new ItemUI(root, dropZones);
-        card.initCard(cardData);
+        card.setCard(cardData);
         playerData.getDeck().addActiveCard(cardData);
-
-        System.out.println("Item " + cardData.getName() +" spawned");
-
-        activeDeckHBox.addItem(card);
+        activeDeckHBox.addCard(card);
     }
 
-    public void UpdateUIPlayer(){
-
+    public DropZone[] DropZoneAlocation(Card cardData){
+        DropZone[] dropZones;
+        if(cardData instanceof FarmResourceCard){ // Add Animal and Plants
+            dropZones = myLadang.getLadang();
+        }else{ // Add Product and Power Card
+            if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
+                dropZones = GameWindowController.getCurrentPlayerPane().getLadang().getLadang();
+            }else{
+                dropZones = GameWindowController.getNextPlayerPane().getLadang().getLadang();
+            }
+            dropZones = Arrays.copyOf(dropZones, dropZones.length + 1);
+            dropZones[dropZones.length - 1] = GameWindowController.sellZone;
+        }
+        return dropZones;
     }
 }

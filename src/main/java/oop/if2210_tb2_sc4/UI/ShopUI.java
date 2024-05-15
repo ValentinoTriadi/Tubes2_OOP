@@ -5,6 +5,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.card.ProductCard;
+import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.shop.Shop;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 import oop.if2210_tb2_sc4.util.StringUtil;
@@ -13,13 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class ShopUI {
+public class ShopUI extends SaveLoad{
 
     @FXML
     public AnchorPane paneGrid;
     private final GridPane shopGrid;
     public Pane SellZone;
-    private Shop shopData;
     public static int itemCount;
     ScrollPane scrollPane;
     private final List<ShopItems> shopItems = new ArrayList<>();
@@ -48,15 +48,12 @@ public class ShopUI {
         paneGrid.getChildren().add(scrollPane);
     }
 
-    public Shop getShopData(){return shopData;};
-
-
     public void initializeShopData() {
         // Initialize the shop data
-        shopData = new Shop();
+        GameState.getInstance().setShop(new Shop());
 
         // Add cards to the shop UI based on the shop's card stock
-        for (Map.Entry<ProductCard, Integer> entry : shopData.getCardStock().entrySet()) {
+        for (Map.Entry<ProductCard, Integer> entry : GameState.getInstance().getShopItems().entrySet()) {
             ProductCard card = entry.getKey();
             int stock = entry.getValue();
             Image cardImage = ImageUtil.getCardImage(card);

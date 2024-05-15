@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4.player;
 
+import oop.if2210_tb2_sc4.Exception.NotEnoughMoneyException;
 import oop.if2210_tb2_sc4.deck.Deck;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.card.Card;
@@ -24,9 +25,9 @@ public class Player {
         System.out.println("Jumlah Gulden: "+ gulden);
     }
 
-    public void reduceGulden(int gulden){
+    public void reduceGulden(int gulden, String Cardname) throws  NotEnoughMoneyException{
         if(gulden > this.jumlah_gulden){
-            throw new IllegalArgumentException();
+            throw new NotEnoughMoneyException(Cardname);
         }
         this.jumlah_gulden -= gulden;
     }

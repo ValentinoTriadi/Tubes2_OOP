@@ -22,7 +22,6 @@ public class CardUI extends DraggablePane implements UICard {
         super(parent, dropZone);
         setPrefSize(100, 120);
         setStyle("-fx-background-color: white;");
-        //setOnMouseReleased(this::OnMouseReleased);
     }
 
     private void setImage() {
@@ -40,12 +39,8 @@ public class CardUI extends DraggablePane implements UICard {
         return cardData;
     }
 
-    private void setCard(Card card) {
+    public void setCard(Card card){
         this.cardData = card;
-    }
-
-    public void initCard(Card card){
-        setCard(card);
         setImage();
     }
 
@@ -84,7 +79,6 @@ public class CardUI extends DraggablePane implements UICard {
         }
     }
 
-
     @Override
     public void OnRelease(MouseEvent e){
         boolean droppedOnDropZone = false;
@@ -99,6 +93,8 @@ public class CardUI extends DraggablePane implements UICard {
                 droppedOnDropZone = true;
                 isOnLadang = true;
                 setParent(dz);
+                //Update Realtime LadangUI data
+                GameWindowController.getCurrentPlayerPane().getLadang().UpdateLadangData();
                 break;
             }
         }
@@ -108,7 +104,6 @@ public class CardUI extends DraggablePane implements UICard {
             resetPosition();
         }
     }
-
 }
 
 
