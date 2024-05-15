@@ -13,6 +13,7 @@ import javafx.scene.layout.*;
 import javafx.geometry.Pos;
 import javafx.scene.text.Font;
 
+import javafx.scene.text.Text;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.deck.Deck;
