@@ -1,13 +1,11 @@
-package oop.if2210_tb2_sc4.shop;
+package oop.if2210_tb2_sc4;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import oop.if2210_tb2_sc4.Exception.ZeroItemStockException;
-import oop.if2210_tb2_sc4.UI.GameWindowController;
 import oop.if2210_tb2_sc4.card.ProductCard;
-import oop.if2210_tb2_sc4.game_manager.GameData;
 import oop.if2210_tb2_sc4.util.StringUtil;
 
 public class Shop {

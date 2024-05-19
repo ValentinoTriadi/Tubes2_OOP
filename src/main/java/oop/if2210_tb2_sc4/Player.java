@@ -1,8 +1,6 @@
-package oop.if2210_tb2_sc4.player;
+package oop.if2210_tb2_sc4;
 
 import oop.if2210_tb2_sc4.Exception.NotEnoughMoneyException;
-import oop.if2210_tb2_sc4.deck.Deck;
-import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.card.Card;
 
 public class Player {

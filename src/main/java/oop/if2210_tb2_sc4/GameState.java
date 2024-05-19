@@ -1,9 +1,8 @@
-package oop.if2210_tb2_sc4.game_manager;
+package oop.if2210_tb2_sc4;
 
 import java.util.Map;
 
 import oop.if2210_tb2_sc4.card.ProductCard;
-import oop.if2210_tb2_sc4.shop.Shop;
 
 public class GameState {
 

@@ -1,7 +1,7 @@
 //package oop.if2210_tb2_sc4;
 //
-//import oop.if2210_tb2_sc4.game_manager.GameState;
-//import oop.if2210_tb2_sc4.player.Player;
+//import oop.if2210_tb2_sc4.GameState;
+//import oop.if2210_tb2_sc4.Player;
 //import oop.if2210_tb2_sc4.save_load.LoadTXT;
 //
 //import java.util.ArrayList;

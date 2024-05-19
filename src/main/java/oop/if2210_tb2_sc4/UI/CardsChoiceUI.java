@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import oop.if2210_tb2_sc4.card.*;
-import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 
 import java.util.List;

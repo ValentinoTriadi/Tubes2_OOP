@@ -1,4 +1,4 @@
-package oop.if2210_tb2_sc4.game_manager;
+package oop.if2210_tb2_sc4;
 
 import java.util.ArrayList;
 import java.util.List;

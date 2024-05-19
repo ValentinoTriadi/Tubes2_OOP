@@ -5,8 +5,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.card.ProductCard;
-import oop.if2210_tb2_sc4.game_manager.GameState;
-import oop.if2210_tb2_sc4.shop.Shop;
+import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Shop;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 import oop.if2210_tb2_sc4.util.StringUtil;
 

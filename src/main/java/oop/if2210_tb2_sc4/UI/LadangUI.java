@@ -3,13 +3,9 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
-import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
-import oop.if2210_tb2_sc4.ladang.Ladang;
+import oop.if2210_tb2_sc4.Ladang;
 import javafx.scene.Node;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class LadangUI extends GridPane {
 

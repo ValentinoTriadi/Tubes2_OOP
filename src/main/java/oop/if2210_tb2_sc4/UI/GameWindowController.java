@@ -1,6 +1,5 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,15 +14,14 @@ import javafx.scene.text.Font;
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
-import oop.if2210_tb2_sc4.deck.Deck;
-import oop.if2210_tb2_sc4.game_manager.GameData;
-import oop.if2210_tb2_sc4.game_manager.GameState;
-import oop.if2210_tb2_sc4.player.Player;
+import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.GameData;
+import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Player;
 import org.jetbrains.annotations.NotNull;
 
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 public class GameWindowController {

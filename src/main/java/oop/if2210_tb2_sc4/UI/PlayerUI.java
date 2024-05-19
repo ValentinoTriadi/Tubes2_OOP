@@ -5,8 +5,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.*;
-import oop.if2210_tb2_sc4.ladang.Ladang;
-import oop.if2210_tb2_sc4.player.Player;
+import oop.if2210_tb2_sc4.Player;
 
 import java.util.Arrays;
 

@@ -1,11 +1,12 @@
-package oop.if2210_tb2_sc4.deck;
+package oop.if2210_tb2_sc4;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
-import oop.if2210_tb2_sc4.game_manager.GameData;
+
+import static oop.if2210_tb2_sc4.GameData.getAllCards;
 
 public class Deck {
     public static final int DECK_SIZE = 40;
@@ -51,7 +52,7 @@ public class Deck {
     }
 
     public Deck initializeDeck(Deck deck){
-        List<Card> allCards = GameData.getAllCards();
+        List<Card> allCards = getAllCards();
         deck.addCardToDeck(allCards);
         for(Card card : allCards){
             if(deck.isDeckFull()){

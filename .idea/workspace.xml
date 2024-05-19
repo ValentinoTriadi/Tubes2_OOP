@@ -5,22 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="Feat: Load and Save (Unfinished)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Exception/FolderNotExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Exception/InvalidInputException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UICard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UICard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/ladang/Ladang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Ladang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/Load.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/shop/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/tesSaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/tesSaveLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +83,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2g3dE3jQnMy7qrfZY12Qu5rmHKC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -88,7 +99,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "GameEngine",
+    "git-widget-placeholder": "1-serangan-beruang",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/java/oop/if2210_tb2_sc4/UI",
@@ -113,6 +124,7 @@
       <recent name="D:\VsCode\Java\Tubes2_OOP\src\main\resources\oop\if2210_tb2_sc4\UI" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="oop.if2210_tb2_sc4" />
       <recent name="oop.if2210_tb2_sc4.UI" />
     </key>
   </component>
@@ -270,7 +282,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java</url>
-          <line>115</line>
+          <line>111</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -280,7 +292,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java</url>
-          <line>98</line>
+          <line>96</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
       </breakpoints>

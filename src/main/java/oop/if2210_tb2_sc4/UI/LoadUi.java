@@ -5,15 +5,13 @@ import javafx.scene.layout.AnchorPane;
 import oop.if2210_tb2_sc4.Exception.FolderNotExistException;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.Exception.GameException;
-import oop.if2210_tb2_sc4.Exception.InvalidInputException;
-import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.save_load.Load;
 import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
 
 import java.io.File;
 import java.net.URL;
-import java.util.Objects;
 
 public class LoadUi {
     protected Load loader;
