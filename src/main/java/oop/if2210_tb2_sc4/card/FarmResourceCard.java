@@ -3,8 +3,8 @@ package oop.if2210_tb2_sc4.card;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class FarmResourceCard extends Card{
-    protected ProductCard productResult;
+public abstract class FarmResourceCard extends Card {
+    ProductCard productResult;
     List<EffectType> effectApplied;
 
     public FarmResourceCard(String name) {

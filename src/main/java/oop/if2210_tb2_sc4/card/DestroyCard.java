@@ -1,13 +1,10 @@
 package oop.if2210_tb2_sc4.card;
 
-public class DestroyCard  extends ItemCard{
-    public DestroyCard(String name) {
-        super(name);
+public class DestroyCard extends ItemCard{
+    public DestroyCard(String name, String image_path) {
+        super(name, image_path);
     }
 
-    public DestroyCard(DestroyCard destroyCard) {
-        super(destroyCard.name);
-    }
 
     @Override
     public void applyEffect(FarmResourceCard card) {

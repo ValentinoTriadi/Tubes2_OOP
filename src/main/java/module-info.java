@@ -17,8 +17,6 @@ module oop.if2210_tb2_sc4 {
 
     requires java.smartcardio;
 
-    opens oop.if2210_tb2_sc4 to javafx.fxml;
-    exports oop.if2210_tb2_sc4;
     exports oop.if2210_tb2_sc4.card;
     exports oop.if2210_tb2_sc4.deck;
     opens oop.if2210_tb2_sc4.card to javafx.fxml;
