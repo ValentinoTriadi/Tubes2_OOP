@@ -17,6 +17,7 @@ module oop.if2210_tb2_sc4 {
 
     requires java.smartcardio;
     requires java.desktop;
+    requires java.sql;
 
     opens oop.if2210_tb2_sc4 to javafx.fxml;
     exports oop.if2210_tb2_sc4.game_manager;

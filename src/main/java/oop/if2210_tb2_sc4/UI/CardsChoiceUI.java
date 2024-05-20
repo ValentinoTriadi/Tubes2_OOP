@@ -42,6 +42,7 @@ public class CardsChoiceUI {
     public void  ResetCards(Deck currentDeck){
         playerDeck = currentDeck;
         if(currentDeck.isHandFull() || currentDeck.isDeckEmpty()){
+            GameWindowController.isShuffleDone = true;
             return;
         }
 
@@ -84,10 +85,12 @@ public class CardsChoiceUI {
             for (int i = 0; i < cardImages.length; i++) {
                 parent.getChildren().remove(cardImages[i]);
             }
+            GameWindowController.isShuffleDone = true;
         }
 
         if(parent.getChildren().isEmpty()){
             outerPane.setVisible(false);
+            GameWindowController.isShuffleDone = true;
         }
     }
 

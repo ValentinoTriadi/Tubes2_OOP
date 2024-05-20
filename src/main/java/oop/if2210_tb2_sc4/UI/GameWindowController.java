@@ -68,6 +68,8 @@ public class GameWindowController {
     private Tab save;
     private Tab load;
     private Tab addPlugin;
+    private final Pane Bear = new Pane();
+    private SeranganBeruang seranganBeruang;
 
     public static SellZone sellZone;
     public static LadangUI ladang1;
@@ -81,6 +83,8 @@ public class GameWindowController {
     private Color currentSelectedLadang  = Color.GREEN;
 
     private SelectCardsController cardPicker;
+
+    public static boolean isShuffleDone = false;
 
     public void initialize() throws IOException {
         GameState instance = GameState.getInstance();
@@ -141,6 +145,12 @@ public class GameWindowController {
 
         // Add both player panes to the root and hide the next player's pane
         rootPane.getChildren().addAll(currentPlayerPane, nextPlayerPane);
+
+        int col = 5;
+        int row = 4;
+        seranganBeruang = new SeranganBeruang(col,row,currentPlayerPane.getLadang().getLadang());
+        seranganBeruang.initialize();
+        root.getChildren().add(seranganBeruang.getPane());
     }
 
     public void PostPoneThread(long milisecond) throws InterruptedException {
@@ -201,12 +211,30 @@ public class GameWindowController {
         instance.setCurrentPlayer(instance.getCurrentPlayer() + 1);
 
 
-        cardPicker.InvokePanel();
+        StartNewTurn();
         resetFieldLock();
         // TODO: MAKE THE SWITCHING ANIMATION
         openLadang();
 
+
         System.out.println("Switched to next player");
+    }
+    private void StartNewTurn(){
+        isShuffleDone = false;
+        cardPicker.InvokePanel();
+        BeruangMenyerangPhase();
+    }
+    private void BeruangMenyerangPhase(){
+        while(!isShuffleDone){
+            Bear.getChildren().clear();
+            int col = currentPlayerPane.getLadang().getColumnCount();
+            int row = currentPlayerPane.getLadang().getRowCount();
+            seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang().getLadang());
+
+            seranganBeruang.initialize();
+            Bear.getChildren().add(seranganBeruang.getPane());
+            seranganBeruang.start();
+        }
     }
 
     private void resetFieldLock(){
