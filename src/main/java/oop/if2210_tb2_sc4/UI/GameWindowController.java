@@ -11,6 +11,8 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 import javafx.geometry.Pos;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
 import javafx.scene.text.Text;
@@ -23,6 +25,7 @@ import oop.if2210_tb2_sc4.player.Player;
 import org.jetbrains.annotations.NotNull;
 
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
@@ -55,6 +58,9 @@ public class GameWindowController {
     public Pane EndPane;
     public StackPane RootStack;
     public Label AvailableDeck;
+    public Button nextTurn;
+    public Label ladangLabel;
+    public Label enemyLadangLabel;
 
     private Tab ladang;
     private Tab ladangMusuh;
@@ -71,6 +77,8 @@ public class GameWindowController {
     private UpdateThread gameThread;
     private SaveUI saver;
     private LoadUi loader;
+
+    private Color currentSelectedLadang  = Color.GREEN;
 
     private SelectCardsController cardPicker;
 
@@ -91,6 +99,7 @@ public class GameWindowController {
 
     private void startGame(){
         nextPlayerPane.setVisible(false);
+        setLadangLabelColor(currentSelectedLadang, Color.WHITE);
     }
 
 //    private void initialize
@@ -307,7 +316,7 @@ public class GameWindowController {
         StackPane temp_shop = new StackPane();
         temp_shop.setAlignment(Pos.CENTER);
         temp_shop.getChildren().add(shopPane);
-        temp_shop.setPadding(new Insets(10, 10, 10, 10));
+        temp_shop.setPadding(new Insets(0,50,100,10));
         shop.setContent(temp_shop);
         shopUI = loaderShop.getController();
         shopUI.initializeShopData();
@@ -389,6 +398,8 @@ public class GameWindowController {
 
     public void openLadang(){
         currentPlayerPane.enableField();
+        setLadangLabelColor(currentSelectedLadang,Color.WHITE);
+
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladang);
         } else {
@@ -396,8 +407,14 @@ public class GameWindowController {
         }
     }
 
+    private void setLadangLabelColor(Paint user, Paint enemy){
+        ladangLabel.setTextFill(user);
+        enemyLadangLabel.setTextFill(enemy);
+    }
+
     public void openLadangMusuh(){
-        currentPlayerPane.disableField();
+        nextPlayerPane.disableField();
+        setLadangLabelColor(Color.WHITE,currentSelectedLadang);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladangMusuh);
         } else {

@@ -1,11 +1,13 @@
 package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.Node;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
 import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.util.ImageUtil;
 
 public class DeckUI extends HBox {
 
@@ -22,10 +24,19 @@ public class DeckUI extends HBox {
 
     public void initializeActiveDeck() {
         // Initialize activeDeck
+        Image bgImage = ImageUtil.getComponentImage("HandTile.png");
+        BackgroundImage bg = new BackgroundImage(
+                bgImage,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(100,100, true, false, true, true)
+        );
         for (int i = 0; i < 6; i++) {
             activeDeck[i] = new CardHolder();
-            activeDeck[i].setPrefSize(100, 150);
-            activeDeck[i].setStyle("-fx-background-color: cyan;");
+            activeDeck[i].setPrefSize(92, 130);
+            activeDeck[i].setBackground(new Background(bg));
+
             this.getChildren().add(activeDeck[i]);
         }
     }

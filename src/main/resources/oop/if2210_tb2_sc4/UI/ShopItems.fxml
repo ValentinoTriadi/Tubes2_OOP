@@ -2,46 +2,50 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane onMouseClicked="#buyItem" prefHeight="118.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.ShopItemsController">
+<AnchorPane onMouseClicked="#buyItem" prefHeight="119.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.ShopItemsController">
    <children>
-      <HBox prefHeight="120.0" prefWidth="200.0" spacing="10.0">
+      <ImageView fitHeight="128.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@componentImage/ShopItemBg.png" />
+         </image>
+      </ImageView>
+      <HBox prefHeight="128.0" prefWidth="175.0" spacing="10.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="106.0" prefWidth="147.0">
+            <VBox alignment="TOP_CENTER" prefHeight="140.0" prefWidth="78.0">
                <children>
-                  <ImageView fx:id="ImageUI" fitHeight="61.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ImageUI" fitHeight="93.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@pngtree-borobudur-temple-vector-png-image_6639062.png" />
+                        <Image url="@componentImage/HandTile.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="productNameUI" alignment="CENTER" prefHeight="61.0" prefWidth="83.0" text="Very Long name for testing" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font name="Bell MT" size="14.0" />
-                     </font>
-                  </Label>
                </children>
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="102.0" prefWidth="168.0">
+            <VBox alignment="CENTER" prefHeight="125.0" prefWidth="94.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="104.0">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
+                  <Pane>
                      <children>
-                        <Label prefHeight="20.0" prefWidth="105.0" text="Harga">
+                        <Label fx:id="labelHargaUI" prefHeight="30.0" prefWidth="106.0" text="Label" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="Impact" size="17.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="labelHargaUI" prefHeight="30.0" prefWidth="106.0" text="Label" />
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="5.75" spread="1.0" width="10.0" />
+                           </effect></Label>
+                        <ImageView fitHeight="46.0" fitWidth="36.0" layoutX="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@componentImage/MoneyIcon.png" />
+                           </image>
+                        </ImageView>
                      </children>
-                  </VBox>
+                  </Pane>
                   <VBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="168.0">
                      <children>
                         <Label alignment="TOP_LEFT" graphicTextGap="0.0" prefHeight="28.0" prefWidth="182.0" text="Jumlah">

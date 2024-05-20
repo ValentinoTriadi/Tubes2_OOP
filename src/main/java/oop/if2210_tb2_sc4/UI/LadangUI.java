@@ -1,15 +1,11 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import oop.if2210_tb2_sc4.card.Card;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import javafx.scene.Node;
-
-import java.util.HashMap;
-import java.util.Map;
+import oop.if2210_tb2_sc4.util.ImageUtil;
 
 public class LadangUI extends GridPane {
 
@@ -18,7 +14,7 @@ public class LadangUI extends GridPane {
 
     public LadangUI(Ladang ladangData) {
         setAlignment(javafx.geometry.Pos.CENTER);
-        setGridLinesVisible(true);
+        setGridLinesVisible(false);
         setHgap(30.0);
         setPrefHeight(507.0);
         setPrefWidth(582.0);
@@ -42,13 +38,28 @@ public class LadangUI extends GridPane {
             getRowConstraints().add(row);
         }
 
+        //Load Background Image
+        Image backgroundImage = ImageUtil.getComponentImage("TileBg.png");
+
+        BackgroundImage bgImage = new BackgroundImage(
+                backgroundImage,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(50, 100, true, true, true, false)
+        );
+
         for (int i = 0; i < 20; i++) {
             int col = i % 5;
             int row = i / 5;
             ladang[i] = new DropZone();
             ladang[i].setPrefSize(50, 100);
-            ladang[i].setStyle("-fx-background-color: yellow;");
+            ladang[i].setBackground(new Background(bgImage));
+//            ladang[i].setStyle("-fx-background-color: yellow;");
             this.add(ladang[i], col, row);
+            ladang[i].setStyle(
+                    "-fx-border-color: transparent; "
+            );
         }
         this.ladangData = ladangData;
     }

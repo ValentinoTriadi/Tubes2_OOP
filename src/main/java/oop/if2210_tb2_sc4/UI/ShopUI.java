@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class ShopUI extends SaveLoad{
+public class ShopUI{
 
     @FXML
     public AnchorPane paneGrid;
@@ -32,10 +32,15 @@ public class ShopUI extends SaveLoad{
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setFitToWidth(true);
-        scrollPane.setMaxWidth(400);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setMaxWidth(200);
+        Image bgImage= ImageUtil.getComponentImage("ShopItemBg.png");
+        BackgroundImage bg = new BackgroundImage(bgImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(10,10, true, false, true, true));
 
         // Set the GridPane to fill the width of the ScrollPane
+        shopGrid.setBackground(new Background(bg));
         shopGrid.prefWidthProperty().bind(scrollPane.widthProperty());
+
         shopGrid.setVgap(10);
     }
 
@@ -91,17 +96,18 @@ public class ShopUI extends SaveLoad{
             column2.setPercentWidth(50);
             shopGrid.getColumnConstraints().add(column2);
         }
+        System.out.println("Width: " + paneGrid.getPrefWidth() + " Height: "+ paneGrid.getHeight());
 
         shopGrid.add(item.getScene(), column, row);
         itemCount++;
     }
 
     public void initializeSellZone(){
-        GameWindowController.sellZone = new SellZone(this);
+        GameWindowController.sellZone = new SellZone(this, 125, 150);
         // Sellzone fill parent
-        GameWindowController.sellZone.setMinSize(100, 100);
+        GameWindowController.sellZone.setMinSize(125, 150);
         // Set style
-        GameWindowController.sellZone.setStyle("-fx-background-color: yellow;");
+
 
         SellZone.getChildren().add(GameWindowController.sellZone);
     }

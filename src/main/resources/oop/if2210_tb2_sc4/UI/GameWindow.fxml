@@ -1,141 +1,299 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="RootStack" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
-   <AnchorPane prefHeight="200.0" prefWidth="200.0">
+<StackPane fx:id="RootStack" maxHeight="720" minWidth="1024" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
+   <AnchorPane prefHeight="626.0" prefWidth="983.0">
       <children>
-         <ImageView fitHeight="654.0" fitWidth="877.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="743.0" fitWidth="742.0" layoutX="-1.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@assets.UI/Background.png" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="762.0" fitWidth="390.0" layoutX="747.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@assets.UI/VBoxBg.png" />
+               <Image url="@componentImage/Grass.png" />
             </image>
          </ImageView>
       </children>
    </AnchorPane>
-   <AnchorPane fx:id="root" maxHeight="720.0" maxWidth="1024.0" minHeight="600.0" minWidth="800.0" prefHeight="720.0" prefWidth="1024.0">
-      <VBox alignment="TOP_CENTER" layoutX="808.0" layoutY="229.0" prefHeight="394.0" prefWidth="168.0" spacing="35.0" AnchorPane.bottomAnchor="96.60000000000002" AnchorPane.leftAnchor="808.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="229.0">
-         <Pane accessibleRole="BUTTON" prefHeight="71.0" prefWidth="224.0">
+   <AnchorPane fx:id="root" maxHeight="720.0" maxWidth="1053.0" prefHeight="689.0" prefWidth="1053.0">
+      <VBox layoutX="-21.0" layoutY="-2.0" maxHeight="721.0" maxWidth="799.0" prefHeight="721.0" prefWidth="776.0">
+         <TabPane fx:id="tabPane" prefHeight="761.0" prefWidth="776.0" scaleY="1.07" tabClosingPolicy="UNAVAILABLE" translateY="-10.0">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin></TabPane>
+         <StackPane fx:id="rootPane" maxHeight="377.0" maxWidth="849.0" minHeight="150.0" minWidth="770.0" prefHeight="298.0" prefWidth="776.0">
             <children>
-               <ImageView fitHeight="49.0" fitWidth="202.0">
-                  <Image url="@assets.UI/ButtonBg.png" />
+               <ImageView fitHeight="176.0" fitWidth="809.0" nodeOrientation="INHERIT" pickOnBounds="true">
+                  <image>
+                     <Image url="@componentImage/PlayerHand.png" />
+                  </image>
+                  <StackPane.margin>
+                     <Insets bottom="20.0" />
+                  </StackPane.margin>
                </ImageView>
-               <Label alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="End Turn" textAlignment="CENTER" textFill="WHITE">
-                  <font>
-                     <Font name="Impact" size="27.0" />
-                  </font>
-                  <effect>
-                     <DropShadow blurType="ONE_PASS_BOX" height="25.0" radius="7.0" spread="1.0" width="5.0" />
-                  </effect>
-               </Label>
-               <Button graphicTextGap="0.0" lineSpacing="2.0" mnemonicParsing="false" onAction="#switchToNextPlayer" prefHeight="34.0" prefWidth="168.0" style="-fx-background-color: None;" textAlignment="CENTER" textFill="WHITE">
-                  <contentDisplay>
-                     <ContentDisplay fx:value="CENTER" />
-                  </contentDisplay>
-                  <font>
-                     <Font name="Impact" size="20.0" />
-                  </font>
-                  <padding>
-                     <Insets bottom="4.0" />
-                  </padding>
-               </Button>
-            </children>
-         </Pane>
-         <Button fx:id="MyFieldButton" mnemonicParsing="false" onAction="#openLadang" prefHeight="26.0" prefWidth="192.0" text="LADANG" />
-         <Button fx:id="EnemyFieldButton" mnemonicParsing="false" onAction="#openLadangMusuh" prefHeight="26.0" prefWidth="221.0" text="ENEMY LADANG" />
-         <Button fx:id="ShopButton" mnemonicParsing="false" onAction="#openShop" prefHeight="26.0" prefWidth="281.0" text="SHOP" />
-         <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#openSave" prefHeight="26.0" prefWidth="282.0" text="SAVE" />
-         <Button fx:id="LoadButton" mnemonicParsing="false" onAction="#openLoad" prefHeight="26.0" prefWidth="210.0" text="LOAD" />
-         <Button fx:id="AddPluginButton" mnemonicParsing="false" onAction="#openAddPlugin" prefHeight="26.0" prefWidth="270.0" text="ADD PLUGIN" />
+            </children></StackPane>
       </VBox>
-      <VBox layoutX="14.0" layoutY="14.0" maxHeight="700.0" maxWidth="798.0" prefHeight="683.0" prefWidth="770.0">
-         <TabPane fx:id="tabPane" prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" />
-         <StackPane fx:id="rootPane" maxHeight="150.0" maxWidth="770.0" minHeight="150.0" minWidth="770.0" prefHeight="150.0" prefWidth="770.0" />
-      </VBox>
-      <Pane layoutX="859.0" layoutY="645.0" prefHeight="46.0" prefWidth="73.0" style="-fx-background-color: #D9D9D9; -fx-border-width: 1; -fx-border-color: #000000; -fx-border-radius: 10;">
-         <Label fx:id="AvailableDeck" alignment="CENTER" layoutX="1.0" layoutY="17.0" prefHeight="30.0" prefWidth="73.0" text="2/40" />
-         <Label alignment="CENTER" layoutX="-51.0" layoutY="6.0" prefHeight="0.0" prefWidth="176.0" text="Deck" />
-      </Pane>
-      <Pane layoutX="813.0" layoutY="7.0" prefHeight="107.0" prefWidth="160.0">
-         <ImageView fitHeight="179.0" fitWidth="233.0" layoutX="-13.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@assets.UI/Turn.png" />
-            </image>
-         </ImageView>
-         <Label fx:id="CurrentTurn" layoutX="96.0" layoutY="37.0" text="2" textAlignment="CENTER" textFill="WHITE">
-            <font>
-               <Font name="Impact" size="27.0" />
-            </font>
-            <effect>
-               <DropShadow blurType="ONE_PASS_BOX" height="25.0" radius="7.0" spread="1.0" width="5.0" />
-            </effect>
-         </Label>
-         <Pane layoutX="-18.0" layoutY="93.0">
-            <children>
-               <Pane layoutX="-10.0" layoutY="-6.0" prefHeight="61.0" prefWidth="61.0">
+      <Pane layoutX="780.0" layoutY="154.0" prefHeight="469.0" prefWidth="188.0" AnchorPane.bottomAnchor="97.0" AnchorPane.leftAnchor="808.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="229.0">
+         <children>
+            <ImageView fitHeight="733.0" fitWidth="370.0" layoutX="-41.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true" x="-100.0" y="-220.0">
+               <image>
+                  <Image url="@componentImage/VBoxBg.png" />
+               </image>
+            </ImageView>
+            <Pane>
+               <children>
+                  <AnchorPane layoutX="-50.0" layoutY="-70.0">
+                     <children>
+                        <Pane layoutX="-10.0" layoutY="5.0" prefHeight="61.0" prefWidth="61.0">
+                           <children>
+                              <ImageView fitHeight="63.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@componentImage/Player1Gold.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="51.0" prefHeight="61.0" prefWidth="195.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@componentImage/GoldLabel.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="Player1Gold" layoutX="22.0" layoutY="5.0" prefHeight="46.0" prefWidth="168.0" text="Player 1 : " textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="3.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="5.75" spread="1.0" width="10.0" />
+                                 </effect>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="-50.0" layoutY="-10.0">
+                     <children>
+                        <Pane layoutX="51.0" prefHeight="61.0" prefWidth="195.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@componentImage/GoldLabel.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="Player2Gold" layoutX="20.0" layoutY="1.0" prefHeight="52.0" prefWidth="168.0" text="Player 2 : " textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="ONE_PASS_BOX" height="12.5" radius="5.125" spread="1.0" width="10.0" />
+                                 </effect>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="-10.0" prefHeight="52.0" prefWidth="52.0">
+                           <children>
+                              <ImageView fitHeight="63.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@componentImage/Player2Gold.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+            <VBox alignment="TOP_CENTER" layoutX="-30.0" layoutY="60.0" prefHeight="42.0" prefWidth="210.0" spacing="50.0">
+               <Pane accessibleRole="BUTTON" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="214.0">
                   <children>
-                     <ImageView fitHeight="61.0" fitWidth="62.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="42.0" fitWidth="210.0">
                         <image>
-                           <Image url="@assets.UI/Player1Gold.png" />
+                           <Image url="@componentImage/ButtonBg.png" />
                         </image>
                      </ImageView>
-                  </children>
-               </Pane>
-               <Pane layoutX="51.0" layoutY="-2.0" prefHeight="61.0" prefWidth="195.0">
-                  <children>
-                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@assets.UI/GoldLabel.png" />
-                        </image>
-                     </ImageView>
-                     <Label fx:id="Player1Gold" layoutX="22.0" layoutY="5.0" prefHeight="46.0" prefWidth="168.0" text="Player 1 : ">
+                     <Label alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="End Turn" textAlignment="CENTER" textFill="WHITE">
                         <font>
-                           <Font name="Bell MT" size="20.0" />
+                           <Font name="Impact" size="20.0" />
                         </font>
-                        <padding>
-                           <Insets bottom="3.0" />
-                        </padding>
+                        <effect>
+                           <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
+                        </effect>
+                     </Label>
+                     <Button fx:id="nextTurn" mnemonicParsing="false" onAction="#switchToNextPlayer" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+                  </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Pane>
+               <Pane accessibleRole="BUTTON" prefHeight="47.0" prefWidth="214.0">
+                  <children>
+                     <ImageView fitHeight="42.0" fitWidth="210.0">
+                        <image>
+                           <Image url="@componentImage/ButtonBg.png" />
+                        </image>
+                     </ImageView>
+                     <Label fx:id="ladangLabel" alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="Ladang" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font name="Impact" size="20.0" />
+                        </font>
+                        <effect>
+                           <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
+                        </effect>
+                     </Label>
+                     <Button fx:id="MyFieldButton" mnemonicParsing="false" onAction="#openLadang" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+                  </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Pane>
+               <Pane accessibleRole="BUTTON" layoutX="10.0" layoutY="60.0" prefHeight="47.0" prefWidth="214.0">
+                  <children>
+                     <ImageView fitHeight="42.0" fitWidth="210.0">
+                        <image>
+                           <Image url="@componentImage/ButtonBg.png" />
+                        </image>
+                     </ImageView>
+                     <Label fx:id="enemyLadangLabel" alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="Enemy Ladang" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font name="Impact" size="20.0" />
+                        </font>
+                        <effect>
+                           <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
+                        </effect>
+                     </Label>
+                     <Button fx:id="EnemyFieldButton" mnemonicParsing="false" onAction="#openLadangMusuh" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: transparent;" />
+                  </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Pane>
+               <Pane accessibleRole="BUTTON" layoutX="10.0" layoutY="110.0" prefHeight="47.0" prefWidth="214.0">
+                  <children>
+                     <ImageView fitHeight="42.0" fitWidth="210.0">
+                        <image>
+                           <Image url="@componentImage/ButtonBg.png" />
+                        </image>
+                     </ImageView>
+                     <Label alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="Shop" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font name="Impact" size="20.0" />
+                        </font>
+                        <effect>
+                           <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
+                        </effect>
+                     </Label>
+                     <Button fx:id="ShopButton" mnemonicParsing="false" onAction="#openShop" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+                  </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Pane>
+               <Pane accessibleRole="BUTTON" layoutX="10.0" layoutY="161.0" prefHeight="47.0" prefWidth="214.0">
+                  <children>
+                     <ImageView fitHeight="42.0" fitWidth="210.0">
+                        <image>
+                           <Image url="@componentImage/ButtonBg.png" />
+                        </image>
+                     </ImageView>
+                     <Label alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="Save" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font name="Impact" size="20.0" />
+                        </font>
+                        <effect>
+                           <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
+                        </effect>
+                     </Label>
+                     <Button fx:id="SaveButton" layoutY="-1.0" mnemonicParsing="false" onAction="#openSave" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+                  </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Pane>
+               <Pane accessibleRole="BUTTON" layoutX="10.0" layoutY="211.0" prefHeight="47.0" prefWidth="214.0">
+                  <children>
+                     <Button fx:id="SaveButton1" mnemonicParsing="false" onAction="#openLoad" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+                     <ImageView fitHeight="42.0" fitWidth="210.0">
+                        <image>
+                           <Image url="@componentImage/ButtonBg.png" />
+                        </image>
+                     </ImageView>
+                     <Label alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="Load" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font name="Impact" size="20.0" />
+                        </font>
+                        <effect>
+                           <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
+                        </effect>
                      </Label>
                   </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
                </Pane>
-            </children>
-         </Pane>
-      </Pane>
-      <Pane layoutX="797.0" layoutY="172.0">
-         <children>
-            <Pane layoutX="-10.0" layoutY="-6.0" prefHeight="61.0" prefWidth="61.0">
-               <children>
-                  <ImageView fitHeight="61.0" fitWidth="62.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@assets.UI/Player2Gold.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane layoutX="51.0" layoutY="-2.0" prefHeight="61.0" prefWidth="195.0">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@assets.UI/GoldLabel.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="Player2Gold" layoutX="20.0" layoutY="1.0" prefHeight="52.0" prefWidth="168.0" text="Player 2 : ">
-                     <font>
-                        <Font name="Bell MT" size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
+               <Pane accessibleRole="BUTTON" layoutX="10.0" layoutY="260.0" prefHeight="47.0" prefWidth="214.0">
+                  <children>
+                     <ImageView fitHeight="42.0" fitWidth="210.0">
+                        <image>
+                           <Image url="@componentImage/ButtonBg.png" />
+                        </image>
+                     </ImageView>
+                     <Label alignment="CENTER" layoutX="14.0" layoutY="-2.0" prefHeight="46.0" prefWidth="176.0" text="Plugins" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font name="Impact" size="20.0" />
+                        </font>
+                        <effect>
+                           <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
+                        </effect>
+                     </Label>
+                     <Button fx:id="LoadButton" mnemonicParsing="false" onAction="#openLoad" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+                  </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Pane>
+            </VBox>
          </children>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Pane>
+      <Pane layoutX="800.0" layoutY="645.0" prefHeight="76.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-border-color: #000000; -fx-border-radius: 10;">
+         <ImageView fitHeight="78.0" fitWidth="212.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@componentImage/DeckBg.png" />
+            </image>
+         </ImageView>
+         <Label fx:id="AvailableDeck" alignment="CENTER" layoutX="38.0" layoutY="39.0" prefHeight="46.0" prefWidth="92.0" text="2/40" textFill="WHITE">
+            <font>
+               <Font name="Impact" size="20.0" />
+            </font>
+            <effect>
+               <DropShadow blurType="TWO_PASS_BOX" height="15.0" radius="5.75" spread="1.0" width="10.0" />
+            </effect>
+         </Label>
+      </Pane>
+      <Pane layoutX="750.0" layoutY="7.0" prefHeight="86.0" prefWidth="212.0">
+         <ImageView fitHeight="176.0" fitWidth="233.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" x="5.0">
+            <image>
+               <Image url="@componentImage/Turn.png" />
+            </image>
+         </ImageView>
+         <Label fx:id="CurrentTurn" alignment="CENTER" layoutX="108.0" layoutY="56.0" prefHeight="46.0" prefWidth="29.0" text="20" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font name="Impact" size="24.0" />
+            </font>
+            <effect>
+               <DropShadow blurType="ONE_PASS_BOX" height="20.84" radius="7.42" spread="1.0" width="10.84" />
+            </effect>
+         </Label>
+         <Pane layoutX="-18.0" layoutY="93.0" />
       </Pane>
    </AnchorPane>
    <AnchorPane fx:id="EndScreen" visible="false">

@@ -57,7 +57,7 @@ public class ShopItems {
         try {
             scene = fxmlLoader.load();
             controller = fxmlLoader.getController();
-            controller.productNameUI.setText(productName);
+            controller.productNameUI = productName;
             controller.labelHargaUI.setText(labelHarga);
             controller.ImageUI.setImage(Image);
             controller.labelJumlahUI.setText(labelJumlah);
@@ -65,8 +65,6 @@ public class ShopItems {
             e.printStackTrace();
         }
     }
-
-
     public AnchorPane getScene() {
         return scene;
     }

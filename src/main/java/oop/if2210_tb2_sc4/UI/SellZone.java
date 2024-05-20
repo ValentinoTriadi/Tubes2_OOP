@@ -8,13 +8,16 @@ import oop.if2210_tb2_sc4.game_manager.GameState;
 import oop.if2210_tb2_sc4.player.Player;
 
 public class SellZone extends DropZone{
-    public SellZone(ShopUI shop) {
+    private final int width;
+    private final int height;
+    public SellZone(ShopUI shop, int width, int height) {
         super();
+        this.width = width;
+        this.height = height;
     }
 
     public void initializeSellZone(){
-        this.setPrefSize(100, 100);
-        this.setStyle("-fx-background-color: yellow;");
+        this.setPrefSize(width,height);
     }
 
     public void disableField(){
