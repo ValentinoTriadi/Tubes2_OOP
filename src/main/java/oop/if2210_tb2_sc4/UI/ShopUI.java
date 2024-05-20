@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.game_manager.GameState;
@@ -34,14 +35,16 @@ public class ShopUI{
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
         scrollPane.setMaxWidth(200);
+
         Image bgImage= ImageUtil.getComponentImage("ShopItemBg.png");
-        BackgroundImage bg = new BackgroundImage(bgImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(10,10, true, false, true, true));
-
-        // Set the GridPane to fill the width of the ScrollPane
-        shopGrid.setBackground(new Background(bg));
-        shopGrid.prefWidthProperty().bind(scrollPane.widthProperty());
-
+        ImageView bgImageView = new ImageView(bgImage);
+        bgImageView.setFitWidth(200);
+        bgImageView.setFitHeight(200);
+        bgImageView.setPreserveRatio(true);
+        StackPane bgPane = new StackPane(bgImageView);
         shopGrid.setVgap(10);
+
+        scrollPane.setContent(bgPane);
     }
 
     public void initialize(){
