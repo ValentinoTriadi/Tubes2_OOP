@@ -222,7 +222,7 @@ public class GameWindowController {
     private void StartNewTurn(){
         isShuffleDone = false;
         cardPicker.InvokePanel();
-        BeruangMenyerangPhase();
+        //BeruangMenyerangPhase();
     }
     private void BeruangMenyerangPhase(){
         while(!isShuffleDone){
@@ -396,7 +396,6 @@ public class GameWindowController {
         Tab tabPane = new Tab();
         tabPane.setClosable(false);
         tabPane.setContent(new Pane());
-
         return tabPane;
     }
 

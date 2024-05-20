@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane onMouseClicked="#buyItem" prefHeight="119.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.ShopItemsController">
+<AnchorPane onMouseClicked="#buyItem" prefHeight="128.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.ShopItemsController">
    <children>
       <ImageView fitHeight="128.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@componentImage/ShopItemBg.png" />
          </image>
       </ImageView>
-      <HBox prefHeight="128.0" prefWidth="175.0" spacing="10.0">
+      <HBox prefHeight="128.0" prefWidth="175.0" spacing="16.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="140.0" prefWidth="78.0">
                <children>
-                  <ImageView fx:id="ImageUI" fitHeight="93.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ImageUI" fitHeight="93.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="10.0">
                      <image>
-                        <Image url="@componentImage/HandTile.png" />
+                        <Image url="@assets/card/Produk/STROBERI.png" />
                      </image>
                   </ImageView>
                </children>
@@ -28,36 +28,41 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="125.0" prefWidth="94.0">
+            <VBox alignment="CENTER" prefHeight="128.0" prefWidth="73.0">
                <children>
                   <Pane>
                      <children>
-                        <Label fx:id="labelHargaUI" prefHeight="30.0" prefWidth="106.0" text="Label" textFill="WHITE">
+                        <Label fx:id="labelHargaUI" layoutX="22.0" prefHeight="30.0" prefWidth="47.0" text="Label" textFill="WHITE">
                            <font>
-                              <Font name="Impact" size="17.0" />
+                              <Font name="Impact" size="15.0" />
                            </font>
                            <effect>
-                              <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="5.75" spread="1.0" width="10.0" />
+                              <DropShadow blurType="ONE_PASS_BOX" height="12.5" radius="5.125" spread="1.0" width="10.0" />
                            </effect></Label>
-                        <ImageView fitHeight="46.0" fitWidth="36.0" layoutX="62.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="36.0" layoutX="-10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@componentImage/MoneyIcon.png" />
                            </image>
                         </ImageView>
                      </children>
                   </Pane>
-                  <VBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="168.0">
+                  <Pane prefHeight="45.0" prefWidth="59.0">
                      <children>
-                        <Label alignment="TOP_LEFT" graphicTextGap="0.0" prefHeight="28.0" prefWidth="182.0" text="Jumlah">
+                        <ImageView fitHeight="30.0" fitWidth="47.0" layoutX="-10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@componentImage/StockIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="labelJumlahUI" layoutX="22.0" layoutY="14.0" prefHeight="16.0" prefWidth="186.0" text="Label" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="Impact" size="15.0" />
                            </font>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="12.5" radius="5.125" spread="1.0" width="10.0" />
+                           </effect>
                         </Label>
-                        <Label fx:id="labelJumlahUI" prefHeight="16.0" prefWidth="186.0" text="Label" />
                      </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets></VBox>
+                  </Pane>
                </children>
             </VBox>
          </children>

@@ -30,6 +30,7 @@ public class GameState {
     public Shop getShop(){
         return instance.shop;
     }
+
     public Integer getCountItems(){
         int itemCount= 0;
         for(Map.Entry<ProductCard, Integer> entry : instance.shop.getCardStock().entrySet()){

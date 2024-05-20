@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.css.Stylesheet;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -18,42 +19,21 @@ import java.util.Map;
 public class ShopUI{
 
     @FXML
-    public AnchorPane paneGrid;
+    public ScrollPane ScrollPane;
     private final GridPane shopGrid;
     public Pane SellZone;
     public static int itemCount;
-    ScrollPane scrollPane;
     private final List<ShopItems> shopItems = new ArrayList<>();
 
     public ShopUI() {
         shopGrid = new GridPane();
-        scrollPane = new ScrollPane(shopGrid);
-
-        // Set the ScrollPane to always show vertical scroll bar and to never show horizontal scroll bar
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setFitToHeight(true);
-        scrollPane.setMaxWidth(200);
-
-        Image bgImage= ImageUtil.getComponentImage("ShopItemBg.png");
-        ImageView bgImageView = new ImageView(bgImage);
-        bgImageView.setFitWidth(200);
-        bgImageView.setFitHeight(200);
-        bgImageView.setPreserveRatio(true);
-        StackPane bgPane = new StackPane(bgImageView);
-        shopGrid.setVgap(10);
-
-        scrollPane.setContent(bgPane);
     }
 
     public void initialize(){
+        shopGrid.prefWidthProperty().bind(ScrollPane.widthProperty());
+        ScrollPane.setContent(shopGrid);
+        shopGrid.setStyle("-fx-background-color: transparent");
         initializeSellZone();
-        AnchorPane.setTopAnchor(scrollPane, 0.0);
-        AnchorPane.setBottomAnchor(scrollPane, 0.0);
-        AnchorPane.setLeftAnchor(scrollPane, 0.0);
-        AnchorPane.setRightAnchor(scrollPane, 0.0);
-        paneGrid.getChildren().add(scrollPane);
     }
 
     public void initializeShopData() {
@@ -88,19 +68,17 @@ public class ShopUI{
         // TODO: List the items in shop in shop Class
 
         // If it's the start of a new row, add a new RowConstraints to the GridPane
-        if (column == 0) {
-            shopGrid.getRowConstraints().add(new RowConstraints(100)); // 100 is the height of the row
-
-            ColumnConstraints column1 = new ColumnConstraints();
-            column1.setPercentWidth(50);
-            shopGrid.getColumnConstraints().add(column1);
-
-            ColumnConstraints column2 = new ColumnConstraints();
-            column2.setPercentWidth(50);
-            shopGrid.getColumnConstraints().add(column2);
-        }
-        System.out.println("Width: " + paneGrid.getPrefWidth() + " Height: "+ paneGrid.getHeight());
-
+//        if (column == 0) {
+//            shopGrid.getRowConstraints().add(new RowConstraints(128)); // 100 is the height of the row
+//
+//            ColumnConstraints column1 = new ColumnConstraints();
+//            column1.setPercentWidth(50);
+//            shopGrid.getColumnConstraints().add(column1);
+//
+//            ColumnConstraints column2 = new ColumnConstraints();
+//            column2.setPercentWidth(50);
+//            shopGrid.getColumnConstraints().add(column2);
+//            }
         shopGrid.add(item.getScene(), column, row);
         itemCount++;
     }
