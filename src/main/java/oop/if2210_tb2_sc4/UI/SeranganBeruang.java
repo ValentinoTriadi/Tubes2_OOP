@@ -1,16 +1,15 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static java.lang.Math.min;
 
@@ -20,25 +19,27 @@ public class SeranganBeruang extends Thread {
     private final int row;
     private Time duration;
     private List<Point2D> path;
-    private DropZone[] dropZone;
+    private final LadangUI ladang;
 
-    SeranganBeruangUI seranganBeruangUI;
-    Pane bear = new Pane();
+    private boolean isDone = false;
 
-    public SeranganBeruang(int col, int row, DropZone[] dropZone) {
+    private SeranganBeruangUI seranganBeruangUI;
+    private Pane bear = new Pane();
+
+    public SeranganBeruang(int col, int row, LadangUI ladang) {
         super();
         this.col = col; // Inisialisasi Kolom Serangan Beruang
         this.row = row; // Inisialisasi Baris Serangan Beruang
-        this.dropZone = dropZone; // Inisialisasi DropZone Serangan Beruang
+        this.ladang = ladang; // Inisialisasi DropZone Serangan Beruang
     }
 
-    public void initialize(){
-        URL url = getClass().getResource("SeranganBeruangUI.fxml");
-        FXMLLoader loader = new FXMLLoader(url);
+    public void initializer(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SeranganBeruangUI.fxml"));
         try {
             bear = loader.load();
             seranganBeruangUI = loader.getController();
-            seranganBeruangUI.setDropZone(dropZone);
+            seranganBeruangUI.setDropZone(ladang.getLadang());
+            seranganBeruangUI.setLadang(ladang);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,15 +55,15 @@ public class SeranganBeruang extends Thread {
 
     public void serang() {
         // Melakukan Randomisasi serangan beruang akan terjadi atau tidak
-        if (!randomSerangan()) {
+        if (false) {
             return;
         }
 
         duration = new Time(System.currentTimeMillis());
-        int randomTime = (int) ((Math.random() * 30) + 30) * 1000;
+        int randomTime = (int) ((Math.random() * 0) + 5) * 1000;
         duration.setTime(randomTime);
-
-        System.out.println("Serangan Beruang selama " + duration.getSeconds() + " detik\n\n");
+        bear.setVisible(false);
+        startTimer();
 
         // Melakukan Randomisasi serangan beruang yang akan terjadi
         if (randomSerangan()) {
@@ -73,8 +74,32 @@ public class SeranganBeruang extends Thread {
             serangan_dua();
         }
 
-        // Animasi serangan beruang
+        while (!isDone) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ignored) {}
+        }
+
+        bear.setVisible(true);
         seranganBeruangUI.runAnimations(path);
+    }
+
+    private void startTimer(){
+        Timeline timeline = new Timeline();
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.1), event -> {
+            long timeLeft = duration.getTime() - 100;
+            duration.setTime(timeLeft < 0 ? 0 : timeLeft);
+            System.out.println("Time Left: " + duration.getTime() + "ms");
+
+            if (duration.getTime() <= 0) {
+                timeline.stop();
+                isDone = true;
+            }
+        });
+
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
     private boolean randomSerangan() {
@@ -91,9 +116,6 @@ public class SeranganBeruang extends Thread {
 
         // Melakukan Randomisasi area serangan
         Point2D areaSerangan = getRandomAreaSerangan(maxX, maxY);
-
-        System.out.println("Serangan Beruang di (" + (int) petakAcuan.getX() + ", " + (int) petakAcuan.getY() + ") dengan area serangan " + areaSerangan.getX() + " x " + areaSerangan.getY());
-
         polaSeranganUlar(petakAcuan, areaSerangan);
     }
 
@@ -104,15 +126,15 @@ public class SeranganBeruang extends Thread {
             int step = y % 2 == 0 ? 1 : -1;
             for (int x = start; x != end; x += step) {
                 path.add(new Point2D(petakAcuan.getX() + x, petakAcuan.getY() + y));
-                System.out.printf("Serangan Beruang di (%d, %d)%n", (int) petakAcuan.getX() + x, (int) petakAcuan.getY() + y);
+                ladang.setLadangOnRedColor((int) (petakAcuan.getY() + y - 1), (int) (petakAcuan.getX() + x - 1));
             }
         }
     }
 
     private Point2D getRandomAwalSerangan() {
         // Melakukan Randomisasi area serangan
-        int x = (int) (Math.random() * col);
-        int y = (int) (Math.random() * row);
+        int x = (int) (Math.random() * col) + 1;
+        int y = (int) (Math.random() * row) + 1;
         return new Point2D(x, y);
     }
 
@@ -132,17 +154,22 @@ public class SeranganBeruang extends Thread {
 
     private void serangan_dua() {
         // Melakukan randomisasi petak acuan serangan
-        Point2D petakAcuan = new Point2D(0, 0);
-
+        Point2D petakAcuan = getRandomAwalSerangan();
+        ladang.setLadangOnRedColor((int) petakAcuan.getY() - 1, (int) petakAcuan.getX() - 1);
         // Melakukan Randomisasi area serangan
         Set<Point2D> titikSerangan = getRandomTitikSerangan();
+        for (Point2D point : titikSerangan) {
+            ladang.setLadangOnRedColor((int) point.getY() - 1, (int) point.getX() - 1);
+        }
 
+        path.add(petakAcuan);
+        // Melakukan serangan beruang dengan pola GBFS
         polaSeranganRandomGBFS(petakAcuan, titikSerangan);
     }
 
     private void polaSeranganRandomGBFS(Point2D start, Set<Point2D> track){
         Point2D end = getClosestPoint(start, track);
-        System.out.println("Serangan Beruang di (" + (int) end.getX() + ", " + (int) end.getY() + ")");
+        if (end == null) return;
         moveFromStartToEnd(start, end);
         track.remove(end);
         if (!track.isEmpty()) {
@@ -152,9 +179,9 @@ public class SeranganBeruang extends Thread {
 
     private Point2D getClosestPoint(Point2D start, Set<Point2D> track) {
         Point2D end = null;
-        int minDistance = Integer.MAX_VALUE;
+        double minDistance = Double.MAX_VALUE;
         for (Point2D point : track) {
-            int distance = manhattanDistance(start, point);
+            double distance = start.distance(point);
             if (distance < minDistance) {
                 minDistance = distance;
                 end = point;
@@ -167,7 +194,6 @@ public class SeranganBeruang extends Thread {
         while (!start.equals(end)) {
             start = getNextPoint(start, end);
             path.add(start);
-            System.out.println("Serangan Beruang di (" + (int) start.getX() + ", " + (int) start.getY() + ")");
         }
     }
 
@@ -183,18 +209,15 @@ public class SeranganBeruang extends Thread {
         }
     }
 
-    private int manhattanDistance(Point2D start, Point2D end){
-        return (int) (Math.abs(start.getX() - end.getX()) + Math.abs(start.getY() - end.getY()));
-    }
 
     private Set<Point2D> getRandomTitikSerangan(){
         // Set of Point
         Set<Point2D> titikSerangan = new HashSet<>();
-
+        int jumlahSerangan = (int) (Math.random() * 5);
         // Melakukan Randomisasi area serangan
-        while (titikSerangan.size() < 4) {
-            int x = (int) (Math.random() * col);
-            int y = (int) (Math.random() * row);
+        while (titikSerangan.size() < jumlahSerangan) {
+            int x = (int) (Math.random() * col) + 1;
+            int y = (int) (Math.random() * row) + 1;
             titikSerangan.add(new Point2D(x, y));
         }
 

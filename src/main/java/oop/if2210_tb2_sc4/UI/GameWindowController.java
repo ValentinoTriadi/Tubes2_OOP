@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4.UI;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
-import javafx.scene.text.Text;
+
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.deck.Deck;
@@ -60,6 +61,7 @@ public class GameWindowController {
     public Button nextTurn;
     public Label ladangLabel;
     public Label enemyLadangLabel;
+    public Pane bearroot;
 
     private Tab ladang;
     private Tab ladangMusuh;
@@ -67,7 +69,6 @@ public class GameWindowController {
     private Tab save;
     private Tab load;
     private Tab addPlugin;
-    private final Pane Bear = new Pane();
     private SeranganBeruang seranganBeruang;
 
     public static SellZone sellZone;
@@ -145,11 +146,11 @@ public class GameWindowController {
         // Add both player panes to the root and hide the next player's pane
         rootPane.getChildren().addAll(currentPlayerPane, nextPlayerPane);
 
-        int col = 5;
-        int row = 4;
-        seranganBeruang = new SeranganBeruang(col,row,currentPlayerPane.getLadang().getLadang());
-        seranganBeruang.initialize();
-        root.getChildren().add(seranganBeruang.getPane());
+        int col = currentPlayerPane.getLadang().getColumnCount();
+        int row = currentPlayerPane.getLadang().getRowCount();
+        seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang());
+        seranganBeruang.initializer();
+        bearroot.setMouseTransparent(true);
     }
 
     public void PostPoneThread(long milisecond) throws InterruptedException {
@@ -163,7 +164,7 @@ public class GameWindowController {
 
 
     public boolean TryEndGame(){
-        if(GameState.getInstance().getCurrentPlayer() >= 20) {
+        if(GameState.getInstance().getCurrentPlayer() >= 1000) {
             gameThread.stopThread();
             int player1gold = getPlayer1().getPlayerData().getJumlahGulden();
             int player2gold = getPlayer2().getPlayerData().getJumlahGulden();
@@ -212,28 +213,28 @@ public class GameWindowController {
 
         StartNewTurn();
         resetFieldLock();
-        // TODO: MAKE THE SWITCHING ANIMATION
         openLadang();
-
 
         System.out.println("Switched to next player");
     }
     private void StartNewTurn(){
         isShuffleDone = false;
         cardPicker.InvokePanel();
-        //BeruangMenyerangPhase();
+        BeruangMenyerangPhase();
     }
     private void BeruangMenyerangPhase(){
-        while(!isShuffleDone){
-            Bear.getChildren().clear();
-            int col = currentPlayerPane.getLadang().getColumnCount();
-            int row = currentPlayerPane.getLadang().getRowCount();
-            seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang().getLadang());
+        bearroot.getChildren().clear();
 
-            seranganBeruang.initialize();
-            Bear.getChildren().add(seranganBeruang.getPane());
-            seranganBeruang.start();
-        }
+        LadangUI currentladang = currentPlayerPane.getLadang();
+        int col = currentladang.getColumnCount();
+        int row = currentladang.getRowCount();
+        seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang());
+
+        seranganBeruang.initializer();
+
+
+        bearroot.getChildren().add(seranganBeruang.getPane());
+        seranganBeruang.start();
     }
 
     private void resetFieldLock(){
@@ -364,7 +365,7 @@ public class GameWindowController {
         StackPane temp_save = new StackPane();
         temp_save.setAlignment(Pos.CENTER);
         temp_save.getChildren().add(savePane);
-        temp_save.setPadding(new Insets(0, 10, 0, 10));
+        temp_save.setPadding(new Insets(10, 10, 10, 100));
         return  temp_save;
     }
 
@@ -395,6 +396,7 @@ public class GameWindowController {
         Tab tabPane = new Tab();
         tabPane.setClosable(false);
         tabPane.setContent(new Pane());
+
         return tabPane;
     }
 
@@ -457,6 +459,7 @@ public class GameWindowController {
         currentPlayerPane.disableField();
         saver.initialize();
         tabPane.getSelectionModel().select(save);
+
     }
 
     public void openLoad(){

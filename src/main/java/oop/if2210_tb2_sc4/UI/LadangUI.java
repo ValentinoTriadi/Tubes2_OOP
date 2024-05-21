@@ -107,12 +107,15 @@ public class LadangUI extends GridPane {
 
             dz.setEffect(new javafx.scene.effect.Blend(
                     javafx.scene.effect.BlendMode.MULTIPLY, colorAdjust, dropShadow));
+
+            dz.setTarget(true);
         }
     }
 
     public void resetLadangColor() {
         for(DropZone dz : ladang) {
             dz.setEffect(null);
+            dz.setTarget(false);
         }
     }
 
