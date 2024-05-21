@@ -8,13 +8,8 @@ class CardTest {
 
     @Test
     void getName() {
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         assertEquals("Card", card.getName());
     }
 
-    @Test
-    void getImagePath() {
-        Card card = new Card("Card", "image_path");
-        assertEquals("image_path", card.getImagePath());
-    }
 }

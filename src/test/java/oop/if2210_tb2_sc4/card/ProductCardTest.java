@@ -8,13 +8,13 @@ class ProductCardTest {
 
     @Test
     void getPrice() {
-        ProductCard productCard = new ProductCard("name", "image_path", 100, 10);
+        ProductCard productCard = new ProductCard("name" , 100, 10);
         assertEquals(100, productCard.getPrice());
     }
 
     @Test
     void getWeightAddition() {
-        ProductCard productCard = new ProductCard("name", "image_path", 100, 10);
+        ProductCard productCard = new ProductCard("name" , 100, 10);
         assertEquals(10, productCard.getWeightAddition());
     }
 }

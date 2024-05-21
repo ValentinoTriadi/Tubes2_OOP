@@ -8,8 +8,8 @@ class DelayCardTest {
 
     @Test
     void applyEffect() {
-        FarmResourceCard card = new AnimalCard("Farm Resource Card", "image_path");
-        DelayCard delayCard = new DelayCard("Delay Card", "image_path");
+        FarmResourceCard card = new AnimalCard("Farm Resource Card");
+        DelayCard delayCard = new DelayCard("Delay Card");
         delayCard.applyEffect(card);
         assertTrue(card.getEffect().contains(EffectType.DELAY));
         delayCard.applyEffect(card);

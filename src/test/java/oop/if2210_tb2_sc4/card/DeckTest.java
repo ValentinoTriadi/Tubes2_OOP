@@ -36,13 +36,13 @@ class DeckTest {
         Deck deck = new Deck();
         Deck.initCards();
 
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         deck.addCardToDeck(card);
-        card = new Card("Card2", "image_path2");
+        card = new Card("Card2");
         deck.addCardToDeck(card);
-        card = new Card("Card3", "image_path3");
+        card = new Card("Card3");
         deck.addCardToDeck(card);
-        card = new Card("Card4", "image_path4");
+        card = new Card("Card4");
         deck.addCardToDeck(card);
 
         assertEquals(deck.generateCards().size(), 4);
@@ -51,7 +51,7 @@ class DeckTest {
     @Test
     void addCardToDeck() {
         Deck deck = new Deck();
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         deck.addCardToDeck(card);
         List<Card> currentDeck = new ArrayList<>();
         currentDeck.add(card);
@@ -61,7 +61,7 @@ class DeckTest {
     @Test
     void testAddCardToDeck() {
         Deck deck = new Deck();
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         List<Card> cards = new ArrayList<>();
         cards.add(card);
         deck.addCardToDeck(cards);
@@ -73,7 +73,7 @@ class DeckTest {
     @Test
     void setActiveCards() {
         Deck deck = new Deck();
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         Card[] activeCards = new Card[Deck.HAND_SIZE];
         activeCards[0] = card;
         deck.setActiveCards(activeCards);
@@ -83,7 +83,7 @@ class DeckTest {
     @Test
     void setActiveCard() {
         Deck deck = new Deck();
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         deck.setActiveCard(0, card);
         Card[] activeCards = new Card[Deck.HAND_SIZE];
         activeCards[0] = card;
@@ -93,7 +93,7 @@ class DeckTest {
     @Test
     void testSetActiveCard() {
         Deck deck = new Deck();
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         deck.setActiveCard("A", card);
         Card[] activeCards = new Card[Deck.HAND_SIZE];
         activeCards[0] = card;
@@ -103,7 +103,7 @@ class DeckTest {
     @Test
     void removeActiveCard() {
         Deck deck = new Deck();
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         deck.setActiveCard(0, card);
         deck.removeActiveCard(0);
         Card[] activeCards = new Card[Deck.HAND_SIZE];
@@ -113,7 +113,7 @@ class DeckTest {
     @Test
     void addActiveCard() {
         Deck deck = new Deck();
-        Card card = new Card("Card", "image_path");
+        Card card = new Card("Card");
         deck.addActiveCard(card);
         Card[] activeCards = new Card[Deck.HAND_SIZE];
         activeCards[0] = card;

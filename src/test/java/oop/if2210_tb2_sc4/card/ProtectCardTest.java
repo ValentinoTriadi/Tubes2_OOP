@@ -8,10 +8,10 @@ class ProtectCardTest {
 
     @Test
     void applyEffect() {
-        ProtectCard protectCard = new ProtectCard("Protect", "image_path");
+        ProtectCard protectCard = new ProtectCard("Protect");
 
-        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource", "image_path");
+        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource");
         protectCard.applyEffect(farmResourceCard);
-        assertSame(farmResourceCard.effectApplied.get(0), EffectType.PROTECTION);
+        assertSame(farmResourceCard.effectApplied.get(0), EffectType.PROTECT);
     }
 }

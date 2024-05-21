@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4.card;
 
+import oop.if2210_tb2_sc4.Ladang;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +26,7 @@ class LadangTest {
     @Test
     void getCard() {
         Ladang ladang = new Ladang();
-        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource", "image_path");
+        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource");
         ladang.setCard(0, 0, farmResourceCard);
         assertEquals(farmResourceCard, ladang.getCard(0, 0));
     }
@@ -33,7 +34,7 @@ class LadangTest {
     @Test
     void setCard() {
         Ladang ladang = new Ladang();
-        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource", "image_path");
+        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource");
         ladang.setCard(0, 0, farmResourceCard);
         assertEquals(farmResourceCard, ladang.getCard(0, 0));
     }
@@ -41,7 +42,7 @@ class LadangTest {
     @Test
     void removeCard() {
         Ladang ladang = new Ladang();
-        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource", "image_path");
+        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource");
         ladang.setCard(0, 0, farmResourceCard);
         ladang.removeCard(0, 0);
         assertNull(ladang.getCard(0, 0));
@@ -50,7 +51,7 @@ class LadangTest {
     @Test
     void isFull() {
         Ladang ladang = new Ladang();
-        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource", "image_path");
+        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource");
         for (int i = 0; i < Ladang.LADANG_ROW; i++) {
             for (int j = 0; j < Ladang.LADANG_COLUMN; j++) {
                 ladang.setCard(i, j, farmResourceCard);

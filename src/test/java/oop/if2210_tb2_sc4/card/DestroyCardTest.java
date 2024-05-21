@@ -8,12 +8,12 @@ class DestroyCardTest {
 
     @Test
     void applyEffect() {
-        FarmResourceCard card = new AnimalCard("Farm Resource Card", "image_path");
-        DestroyCard destroyCard = new DestroyCard("Destroy Card", "image_path");
-        ProtectCard protectCard = new ProtectCard("Protect Card", "image_path");
+        FarmResourceCard card = new AnimalCard("Farm Resource Card");
+        DestroyCard destroyCard = new DestroyCard("Destroy Card");
+        ProtectCard protectCard = new ProtectCard("Protect Card");
         protectCard.applyEffect(card);
-        assertTrue(card.getEffect().contains(EffectType.PROTECTION));
+        assertTrue(card.getEffect().contains(EffectType.PROTECT));
         destroyCard.applyEffect(card);
-        assertFalse(card.getEffect().contains(EffectType.PROTECTION));
+        assertFalse(card.getEffect().contains(EffectType.PROTECT));
     }
 }

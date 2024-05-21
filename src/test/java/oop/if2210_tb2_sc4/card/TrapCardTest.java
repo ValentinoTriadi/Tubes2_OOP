@@ -8,9 +8,9 @@ class TrapCardTest {
 
     @Test
     void applyEffect() {
-        TrapCard trapCard = new TrapCard("Trap", "image_path");
+        TrapCard trapCard = new TrapCard("Trap");
 
-        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource", "image_path");
+        FarmResourceCard farmResourceCard = new AnimalCard("Farm Resource");
         trapCard.applyEffect(farmResourceCard);
         assertSame(farmResourceCard.effectApplied.get(0), EffectType.TRAP);
     }
