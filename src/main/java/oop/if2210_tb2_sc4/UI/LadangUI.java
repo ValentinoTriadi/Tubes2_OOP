@@ -1,7 +1,10 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
 import oop.if2210_tb2_sc4.ladang.Ladang;
 import javafx.scene.Node;
@@ -11,6 +14,7 @@ public class LadangUI extends GridPane {
 
     private final DropZone[] ladang = new DropZone[20];
     private Ladang ladangData;
+    int columns = 5;
 
     public LadangUI(Ladang ladangData) {
 
@@ -57,9 +61,6 @@ public class LadangUI extends GridPane {
             ladang[i].setBackground(new Background(bgImage));
 //            ladang[i].setStyle("-fx-background-color: yellow;");
             this.add(ladang[i], col, row);
-//            ladang[i].setStyle(
-//                    "-fx-border-color: transparent; "
-//            );
         }
         this.ladangData = ladangData;
     }
@@ -83,6 +84,35 @@ public class LadangUI extends GridPane {
     public void disableField(){
         for (DropZone dz : ladang) {
             dz.setDisable(true);
+        }
+    }
+    private int getIndex(int row, int col) {
+        return row * columns + col;
+    }
+    public void setLadangOnRedColor(int row, int col) {
+        int index = getIndex(row,col);
+        if (index < 0 || index >= ladang.length) {
+            return;
+        }
+        DropZone dz = ladang[index];
+        if (dz != null) {
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setHue(0.0); // Red hue
+            colorAdjust.setSaturation(1.0);
+
+            DropShadow dropShadow = new DropShadow();
+            dropShadow.setColor(Color.RED);
+            dropShadow.setRadius(20);
+            dropShadow.setSpread(0.5);
+
+            dz.setEffect(new javafx.scene.effect.Blend(
+                    javafx.scene.effect.BlendMode.MULTIPLY, colorAdjust, dropShadow));
+        }
+    }
+
+    public void resetLadangColor() {
+        for(DropZone dz : ladang) {
+            dz.setEffect(null);
         }
     }
 
