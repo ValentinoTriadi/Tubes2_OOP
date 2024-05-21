@@ -51,22 +51,27 @@ public class Plugins {
         }
     }
 
-    public void run(PluginsType type){
+    public void runLoad(PluginsType type){
         try {
+            // Get the class
+            Class<?> clazz;
             if (type == PluginsType.JSON) {
-                Class<?> clazz = getClassByName("SaveLoadJSON");
-                assert clazz != null;
-                Method method = clazz.getDeclaredMethod("start");
-                method.setAccessible(true);
-                method.invoke(null);
+                clazz = getClassByName("SaveLoadJSON");
             } else {
                 assert type == PluginsType.XML;
-                Class<?> clazz = getClassByName("SaveLoadXML");
-                assert clazz != null;
-                Method method = clazz.getDeclaredMethod("start");
-                method.setAccessible(true);
-                method.invoke(null);
+                clazz = getClassByName("SaveLoadXML");
             }
+            assert clazz != null;
+
+            // Get the method
+            Method method = clazz.getDeclaredMethod("Load");
+
+            // Set access
+            method.setAccessible(true);
+
+            // Run the method
+            method.invoke(null);
+
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

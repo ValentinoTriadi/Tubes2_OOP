@@ -14,13 +14,9 @@ import oop.if2210_tb2_sc4.Player;
 
 public class SaveTXT implements Save {
     private final String folderName;
-    private final Player player1;
-    private final Player player2;
 
-    public SaveTXT(String folderName, Player player1, Player player2){
+    public SaveTXT(String folderName){
         this.folderName = folderName;
-        this.player1 = player1;
-        this.player2 = player2;
     }
 
     @Override
@@ -35,7 +31,7 @@ public class SaveTXT implements Save {
         Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/player" + no_player + ".txt");
         File file = handleNewFile(path);
 
-        Player player = (no_player == 1) ? player1 : player2;
+        Player player = GameState.getInstance().getPlayer(no_player);
         try {
             FileWriter writer = new FileWriter(file);
 

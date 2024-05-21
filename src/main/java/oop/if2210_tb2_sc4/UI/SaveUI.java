@@ -41,7 +41,7 @@ public class SaveUI {
 
         switch (choice.toLowerCase()) {
             case "txt":
-                saver = new SaveTXT(path, GameWindowController.getPlayer1().getPlayerData(), GameWindowController.getPlayer2().getPlayerData());
+                saver = new SaveTXT(path);
                 break;
             case "yaml":
                 // Handle YAML choice

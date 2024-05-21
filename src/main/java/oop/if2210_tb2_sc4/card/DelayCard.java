@@ -6,7 +6,7 @@ public class DelayCard extends ItemCard{
     }
 
     public DelayCard(DelayCard delayCard) {
-        super(delayCard.name);
+        super(delayCard.getName());
     }
 
     @Override

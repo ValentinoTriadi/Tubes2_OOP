@@ -6,6 +6,7 @@ import oop.if2210_tb2_sc4.Exception.FolderNotExistException;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.Exception.GameException;
 import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.save_load.Load;
 import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
@@ -129,9 +130,10 @@ public class LoadUi {
 
     private void LoadPlayer(){
         PlayerUI playerUI1 = GameWindowController.getPlayer1();
-        playerUI1.setPlayerData(loader.loadPlayer(1));
-        GameWindowController.getPlayer2().setPlayerData(loader.loadPlayer(2));
-
+        loader.loadPlayer(1);
+        playerUI1.setPlayerData(GameState.getInstance().getPlayer(1));
+        loader.loadPlayer(2);
+        GameWindowController.getPlayer2().setPlayerData(GameState.getInstance().getPlayer(2));
     }
 
     private void LoadState(){

@@ -6,7 +6,7 @@ public class ProtectCard extends ItemCard{
     }
 
     public ProtectCard(ProtectCard protectCard) {
-        super(protectCard.name);
+        super(protectCard.getName());
     }
 
     @Override

@@ -5,13 +5,13 @@ import oop.if2210_tb2_sc4.card.Card;
 
 public class Player {
     private Integer jumlah_gulden;
-    private Deck deck;
-    private Ladang ladang;
+    private oop.if2210_tb2_sc4.Deck deck;
+    private oop.if2210_tb2_sc4.Ladang ladang;
 
     public Player(){
         jumlah_gulden = 0;
-        deck = new Deck();
-        ladang = new Ladang();
+        deck = new oop.if2210_tb2_sc4.Deck();
+        ladang = new oop.if2210_tb2_sc4.Ladang();
     }
 
     public Integer getJumlahGulden(){
@@ -50,19 +50,19 @@ public class Player {
         return ladang.getCardinLadangCount();
     }
 
-    public void setLadang(Ladang ladang){
+    public void setLadang(oop.if2210_tb2_sc4.Ladang ladang){
         this.ladang = ladang;
     }
 
-    public void setDeck(Deck deck){
+    public void setDeck(oop.if2210_tb2_sc4.Deck deck){
         this.deck = deck;
     }
 
-    public Ladang getLadang(){
+    public oop.if2210_tb2_sc4.Ladang getLadang(){
         return ladang;
     }
 
-    public Deck getDeck(){
+    public oop.if2210_tb2_sc4.Deck getDeck(){
         return deck;
     }
 }

@@ -6,7 +6,7 @@ public class InstantHarvestCard extends ItemCard{
     }
 
     public InstantHarvestCard(InstantHarvestCard instantHarvestCard) {
-        super(instantHarvestCard.name);
+        super(instantHarvestCard.getName());
     }
 
     @Override

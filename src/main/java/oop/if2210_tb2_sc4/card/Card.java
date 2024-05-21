@@ -5,7 +5,6 @@ package oop.if2210_tb2_sc4.card;
  */
 public class Card {
     private final String name;
-    private final String image_path;
 
     public Card(String name) {
         this.name = name;

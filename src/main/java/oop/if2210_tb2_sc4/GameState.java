@@ -15,8 +15,11 @@ public class GameState {
         return instance;
     }
 
+    private oop.if2210_tb2_sc4.Player player1;
+    private oop.if2210_tb2_sc4.Player player2;
     private int current_turn = 1;
-    private Shop shop = new Shop();
+    private oop.if2210_tb2_sc4.Shop shop = new oop.if2210_tb2_sc4.Shop();
+
 
     public int getCurrentPlayer(){
         return instance.current_turn;
@@ -26,24 +29,39 @@ public class GameState {
         instance.current_turn = player;
     }
 
-    public Shop getShop(){
+    public oop.if2210_tb2_sc4.Shop getShop(){
         return instance.shop;
     }
+
     public Integer getCountItems(){
         int itemCount= 0;
         for(Map.Entry<ProductCard, Integer> entry : instance.shop.getCardStock().entrySet()){
-            itemCount += entry.getValue();
+            itemCount += entry.getValue() == 0 ? 0 : 1;
         }
         return itemCount;
     }
 
-
-    public Map<ProductCard, Integer>
-    getShopItems(){
+    public Map<ProductCard, Integer> getShopItems(){
         return instance.shop.getCardStock();
     }
 
-    public void setShop(Shop shop){
-        instance.shop = new Shop(shop);
+    public void setShop(oop.if2210_tb2_sc4.Shop shop){
+        instance.shop = new oop.if2210_tb2_sc4.Shop(shop);
+    }
+
+    public oop.if2210_tb2_sc4.Player getPlayer(int player){
+        if(player == 1){
+            return player1;
+        } else {
+            return player2;
+        }
+    }
+
+    public void setPlayer(int player, oop.if2210_tb2_sc4.Player p){
+        if(player == 1){
+            player1 = p;
+        } else {
+            player2 = p;
+        }
     }
 }
