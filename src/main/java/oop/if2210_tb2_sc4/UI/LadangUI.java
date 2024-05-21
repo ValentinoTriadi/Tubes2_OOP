@@ -13,26 +13,26 @@ public class LadangUI extends GridPane {
     private Ladang ladangData;
 
     public LadangUI(Ladang ladangData) {
+
+        this.setTranslateY(10);
         setAlignment(javafx.geometry.Pos.CENTER);
         setGridLinesVisible(false);
-        setHgap(30.0);
+        setHgap(10);
         setPrefHeight(507.0);
         setPrefWidth(582.0);
-        setVgap(15.0);
+        setVgap(10);
 
         for (int i = 0; i < 5; i++) {
             ColumnConstraints column = new ColumnConstraints();
             column.setHgrow(javafx.scene.layout.Priority.SOMETIMES);
-            column.setMaxWidth(100.0);
-            column.setMinWidth(50.0);
-            column.setPrefWidth(50.0);
+            column.setMaxWidth(95);
             getColumnConstraints().add(column);
         }
 
         for (int i = 0; i < 4; i++) {
             RowConstraints row = new RowConstraints();
-            row.setMaxHeight(200.0);
-            row.setMinHeight(10.0);
+            row.setMaxHeight(120);
+            row.setMinHeight(100);
             row.setPrefHeight(100.0);
             row.setVgrow(javafx.scene.layout.Priority.SOMETIMES);
             getRowConstraints().add(row);
@@ -46,20 +46,20 @@ public class LadangUI extends GridPane {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
-                new BackgroundSize(50, 100, true, true, true, false)
+                new BackgroundSize(90, 110, true, true, true, false)
         );
 
         for (int i = 0; i < 20; i++) {
             int col = i % 5;
             int row = i / 5;
             ladang[i] = new DropZone();
-            ladang[i].setPrefSize(50, 100);
+            ladang[i].setPrefSize(104, 110);
             ladang[i].setBackground(new Background(bgImage));
 //            ladang[i].setStyle("-fx-background-color: yellow;");
             this.add(ladang[i], col, row);
-            ladang[i].setStyle(
-                    "-fx-border-color: transparent; "
-            );
+//            ladang[i].setStyle(
+//                    "-fx-border-color: transparent; "
+//            );
         }
         this.ladangData = ladangData;
     }

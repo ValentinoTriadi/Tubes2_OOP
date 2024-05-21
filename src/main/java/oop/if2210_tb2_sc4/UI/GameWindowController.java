@@ -1,6 +1,5 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -365,7 +364,7 @@ public class GameWindowController {
         StackPane temp_save = new StackPane();
         temp_save.setAlignment(Pos.CENTER);
         temp_save.getChildren().add(savePane);
-        temp_save.setPadding(new Insets(10, 10, 10, 100));
+        temp_save.setPadding(new Insets(0, 10, 0, 10));
         return  temp_save;
     }
 
@@ -458,7 +457,6 @@ public class GameWindowController {
         currentPlayerPane.disableField();
         saver.initialize();
         tabPane.getSelectionModel().select(save);
-
     }
 
     public void openLoad(){

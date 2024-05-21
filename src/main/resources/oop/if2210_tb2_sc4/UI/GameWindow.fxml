@@ -218,7 +218,6 @@
                </Pane>
                <Pane accessibleRole="BUTTON" layoutX="10.0" layoutY="211.0" prefHeight="47.0" prefWidth="214.0">
                   <children>
-                     <Button fx:id="SaveButton1" mnemonicParsing="false" onAction="#openLoad" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
                      <ImageView fitHeight="42.0" fitWidth="210.0">
                         <image>
                            <Image url="@componentImage/ButtonBg.png" />
@@ -232,6 +231,7 @@
                            <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
                         </effect>
                      </Label>
+                     <Button mnemonicParsing="false" onAction="#openLoad" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
                   </children>
                   <cursor>
                      <Cursor fx:constant="HAND" />
@@ -252,7 +252,7 @@
                            <DropShadow blurType="ONE_PASS_BOX" height="15.0" radius="8.25" spread="1.0" width="20.0" />
                         </effect>
                      </Label>
-                     <Button fx:id="LoadButton" mnemonicParsing="false" onAction="#openLoad" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+                     <Button mnemonicParsing="false" onAction="#openAddPlugin" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
                   </children>
                   <cursor>
                      <Cursor fx:constant="HAND" />
