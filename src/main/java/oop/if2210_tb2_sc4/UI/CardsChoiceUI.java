@@ -98,17 +98,14 @@ public class CardsChoiceUI {
         return !(card instanceof AnimalCard) && !(card instanceof PlantCard);
     }
 
-       public void randomGenerateCards() {
-
-
+    public void randomGenerateCards() {
         List<Card> generatedCard= playerDeck.generateCards();
-        System.out.println("Amount of deck: "+ playerDeck.getCardsInDeckCount());
         // Check if the total number of images is sufficient
         if(cardImages.length >= generatedCard.size()){
            for (int i = 0; i < cardImages.length; i++) {
                Card card = generatedCard.get(i);
                Image image = ImageUtil.getCardImage(card);
-               cardImages[i].setImage(image);
+           cardImages[i].setImage(image);
                availableCard[i] = card;
            }
        }

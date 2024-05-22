@@ -4,13 +4,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import oop.if2210_tb2_sc4.card.FarmResourceCard;
+import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class CardUI extends DraggablePane implements UICard {
 
-    private FarmResourceCard cardData;
+    private Card cardData;
 
     public CardUI(Pane parent, DropZone[] dropZone) {
         super(parent, dropZone);
@@ -51,11 +51,11 @@ public class CardUI extends DraggablePane implements UICard {
         }
     }
 
-    public FarmResourceCard getCardData(){
+    public Card getCardData(){
         return cardData;
     }
 
-    public void setCard(FarmResourceCard card){
+    public void setCard(Card card){
         this.cardData = card;
         setImage();
     }

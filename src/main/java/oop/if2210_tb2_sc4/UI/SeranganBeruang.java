@@ -21,7 +21,8 @@ public class SeranganBeruang extends Thread {
     private List<Point2D> path;
     private final LadangUI ladang;
 
-    private boolean isDone = false;
+    private volatile boolean isDone = false;
+    private volatile boolean shouldStop = false;
 
     private SeranganBeruangUI seranganBeruangUI;
     private Pane bear = new Pane();
@@ -40,6 +41,7 @@ public class SeranganBeruang extends Thread {
             seranganBeruangUI = loader.getController();
             seranganBeruangUI.setDropZone(ladang.getLadang());
             seranganBeruangUI.setLadang(ladang);
+            bear.setVisible(false);
         } catch (IOException ignored) {}
     }
 
@@ -60,7 +62,6 @@ public class SeranganBeruang extends Thread {
         duration = new Time(System.currentTimeMillis());
         int randomTime = (int) ((Math.random() * 0) + 5) * 1000;
         duration.setTime(randomTime);
-        bear.setVisible(false);
         startTimer();
 
         // Melakukan Randomisasi serangan beruang yang akan terjadi
@@ -70,15 +71,17 @@ public class SeranganBeruang extends Thread {
             serangan_dua();
         }
 
-        while (!isDone) {
+        while (!isDone && !shouldStop) {
             try {
                 //noinspection BusyWait
                 Thread.sleep(100);
             } catch (InterruptedException ignored) {}
         }
 
-        bear.setVisible(true);
-        seranganBeruangUI.runAnimations(path);
+        if (!shouldStop) {
+            bear.setVisible(true);
+            seranganBeruangUI.runAnimations(path);
+        }
     }
 
     private void startTimer(){
@@ -127,6 +130,7 @@ public class SeranganBeruang extends Thread {
             int end = y % 2 == 0 ? (int) areaSerangan.getX() : -1;
             int step = y % 2 == 0 ? 1 : -1;
             for (int x = start; x != end; x += step) {
+                if (shouldStop) return;
                 path.add(new Point2D(petakAcuan.getX() + x, petakAcuan.getY() + y));
                 ladang.setLadangOnRedColor((int) (petakAcuan.getY() + y - 1), (int) (petakAcuan.getX() + x - 1));
             }
@@ -161,6 +165,7 @@ public class SeranganBeruang extends Thread {
         // Melakukan Randomisasi area serangan
         Set<Point2D> titikSerangan = getRandomTitikSerangan();
         for (Point2D point : titikSerangan) {
+            if (shouldStop) return;
             ladang.setLadangOnRedColor((int) point.getY() - 1, (int) point.getX() - 1);
         }
 
@@ -194,6 +199,7 @@ public class SeranganBeruang extends Thread {
 
     private void moveFromStartToEnd(Point2D start, Point2D end) {
         while (!start.equals(end)) {
+            if (shouldStop) return;
             start = getNextPoint(start, end);
             path.add(start);
         }
@@ -228,7 +234,10 @@ public class SeranganBeruang extends Thread {
 
     public void run() {
         path = new ArrayList<>();
-        bear.setVisible(true);
         serang();
+    }
+
+    public void stopThread() {
+        shouldStop = true;
     }
 }

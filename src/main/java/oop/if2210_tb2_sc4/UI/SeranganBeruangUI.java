@@ -9,10 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import oop.if2210_tb2_sc4.card.AnimalCard;
-import oop.if2210_tb2_sc4.card.AnimalType;
-import oop.if2210_tb2_sc4.card.EffectType;
-import oop.if2210_tb2_sc4.card.ProductCard;
+import oop.if2210_tb2_sc4.card.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +29,14 @@ public class SeranganBeruangUI {
 
     private int currentImageIndex = 0;
     private int currentShockWaveIndex = 0;
+    private int currentIndexCage = 0;
 
     private final Image[] imageBearUp = new Image[3];
     private final Image[] imageBearDown = new Image[3];
     private final Image[] imageBearLeft = new Image[3];
     private final Image[] imageBearRight = new Image[3];
     private final Image[] imageShockWave = new Image[8];
+    private final Image[] imageCaught = new Image[8];
 
     private DropZone[] dropZone;
     private boolean startAnimation = false;
@@ -150,7 +149,6 @@ public class SeranganBeruangUI {
         Animation bearFall = animateBearFall(dz.get(0));
         Animation bear = animateBear(dz);
         Animation shockWave = animateShockWave();
-
         setStartAnimation(true);
 
 
@@ -267,6 +265,25 @@ public class SeranganBeruangUI {
         return timeline;
     }
 
+    private Animation animateBearCaught(){
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        final long[] previousTime = {System.nanoTime()};
+
+        KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 8), event -> {
+            long currentTime = System.nanoTime();
+            previousTime[0] = currentTime;
+            changeImageShockWave(ShockWaveImage);
+            if (currentShockWaveIndex == 0) {
+                timeline.stop();
+                setStartAnimation(true);
+            }
+        });
+
+        timeline.getKeyFrames().add(keyFrame);
+        return timeline;
+    }
+
     private boolean isInRange(Point2D currentPosition, Point2D point) {
         return Math.abs(currentPosition.getX() - point.getX()) <= range && Math.abs(currentPosition.getY() - point.getY()) <= range;
     }
@@ -292,14 +309,17 @@ public class SeranganBeruangUI {
 
     private void processCardEffects(DropZone dz) {
         CardUI card = (CardUI) dz.getChildren().get(0);
-        for (EffectType effect : card.getCardData().getEffect()) {
-            if (effect == EffectType.TRAP) {
-                BearuangTrap();
-            }
-            if (effect == EffectType.PROTECT) {
-                return;
-            }
+        FarmResourceCard cardData = (FarmResourceCard) card.getCardData();
+
+        if (cardData.isTrapActivated()) {
+            BearuangTrap();
+            return;
         }
+
+        if (cardData.isProtected()) {
+            return;
+        }
+
         dz.getChildren().clear();
     }
 
@@ -388,5 +408,10 @@ public class SeranganBeruangUI {
     private void changeImageShockWave(ImageView image) {
         image.setImage(imageShockWave[currentShockWaveIndex]);
         currentShockWaveIndex = (currentShockWaveIndex + 1) % imageShockWave.length;
+    }
+
+    private void changeImageCaught(ImageView image) {
+        image.setImage(imageShockWave[currentIndexCage]);
+        currentIndexCage = (currentIndexCage + 1) % imageShockWave.length;
     }
 }

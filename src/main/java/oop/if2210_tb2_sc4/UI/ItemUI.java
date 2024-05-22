@@ -82,7 +82,7 @@ public class ItemUI extends DraggablePane implements UICard {
                 setParent(dz);
 
                 // Call the onDrop method of the dropzone
-                dz.onItemDrop();
+                dz.onItemDrop(this.cardItem);
                 break;
             }
         }
@@ -92,9 +92,4 @@ public class ItemUI extends DraggablePane implements UICard {
             resetPosition();
         }
     }
-}
-
-enum Target {
-    SELF,
-    ENEMY
 }

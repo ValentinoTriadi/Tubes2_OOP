@@ -223,6 +223,9 @@ public class GameWindowController {
         BeruangMenyerangPhase();
     }
     private void BeruangMenyerangPhase(){
+        if (seranganBeruang.isAlive()) {
+            seranganBeruang.stopThread();
+        }
         bearroot.getChildren().clear();
 
         LadangUI currentladang = currentPlayerPane.getLadang();
@@ -231,8 +234,6 @@ public class GameWindowController {
         seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang());
 
         seranganBeruang.initializer();
-
-
         bearroot.getChildren().add(seranganBeruang.getPane());
         seranganBeruang.start();
     }
@@ -245,7 +246,7 @@ public class GameWindowController {
     public static void addCard(Card card) {
         try {
             currentPlayerPane.addCard(card);
-        }catch (FullActiveHandsException ignored){
+        } catch (FullActiveHandsException ignored){
 
         }
     }

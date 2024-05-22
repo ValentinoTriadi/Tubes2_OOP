@@ -76,16 +76,14 @@ public class PlayerUI extends StackPane {
     }
 
     public void addCard(Card cardData) throws FullActiveHandsException {
-
         DropZone[] dropZones = DropZoneAlocation(cardData);
         CardUI card = new CardUI(root, dropZones);
-        card.setCard((FarmResourceCard) cardData);
+        card.setCard(cardData);
         playerData.getDeck().addActiveCard(cardData);
         activeDeckHBox.addCard(card);
     }
 
     public void addItem(Card cardData) throws FullActiveHandsException {
-
         DropZone[] dropZones = DropZoneAlocation(cardData);
         ItemUI card = new ItemUI(root, dropZones);
         card.setCard(cardData);
@@ -95,7 +93,7 @@ public class PlayerUI extends StackPane {
 
     public DropZone[] DropZoneAlocation(Card cardData){
         DropZone[] dropZones;
-        if(cardData instanceof FarmResourceCard){ // Add Animal and Plants
+        if(cardData instanceof FarmResourceCard){
             dropZones = myLadang.getLadang();
         }else{ // Add Product and Power Card
             if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
