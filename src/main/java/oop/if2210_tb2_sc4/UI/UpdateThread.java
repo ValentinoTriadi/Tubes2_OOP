@@ -2,10 +2,10 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;
-import oop.if2210_tb2_sc4.deck.Deck;
-import oop.if2210_tb2_sc4.game_manager.GameData;
-import oop.if2210_tb2_sc4.game_manager.GameState;
-import oop.if2210_tb2_sc4.player.Player;
+import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.GameData;
+import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Player;
 
 public class UpdateThread implements Runnable {
     private boolean running;

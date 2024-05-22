@@ -5,56 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="Feat : Set ladang tile to Red Color">
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/EndPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/EndGameButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/EndPanel.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/FileChooser.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/ShuffleButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/ArrowButton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/EndGameMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/LoadMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/MascotNgumpet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/RestartButton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/SaveMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/TextInputBg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/addPluginFileChooser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/shuffleCardBg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/AddPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/AddPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopItemsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameState.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/ladang/Ladang.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/player/Player.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/Load.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/shop/Shop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/AddPlugin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/AddPlugin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SelectCards.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SelectCards.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/shopGridImage.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,15 +48,16 @@
         <option value="JavaFXApplication" />
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="GameEngine" />
+        <entry key="$PROJECT_DIR$" value="1-serangan-beruang-2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -89,7 +71,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ValentinoTriadi/Tubes2_OOP.git&quot;,
-    &quot;accountId&quot;: &quot;86207a52-63ad-40ae-b5f1-74b13b468961&quot;
+    &quot;accountId&quot;: &quot;90b8bb74-e167-427f-ac9b-121aceed12f3&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -102,6 +84,9 @@
         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -117,31 +102,36 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DraggableTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.GameWindow.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;FrontendFocus&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/java/oop/if2210_tb2_sc4/UI&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DraggableTest.executor": "Debug",
+    "Application.GameWindow.executor": "Debug",
+    "Application.Main.executor": "Run",
+    "Application.oop.if2210_tb2_sc4.MediaPlayer.Main.executor": "Run",
+    "JUnit.AudioManagerTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "4-music",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/java/oop/if2210_tb2_sc4/UI",
+    "last_opened_file_path": "C:/Users/Ojan/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\componentImage" />
@@ -157,8 +147,14 @@
       <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4" />
       <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\assets.component" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="oop.if2210_tb2_sc4.UI" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="oop.if2210_tb2_sc4.MediaPlayer" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -188,11 +184,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="oop.if2210_tb2_sc4.MediaPlayer.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="oop.if2210_tb2_sc4.MediaPlayer.Main" />
+      <module name="IF2210_TB2_SC4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="oop.if2210_tb2_sc4.MediaPlayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AudioManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IF2210_TB2_SC4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="oop.if2210_tb2_sc4.MediaPlayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="oop.if2210_tb2_sc4.MediaPlayer" />
+      <option name="MAIN_CLASS_NAME" value="oop.if2210_tb2_sc4.MediaPlayer.AudioManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.GameWindow" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.oop.if2210_tb2_sc4.MediaPlayer.Main" />
+        <item itemvalue="JUnit.AudioManagerTest" />
         <item itemvalue="Application.GameWindow" />
         <item itemvalue="Application.Main" />
       </list>
@@ -201,8 +225,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -263,6 +287,8 @@
       <workItem from="1716311040898" duration="129000" />
       <workItem from="1716314012610" duration="6961000" />
       <workItem from="1716365689473" duration="1529000" />
+      <workItem from="1716395693914" duration="1666000" />
+      <workItem from="1716399556049" duration="11563000" />
     </task>
     <task id="LOCAL-00001" summary="Feat : Integrate Player UI and player class">
       <option name="closed" value="true" />
@@ -360,17 +386,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java</url>
-          <line>11</line>
+          <line>5</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java</url>
-          <line>22</line>
-          <properties class="oop.if2210_tb2_sc4.UI.CardsChoiceUI" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="22" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/Main.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -388,10 +410,7 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="currentPlayerPane.setEnemyField(nextPlayerPane.getField());&#10;        nextPlayerPane.setEnemyField(currentPlayerPane.getField());" />
-        <watch expression="currentPlayerPane" language="JAVA" />
         <watch expression="this" />
-        <watch expression="player1Data.deck.activeCards" />
       </configuration>
     </watches-manager>
   </component>

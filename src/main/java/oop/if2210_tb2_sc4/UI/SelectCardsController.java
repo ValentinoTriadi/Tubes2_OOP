@@ -2,7 +2,7 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.Deck;
 
 public class SelectCardsController {
 

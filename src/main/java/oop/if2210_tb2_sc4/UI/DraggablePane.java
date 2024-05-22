@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.geometry.Bounds;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class DraggablePane extends Pane {
@@ -76,5 +77,4 @@ public abstract class DraggablePane extends Pane {
         parent = newParent;
         setAllignmentToCenter(newParent);
     }
-
 }

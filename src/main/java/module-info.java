@@ -2,6 +2,7 @@ module oop.if2210_tb2_sc4 {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires javafx.media;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -15,18 +16,17 @@ module oop.if2210_tb2_sc4 {
     exports oop.if2210_tb2_sc4.UI;
     opens oop.if2210_tb2_sc4.UI to javafx.fxml;
 
+    exports oop.if2210_tb2_sc4.MediaPlayer;
+    opens oop.if2210_tb2_sc4.MediaPlayer to javafx.fxml;
+    
+
     requires java.smartcardio;
     requires java.desktop;
     requires java.sql;
 
     opens oop.if2210_tb2_sc4 to javafx.fxml;
-    exports oop.if2210_tb2_sc4.game_manager;
-    exports oop.if2210_tb2_sc4.player;
     exports oop.if2210_tb2_sc4;
     exports oop.if2210_tb2_sc4.card;
-    exports oop.if2210_tb2_sc4.deck;
-    exports oop.if2210_tb2_sc4.ladang;
-    exports oop.if2210_tb2_sc4.shop;
     opens oop.if2210_tb2_sc4.card to javafx.fxml;
     exports oop.if2210_tb2_sc4.save_load;
     opens oop.if2210_tb2_sc4.save_load to javafx.fxml;
