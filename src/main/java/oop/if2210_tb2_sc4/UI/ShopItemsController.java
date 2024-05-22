@@ -12,7 +12,7 @@ import oop.if2210_tb2_sc4.util.StringUtil;
 
 public class ShopItemsController {
     public ImageView ImageUI;
-    public Label productNameUI;
+    public String productNameUI;
     public Label labelHargaUI;
     public Label labelJumlahUI;
 
@@ -34,7 +34,7 @@ public class ShopItemsController {
 
     public void buyItem() {
         ShopUI shop = GameWindowController.getShop();
-        String productName= StringUtil.toUpperSnakeCase(productNameUI.getText());
+        String productName= StringUtil.toUpperSnakeCase(productNameUI);
         ProductCard tempCard = null;
         try{
             ProductCard card = GameState.getInstance().getShop().buyCardFromShop((ProductCard) GameData.getCard(productName));

@@ -5,14 +5,15 @@ import javafx.scene.layout.AnchorPane;
 import oop.if2210_tb2_sc4.Exception.FolderNotExistException;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.Exception.GameException;
-import oop.if2210_tb2_sc4.Deck;
-import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Exception.InvalidInputException;
+import oop.if2210_tb2_sc4.deck.Deck;
 import oop.if2210_tb2_sc4.save_load.Load;
 import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Objects;
 
 public class LoadUi {
     protected Load loader;
@@ -28,15 +29,15 @@ public class LoadUi {
 
     public void initialize() {
 
-        controller.title.setText("Load Game");
+        controller.title.setText("Load");
 
-        controller.message.setText("Click The Button to Save The Data");
         System.out.println("Load UI");
 
         controller.clickButton.setOnMouseClicked(event -> {
             OnSaveLoad(event);
             System.out.println("Button clicked!");
         });
+        controller.ActivateMascot(this);
 
     }
     private void handleTextInputChange(String choice){
@@ -130,10 +131,9 @@ public class LoadUi {
 
     private void LoadPlayer(){
         PlayerUI playerUI1 = GameWindowController.getPlayer1();
-        loader.loadPlayer(1);
-        playerUI1.setPlayerData(GameState.getInstance().getPlayer(1));
-        loader.loadPlayer(2);
-        GameWindowController.getPlayer2().setPlayerData(GameState.getInstance().getPlayer(2));
+        playerUI1.setPlayerData(loader.loadPlayer(1));
+        GameWindowController.getPlayer2().setPlayerData(loader.loadPlayer(2));
+
     }
 
     private void LoadState(){

@@ -23,6 +23,21 @@ public abstract class DraggablePane extends Pane {
         setOnMouseDragged(this::OnDrag);
         setOnMouseReleased(this::OnRelease);
     }
+    protected void setAllignmentToCenter(Pane parent) {
+
+        double parentWidth = parent.getWidth();
+        double parentHeight = parent.getHeight();
+        double cardWidth = this.getPrefWidth();
+        double cardHeight = this.getPrefHeight() ;
+
+        // Calculate the position to center the CardUI
+        double centeredX = (parentWidth - cardWidth) / 2;
+        double centeredY = (parentHeight - cardHeight) / 2;
+
+        // Set the layout positions
+        this.setLayoutX(centeredX);
+        this.setLayoutY(centeredY);
+    }
 
     protected void OnClick(@NotNull MouseEvent e){
         setParent(root);
@@ -45,8 +60,6 @@ public abstract class DraggablePane extends Pane {
 
     public void resetPosition() {
         setParent(tempParent);
-        setLayoutX(0);
-        setLayoutY(0);
     }
 
     boolean isMouseInDropZone(MouseEvent e, DropZone dz) {
@@ -61,5 +74,7 @@ public abstract class DraggablePane extends Pane {
         tempParent = parent;
         newParent.getChildren().add(cardPane);
         parent = newParent;
+        setAllignmentToCenter(newParent);
     }
+
 }

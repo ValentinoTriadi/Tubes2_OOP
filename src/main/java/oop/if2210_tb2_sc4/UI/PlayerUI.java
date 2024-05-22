@@ -2,10 +2,14 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.*;
+import oop.if2210_tb2_sc4.Ladang;
 import oop.if2210_tb2_sc4.Player;
+import oop.if2210_tb2_sc4.util.ImageUtil;
 
 import java.util.Arrays;
 
@@ -41,9 +45,9 @@ public class PlayerUI extends StackPane {
         VBox playerUI = new VBox();
 
         // Set properties
-        playerUI.setAlignment(Pos.TOP_CENTER);
+        playerUI.setAlignment(Pos.CENTER_LEFT);
         playerUI.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        playerUI.setStyle("-fx-background-color: lightgrey;");
+
         playerUI.setSpacing(10);
         this.getChildren().add(playerUI);
 
@@ -56,6 +60,7 @@ public class PlayerUI extends StackPane {
         activeDeckHBox.setAlignment(Pos.CENTER);
         activeDeckHBox.initializeActiveDeck();
         playerUI.getChildren().add(activeDeckHBox);
+
     }
 
     public LadangUI getLadang() {

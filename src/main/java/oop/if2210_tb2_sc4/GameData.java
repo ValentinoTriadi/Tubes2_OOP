@@ -3,17 +3,7 @@ package oop.if2210_tb2_sc4;
 import java.util.ArrayList;
 import java.util.List;
 
-import oop.if2210_tb2_sc4.card.AccelerateCard;
-import oop.if2210_tb2_sc4.card.AnimalCard;
-import oop.if2210_tb2_sc4.card.AnimalType;
-import oop.if2210_tb2_sc4.card.Card;
-import oop.if2210_tb2_sc4.card.DelayCard;
-import oop.if2210_tb2_sc4.card.DestroyCard;
-import oop.if2210_tb2_sc4.card.InstantHarvestCard;
-import oop.if2210_tb2_sc4.card.PlantCard;
-import oop.if2210_tb2_sc4.card.ProductCard;
-import oop.if2210_tb2_sc4.card.ProtectCard;
-import oop.if2210_tb2_sc4.card.TrapCard;
+import oop.if2210_tb2_sc4.card.*;
 
 public class GameData {
     public static List<Card> allCards = new ArrayList<>();
@@ -54,6 +44,10 @@ public class GameData {
         allCards.add(new TrapCard("TRAP"));
         allCards.add(new InstantHarvestCard("INSTANT HARVEST"));
         allCards.add(new DestroyCard("DESTROY"));
+    }
+
+    public static void ResetData(){
+        allCards.clear();
     }
 
     public static List<Card> getAllCards() {

@@ -1,0 +1,13 @@
+.check-box > .box{
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-image: url("componentImage/CheckboxBg.png");
+    -fx-background-color: red;
+}
+
+.check-box> .box > .mark{
+    -fx-background-image: url("componentImage/mark.png");
+    -fx-background-size: stretch;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}

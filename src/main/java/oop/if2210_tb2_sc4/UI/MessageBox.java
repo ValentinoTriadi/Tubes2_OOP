@@ -1,4 +1,5 @@
 package oop.if2210_tb2_sc4.UI;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -6,6 +7,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import org.w3c.dom.Text;
+
 public class MessageBox {
 
     private static MessageBox instance;
@@ -17,8 +20,10 @@ public class MessageBox {
         return instance;
     }
 
+    @FXML
     private static Label ErrorTitle;
-    private static TextArea ErrorMessage;
+    @FXML
+    private static Label ErrorMessage;
     private AnchorPane Body;
     private Pane Root;
 
@@ -29,7 +34,7 @@ public class MessageBox {
     public static void setBody(AnchorPane Body) {
         instance.Body = Body;
         ErrorTitle = (Label) Body.lookup("#ErrorTitle");
-        ErrorMessage = (TextArea) Body.lookup("#ErrorMessage");
+        ErrorMessage = (Label) Body.lookup("#ErrorMessage");
     }
 
     public MessageBox() {

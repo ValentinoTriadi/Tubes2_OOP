@@ -15,18 +15,27 @@ public class ItemUI extends DraggablePane implements UICard {
     private Card cardItem;
     public ItemUI(Pane parent, DropZone[] dropZone) {
         super(parent, dropZone);
-        setPrefSize(100, 120);
-        setStyle("-fx-background-color: white;");
+        setPrefSize(90, 100);
+        setStyle("-fx-background-color: transparent;");
     }
 
     private void setImage() {
         Image image = ImageUtil.getCardImage(cardItem);
         ImageView imageView = new ImageView(image);
-        imageView.setFitWidth(100);
+        imageView.setFitWidth(80);
         imageView.setFitHeight(120);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
         imageView.setCache(true);
+
+        // Bind the ImageView size to the CardUI size
+        imageView.fitWidthProperty().bind(this.widthProperty());
+        imageView.fitHeightProperty().bind(this.heightProperty());
+
+        // Bind the layoutX and layoutY properties to center the ImageView
+        imageView.layoutXProperty().bind(this.widthProperty().subtract(imageView.fitWidthProperty()).divide(2));
+        imageView.layoutYProperty().bind(this.heightProperty().subtract(imageView.fitHeightProperty()).divide(2));
+
         getChildren().add(imageView);
     }
 
@@ -39,6 +48,17 @@ public class ItemUI extends DraggablePane implements UICard {
         return this.cardItem;
     }
 
+    // Used to resize the pane and the card image inside it
+    public void setSize(int width, int height){
+        this.setPrefSize(width, height);
+        // Resize the Card size of the children
+        if(!this.getChildren().isEmpty()){
+            ImageView child = (ImageView) this.getChildren().get(0);
+            child.setFitWidth(100);
+            child.setFitHeight(100);
+            this.getChildren().set(0, child);
+        }
+    }
 
 
     @Override
@@ -51,7 +71,7 @@ public class ItemUI extends DraggablePane implements UICard {
             }
 
             // Check if the mouse position is within the dropzone
-            if (isMouseInDropZone(e, dz) && !dz.getChildren().isEmpty() && !dz.isDisabled()) {
+            if (isMouseInDropZone(e, dz) && !dz.getChildren().isEmpty()) {
 
                 System.out.println("Intersected with enemy dropzone");
                 setLayoutX(0);

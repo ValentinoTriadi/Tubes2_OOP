@@ -1,0 +1,16 @@
+ private void LoadDeck(){
+        DeckUI deckUI1 = LoadDeckHelper(GameWindowController.getPlayer1());
+        DeckUI deckUI2 = LoadDeckHelper(GameWindowController.getPlayer2());
+        try{
+            deckUI1.UpdateUIDeck(GameWindowController.getPlayer1());
+            deckUI2.UpdateUIDeck(GameWindowController.getPlayer2());
+        }catch (FullActiveHandsException e){
+            System.out.println("The Data Loaded are Wrong in terms of Deck");
+        }
+    }
+    private DeckUI LoadDeckHelper(PlayerUI player){
+        DeckUI deckUI = player.getDeckUI();
+        Deck newDeck = deckUI.getDeckData().initializeDeck();
+        deckUI.setDeckData(newDeck);
+        return deckUI;
+    }

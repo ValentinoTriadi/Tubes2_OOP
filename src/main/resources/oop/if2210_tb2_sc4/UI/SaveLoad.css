@@ -1,0 +1,46 @@
+.text-field{
+    -fx-background-image: url("componentImage/TextInputBg.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch;
+    -fx-background-position: center center;
+    -fx-text-fill: white;
+}
+
+.text-field .text{
+    -fx-font-family: "Impact";
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(three-pass-box, black, 1, 1, 0, 0);
+}
+
+.combo-box{
+    -fx-background-image: url("componentImage/TextInputBg.png");
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+.combo-box .arrow-button{
+    -fx-background-image: url('componentImage/ArrowButton.png');
+    -fx-background-size: 16.9, 15;
+    -fx-background-insets: 5,10,0,0;
+    -fx-translate-x: -10;
+    -fx-background-color: transparent;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+.combo-box .arrow-button .arrow {
+    -fx-opacity: 0;
+}
+
+.button{
+    -fx-background-image: url("componentImage/ButtonBg.png");
+    -fx-background-position: center center;
+    -fx-background-size: stretch;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.button .text{
+    -fx-font-family: "Impact";
+    -fx-font-size: 24px;
+    -fx-effect: dropshadow(three-pass-box, black, 1, 1, 0.1, 0.5);
+}

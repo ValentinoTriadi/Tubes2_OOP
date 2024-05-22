@@ -56,13 +56,13 @@ public class UpdateThread implements Runnable {
 
     @Override
     public void run() {
-        final int TARGET_UPDATE_TIME = 1;
+        final int TARGET_UPDATE_TIME = 60;
         final long UPDATE_TIME = 1000000000L / TARGET_UPDATE_TIME;
 
         long lastUpdated = System.nanoTime();
         long elapsedTime = 0;
 
-        while (!Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted() && running) {
             long currentTimeNs = System.nanoTime();
             long passedTimeNs = currentTimeNs - lastUpdated;
             lastUpdated = currentTimeNs;
@@ -98,6 +98,7 @@ public class UpdateThread implements Runnable {
 
             updatePlayerGold(player1, player2);
             updateAvailableDeck(GameWindowController.getCurrentPlayerPane().getPlayerData());
+            //TODO: FIX THIS DECK UPDATE DATA
             //updatePlayerDeck(GameWindowController.getCurrentPlayerPane().getDeckUI());
             updateLadang(GameWindowController.getCurrentPlayerPane().getLadang());
             updateCurrentTurn(currentTurn);
@@ -109,7 +110,6 @@ public class UpdateThread implements Runnable {
 
     private void updateLadang(LadangUI ladangUI){
         ladangUI.UpdateLadangData();
-        System.out.println("Jumlah Terbaru: "+ladangUI.getLadangData());
     }
 
     private void updatePlayerDeck(DeckUI deck){
@@ -120,8 +120,8 @@ public class UpdateThread implements Runnable {
     private void updatePlayerGold(Player player1, Player player2) {
         int gold1 = player1.getJumlahGulden();
         int gold2 = player2.getJumlahGulden();
-        String player1GoldText = "Player1: " + gold1;
-        String player2GoldText = "Player2: " + gold2;
+        String player1GoldText = String.valueOf(gold1);
+        String player2GoldText = String.valueOf(gold2);
         Platform.runLater(() -> {
             player1GoldLabel.setText(player1GoldText);
             player2GoldLabel.setText(player2GoldText);
