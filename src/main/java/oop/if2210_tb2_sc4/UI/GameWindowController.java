@@ -453,6 +453,7 @@ public class GameWindowController {
 
     public void openLadangMusuh(){
         nextPlayerPane.disableField();
+
         setLadangLabelColor(Color.WHITE,currentSelectedLadang);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladangMusuh);
