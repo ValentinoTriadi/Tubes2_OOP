@@ -5,17 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="674d12c8-2780-4e0a-8137-1b188e69ab89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/Testing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/deck/Deck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/game_manager/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/ladang/Ladang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/player/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/Load.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/shop/Shop.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,8 +129,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -142,6 +154,8 @@
       <workItem from="1716312170179" duration="7512000" />
       <workItem from="1716320243138" duration="733000" />
       <workItem from="1716324514267" duration="9113000" />
+      <workItem from="1716335841802" duration="398000" />
+      <workItem from="1716360030206" duration="1060000" />
     </task>
     <servers />
   </component>

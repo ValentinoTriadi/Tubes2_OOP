@@ -9,10 +9,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import oop.if2210_tb2_sc4.card.AnimalCard;
+import oop.if2210_tb2_sc4.card.AnimalType;
+import oop.if2210_tb2_sc4.card.ProductCard;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static oop.if2210_tb2_sc4.GameData.getCard;
 
 public class SeranganBeruangUI {
 
@@ -35,6 +40,8 @@ public class SeranganBeruangUI {
 
     private DropZone[] dropZone;
     private boolean startAnimation = false;
+    private final List<Animation> animations = new ArrayList<>();
+    private Animation currentAnimation;
 
     private final float range = 10.0f;
     private final Object lock = new Object();
@@ -145,7 +152,7 @@ public class SeranganBeruangUI {
 
         setStartAnimation(true);
 
-        List<Animation> animations = new ArrayList<>();
+
         animations.add(bearFall);
         animations.add(shockWave);
         animations.add(bear);
@@ -153,8 +160,8 @@ public class SeranganBeruangUI {
 
         while (!animations.isEmpty()) {
             if (isStartAnimation()){
-                animations.get(0).play();
-                animations.remove(0);
+                currentAnimation = animations.remove(0);
+                currentAnimation.play();
                 startAnimation = false;
             }
         }
@@ -271,13 +278,31 @@ public class SeranganBeruangUI {
     private void clearDropZoneChildren(Point2D point) {
         for (DropZone dz : dropZone) {
             if (!dz.isTarget()) continue;
-            // TODO: CHECK TRAP EFFECT
             Bounds bounds = dz.localToScene(dz.getBoundsInLocal());
             if (bounds.contains(point.getX() + dz.getPrefWidth(), point.getY() + dz.getPrefHeight())) {
+                CardUI card = (CardUI) dz.getChildren().get(0);
+
+                // IF the card doesnt have effect trap then continue
+
+                if (card.getCardData() != null) {
+                    // TODO: Implement the effect of the card
+                    cancelAllAnimation();
+                }
+
                 dz.getChildren().clear();
             }
         }
     }
+
+    private void cancelAllAnimation(){
+        currentAnimation.stop();
+        animations.forEach(Animation::stop);
+        animations.clear();
+        root.setVisible(false);
+        // Add the bear to the active deck
+        GameWindowController.addCard(new AnimalCard("BERUANG", 0, 25, AnimalType.OMNIVORE, (ProductCard) getCard("DAGING_BERUANG")));
+    }
+
 
     private void updateImageAndPosition(Point2D currentPosition, Point2D point, double deltaTime) {
         float speed = 150.0f;
