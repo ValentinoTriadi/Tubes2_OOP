@@ -23,10 +23,7 @@ import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
 import org.jetbrains.annotations.NotNull;
 
-
-import java.awt.*;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 public class GameWindowController {

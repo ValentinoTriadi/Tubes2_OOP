@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="fix: settings fxml version">
+    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="fix: Deck Thread Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +75,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.DraggableTest.executor": "Debug",
-    "Application.GameWindow.executor": "Debug",
+    "Application.GameWindow.executor": "Run",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -114,7 +116,7 @@
       <recent name="oop.if2210_tb2_sc4.UI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.GameWindow">
     <configuration name="GameWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="oop.if2210_tb2_sc4.UI.GameWindow" />
       <module name="IF2210_TB2_SC4" />
@@ -143,8 +145,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.GameWindow" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.GameWindow" />
         <item itemvalue="Application.Main" />
@@ -220,7 +222,7 @@
       <workItem from="1716378949952" duration="1599000" />
       <workItem from="1716380934696" duration="1479000" />
       <workItem from="1716388994155" duration="5383000" />
-      <workItem from="1716399456614" duration="17212000" />
+      <workItem from="1716399456614" duration="19289000" />
     </task>
     <task id="LOCAL-00001" summary="Feat : Integrate Player UI and player class">
       <option name="closed" value="true" />
@@ -318,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716418076920</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix: Deck Thread Update">
+      <option name="closed" value="true" />
+      <created>1716419070611</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716419070611</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +357,8 @@
     <MESSAGE value="Feat : Settings Menu" />
     <MESSAGE value="Feat : Update Settings Menu" />
     <MESSAGE value="fix: settings fxml version" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: settings fxml version" />
+    <MESSAGE value="fix: Deck Thread Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Deck Thread Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -361,6 +372,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java</url>
           <line>73</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
