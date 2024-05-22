@@ -17,6 +17,7 @@ public class GameState {
 
     private Player player1;
     private Player player2;
+
     private int current_turn = 1;
     private Shop shop = new Shop();
 
@@ -54,20 +55,21 @@ public class GameState {
     public void setShop(Shop shop){
         instance.shop = new Shop(shop);
     }
-}
 
-public oop.if2210_tb2_sc4.Player getPlayer(int player){
-    if(player == 1){
-        return player1;
-    } else {
-        return player2;
+    public Player getPlayer(int player){
+        if(player == 1){
+            return player1;
+        } else {
+            return player2;
+        }
+    }
+
+    public void setPlayer(int player, Player p){
+        if(player == 1){
+            player1 = p;
+        } else {
+            player2 = p;
+        }
     }
 }
 
-public void setPlayer(int player, oop.if2210_tb2_sc4.Player p){
-    if(player == 1){
-        player1 = p;
-    } else {
-        player2 = p;
-    }
-}

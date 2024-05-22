@@ -6,7 +6,8 @@ import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
-import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.util.ImageUtil;
 
 public class DeckUI extends HBox {
 

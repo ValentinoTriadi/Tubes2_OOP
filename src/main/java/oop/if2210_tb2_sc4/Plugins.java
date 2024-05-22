@@ -1,79 +1,49 @@
 package oop.if2210_tb2_sc4;
 
-import java.lang.reflect.Method;
+import oop.if2210_tb2_sc4.UI.GameWindowController;
+import oop.if2210_tb2_sc4.save_load.SaveLoad;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Plugins {
-    private List<Class<?>> listOfClass;
+    private final Map<String, SaveLoad> plugins = new HashMap<>();
+
+    public static Plugins instance;
+
+    public static Plugins getInstance(){
+        if (instance == null) {
+            instance = new Plugins();
+        }
+        return instance;
+    }
 
     public Plugins() {
-        listOfClass = new ArrayList<>();
+
     }
 
-    private void addClass(Class<?> clazz) {
-        listOfClass.add(clazz);
+    public void addClass(Map.Entry<String, SaveLoad> entry){
+        plugins.put(entry.getKey(), entry.getValue());
     }
 
-    public List<Class<?>> getListOfClass() {
-        return listOfClass;
+    public SaveLoad getPlugin(String type){
+        return plugins.get(type);
     }
 
-    private  Class<?> getClassByName(String name) {
-        for (Class<?> clazz : listOfClass) {
-            if (clazz.getName().equals(name)) {
-                return clazz;
-            }
-        }
-        return null;
-    }
-
-    private void removeClass(Class<?> clazz) {
-        listOfClass.remove(clazz);
-    }
-
-    private void removeAllClass() {
-        listOfClass.clear();
-    }
-
-    public void loadJar(String path, PluginsType type) {
+    public void loadJar(String path) {
         try {
-            Class<?> clazz;
-            if (type == PluginsType.JSON) {
-                clazz = JarLoader.getInstance().loadJSONJar(path);
-            } else {
-                assert type == PluginsType.XML;
-                clazz = JarLoader.getInstance().loadXMLJar(path);
+            Map.Entry<String, SaveLoad> entry = JarLoader.getInstance().loadJar(path);
+
+            if (entry != null) {
+                addClass(entry);
+                GameWindowController.saveLoad.choice.getItems().add(entry.getKey());
             }
-            addClass(clazz);
+
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    public void runLoad(PluginsType type){
-        try {
-            // Get the class
-            Class<?> clazz;
-            if (type == PluginsType.JSON) {
-                clazz = getClassByName("SaveLoadJSON");
-            } else {
-                assert type == PluginsType.XML;
-                clazz = getClassByName("SaveLoadXML");
-            }
-            assert clazz != null;
-
-            // Get the method
-            Method method = clazz.getDeclaredMethod("Load");
-
-            // Set access
-            method.setAccessible(true);
-
-            // Run the method
-            method.invoke(null);
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
 }

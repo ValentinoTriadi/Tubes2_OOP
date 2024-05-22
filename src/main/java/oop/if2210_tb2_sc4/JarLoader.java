@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4;
 
+import oop.if2210_tb2_sc4.save_load.SaveLoadAnnotation;
 import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.Constructor;
@@ -8,6 +9,9 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.ServiceLoader;
+import java.util.Map;
+import oop.if2210_tb2_sc4.save_load.SaveLoad;
 
 public class JarLoader {
     private static final JarLoader instance = new JarLoader();
@@ -20,80 +24,40 @@ public class JarLoader {
     }
 
     @Nullable
-    Class<?> loadJSONJar(String path){
+    Map.Entry<String, SaveLoad> loadJar(String path){
         try {
-            // Create a new classloader
-            ClassLoader loader = new URLClassLoader(new URL[]{new URL("file://" + path)}, this.getClass().getClassLoader());
+            System.out.println("Loading JAR from path: " + path);
 
-            // Return the class
-            return loader.loadClass("SaveLoadJSON");
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        return null;
-    }
+            // Create a new URLClassLoader
+            URL[] urls = {new URL("file://" + path)};
+            URLClassLoader loader = new URLClassLoader(urls, this.getClass().getClassLoader());
 
-    @Nullable
-    Class<?> loadXMLJar(String path){
-        try {
-            // Create a new classloader
-            ClassLoader loader = new URLClassLoader(new URL[]{new URL("file://" + path)}, this.getClass().getClassLoader());
+            // Load class that implements SaveLoad in the JAR file
+            ServiceLoader<SaveLoad> serviceLoader = ServiceLoader.load(SaveLoad.class, loader);
 
-            // Return the class
-            return loader.loadClass("SaveLoadXML");
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        return null;
-    }
-
-    @Nullable
-    private List<String> getMethodList(Class<?> clazz){
-        // Get the method list
-        try {
-            Method[] methods = clazz.getDeclaredMethods();
-            List<String> methodsName = new ArrayList<>();
-            for (Method method : methods) {
-                methodsName.add(method.getName());
+            // Check if any implementation is found
+            if (!serviceLoader.iterator().hasNext()) {
+                System.out.println("No implementations of SaveLoad found in the JAR.");
+                return null;
             }
-            return methodsName;
-        } catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
-        }
-        return null;
-    }
 
-    @Nullable
-    private List<Class<?>[]> getConstructorParamList(Class<?> clazz){
-        try {
-            List<Class<?>[]> constructorParamList = new ArrayList<>();
-            for (Constructor<?> constructor : clazz.getDeclaredConstructors()) {
-                constructorParamList.add(constructor.getParameterTypes());
+            // Get the first implementation found
+            SaveLoad saveLoad = serviceLoader.iterator().next();
+            Class<?> saveLoadClass = saveLoad.getClass();
+            System.out.println("Found implementation class: " + saveLoadClass.getName());
+
+            SaveLoadAnnotation annotation = saveLoadClass.getAnnotation(SaveLoadAnnotation.class);
+
+            if (annotation == null) {
+                System.out.println("No SaveLoadAnnotation found on the implementation class.");
+                return null;
             }
-            return constructorParamList;
-        } catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
-        }
-        return null;
-    }
 
-    @Nullable
-    private Object getInstanceFromClass(Class<?> clazz, Class<?>[] paramTypes, Object[] paramValues){
-        try {
-            Constructor<?> constructor = clazz.getDeclaredConstructor(paramTypes);
-            return constructor.newInstance(paramValues);
-        } catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
-        }
-        return null;
-    }
+            String type = annotation.type().toLowerCase();
+            // Return the class
+            return Map.entry(type, saveLoad);
 
-    @Nullable
-    private Object callMethod(Class<?> clazz, String methodName, Class<?>[] paramTypes, Object[] paramValues){
-        try {
-            Method method = clazz.getDeclaredMethod(methodName, paramTypes);
-            return method.invoke(clazz, paramValues);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
         return null;

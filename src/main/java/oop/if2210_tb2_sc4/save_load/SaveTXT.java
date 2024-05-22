@@ -108,7 +108,9 @@ public class SaveTXT implements Save {
             Map<ProductCard, Integer> items = instance.getShopItems();
             items.forEach((key, value) -> {
                 try {
-                    writer.write("\n" + key.getName() + " " + value );
+                    if (!value.equals(0)) {
+                        writer.write("\n" + key.getName() + " " + value );
+                    }
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

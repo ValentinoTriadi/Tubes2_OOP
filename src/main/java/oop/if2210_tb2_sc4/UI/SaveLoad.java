@@ -15,8 +15,10 @@ import javafx.stage.Stage;
 import oop.if2210_tb2_sc4.Exception.GameException;
 import oop.if2210_tb2_sc4.Exception.InvalidInputException;
 import oop.if2210_tb2_sc4.save_load.Load;
+import oop.if2210_tb2_sc4.Plugins;
 
 import java.io.File;
+import java.util.List;
 
 public class SaveLoad {
 
@@ -42,9 +44,8 @@ public class SaveLoad {
 
     @FXML
     public void initialize() {
+        // Get choices from Plugins Class
         choice.getItems().add("TXT");
-        choice.getItems().add("JSON");
-        choice.getItems().add("YAML");
     }
 
     public void ActivateMascot(Object type){

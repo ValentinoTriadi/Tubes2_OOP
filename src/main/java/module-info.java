@@ -29,4 +29,6 @@ module oop.if2210_tb2_sc4 {
     exports oop.if2210_tb2_sc4.util;
     opens oop.if2210_tb2_sc4.util to javafx.fxml;
 
+    uses oop.if2210_tb2_sc4.save_load.SaveLoad;
+
 }

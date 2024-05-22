@@ -3,6 +3,8 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import oop.if2210_tb2_sc4.Exception.GameException;
+import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Plugins;
 import oop.if2210_tb2_sc4.save_load.Save;
 import oop.if2210_tb2_sc4.save_load.SaveTXT;
 
@@ -39,16 +41,8 @@ public class SaveUI {
             case "txt":
                 saver = new SaveTXT(path);
                 break;
-            case "yaml":
-                // Handle YAML choice
-                System.out.println("YAML chosen");
-                break;
-            case "json":
-                // Handle JSON choice
-                System.out.println("JSON chosen");
-                break;
             default:
-                saver = null;
+                saver = Plugins.getInstance().getPlugin(choice);
                 break;
         }
     }
@@ -66,7 +60,9 @@ public class SaveUI {
                 return;
             }
 
-            GameWindowController gamewindow;
+            GameState.getInstance().setPlayer(1, GameWindowController.getPlayer1().getPlayerData());
+            GameState.getInstance().setPlayer(2, GameWindowController.getPlayer2().getPlayerData());
+
             saver.save();
         }catch (GameException e){
             e.ShowErrorPanel();
