@@ -12,6 +12,7 @@ public class SaveUI {
     private final SaveLoad controller;
     private Save saver;
     private AnchorPane scene;
+
     public SaveUI(SaveLoad controller){
         this.controller = controller;
     }

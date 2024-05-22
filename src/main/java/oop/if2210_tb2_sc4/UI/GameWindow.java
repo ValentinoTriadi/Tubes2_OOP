@@ -22,8 +22,8 @@ public class GameWindow extends Application {
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("GameWindow.css")).toExternalForm());
         primaryStage.setTitle("Game Window");
         primaryStage.setScene(scene);
-        primaryStage.setMinWidth(1024);
-        primaryStage.setMinHeight(720);
+        primaryStage.setMaxWidth(1024);
+        primaryStage.setMaxWidth(720);
         primaryStage.setResizable(false);
         primaryStage.show();
 

@@ -1,7 +1,6 @@
 package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import oop.if2210_tb2_sc4.Deck;
 

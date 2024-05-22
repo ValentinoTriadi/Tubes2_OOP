@@ -1,0 +1,18 @@
+.slider .track{
+    -fx-background-color: #e0e0e0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5px;
+}
+
+.slider .track .fill {
+    -fx-background-color: #4caf50;
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 5px;
+}
+
+.slider .thumb {
+    -fx-background-color: #ff5722; /* Color of the slider knob */
+    -fx-background-insets: 0;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.4), 4, 0.0, 0, 2);
+}

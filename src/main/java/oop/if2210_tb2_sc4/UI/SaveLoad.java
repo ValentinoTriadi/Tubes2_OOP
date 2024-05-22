@@ -43,8 +43,6 @@ public class SaveLoad {
     @FXML
     public void initialize() {
         choice.getItems().add("TXT");
-        choice.getItems().add("JSON");
-        choice.getItems().add("YAML");
     }
 
     public void ActivateMascot(Object type){
