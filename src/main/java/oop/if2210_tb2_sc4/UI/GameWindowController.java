@@ -14,8 +14,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
-import javafx.scene.text.Text;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.GameData;
@@ -23,7 +23,10 @@ import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
 import org.jetbrains.annotations.NotNull;
 
+
+import java.awt.*;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class GameWindowController {
@@ -79,8 +82,9 @@ public class GameWindowController {
     private final Color currentSelectedLadang  = Color.GREEN;
 
     private SelectCardsController cardPicker;
-
     public static boolean isShuffleDone = false;
+
+    private final AudioManager audioManager = AudioManager.getInstance();
 
     public void initialize() throws IOException {
         GameState instance = GameState.getInstance();
@@ -97,6 +101,7 @@ public class GameWindowController {
         cardPicker.ShuffleCards();
         gameThread = new UpdateThread(Player1Gold, Player2Gold, AvailableDeck, CurrentTurn);
         gameThread.initializeThread();
+        audioManager.playBackgroundMusic("FullBG.wav");
         initializeEndPanel();
     }
 
@@ -222,11 +227,7 @@ public class GameWindowController {
 
         StartNewTurn();
         resetFieldLock();
-        // TODO: MAKE THE SWITCHING ANIMATION
         openLadang();
-
-
-        System.out.println("Switched to next player");
     }
     private void StartNewTurn(){
         isShuffleDone = false;
@@ -450,7 +451,6 @@ public class GameWindowController {
 
     public void openLadangMusuh(){
         nextPlayerPane.disableField();
-
         setLadangLabelColor(Color.WHITE,currentSelectedLadang);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladangMusuh);
@@ -481,8 +481,4 @@ public class GameWindowController {
         tabPane.getSelectionModel().select(addPlugin);
     }
 
-    public void StartNewGame(ActionEvent actionEvent) {
-
-
-    }
 }

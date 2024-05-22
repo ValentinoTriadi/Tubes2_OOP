@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,7 +74,10 @@ public class SeranganBeruang extends Thread {
             serangan_dua();
         }
 
-        // Animasi serangan beruang
+        String soundFile = AudioManager.getInstance().getCardSoundMap().get("BearAttack");
+        if (soundFile != null) {
+            AudioManager.getInstance().playSFX(soundFile);
+        }
         seranganBeruangUI.runAnimations(path);
     }
 
