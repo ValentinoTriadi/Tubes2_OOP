@@ -264,7 +264,7 @@
             <Insets right="20.0" />
          </padding>
       </Pane>
-      <Pane layoutX="800.0" layoutY="645.0" prefHeight="76.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-border-color: #000000; -fx-border-radius: 10;">
+      <Pane layoutX="800.0" layoutY="645.0" prefHeight="76.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-border-color: #000000; -fx-border-radius: 10;" AnchorPane.bottomAnchor="20.0">
          <ImageView fitHeight="78.0" fitWidth="212.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@componentImage/DeckBg.png" />
@@ -279,7 +279,7 @@
             </effect>
          </Label>
       </Pane>
-      <Pane layoutX="750.0" layoutY="7.0" prefHeight="86.0" prefWidth="212.0">
+      <Pane layoutX="750.0" layoutY="7.0" prefHeight="86.0" prefWidth="212.0" AnchorPane.topAnchor="0.0">
          <ImageView fitHeight="176.0" fitWidth="233.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" x="5.0">
             <image>
                <Image url="@componentImage/Turn.png" />

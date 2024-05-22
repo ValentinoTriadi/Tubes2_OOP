@@ -79,10 +79,8 @@ public class PlayerUI extends StackPane {
 
         DropZone[] dropZones = DropZoneAlocation(cardData);
         CardUI card = new CardUI(root, dropZones);
-        card.setCard(cardData);
+        card.setCard((FarmResourceCard) cardData);
         playerData.getDeck().addActiveCard(cardData);
-        System.out.println("Card" + cardData.getName() +" spawned");
-
         activeDeckHBox.addCard(card);
     }
 

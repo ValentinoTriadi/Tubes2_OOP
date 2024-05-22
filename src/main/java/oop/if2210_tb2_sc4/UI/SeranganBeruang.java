@@ -40,9 +40,7 @@ public class SeranganBeruang extends Thread {
             seranganBeruangUI = loader.getController();
             seranganBeruangUI.setDropZone(ladang.getLadang());
             seranganBeruangUI.setLadang(ladang);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException ignored) {}
     }
 
     public Pane getPane(){
@@ -55,7 +53,7 @@ public class SeranganBeruang extends Thread {
 
     public void serang() {
         // Melakukan Randomisasi serangan beruang akan terjadi atau tidak
-        if (false) {
+        if (randomSeranganBerjalan()){
             return;
         }
 
@@ -67,15 +65,14 @@ public class SeranganBeruang extends Thread {
 
         // Melakukan Randomisasi serangan beruang yang akan terjadi
         if (randomSerangan()) {
-            System.out.println("\n\nSerangan Beruang 1 ");
             serangan_satu();
         } else {
-            System.out.println("\n\nSerangan Beruang 2 ");
             serangan_dua();
         }
 
         while (!isDone) {
             try {
+                //noinspection BusyWait
                 Thread.sleep(100);
             } catch (InterruptedException ignored) {}
         }
@@ -100,6 +97,11 @@ public class SeranganBeruang extends Thread {
         timeline.getKeyFrames().add(keyFrame);
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+    }
+
+    private boolean randomSeranganBerjalan() {
+        // Mengembalikan nilai random true atau false
+        return Math.random() < 0.3;
     }
 
     private boolean randomSerangan() {

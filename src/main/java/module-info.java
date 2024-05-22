@@ -15,6 +15,9 @@ module oop.if2210_tb2_sc4 {
     exports oop.if2210_tb2_sc4.UI;
     opens oop.if2210_tb2_sc4.UI to javafx.fxml;
 
+    exports oop.if2210_tb2_sc4.Exception;
+
+
     requires java.smartcardio;
     requires java.desktop;
     requires java.sql;

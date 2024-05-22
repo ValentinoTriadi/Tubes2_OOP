@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import oop.if2210_tb2_sc4.card.AnimalCard;
 import oop.if2210_tb2_sc4.card.AnimalType;
+import oop.if2210_tb2_sc4.card.EffectType;
 import oop.if2210_tb2_sc4.card.ProductCard;
 
 import java.util.ArrayList;
@@ -277,24 +278,32 @@ public class SeranganBeruangUI {
 
     private void clearDropZoneChildren(Point2D point) {
         for (DropZone dz : dropZone) {
-            if (!dz.isTarget()) continue;
-            Bounds bounds = dz.localToScene(dz.getBoundsInLocal());
-            if (bounds.contains(point.getX() + dz.getPrefWidth(), point.getY() + dz.getPrefHeight())) {
-                CardUI card = (CardUI) dz.getChildren().get(0);
-
-                // IF the card doesnt have effect trap then continue
-
-                if (card.getCardData() != null) {
-                    // TODO: Implement the effect of the card
-                    cancelAllAnimation();
-                }
-
-                dz.getChildren().clear();
+            if (!dz.isTarget() || dz.getChildren().isEmpty()) continue;
+            if (isPointInBounds(point, dz)) {
+                processCardEffects(dz);
             }
         }
     }
 
-    private void cancelAllAnimation(){
+    private boolean isPointInBounds(Point2D point, DropZone dz) {
+        Bounds bounds = dz.localToScene(dz.getBoundsInLocal());
+        return bounds.contains(point.getX() + dz.getPrefWidth(), point.getY() + dz.getPrefHeight());
+    }
+
+    private void processCardEffects(DropZone dz) {
+        CardUI card = (CardUI) dz.getChildren().get(0);
+        for (EffectType effect : card.getCardData().getEffect()) {
+            if (effect == EffectType.TRAP) {
+                BearuangTrap();
+            }
+            if (effect == EffectType.PROTECT) {
+                return;
+            }
+        }
+        dz.getChildren().clear();
+    }
+
+    private void BearuangTrap(){
         currentAnimation.stop();
         animations.forEach(Animation::stop);
         animations.clear();
@@ -302,7 +311,6 @@ public class SeranganBeruangUI {
         // Add the bear to the active deck
         GameWindowController.addCard(new AnimalCard("BERUANG", 0, 25, AnimalType.OMNIVORE, (ProductCard) getCard("DAGING_BERUANG")));
     }
-
 
     private void updateImageAndPosition(Point2D currentPosition, Point2D point, double deltaTime) {
         float speed = 150.0f;
