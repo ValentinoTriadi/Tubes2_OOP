@@ -86,7 +86,12 @@ public class DeckUI extends HBox {
             if (activeDeck[i].getChildren().isEmpty()) {
                 deckData.removeActiveCard(i);
             }else{
-                deckData.setActiveCard(i, ((CardUI) activeDeck[i].getChildren().get(i)).getCardData());
+                Node currentUICard = activeDeck[i].getChildren().get(0);
+                if(currentUICard instanceof CardUI){
+                    deckData.setActiveCard(i, ((CardUI)currentUICard).getCardData());
+                }else{
+                    deckData.setActiveCard(i,((ItemUI)currentUICard).getCard());
+                }
             }
         }
 

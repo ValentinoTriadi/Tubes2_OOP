@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="Feat : Update Settings Menu">
+    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="fix: settings fxml version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="GameEngine" />
+        <entry key="$PROJECT_DIR$" value="FrontendFocus" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +77,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "FrontendFocus",
+    "git-widget-placeholder": "5-integrate",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/java/oop/if2210_tb2_sc4/UI",
@@ -220,7 +220,7 @@
       <workItem from="1716378949952" duration="1599000" />
       <workItem from="1716380934696" duration="1479000" />
       <workItem from="1716388994155" duration="5383000" />
-      <workItem from="1716399456614" duration="16366000" />
+      <workItem from="1716399456614" duration="17212000" />
     </task>
     <task id="LOCAL-00001" summary="Feat : Integrate Player UI and player class">
       <option name="closed" value="true" />
@@ -310,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716417259959</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix: settings fxml version">
+      <option name="closed" value="true" />
+      <created>1716418076920</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716418076920</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +346,8 @@
     <MESSAGE value="Feat : Plugin UI" />
     <MESSAGE value="Feat : Settings Menu" />
     <MESSAGE value="Feat : Update Settings Menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat : Update Settings Menu" />
+    <MESSAGE value="fix: settings fxml version" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: settings fxml version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

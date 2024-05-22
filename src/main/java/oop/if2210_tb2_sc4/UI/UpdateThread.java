@@ -99,7 +99,7 @@ public class UpdateThread implements Runnable {
             updatePlayerGold(player1, player2);
             updateAvailableDeck(GameWindowController.getCurrentPlayerPane().getPlayerData());
             //TODO: FIX THIS DECK UPDATE DATA
-            //updatePlayerDeck(GameWindowController.getCurrentPlayerPane().getDeckUI());
+            updatePlayerDeck(GameWindowController.getCurrentPlayerPane().getDeckUI());
             updateLadang(GameWindowController.getCurrentPlayerPane().getLadang());
             updateCurrentTurn(currentTurn);
         }catch (Exception e){
