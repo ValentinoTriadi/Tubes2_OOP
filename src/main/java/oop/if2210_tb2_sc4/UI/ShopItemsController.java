@@ -6,8 +6,8 @@ import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.Exception.NotEnoughMoneyException;
 import oop.if2210_tb2_sc4.Exception.ZeroItemStockException;
 import oop.if2210_tb2_sc4.card.ProductCard;
-import oop.if2210_tb2_sc4.game_manager.GameData;
-import oop.if2210_tb2_sc4.game_manager.GameState;
+import oop.if2210_tb2_sc4.GameData;
+import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.util.StringUtil;
 
 public class ShopItemsController {

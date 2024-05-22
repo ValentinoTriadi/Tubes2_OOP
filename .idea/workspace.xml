@@ -4,27 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="Feat : Set ladang tile to Red Color">
+    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="Feat : Plugin UI">
       <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/EndPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/Settings.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/EndGameButton.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/EndPanel.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/FileChooser.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MenuButton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MuteButton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/Settings.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/ShuffleButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/ArrowButton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/CheckboxBg.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/EndGameMascot.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/LoadMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/MascotNgumpet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/MenuBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/MenuMascot.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/RestartButton.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/SaveMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/TextInputBg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/addPluginFileChooser.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/mark.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/shuffleCardBg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/AddPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/AddPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" afterDir="false" />
@@ -48,8 +49,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/LoadTXT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/shop/Shop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/AddPlugin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/AddPlugin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SelectCards.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SelectCards.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.fxml" afterDir="false" />
@@ -262,7 +263,11 @@
       <workItem from="1716299499158" duration="9316000" />
       <workItem from="1716311040898" duration="129000" />
       <workItem from="1716314012610" duration="6961000" />
-      <workItem from="1716365689473" duration="1529000" />
+      <workItem from="1716365689473" duration="2292000" />
+      <workItem from="1716369356700" duration="2278000" />
+      <workItem from="1716378949952" duration="1599000" />
+      <workItem from="1716380934696" duration="1479000" />
+      <workItem from="1716388994155" duration="2535000" />
     </task>
     <task id="LOCAL-00001" summary="Feat : Integrate Player UI and player class">
       <option name="closed" value="true" />
@@ -328,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716306502057</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Feat : Plugin UI">
+      <option name="closed" value="true" />
+      <created>1716367668453</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716367668453</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +366,8 @@
     <MESSAGE value="Feat: Better UI for the main game" />
     <MESSAGE value="Fix: Ladang Layout" />
     <MESSAGE value="Feat : Set ladang tile to Red Color" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat : Set ladang tile to Red Color" />
+    <MESSAGE value="Feat : Plugin UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat : Plugin UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -365,7 +379,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java</url>
-          <line>22</line>
+          <line>23</line>
           <properties class="oop.if2210_tb2_sc4.UI.CardsChoiceUI" method="&lt;init&gt;">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

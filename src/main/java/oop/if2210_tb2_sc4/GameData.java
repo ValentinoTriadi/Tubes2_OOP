@@ -46,6 +46,10 @@ public class GameData {
         allCards.add(new DestroyCard("DESTROY"));
     }
 
+    public static void ResetData(){
+        allCards.clear();
+    }
+
     public static List<Card> getAllCards() {
         return allCards;
     }

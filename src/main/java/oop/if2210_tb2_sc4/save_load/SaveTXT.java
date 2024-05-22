@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 import oop.if2210_tb2_sc4.card.*;
-import oop.if2210_tb2_sc4.game_manager.GameState;
-import oop.if2210_tb2_sc4.player.Player;
+import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Player;
 
 public class SaveTXT implements Save {
     private final String folderName;

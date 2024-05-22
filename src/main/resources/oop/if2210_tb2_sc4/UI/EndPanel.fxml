@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="Root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.EndPanel">
+
+        <Pane opacity="0.38" prefHeight="720.0" prefWidth="1088.0" style="-fx-background-color: #000000;" />
+        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fitHeight="195.0" fitWidth="262.0" layoutX="450.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@componentImage/MascotNgumpet.png" />
+            </image>
+        </ImageView>
+        <Pane layoutX="156.0" layoutY="140.0" prefHeight="411.0" prefWidth="712.0" style="-fx-background-color: #FDE8E9;" translateY="20.0" AnchorPane.bottomAnchor="165.66666666666674" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="143.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <padding>
+                <Insets top="40.0" />
+            </padding>
+            <ImageView fitHeight="610.0" fitWidth="891.0" layoutX="-76.0" layoutY="-96.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@componentImage/BoxBg.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="287.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="title" alignment="CENTER" layoutX="74.0" layoutY="-50.0" prefHeight="115.0" prefWidth="626.0" text="Congratulations" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Courier New Bold" size="64.0" />
+                </font>
+                <effect>
+                    <DropShadow blurType="TWO_PASS_BOX" spread="1.0" />
+                </effect>
+            </Label>
+            <Label fx:id="message" alignment="CENTER" layoutX="153.0" layoutY="206.0" prefHeight="115.0" prefWidth="471.0" text="YOU WIN" textAlignment="CENTER">
+                <font>
+                    <Font name="Berlin Sans FB" size="42.0" />
+                </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="287.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@componentImage/EndGameMascot.png" />
+                </image>
+            </ImageView>
+            <Label fx:id="player" alignment="CENTER" layoutX="152.0" layoutY="156.0" prefHeight="115.0" prefWidth="471.0" text="Player" textAlignment="CENTER" textFill="#ffa553">
+                <font>
+                    <Font name="Courier New" size="48.0" />
+                </font>
+                <effect>
+                    <DropShadow blurType="ONE_PASS_BOX" height="26.84" radius="10.59" spread="1.0" width="17.52">
+                        <color>
+                            <Color red="0.46666666865348816" green="0.20000000298023224" blue="0.007843137718737125" />
+                        </color>
+                    </DropShadow>
+                </effect>
+            </Label>
+            <Button alignment="CENTER" layoutX="212.0" layoutY="321.0" mnemonicParsing="false" onAction="#StartNewGame" prefHeight="86.0" prefWidth="354.0" style="-fx-background-color: transparent;" stylesheets="@EndGameButton.css" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                <font>
+                    <Font name="Chiller" size="33.0" />
+                </font>
+            </Button>
+        </Pane>
+</AnchorPane>

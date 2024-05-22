@@ -6,7 +6,7 @@ import oop.if2210_tb2_sc4.Exception.FolderNotExistException;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.Exception.GameException;
 import oop.if2210_tb2_sc4.Exception.InvalidInputException;
-import oop.if2210_tb2_sc4.deck.Deck;
+import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.save_load.Load;
 import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
@@ -29,15 +29,15 @@ public class LoadUi {
 
     public void initialize() {
 
-        controller.title.setText("Load Game");
+        controller.title.setText("Load");
 
-        controller.message.setText("Click The Button to Save The Data");
         System.out.println("Load UI");
 
         controller.clickButton.setOnMouseClicked(event -> {
             OnSaveLoad(event);
             System.out.println("Button clicked!");
         });
+        controller.ActivateMascot(this);
 
     }
     private void handleTextInputChange(String choice){

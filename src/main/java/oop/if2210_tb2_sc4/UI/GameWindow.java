@@ -24,8 +24,6 @@ public class GameWindow extends Application {
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(1024);
         primaryStage.setMinHeight(720);
-        primaryStage.setMaxWidth(1024);
-        primaryStage.setMaxHeight(720);
         primaryStage.setResizable(false);
         primaryStage.show();
 

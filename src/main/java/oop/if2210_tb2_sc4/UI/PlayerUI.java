@@ -7,8 +7,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.*;
-import oop.if2210_tb2_sc4.ladang.Ladang;
-import oop.if2210_tb2_sc4.player.Player;
+import oop.if2210_tb2_sc4.Ladang;
+import oop.if2210_tb2_sc4.Player;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 
 import java.util.Arrays;

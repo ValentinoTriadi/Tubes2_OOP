@@ -18,6 +18,11 @@ public class GameState {
     private int current_turn = 1;
     private Shop shop = new Shop();
 
+    public void ResetData(){
+        instance.current_turn = 1;
+        instance.shop = new Shop();
+    }
+
     public int getCurrentPlayer(){
         return instance.current_turn;
     }

@@ -17,10 +17,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
-import oop.if2210_tb2_sc4.deck.Deck;
-import oop.if2210_tb2_sc4.game_manager.GameData;
-import oop.if2210_tb2_sc4.game_manager.GameState;
-import oop.if2210_tb2_sc4.player.Player;
+import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.GameData;
+import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Player;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -53,8 +53,6 @@ public class GameWindowController {
     public Label CurrentTurn;
     public Label Player2Gold;
     public Label Player1Gold;
-    public AnchorPane EndScreen;
-    public Pane EndPane;
     public StackPane RootStack;
     public Label AvailableDeck;
     public Button nextTurn;
@@ -70,6 +68,8 @@ public class GameWindowController {
     private final Pane Bear = new Pane();
     private SeranganBeruang seranganBeruang;
 
+    private EndPanel endGamePanel;
+
     public static SellZone sellZone;
     public static LadangUI ladang1;
     public static LadangUI ladang2;
@@ -79,7 +79,7 @@ public class GameWindowController {
     private SaveUI saver;
     private LoadUi loader;
 
-    private Color currentSelectedLadang  = Color.GREEN;
+    private final Color currentSelectedLadang  = Color.GREEN;
 
     private SelectCardsController cardPicker;
 
@@ -87,6 +87,8 @@ public class GameWindowController {
 
     public void initialize() throws IOException {
         GameState instance = GameState.getInstance();
+        GameData.ResetData();
+        instance.ResetData();
         rootStatic = root;
         instance.setCurrentPlayer(1);
         CurrentTurn.setText(String.valueOf(instance.getCurrentPlayer()));
@@ -98,6 +100,7 @@ public class GameWindowController {
         cardPicker.ShuffleCards();
         gameThread = new UpdateThread(Player1Gold, Player2Gold, AvailableDeck, CurrentTurn);
         gameThread.initializeThread();
+        initializeEndPanel();
     }
 
     private void startGame(){
@@ -110,6 +113,15 @@ public class GameWindowController {
     private void initializeDeck(Player player){
         Deck newDeck = player.getDeck().initializeDeck(new Deck());
         player.setDeck(newDeck);
+    }
+
+    private void initializeEndPanel() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EndPanel.fxml"));
+        AnchorPane pane = loader.load();
+        this.endGamePanel = loader.getController();
+        pane.setVisible(false);
+        root.getChildren().add(pane);
+        endGamePanel.setRoot(this);
     }
 
     public void initializePlayer() {
@@ -167,23 +179,24 @@ public class GameWindowController {
             gameThread.stopThread();
             int player1gold = getPlayer1().getPlayerData().getJumlahGulden();
             int player2gold = getPlayer2().getPlayerData().getJumlahGulden();
-            Label Header = (Label)EndPane.getChildren().get(0);
-            Label Winner = (Label)EndPane.getChildren().get(1);
-            Label EndTitle = (Label)EndPane.getChildren().get(2);
-            EndScreen.setVisible(true);
+            String title = "";
+            String winner = "";
+            String Message = "";
             if (player1gold > player2gold)
             {
-                Winner.setText("Player 1");
+                title = "Congratulations";
+                winner = "Player 1";
+                Message = "You Win with "+ player1gold+ " Gold";
             } else if (player1gold < player2gold) {
-                Winner.setText("Player 2");
+                title = "Congratulations";
+                winner = "Player 2";
+                Message = "You Win with "+ player2gold+ " Gold";
             } else {
-                Font smallerFont = new Font(32);
-                Header.setFont(smallerFont);
-                Header.setText("Permainan Berakhir");
-                Winner.setVisible(false);
-                EndTitle.setFont(smallerFont);
-                EndTitle.setText("Game Berakhir Seri");
+                title = "Game Ended Draw";
+                Message = "Both Player have "+player1gold + " Gold";
             }
+            endGamePanel.setData(title, winner, Message);
+            endGamePanel.ShowEndScreen();
             return true;
         }
         return false;
@@ -471,13 +484,7 @@ public class GameWindowController {
     }
 
     public void StartNewGame(ActionEvent actionEvent) {
-        MainMenuController mainMenuController = new MainMenuController();
-        try{
-            mainMenuController.NewGame(actionEvent);
-            initialize();
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+
 
     }
 }
