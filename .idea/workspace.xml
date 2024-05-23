@@ -4,8 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="Merge : Merging integration and GameEngine">
+    <list default="true" id="674d12c8-2780-4e0a-8137-1b188e69ab89" name="Changes" comment="fix: Beruang Into UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/HarvestedPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PotionUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ProductUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/BadPotion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/CarnivoreAnimal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/Eatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/GoodPotion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/HerbivoreAnimal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/OmnivoreAnimal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/MainMenuMusic.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/HarvestedPanel.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/closeButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DestroyCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DestroyCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProtectCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProtectCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/TrapCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/TransparentTextarea.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/TransparentTextarea.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,34 +44,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaFXApplication" />
-        <option value="Interface" />
         <option value="Class" />
-        <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="FrontendFocus" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Loxenary&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ValentinoTriadi/Tubes2_OOP.git&quot;,
-    &quot;accountId&quot;: &quot;86207a52-63ad-40ae-b5f1-74b13b468961&quot;
-  }
-}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -58,7 +68,7 @@
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2g3dE3jQnMy7qrfZY12Qu5rmHKC" />
+  <component name="ProjectId" id="2gjuEmj1WeAX1YJTBW6PDMEbBbI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
   </component>
@@ -68,60 +78,29 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DraggableTest.executor": "Debug",
-    "Application.GameWindow.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#8 on GameEngine",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/java/oop/if2210_tb2_sc4/UI",
-    "last_opened_file_path": "D:/ITB/SEMESTER_4/Oop/Tubes2/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CoordinateConversionExample.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Testing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging 1-serangan-beruang-2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\componentImage" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\assets\card\Tanaman" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\assets\card\Produk" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\assets\card\Item" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\assets\card\Hewan" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\componentImage" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI\" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\UI" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4" />
-      <recent name="D:\ITB\SEMESTER_4\Oop\Tubes2\src\main\resources\oop\if2210_tb2_sc4\assets.component" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="oop.if2210_tb2_sc4.UI" />
-    </key>
-  </component>
+}</component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="GameWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="oop.if2210_tb2_sc4.UI.GameWindow" />
+    <configuration name="CoordinateConversionExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CoordinateConversionExample" />
       <module name="IF2210_TB2_SC4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="oop.if2210_tb2_sc4.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,7 +110,20 @@
       <module name="IF2210_TB2_SC4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="oop.if2210_tb2_sc4.util.*" />
+          <option name="PATTERN" value="oop.if2210_tb2_sc4.UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="oop.if2210_tb2_sc4.UI.Testing" />
+      <module name="IF2210_TB2_SC4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="oop.if2210_tb2_sc4.UI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,10 +134,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.GameWindow" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.GameWindow" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Testing" />
+        <item itemvalue="Application.CoordinateConversionExample" />
       </list>
     </recent_temporary>
   </component>
@@ -160,239 +150,53 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="62879d9b-52c9-4ecd-b115-c7b94ee3c24f" name="Changes" comment="" />
-      <created>1714930081603</created>
+      <changelist id="674d12c8-2780-4e0a-8137-1b188e69ab89" name="Changes" comment="" />
+      <created>1716223200206</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1714930081603</updated>
-      <workItem from="1714930083720" duration="7506000" />
-      <workItem from="1714968778966" duration="3809000" />
-      <workItem from="1714972819685" duration="334000" />
-      <workItem from="1714973181300" duration="4040000" />
-      <workItem from="1714990296269" duration="240000" />
-      <workItem from="1714998828184" duration="12853000" />
-      <workItem from="1715011871427" duration="460000" />
-      <workItem from="1715025199960" duration="6040000" />
-      <workItem from="1715054992588" duration="2910000" />
-      <workItem from="1715088171953" duration="719000" />
-      <workItem from="1715089514278" duration="8049000" />
-      <workItem from="1715101339983" duration="21214000" />
-      <workItem from="1715148296151" duration="557000" />
-      <workItem from="1715148875056" duration="5558000" />
-      <workItem from="1715163035374" duration="941000" />
-      <workItem from="1715164039046" duration="11862000" />
-      <workItem from="1715164039046" duration="5413000" />
-      <workItem from="1715357087724" duration="2298000" />
-      <workItem from="1715399962531" duration="13189000" />
-      <workItem from="1715415620438" duration="1455000" />
-      <workItem from="1715422576100" duration="4391000" />
-      <workItem from="1715426986090" duration="15616000" />
-      <workItem from="1715442988413" duration="3206000" />
-      <workItem from="1715484970898" duration="4026000" />
-      <workItem from="1715520528752" duration="9745000" />
-      <workItem from="1715533803799" duration="21436000" />
-      <workItem from="1715565037287" duration="6939000" />
-      <workItem from="1715580010284" duration="5938000" />
-      <workItem from="1715587861114" duration="29835000" />
-      <workItem from="1715661214668" duration="14832000" />
-      <workItem from="1715677624618" duration="1430000" />
-      <workItem from="1715679070079" duration="436000" />
-      <workItem from="1715679522464" duration="3081000" />
-      <workItem from="1715684193982" duration="449000" />
-      <workItem from="1716074455316" duration="872000" />
-      <workItem from="1716075354288" duration="1775000" />
-      <workItem from="1716116542377" duration="4534000" />
-      <workItem from="1716126774195" duration="11184000" />
-      <workItem from="1716139816337" duration="16856000" />
-      <workItem from="1716187537755" duration="5590000" />
-      <workItem from="1716216091931" duration="663000" />
-      <workItem from="1716225405570" duration="12020000" />
-      <workItem from="1716279097357" duration="5660000" />
-      <workItem from="1716291331739" duration="1356000" />
-      <workItem from="1716292707404" duration="5615000" />
-      <workItem from="1716299499158" duration="9316000" />
-      <workItem from="1716311040898" duration="129000" />
-      <workItem from="1716314012610" duration="6961000" />
-      <workItem from="1716365689473" duration="2292000" />
-      <workItem from="1716369356700" duration="2278000" />
-      <workItem from="1716378949952" duration="1599000" />
-      <workItem from="1716380934696" duration="1479000" />
-      <workItem from="1716388994155" duration="5383000" />
-      <workItem from="1716399456614" duration="21183000" />
-      <workItem from="1716475617670" duration="868000" />
+      <updated>1716223200206</updated>
+      <workItem from="1716223202935" duration="989000" />
+      <workItem from="1716225259063" duration="398000" />
+      <workItem from="1716225674735" duration="3912000" />
+      <workItem from="1716230188709" duration="5979000" />
+      <workItem from="1716239451888" duration="275000" />
+      <workItem from="1716239894027" duration="4416000" />
+      <workItem from="1716278440357" duration="4373000" />
+      <workItem from="1716290824263" duration="14299000" />
+      <workItem from="1716309076144" duration="1931000" />
+      <workItem from="1716312170179" duration="7512000" />
+      <workItem from="1716320243138" duration="733000" />
+      <workItem from="1716324514267" duration="9113000" />
+      <workItem from="1716335841802" duration="398000" />
+      <workItem from="1716360030206" duration="1060000" />
+      <workItem from="1716366148425" duration="12000" />
+      <workItem from="1716376160999" duration="4894000" />
+      <workItem from="1716386220669" duration="1762000" />
+      <workItem from="1716389944322" duration="2467000" />
+      <workItem from="1716485156445" duration="3703000" />
     </task>
-    <task id="LOCAL-00001" summary="Feat : Integrate Player UI and player class">
-      <option name="closed" value="true" />
-      <created>1715445721814</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1715445721814</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Feat: Integrate Store UI and Store Backend">
-      <option name="closed" value="true" />
-      <created>1715523475901</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1715523475901</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Feat: Integrate Buy Items">
-      <option name="closed" value="true" />
-      <created>1715534561710</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1715534561710</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Feat: Load and Save (Unfinished)">
-      <option name="closed" value="true" />
-      <created>1715661438001</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1715661438001</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Feat: Load and Save (Unfinished)">
-      <option name="closed" value="true" />
-      <created>1715676122186</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1715676122186</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Feat: Better UI for the main game">
-      <option name="closed" value="true" />
-      <created>1716212033779</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1716212033779</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fix: Ladang Layout">
-      <option name="closed" value="true" />
-      <created>1716295803197</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1716295803197</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Feat : Set ladang tile to Red Color">
-      <option name="closed" value="true" />
-      <created>1716306502057</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1716306502057</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Feat : Plugin UI">
-      <option name="closed" value="true" />
-      <created>1716367668453</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1716367668453</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Feat : Settings Menu">
-      <option name="closed" value="true" />
-      <created>1716414054122</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1716414054122</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Feat : Update Settings Menu">
-      <option name="closed" value="true" />
-      <created>1716417259959</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1716417259959</updated>
-    </task>
-    <task id="LOCAL-00012" summary="fix: settings fxml version">
-      <option name="closed" value="true" />
-      <created>1716418076920</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1716418076920</updated>
-    </task>
-    <task id="LOCAL-00013" summary="fix: Deck Thread Update">
-      <option name="closed" value="true" />
-      <created>1716419070611</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1716419070611</updated>
-    </task>
-    <task id="LOCAL-00014" summary="fix: Size Window Bug">
-      <option name="closed" value="true" />
-      <created>1716420940893</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1716420940893</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Merge : Merging integration and GameEngine">
-      <option name="closed" value="true" />
-      <created>1716476467504</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1716476467504</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat : Integrate Player UI and player class" />
-    <MESSAGE value="Feat: Integrate Store UI and Store Backend" />
-    <MESSAGE value="Feat: Integrate Buy Items" />
-    <MESSAGE value="Feat: Load and Save (Unfinished)" />
-    <MESSAGE value="Feat: Better UI for the main game" />
-    <MESSAGE value="Fix: Ladang Layout" />
-    <MESSAGE value="Feat : Set ladang tile to Red Color" />
-    <MESSAGE value="Feat : Plugin UI" />
-    <MESSAGE value="Feat : Settings Menu" />
-    <MESSAGE value="Feat : Update Settings Menu" />
-    <MESSAGE value="fix: settings fxml version" />
-    <MESSAGE value="fix: Deck Thread Update" />
-    <MESSAGE value="fix: Size Window Bug" />
-    <MESSAGE value="Merge: integrate and GameEngine" />
-    <MESSAGE value="Merge : Merging integration and GameEngine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge : Merging integration and GameEngine" />
+    <MESSAGE value="fix: Deleting not used label" />
+    <MESSAGE value="fix: Beruang Into UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Beruang Into UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="23" />
+          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="125" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ProductUI.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="127" />
+          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java</url>
+          <line>205</line>
+          <option name="timeStamp" value="131" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -410,11 +214,12 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="currentPlayerPane.setEnemyField(nextPlayerPane.getField());&#10;        nextPlayerPane.setEnemyField(currentPlayerPane.getField());" />
-        <watch expression="currentPlayerPane" language="JAVA" />
-        <watch expression="this" />
-        <watch expression="player1Data.deck.activeCards" />
+        <watch expression="RootPane" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -35,8 +35,6 @@ public class MainMenuController {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.setResizable(false);
         currentStage.close();
-
-
         // Open the new window
         GameWindow gameWindow = new GameWindow();
         gameWindow.start(new Stage());

@@ -20,6 +20,7 @@ public class CardsChoiceUI {
     private final HBox parent;
     private final AnchorPane outerPane;
     private Deck playerDeck;
+    private SelectionFinishListener selectionFinishListener;
 
     public CardsChoiceUI(HBox parent, AnchorPane outerPane, Deck currentDeck) {
         this.parent = parent;
@@ -27,11 +28,22 @@ public class CardsChoiceUI {
         this.outerPane = outerPane;
         ResetCards(currentDeck);
     }
+    public void setSelectionFinishListener(SelectionFinishListener listener) {
+        this.selectionFinishListener = listener;
+    }
+
+    private void CloseCardPickMenu(){
+        if(selectionFinishListener != null) {
+            selectionFinishListener.selectionFinished();
+        }
+        outerPane.setVisible(false);
+    }
+
 
     public void  ResetCards(Deck currentDeck){
         playerDeck = currentDeck;
         if(currentDeck.isHandFull() || currentDeck.isDeckEmpty()){
-            GameWindowController.isShuffleDone = true;
+            CloseCardPickMenu();
             return;
         }
 
@@ -94,16 +106,15 @@ public class CardsChoiceUI {
 
         playerDeck.removeCardFromDeck();
         if(playerDeck.isHandFull()){
-            outerPane.setVisible(false);
             for (int i = 0; i < cardImages.length; i++) {
                 removeImage(i);
             }
-            GameWindowController.isShuffleDone = true;
+            CloseCardPickMenu();
+            return;
         }
 
         if(isEmptyParent()){
-            outerPane.setVisible(false);
-            GameWindowController.isShuffleDone = true;
+            CloseCardPickMenu();
         }
     }
        public void randomGenerateCards() {

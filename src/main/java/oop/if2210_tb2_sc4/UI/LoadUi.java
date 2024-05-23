@@ -74,16 +74,18 @@ public class LoadUi {
                 MessageBox.showErrorMessage("Non Exist Choice", "Tolong pilih salah satu jenis file yang akan disave");
                 return;
             }
-
+            UpdateThread currentThread = threadControl.getGameThread();
             try{
-                threadControl.PostPoneThread(100);
+                currentThread.pauseThread();
             } catch (InterruptedException e) {
+                currentThread.resumeThread();
                 throw new RuntimeException(e);
             }
             LoadState();
             LoadPlayer();
             LoadDeck();
             LoadLadang();
+            currentThread.resumeThread();
         }catch (GameException e){
             e.ShowErrorPanel();
             return;

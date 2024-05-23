@@ -3,12 +3,14 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class GameWindow extends Application {
+
 
     public static void main(String[] args) {
         launch(args);
@@ -26,6 +28,5 @@ public class GameWindow extends Application {
         primaryStage.setMinHeight(720);
         primaryStage.setResizable(false);
         primaryStage.show();
-
     }
 }

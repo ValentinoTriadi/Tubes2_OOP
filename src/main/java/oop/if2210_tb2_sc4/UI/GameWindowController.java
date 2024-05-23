@@ -24,6 +24,7 @@ import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.GameData;
 import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
+import oop.if2210_tb2_sc4.save_load.Load;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -61,6 +62,7 @@ public class GameWindowController {
     public Button nextTurn;
     public Label ladangLabel;
     public Label enemyLadangLabel;
+    public Pane bearroot;
 
     private Tab ladang;
     private Tab ladangMusuh;
@@ -82,10 +84,9 @@ public class GameWindowController {
     private SaveUI saver;
     private LoadUi loader;
 
-    private final Color currentSelectedLadang  = Color.GREEN;
+    private final Color currentSelectedButtonColor  = Color.GREEN;
 
     private SelectCardsController cardPicker;
-    public static boolean isShuffleDone = false;
 
     private final AudioManager audioManager = AudioManager.getInstance();
 
@@ -106,11 +107,12 @@ public class GameWindowController {
         gameThread.initializeThread();
         audioManager.playBackgroundMusic("FullBG.wav");
         initializeEndPanel();
+        setActiveMenuButton(MyFieldButton);
     }
 
     private void startGame(){
         nextPlayerPane.setVisible(false);
-        setLadangLabelColor(currentSelectedLadang, Color.WHITE);
+
     }
 
 //    private void initialize
@@ -162,20 +164,15 @@ public class GameWindowController {
         // Add both player panes to the root and hide the next player's pane
         rootPane.getChildren().addAll(currentPlayerPane, nextPlayerPane);
 
-        int col = 5;
-        int row = 4;
-        seranganBeruang = new SeranganBeruang(col,row,currentPlayerPane.getLadang().getLadang());
-        seranganBeruang.initialize();
-        root.getChildren().add(seranganBeruang.getPane());
+        int col = currentPlayerPane.getLadang().getColumnCount();
+        int row = currentPlayerPane.getLadang().getRowCount();
+        seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang());
+        seranganBeruang.initializer();
+        bearroot.setMouseTransparent(true);
     }
 
-    public void PostPoneThread(long milisecond) throws InterruptedException {
-        try{
-            gameThread.pauseThread(milisecond);
-        }
-        catch (InterruptedException e){
-            System.out.println(e.getMessage());
-        }
+    public UpdateThread getGameThread(){
+        return gameThread;
     }
 
 
@@ -207,7 +204,26 @@ public class GameWindowController {
         return false;
     }
 
+    private void setActiveMenuButton(Button selectedButton){
+        MyFieldButton.setTextFill(Color.WHITE);
+        EnemyFieldButton.setTextFill(Color.WHITE);
+        ShopButton.setTextFill(Color.WHITE);
+        LoadButton.setTextFill(Color.WHITE);
+        SaveButton.setTextFill(Color.WHITE);
+        AddPluginButton.setTextFill(Color.WHITE);
+        selectedButton.setTextFill(currentSelectedButtonColor);
+        if(selectedButton == MyFieldButton){
+            SetActiveBeruangPane(true);
+        }else{
+            SetActiveBeruangPane(false);
+        }
+    }
+
     public void switchToNextPlayer() {
+        if(seranganBeruang.isAlive()){
+            return;
+        }
+
         FarmResourceCard[] cardlistLadang = currentPlayerPane.getLadang().getLadangData().getCardListinLadang();
         for(FarmResourceCard card : cardlistLadang) {
             if(card instanceof PlantCard){
@@ -238,22 +254,25 @@ public class GameWindowController {
         resetFieldLock();
         openLadang();
     }
+
     private void StartNewTurn(){
-        isShuffleDone = false;
-        cardPicker.InvokePanel();
-        //BeruangMenyerangPhase();
+        BeruangMenyerangPhase();
+        cardPicker.InvokePanel(seranganBeruang);
     }
     private void BeruangMenyerangPhase(){
-        while(!isShuffleDone){
-            Bear.getChildren().clear();
-            int col = currentPlayerPane.getLadang().getColumnCount();
-            int row = currentPlayerPane.getLadang().getRowCount();
-            seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang().getLadang());
-
-            seranganBeruang.initialize();
-            Bear.getChildren().add(seranganBeruang.getPane());
-            seranganBeruang.start();
+        if (seranganBeruang.isAlive()) {
+            seranganBeruang.stopThread();
         }
+        bearroot.getChildren().clear();
+
+        LadangUI currentladang = currentPlayerPane.getLadang();
+        int col = currentladang.getColumnCount();
+        int row = currentladang.getRowCount();
+        seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang());
+
+        seranganBeruang.initializer();
+        bearroot.getChildren().add(seranganBeruang.getPane());
+//        seranganBeruang.start();
     }
 
     private void resetFieldLock(){
@@ -264,7 +283,7 @@ public class GameWindowController {
     public static void addCard(Card card) {
         try {
             currentPlayerPane.addCard(card);
-        }catch (FullActiveHandsException ignored){
+        } catch (FullActiveHandsException ignored){
 
         }
     }
@@ -363,7 +382,7 @@ public class GameWindowController {
         StackPane temp_shop = new StackPane();
         temp_shop.setAlignment(Pos.CENTER);
         temp_shop.getChildren().add(shopPane);
-        temp_shop.setPadding(new Insets(10, 10, 10, 10));
+        temp_shop.setPadding(new Insets(0,50,100,10));
         shop.setContent(temp_shop);
         shopUI = loaderShop.getController();
         shopUI.initializeShopData();
@@ -384,7 +403,7 @@ public class GameWindowController {
         StackPane temp_save = new StackPane();
         temp_save.setAlignment(Pos.CENTER);
         temp_save.getChildren().add(savePane);
-        temp_save.setPadding(new Insets(10, 10, 10, 100));
+        temp_save.setPadding(new Insets(0, 10, 0, 10));
         return  temp_save;
     }
 
@@ -398,7 +417,7 @@ public class GameWindowController {
         StackPane temp_addPlugin = new StackPane();
         temp_addPlugin.setAlignment(Pos.CENTER);
         temp_addPlugin.getChildren().add(addPluginPane);
-        temp_addPlugin.setPadding(new Insets(10, 10, 10, 100));
+        temp_addPlugin.setPadding(new Insets(0, 10, 0, 10));
         addPlugin.setContent(temp_addPlugin);
     }
 
@@ -445,8 +464,7 @@ public class GameWindowController {
 
     public void openLadang(){
         currentPlayerPane.enableField();
-        setLadangLabelColor(currentSelectedLadang,Color.WHITE);
-
+        setActiveMenuButton(MyFieldButton);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladang);
         } else {
@@ -454,14 +472,10 @@ public class GameWindowController {
         }
     }
 
-    private void setLadangLabelColor(Paint user, Paint enemy){
-        ladangLabel.setTextFill(user);
-        enemyLadangLabel.setTextFill(enemy);
-    }
-
     public void openLadangMusuh(){
         nextPlayerPane.disableField();
-        setLadangLabelColor(Color.WHITE,currentSelectedLadang);
+        currentPlayerPane.disableField();
+        setActiveMenuButton(EnemyFieldButton);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladangMusuh);
         } else {
@@ -470,23 +484,32 @@ public class GameWindowController {
     }
 
     public void openShop(){
+        setActiveMenuButton(ShopButton);
         currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(shop);
     }
 
     public void openSave(){
+        setActiveMenuButton(SaveButton);
         currentPlayerPane.disableField();
         saver.initialize();
         tabPane.getSelectionModel().select(save);
+
     }
 
     public void openLoad(){
+        setActiveMenuButton(LoadButton);
         currentPlayerPane.disableField();
         loader.initialize();
         tabPane.getSelectionModel().select(load);
     }
 
+    private void SetActiveBeruangPane(boolean state){
+        bearroot.setVisible(state);
+    }
+
     public void openAddPlugin(){
+        setActiveMenuButton(AddPluginButton);
         currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(addPlugin);
     }

@@ -110,7 +110,6 @@ public class CardUI extends DraggablePane implements UICard {
     public void OnRelease(MouseEvent e){
         boolean droppedOnDropZone = false;
         for (DropZone dz : dropZone) {
-
             // Check if the mouse position is within the dropzone
             if (isMouseInDropZone(e, dz) && dz.getChildren().isEmpty() && !dz.isDisabled()) {
 
@@ -129,10 +128,10 @@ public class CardUI extends DraggablePane implements UICard {
         // If not dropped on a dropzone, return to default position
         if (!droppedOnDropZone) {
             resetPosition();
+        }else{
+            // Play sfx sound
+            playCardSound();
         }
-
-        // Play sfx sound
-        playCardSound();
     }
 
     private void playCardSound() {

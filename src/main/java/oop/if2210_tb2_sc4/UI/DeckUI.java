@@ -112,7 +112,7 @@ public class DeckUI extends HBox {
 
                 if(cardData instanceof FarmResourceCard){
                     CardUI cardUI = new CardUI(activeDeck[i], changedPlayer.DropZoneAlocation(cardData));
-                    cardUI.setCard(cardData);
+                    cardUI.setCard((FarmResourceCard) cardData);
                     setCard(cardUI, i);
                 }else{
                     ItemUI itemUI = new ItemUI(activeDeck[i],changedPlayer.DropZoneAlocation(cardData));
