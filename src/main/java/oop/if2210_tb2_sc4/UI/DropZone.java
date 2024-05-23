@@ -21,13 +21,7 @@ public class DropZone extends Pane {
         super();
     }
 
-    public void onItemDrop(Card cardInput) {
-        CardUI card = (CardUI) this.getChildren().get(0);
-        FarmResourceCard cardData = (FarmResourceCard) card.getCardData();
-
-        ItemCard itemData = (ItemCard) cardInput;
-        itemData.applyEffect(cardData);
-
+    public void onItemDrop() {
         this.getChildren().remove(1);
     }
 }

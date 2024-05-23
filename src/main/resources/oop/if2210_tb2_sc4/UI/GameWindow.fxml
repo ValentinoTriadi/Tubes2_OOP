@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane scaleShape="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
+<AnchorPane scaleShape="false" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
    <StackPane fx:id="RootStack" maxHeight="720" maxWidth="1024.0" minHeight="720.0" minWidth="1024" prefHeight="720.0" prefWidth="1024.0">
       <AnchorPane prefHeight="626.0" prefWidth="983.0">
          <children>

@@ -1,0 +1,7 @@
+.button{
+    -fx-background-image: url("componentImage/CloseButton.png");
+    -fx-background-position: center center;
+    -fx-background-size: stretch;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}

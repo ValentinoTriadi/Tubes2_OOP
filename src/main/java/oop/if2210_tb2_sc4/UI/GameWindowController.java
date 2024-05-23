@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +13,13 @@ import javafx.scene.layout.*;
 import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
+import oop.if2210_tb2_sc4.card.FarmResourceCard;
+import oop.if2210_tb2_sc4.card.PlantCard;
 import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.GameData;
 import oop.if2210_tb2_sc4.GameState;
@@ -23,7 +27,10 @@ import oop.if2210_tb2_sc4.Player;
 import oop.if2210_tb2_sc4.save_load.Load;
 import org.jetbrains.annotations.NotNull;
 
+
+import java.awt.*;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class GameWindowController {
@@ -50,8 +57,6 @@ public class GameWindowController {
     public Label CurrentTurn;
     public Label Player2Gold;
     public Label Player1Gold;
-    public AnchorPane EndScreen;
-    public Pane EndPane;
     public StackPane RootStack;
     public Label AvailableDeck;
     public Button nextTurn;
@@ -65,6 +70,7 @@ public class GameWindowController {
     private Tab save;
     private Tab load;
     private Tab addPlugin;
+    private final Pane Bear = new Pane();
     private SeranganBeruang seranganBeruang;
 
     private EndPanel endGamePanel;
@@ -72,6 +78,7 @@ public class GameWindowController {
     public static SellZone sellZone;
     public static LadangUI ladang1;
     public static LadangUI ladang2;
+    private static boolean running;
 
     private UpdateThread gameThread;
     private SaveUI saver;
@@ -168,6 +175,7 @@ public class GameWindowController {
         return gameThread;
     }
 
+
     public boolean TryEndGame(){
         if(GameState.getInstance().getCurrentPlayer() >= 20) {
             gameThread.stopThread();
@@ -216,6 +224,12 @@ public class GameWindowController {
             return;
         }
 
+        FarmResourceCard[] cardlistLadang = currentPlayerPane.getLadang().getLadangData().getCardListinLadang();
+        for(FarmResourceCard card : cardlistLadang) {
+            if(card instanceof PlantCard){
+                ((PlantCard) card).setAge(((PlantCard) card).getAge()+1);
+            }
+        }
         // Hide the current player's pane
         currentPlayerPane.setVisible(false);
 
@@ -297,7 +311,7 @@ public class GameWindowController {
         return nextPlayerPane;
     }
 
-    public static void addItem(Card card) {
+    public static void addItem(Card card){
         try {
             currentPlayerPane.addItem(card);
         }catch (FullActiveHandsException ignored){
@@ -460,6 +474,7 @@ public class GameWindowController {
 
     public void openLadangMusuh(){
         nextPlayerPane.disableField();
+        currentPlayerPane.disableField();
         setActiveMenuButton(EnemyFieldButton);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladangMusuh);
@@ -498,6 +513,5 @@ public class GameWindowController {
         currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(addPlugin);
     }
-
 
 }

@@ -83,7 +83,7 @@ public class ItemUI extends DraggablePane implements UICard {
                 setParent(dz);
 
                 // Call the onDrop method of the dropzone
-                dz.onItemDrop(this.cardItem);
+                dz.onItemDrop();
                 break;
             }
         }

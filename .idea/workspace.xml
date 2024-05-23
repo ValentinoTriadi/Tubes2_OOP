@@ -4,89 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="674d12c8-2780-4e0a-8137-1b188e69ab89" name="Changes" comment="fix: Deleting not used label">
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/EndPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectionFinishListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/Settings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Bear.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/BearTrap.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Chicken.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Coin.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Cow.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Eats.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/FullBG.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Gardening.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/HiuDarat.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Horse.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/PotionDrink.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Sheep.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/Winning.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/a.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/EndGameButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/EndPanel.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/FileChooser.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MenuButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MuteButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/Settings.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/ShuffleButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/TabButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/VolumeSlider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/ArrowButton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/CheckboxBg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/EndGameMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/LoadMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/MascotNgumpet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/MenuBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/MenuMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/RestartButton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/SaveMascot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/SliderBg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/TextInputBg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/addPluginFileChooser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/knob.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/mark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/componentImage/shuffleCardBg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/save_load/bang2/gamestate.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/save_load/bang2/player1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/save_load/bang2/player2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/save_load/tesy5/gamestate.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/save_load/tesy5/player1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/save_load/tesy5/player2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManagerTest.java" afterDir="false" />
+    <list default="true" id="674d12c8-2780-4e0a-8137-1b188e69ab89" name="Changes" comment="fix: Beruang Into UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/HarvestedPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PotionUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ProductUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/BadPotion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/CarnivoreAnimal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/Eatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/GoodPotion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/HerbivoreAnimal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/OmnivoreAnimal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/MediaPlayer/MainMenuMusic.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/HarvestedPanel.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/closeButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/AddPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/AddPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/MediaPlayer/AudioManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ItemUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SelectCardsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ShopUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/AddPlugin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/AddPlugin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PlayerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AnimalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DestroyCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DestroyCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProtectCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/ProtectCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/TrapCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/GameWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SaveLoad.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SelectCards.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/SelectCards.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/shopGridImage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/LoadTXTTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/oop/if2210_tb2_sc4/save_load/SaveTXTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/TransparentTextarea.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/TransparentTextarea.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,25 +78,25 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CoordinateConversionExample.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Testing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging 1-serangan-beruang-2",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "JavaScript.Libraries",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CoordinateConversionExample.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Testing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging 1-serangan-beruang-2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="CoordinateConversionExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CoordinateConversionExample" />
@@ -234,7 +182,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: Deleting not used label" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Deleting not used label" />
+    <MESSAGE value="fix: Beruang Into UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Beruang Into UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

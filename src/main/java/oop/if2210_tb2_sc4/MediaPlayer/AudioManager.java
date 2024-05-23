@@ -29,7 +29,7 @@ public class AudioManager {
         sfxPlayer = null;
         backgroundMusicVolume = 1;
         sfxVolume = 1;
-        volumeBGMBeforeMute =  backgroundMusicVolume;
+        volumeBGMBeforeMute = backgroundMusicVolume;
         volumeSFXBeforeMute = sfxVolume;
 
         cardSoundMap.put("BERUANG", "Bear.wav");
@@ -68,39 +68,40 @@ public class AudioManager {
         if (instance.backgroundMusicPlayer != null) {
             instance.backgroundMusicPlayer.stop();
         }
+
         Media backgroundMusic = new Media(Objects.requireNonNull(getClass().getResource(musicFilePath)).toExternalForm());
         instance.backgroundMusicPlayer = new MediaPlayer(backgroundMusic);
         instance.backgroundMusicPlayer.setOnEndOfMedia(() -> backgroundMusicPlayer.seek(Duration.ZERO));
         instance.backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        instance.backgroundMusicPlayer.setVolume(backgroundMusicVolume);
+
+        if (!instance.isMuted) instance.backgroundMusicPlayer.setVolume(backgroundMusicVolume);
+        else instance.backgroundMusicPlayer.setVolume(0);
+
         instance.backgroundMusicPlayer.play();
     }
 
     // Method to mute
     public void mute() {
-        if(instance.backgroundMusicPlayer == null || instance.sfxPlayer == null){
-            if (isMuted){
-                backgroundMusicVolume = volumeBGMBeforeMute;
-                sfxVolume = volumeSFXBeforeMute;
-            } else {
-                volumeBGMBeforeMute = backgroundMusicVolume;
-                volumeSFXBeforeMute = sfxVolume;
-
-                backgroundMusicVolume = 0;
-                sfxVolume = 0;
-            }
-            return;
-        }
-
-        if (isMuted) {
-            instance.backgroundMusicPlayer.setVolume(backgroundMusicVolume);
-            instance.sfxPlayer.setVolume(sfxVolume);
-        } else {
-            instance.backgroundMusicPlayer.setVolume(0);
-            instance.sfxPlayer.setVolume(0);
-        }
-
+        handleMute(instance.backgroundMusicPlayer, instance.backgroundMusicVolume, instance.volumeBGMBeforeMute);
+        handleMute(instance.sfxPlayer, instance.sfxVolume, instance.volumeSFXBeforeMute);
         instance.isMuted = !instance.isMuted;
+    }
+
+    private void handleMute(MediaPlayer player, double currentVolume, double volumeBeforeMute) {
+        if (player != null) {
+            if (instance.isMuted) {
+                currentVolume = volumeBeforeMute;
+                player.setVolume(currentVolume);
+            } else {
+                if (player == instance.backgroundMusicPlayer) {
+                    instance.volumeBGMBeforeMute = currentVolume;
+                } else if (player == instance.sfxPlayer) {
+                    instance.volumeSFXBeforeMute = currentVolume;
+                }
+                currentVolume = 0;
+                player.setVolume(currentVolume);
+            }
+        }
     }
 
     public MediaPlayer getSFX() {
@@ -127,10 +128,14 @@ public class AudioManager {
         if (instance.sfxPlayer != null) {
             instance.sfxPlayer.stop();
         }
+
         Media sfx = new Media(Objects.requireNonNull(getClass().getResource(sfxFilePath)).toExternalForm());
         instance.sfxPlayer = new MediaPlayer(sfx);
         instance.sfxPlayer.setCycleCount(1);
-        instance.sfxPlayer.setVolume(sfxVolume);
+
+        if (!instance.isMuted) instance.sfxPlayer.setVolume(sfxVolume);
+        else instance.sfxPlayer.setVolume(0);
+
         instance.sfxPlayer.play();
     }
 
