@@ -28,6 +28,10 @@ public class JarLoader {
         try {
             System.out.println("Loading JAR from path: " + path);
 
+            if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+                path = "/" + path;
+            }
+
             // Create a new URLClassLoader
             URL[] urls = {new URL("file://" + path)};
             URLClassLoader loader = new URLClassLoader(urls, this.getClass().getClassLoader());
