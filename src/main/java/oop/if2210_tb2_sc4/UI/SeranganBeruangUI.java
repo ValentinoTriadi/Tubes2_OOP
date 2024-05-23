@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.*;
 
 import java.util.ArrayList;
@@ -166,6 +167,7 @@ public class SeranganBeruangUI {
         }
 
         ladang.resetLadangColor();
+        AudioManager.getInstance().stopSFX();
     }
 
     private Animation animateBearFall(Point2D p) {

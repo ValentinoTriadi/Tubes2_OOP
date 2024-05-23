@@ -12,7 +12,7 @@ import oop.if2210_tb2_sc4.util.ImageUtil;
 public class DeckUI extends HBox {
 
     private Deck deckData;
-    private CardHolder[] activeDeck;
+    private final CardHolder[] activeDeck;
 
     public DeckUI(Deck userDeck) {
         this.deckData = userDeck;
@@ -86,7 +86,12 @@ public class DeckUI extends HBox {
             if (activeDeck[i].getChildren().isEmpty()) {
                 deckData.removeActiveCard(i);
             }else{
-                deckData.setActiveCard(i, ((CardUI) activeDeck[i].getChildren().get(i)).getCardData());
+                Node currentUICard = activeDeck[i].getChildren().get(0);
+                if(currentUICard instanceof CardUI){
+                    deckData.setActiveCard(i, ((CardUI)currentUICard).getCardData());
+                }else{
+                    deckData.setActiveCard(i,((ItemUI)currentUICard).getCard());
+                }
             }
         }
 

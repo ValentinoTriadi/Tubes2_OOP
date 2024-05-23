@@ -1,14 +1,15 @@
 package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import oop.if2210_tb2_sc4.Deck;
 
-public class SelectCardsController {
+public class SelectCardsController implements SelectionFinishListener {
 
     public AnchorPane outerPane;
+    public HBox HboxCards;
     private CardsChoiceUI selectedGrids;
-    public GridPane itemsGrid;
+    private SeranganBeruang seranganBeruangPhase;
 
     public SelectCardsController(){
 
@@ -16,16 +17,26 @@ public class SelectCardsController {
 
     public void initialize(){
         Deck deck = GameWindowController.getCurrentPlayerPane().getPlayerData().getDeck();
-        selectedGrids = new CardsChoiceUI(itemsGrid, outerPane, deck);
+        selectedGrids = new CardsChoiceUI(HboxCards, outerPane, deck);
     }
 
-    public void InvokePanel(){
+    public void InvokePanel(SeranganBeruang seranganBeruangPhase){
+        this.seranganBeruangPhase = seranganBeruangPhase;
         Deck deck = GameWindowController.getCurrentPlayerPane().getPlayerData().getDeck();
         selectedGrids.ResetCards(deck);
+        selectedGrids.setSelectionFinishListener(this);
     }
 
     public void ShuffleCards(){
         selectedGrids.randomGenerateCards();
+    }
+
+    @Override
+    public void selectionFinished() {
+        if (seranganBeruangPhase.isAlive()) {
+            seranganBeruangPhase.stopThread();
+        }
+        seranganBeruangPhase.start();
     }
 
 }

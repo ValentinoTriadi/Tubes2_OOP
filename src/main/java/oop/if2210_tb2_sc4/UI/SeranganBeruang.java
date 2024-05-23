@@ -4,7 +4,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -23,7 +25,6 @@ public class SeranganBeruang extends Thread {
 
     private volatile boolean isDone = false;
     private volatile boolean shouldStop = false;
-
     private SeranganBeruangUI seranganBeruangUI;
     private Pane bear = new Pane();
 
@@ -77,7 +78,10 @@ public class SeranganBeruang extends Thread {
                 Thread.sleep(100);
             } catch (InterruptedException ignored) {}
         }
-
+        String soundFile = AudioManager.getInstance().getCardSoundMap().get("BearAttack");
+        if (soundFile != null) {
+            AudioManager.getInstance().playSFX(soundFile);
+        }
         if (!shouldStop) {
             bear.setVisible(true);
             seranganBeruangUI.runAnimations(path);

@@ -1,37 +1,34 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
 import oop.if2210_tb2_sc4.Exception.GameException;
-import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
 import oop.if2210_tb2_sc4.save_load.SaveTXT;
 
 import java.io.IOException;
 
 public class SaveUI {
-    private SaveLoad controller;
+    private final SaveLoad controller;
     private Save saver;
     private AnchorPane scene;
+
     public SaveUI(SaveLoad controller){
         this.controller = controller;
     }
 
     public void initialize() {
 
-        controller.title.setText("Save The Game");
+        controller.title.setText("Save");
 
-        controller.message.setText("Click The Button to Save The Data");
         System.out.println("Load UI");
 
         controller.clickButton.setOnMouseClicked(event -> {
             OnSaveLoad(event);
             System.out.println("Button clicked!");
         });
+
+        controller.ActivateMascot(this);
 
     }
 

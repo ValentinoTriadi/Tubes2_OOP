@@ -2,51 +2,77 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.SaveLoad">
+<AnchorPane prefHeight="501.0" prefWidth="732.0" style="-fx-background-color: rgba(0,0,0,0.3);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.SaveLoad">
    <children>
-      <VBox alignment="CENTER" layoutX="-1.0" layoutY="-2.0" prefHeight="406.0" prefWidth="600.0">
+      <Pane layoutX="82.0" layoutY="107.0" prefHeight="338.0" prefWidth="606.0" style="-fx-background-color: transparent;">
          <children>
-            <Label fx:id="title" alignment="CENTER" prefHeight="70.0" prefWidth="550.0" text="TITLE">
+            <ImageView fitHeight="443.0" fitWidth="663.0" layoutX="-54.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@componentImage/BoxBg.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="SaveMascot" fitHeight="131.0" fitWidth="157.0" layoutX="31.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@componentImage/SaveMascot.png" />
+               </image></ImageView>
+            <ImageView fx:id="LoadMascot" fitHeight="116.0" fitWidth="135.0" layoutX="394.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@componentImage/LoadMascot.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="title" alignment="CENTER" layoutX="2.0" layoutY="8.0" prefHeight="72.0" prefWidth="556.0" text="TITLE" textFill="WHITE">
                <padding>
                   <Insets bottom="10.0" />
                </padding>
                <font>
-                  <Font size="39.0" />
+                  <Font name="Impact" size="50.0" />
                </font>
+               <effect>
+                  <DropShadow blurType="TWO_PASS_BOX" height="15.0" radius="5.75" spread="1.0" width="10.0" />
+               </effect>
             </Label>
-            <HBox prefHeight="26.0" prefWidth="600.0">
+            <HBox layoutX="62.0" layoutY="86.0" prefHeight="33.0" prefWidth="443.0">
                <children>
-                  <Label prefHeight="28.0" prefWidth="239.0" text="Format">
+                  <Label layoutX="60.0" prefHeight="30.0" prefWidth="169.0" text="Format" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
-                     </HBox.margin></Label>
-                  <ComboBox fx:id="choice" prefHeight="26.0" prefWidth="580.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Impact" size="20.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" height="6.0" radius="3.5" spread="1.0" width="10.0" />
+                     </effect>
+                  </Label>
+                  <ComboBox fx:id="choice" layoutX="60.0" prefHeight="30.0" prefWidth="426.0" style="-fx-background-color: transparent;" stylesheets="@SaveLoad.css" />
                </children>
             </HBox>
-            <HBox prefHeight="26.0" prefWidth="600.0">
+            <HBox layoutX="62.0" layoutY="135.0" prefHeight="26.0" prefWidth="443.0">
                <children>
-                  <Label prefHeight="25.0" prefWidth="136.0" text="Folder">
+                  <Label prefHeight="30.0" prefWidth="86.0" text="Folder" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
-                     </HBox.margin></Label>
-                  <TextField fx:id="FolderPath" prefHeight="26.0" prefWidth="474.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Impact" size="20.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" height="6.0" radius="3.5" spread="1.0" width="10.0" />
+                     </effect>
+                  </Label>
+                  <TextField fx:id="FolderPath" prefHeight="32.0" prefWidth="343.0" style="-fx-background-color: transparent;" stylesheets="@SaveLoad.css">
+                     <font>
+                        <Font name="Impact" size="16.0" />
+                     </font></TextField>
                </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
             </HBox>
-            <Button fx:id="clickButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="895.0" text="Button">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Button>
-            <Label fx:id="message" alignment="CENTER" disable="true" text="Message">
-               <VBox.margin>
-                  <Insets top="25.0" />
-               </VBox.margin>
-            </Label>
-         </children></VBox>
+            <Button fx:id="clickButton" layoutX="208.0" layoutY="235.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="151.0" stylesheets="@SaveLoad.css" text="Save" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

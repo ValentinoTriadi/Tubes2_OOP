@@ -1,6 +1,5 @@
 package oop.if2210_tb2_sc4.UI;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,21 +12,18 @@ import javafx.scene.layout.*;
 import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.GameData;
 import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
+import oop.if2210_tb2_sc4.save_load.Load;
 import org.jetbrains.annotations.NotNull;
 
-
-import java.awt.*;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 public class GameWindowController {
@@ -71,23 +67,26 @@ public class GameWindowController {
     private Tab addPlugin;
     private SeranganBeruang seranganBeruang;
 
+    private EndPanel endGamePanel;
+
     public static SellZone sellZone;
     public static LadangUI ladang1;
     public static LadangUI ladang2;
-    private static boolean running;
 
     private UpdateThread gameThread;
     private SaveUI saver;
     private LoadUi loader;
 
-    private Color currentSelectedLadang  = Color.GREEN;
+    private final Color currentSelectedButtonColor  = Color.GREEN;
 
     private SelectCardsController cardPicker;
 
-    public static boolean isShuffleDone = false;
+    private final AudioManager audioManager = AudioManager.getInstance();
 
     public void initialize() throws IOException {
         GameState instance = GameState.getInstance();
+        GameData.ResetData();
+        instance.ResetData();
         rootStatic = root;
         instance.setCurrentPlayer(1);
         CurrentTurn.setText(String.valueOf(instance.getCurrentPlayer()));
@@ -99,11 +98,14 @@ public class GameWindowController {
         cardPicker.ShuffleCards();
         gameThread = new UpdateThread(Player1Gold, Player2Gold, AvailableDeck, CurrentTurn);
         gameThread.initializeThread();
+        audioManager.playBackgroundMusic("FullBG.wav");
+        initializeEndPanel();
+        setActiveMenuButton(MyFieldButton);
     }
 
     private void startGame(){
         nextPlayerPane.setVisible(false);
-        setLadangLabelColor(currentSelectedLadang, Color.WHITE);
+
     }
 
 //    private void initialize
@@ -111,6 +113,15 @@ public class GameWindowController {
     private void initializeDeck(Player player){
         Deck newDeck = player.getDeck().initializeDeck(new Deck());
         player.setDeck(newDeck);
+    }
+
+    private void initializeEndPanel() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EndPanel.fxml"));
+        AnchorPane pane = loader.load();
+        this.endGamePanel = loader.getController();
+        pane.setVisible(false);
+        root.getChildren().add(pane);
+        endGamePanel.setRoot(this);
     }
 
     public void initializePlayer() {
@@ -153,44 +164,58 @@ public class GameWindowController {
         bearroot.setMouseTransparent(true);
     }
 
-    public void PostPoneThread(long milisecond) throws InterruptedException {
-        try{
-            gameThread.pauseThread(milisecond);
-        }
-        catch (InterruptedException e){
-            System.out.println(e.getMessage());
-        }
+    public UpdateThread getGameThread(){
+        return gameThread;
     }
 
-
     public boolean TryEndGame(){
-        if(GameState.getInstance().getCurrentPlayer() >= 1000) {
+        if(GameState.getInstance().getCurrentPlayer() >= 20) {
             gameThread.stopThread();
             int player1gold = getPlayer1().getPlayerData().getJumlahGulden();
             int player2gold = getPlayer2().getPlayerData().getJumlahGulden();
-            Label Header = (Label)EndPane.getChildren().get(0);
-            Label Winner = (Label)EndPane.getChildren().get(1);
-            Label EndTitle = (Label)EndPane.getChildren().get(2);
-            EndScreen.setVisible(true);
+            String title = "";
+            String winner = "";
+            String Message = "";
             if (player1gold > player2gold)
             {
-                Winner.setText("Player 1");
+                title = "Congratulations";
+                winner = "Player 1";
+                Message = "You Win with "+ player1gold+ " Gold";
             } else if (player1gold < player2gold) {
-                Winner.setText("Player 2");
+                title = "Congratulations";
+                winner = "Player 2";
+                Message = "You Win with "+ player2gold+ " Gold";
             } else {
-                Font smallerFont = new Font(32);
-                Header.setFont(smallerFont);
-                Header.setText("Permainan Berakhir");
-                Winner.setVisible(false);
-                EndTitle.setFont(smallerFont);
-                EndTitle.setText("Game Berakhir Seri");
+                title = "Game Ended Draw";
+                Message = "Both Player have "+player1gold + " Gold";
             }
+            endGamePanel.setData(title, winner, Message);
+            endGamePanel.ShowEndScreen();
             return true;
         }
         return false;
     }
 
+    private void setActiveMenuButton(Button selectedButton){
+        MyFieldButton.setTextFill(Color.WHITE);
+        EnemyFieldButton.setTextFill(Color.WHITE);
+        ShopButton.setTextFill(Color.WHITE);
+        LoadButton.setTextFill(Color.WHITE);
+        SaveButton.setTextFill(Color.WHITE);
+        AddPluginButton.setTextFill(Color.WHITE);
+        selectedButton.setTextFill(currentSelectedButtonColor);
+        if(selectedButton == MyFieldButton){
+            SetActiveBeruangPane(true);
+        }else{
+            SetActiveBeruangPane(false);
+        }
+    }
+
     public void switchToNextPlayer() {
+        if(seranganBeruang.isAlive()){
+            return;
+        }
+
         // Hide the current player's pane
         currentPlayerPane.setVisible(false);
 
@@ -214,13 +239,11 @@ public class GameWindowController {
         StartNewTurn();
         resetFieldLock();
         openLadang();
-
-        System.out.println("Switched to next player");
     }
+
     private void StartNewTurn(){
-        isShuffleDone = false;
-        cardPicker.InvokePanel();
         BeruangMenyerangPhase();
+        cardPicker.InvokePanel(seranganBeruang);
     }
     private void BeruangMenyerangPhase(){
         if (seranganBeruang.isAlive()) {
@@ -235,7 +258,7 @@ public class GameWindowController {
 
         seranganBeruang.initializer();
         bearroot.getChildren().add(seranganBeruang.getPane());
-        seranganBeruang.start();
+//        seranganBeruang.start();
     }
 
     private void resetFieldLock(){
@@ -366,7 +389,7 @@ public class GameWindowController {
         StackPane temp_save = new StackPane();
         temp_save.setAlignment(Pos.CENTER);
         temp_save.getChildren().add(savePane);
-        temp_save.setPadding(new Insets(10, 10, 10, 100));
+        temp_save.setPadding(new Insets(0, 10, 0, 10));
         return  temp_save;
     }
 
@@ -380,7 +403,7 @@ public class GameWindowController {
         StackPane temp_addPlugin = new StackPane();
         temp_addPlugin.setAlignment(Pos.CENTER);
         temp_addPlugin.getChildren().add(addPluginPane);
-        temp_addPlugin.setPadding(new Insets(10, 10, 10, 100));
+        temp_addPlugin.setPadding(new Insets(0, 10, 0, 10));
         addPlugin.setContent(temp_addPlugin);
     }
 
@@ -427,8 +450,7 @@ public class GameWindowController {
 
     public void openLadang(){
         currentPlayerPane.enableField();
-        setLadangLabelColor(currentSelectedLadang,Color.WHITE);
-
+        setActiveMenuButton(MyFieldButton);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladang);
         } else {
@@ -436,14 +458,9 @@ public class GameWindowController {
         }
     }
 
-    private void setLadangLabelColor(Paint user, Paint enemy){
-        ladangLabel.setTextFill(user);
-        enemyLadangLabel.setTextFill(enemy);
-    }
-
     public void openLadangMusuh(){
         nextPlayerPane.disableField();
-        setLadangLabelColor(Color.WHITE,currentSelectedLadang);
+        setActiveMenuButton(EnemyFieldButton);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladangMusuh);
         } else {
@@ -452,11 +469,13 @@ public class GameWindowController {
     }
 
     public void openShop(){
+        setActiveMenuButton(ShopButton);
         currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(shop);
     }
 
     public void openSave(){
+        setActiveMenuButton(SaveButton);
         currentPlayerPane.disableField();
         saver.initialize();
         tabPane.getSelectionModel().select(save);
@@ -464,24 +483,21 @@ public class GameWindowController {
     }
 
     public void openLoad(){
+        setActiveMenuButton(LoadButton);
         currentPlayerPane.disableField();
         loader.initialize();
         tabPane.getSelectionModel().select(load);
     }
 
+    private void SetActiveBeruangPane(boolean state){
+        bearroot.setVisible(state);
+    }
+
     public void openAddPlugin(){
+        setActiveMenuButton(AddPluginButton);
         currentPlayerPane.disableField();
         tabPane.getSelectionModel().select(addPlugin);
     }
 
-    public void StartNewGame(ActionEvent actionEvent) {
-        MainMenuController mainMenuController = new MainMenuController();
-        try{
-            mainMenuController.NewGame(actionEvent);
-            initialize();
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
 
-    }
 }

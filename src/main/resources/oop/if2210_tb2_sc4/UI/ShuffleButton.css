@@ -1,0 +1,12 @@
+.button{
+    -fx-background-image: url("componentImage/ButtonBg.png");
+    -fx-background-position: center center;
+    -fx-background-size: stretch;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.button .text{
+    -fx-font-family: "Impact";
+    -fx-font-size: 24px;
+    -fx-effect: dropshadow(three-pass-box, black, 1, 1, 0.1, 0.5);
+}

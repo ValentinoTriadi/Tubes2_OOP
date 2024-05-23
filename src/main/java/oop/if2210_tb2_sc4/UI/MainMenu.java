@@ -23,7 +23,7 @@ public class MainMenu extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
         Scene scene = new Scene(loader.load(), 1024, 720);
         primaryStage.centerOnScreen();
-        primaryStage.setTitle("Hello, World!");
+        primaryStage.setTitle("Farm Violate");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

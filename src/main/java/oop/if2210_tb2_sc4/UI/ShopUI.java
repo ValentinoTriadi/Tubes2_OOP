@@ -38,8 +38,9 @@ public class ShopUI{
 
     public void initializeShopData() {
         // Initialize the shop data
-        GameState.getInstance().setShop(new Shop());
 
+        GameState.getInstance().setShop(new Shop());
+        itemCount = 0;
         // Add cards to the shop UI based on the shop's card stock
         for (Map.Entry<ProductCard, Integer> entry : GameState.getInstance().getShopItems().entrySet()) {
             ProductCard card = entry.getKey();
@@ -65,20 +66,6 @@ public class ShopUI{
         int column = itemCount % 2;
         int row = itemCount / 2;
 
-        // TODO: List the items in shop in shop Class
-
-        // If it's the start of a new row, add a new RowConstraints to the GridPane
-//        if (column == 0) {
-//            shopGrid.getRowConstraints().add(new RowConstraints(128)); // 100 is the height of the row
-//
-//            ColumnConstraints column1 = new ColumnConstraints();
-//            column1.setPercentWidth(50);
-//            shopGrid.getColumnConstraints().add(column1);
-//
-//            ColumnConstraints column2 = new ColumnConstraints();
-//            column2.setPercentWidth(50);
-//            shopGrid.getColumnConstraints().add(column2);
-//            }
         shopGrid.add(item.getScene(), column, row);
         itemCount++;
     }

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.util.ImageUtil;
@@ -90,6 +91,17 @@ public class ItemUI extends DraggablePane implements UICard {
         // If not dropped on a dropzone, return to default position
         if (!droppedOnDropZone) {
             resetPosition();
+        }
+
+        // Play sfx sound
+        playCardSound();
+    }
+
+    private void playCardSound() {
+        String cardName = cardItem.getName();
+        String soundFile = AudioManager.getInstance().getCardSoundMap().get(cardName);
+        if (soundFile != null) {
+            AudioManager.getInstance().playSFX(soundFile);
         }
     }
 }

@@ -1,0 +1,20 @@
+.slider .track{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5px;
+    -fx-padding: 20;
+    -fx-background-image: url("componentImage/SliderBg.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch;
+}
+
+.slider .thumb {
+    -fx-background-image: url("componentImage/knob.png");
+    -fx-padding: 20;
+    -fx-background-color: transparent;
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.4), 4, 0.0, 0, 2);
+}
