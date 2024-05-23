@@ -82,15 +82,14 @@ public class AudioManager {
             if (isMuted){
                 backgroundMusicVolume = volumeBGMBeforeMute;
                 sfxVolume = volumeSFXBeforeMute;
-                return;
             } else {
                 volumeBGMBeforeMute = backgroundMusicVolume;
                 volumeSFXBeforeMute = sfxVolume;
 
                 backgroundMusicVolume = 0;
                 sfxVolume = 0;
-                return;
             }
+            return;
         }
 
         if (isMuted) {
