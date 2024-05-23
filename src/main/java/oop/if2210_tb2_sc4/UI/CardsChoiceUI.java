@@ -83,14 +83,13 @@ public class CardsChoiceUI {
         Card card = availableCard[index];
 
         // Check the card Instance
-        boolean isCardProduct = isCardProduct(card);
         StackPane pane  = (StackPane) parent.getChildren().get(index);
         pane.setDisable(true);
         pane.setCursor(Cursor.DEFAULT);
-        if(isCardProduct){
-            GameWindowController.addItem(card);
-        }else{
+        if((card instanceof FarmResourceCard)){
             GameWindowController.addCard(card);
+        }else{
+            GameWindowController.addItem(card);
         }
 
         playerDeck.removeCardFromDeck();
@@ -107,11 +106,6 @@ public class CardsChoiceUI {
             GameWindowController.isShuffleDone = true;
         }
     }
-
-    private boolean isCardProduct(Card card){
-        return !(card instanceof AnimalCard) && !(card instanceof PlantCard);
-    }
-
        public void randomGenerateCards() {
 
 

@@ -1,6 +1,6 @@
 package oop.if2210_tb2_sc4.card;
 
-public class InstantHarvestCard extends ItemCard{
+public class InstantHarvestCard extends GoodPotion {
     public InstantHarvestCard(String name) {
         super(name);
     }
