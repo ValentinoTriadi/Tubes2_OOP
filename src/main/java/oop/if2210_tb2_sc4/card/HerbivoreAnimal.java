@@ -1,6 +1,6 @@
 package oop.if2210_tb2_sc4.card;
 
-public class HerbivoreAnimal extends AnimalCard{
+public class HerbivoreAnimal extends AnimalCard implements Eatable {
     public HerbivoreAnimal(String name, int weight, int harvestWeight, ProductCard result){
         super(name, weight, harvestWeight, AnimalType.HERBIVORE, result);
     }

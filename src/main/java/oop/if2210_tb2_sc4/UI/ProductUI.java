@@ -27,7 +27,7 @@ public class ProductUI extends ItemUI{
                 setLayoutY(0);
 
                 FarmResourceCard cardLadang = ((FarmResourceCard)((CardUI)dz.getChildren().get(0)).getCardData());
-                if(cardLadang instanceof AnimalCard animalLadang){
+                if(cardLadang instanceof Eatable animalLadang){
                     if(animalLadang.feed((ProductCard)this.getCard())){
                         setParent(dz);
                         droppedOnDropZone = true;
