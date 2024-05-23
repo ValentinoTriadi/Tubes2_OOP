@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.save_load;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,7 +30,10 @@ public class SaveTXT implements Save {
 
     private void savePlayer(int no_player){
         // Save player {no_player}
-        Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/player" + no_player + ".txt");
+        URL url = this.getClass().getResource("");
+        assert url != null;
+        String cwd = url.getPath().startsWith("/") ? url.getPath().substring(1) : url.getPath();
+        Path path = Paths.get(cwd + folderName + "/player" + no_player + ".txt");
         File file = handleNewFile(path);
 
         Player player = GameState.getInstance().getPlayer(no_player);
@@ -96,7 +100,10 @@ public class SaveTXT implements Save {
     }
 
     private void saveGameState(){
-        Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/gamestate.txt");
+        URL url = this.getClass().getResource("");
+        assert url != null;
+        String cwd = url.getPath().startsWith("/") ? url.getPath().substring(1) : url.getPath();
+        Path path = Paths.get( cwd+ folderName + "/gamestate.txt");
         File file = handleNewFile(path);
 
         try {

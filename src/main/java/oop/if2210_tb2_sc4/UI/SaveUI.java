@@ -29,6 +29,7 @@ public class SaveUI {
             System.out.println("Button clicked!");
         });
 
+        controller.clickButton.setText("Save");
         controller.ActivateMascot(this);
 
     }

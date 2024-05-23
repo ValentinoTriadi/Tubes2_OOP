@@ -40,6 +40,8 @@ public class LoadUi {
             OnSaveLoad(event);
             System.out.println("Button clicked!");
         });
+
+        controller.clickButton.setText("Load");
         controller.ActivateMascot(this);
 
     }
