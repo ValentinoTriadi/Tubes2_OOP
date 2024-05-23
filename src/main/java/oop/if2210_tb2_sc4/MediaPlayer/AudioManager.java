@@ -19,6 +19,9 @@ public class AudioManager {
     private double sfxVolume;
     private boolean isMuted = false;
 
+    private double volumeBGMBeforeMute;
+    private double volumeSFXBeforeMute;
+
     Map<String, String> cardSoundMap = new HashMap<>();
 
     public AudioManager() {
@@ -26,6 +29,8 @@ public class AudioManager {
         sfxPlayer = null;
         backgroundMusicVolume = 1;
         sfxVolume = 1;
+        volumeBGMBeforeMute =  backgroundMusicVolume;
+        volumeSFXBeforeMute = sfxVolume;
 
         cardSoundMap.put("BERUANG", "Bear.wav");
         cardSoundMap.put("HIU_DARAT", "HiuDarat.wav");
@@ -58,10 +63,6 @@ public class AudioManager {
         }
         return instance;
     }
-
-    public void initializeVolume(double sfx, double music){
-
-    }
     // Method to play background music
     public void playBackgroundMusic(String musicFilePath) {
         if (instance.backgroundMusicPlayer != null) {
@@ -78,10 +79,16 @@ public class AudioManager {
     // Method to mute
     public void mute() {
         if(instance.backgroundMusicPlayer == null || instance.sfxPlayer == null){
-            instance.sfxVolume = 0;
-            instance.backgroundMusicVolume = 0;
-            instance.isMuted = !instance.isMuted;
-            return;
+            if (isMuted){
+                backgroundMusicVolume = volumeBGMBeforeMute;
+                sfxVolume = volumeSFXBeforeMute;
+            } else {
+                volumeBGMBeforeMute = backgroundMusicVolume;
+                volumeSFXBeforeMute = sfxVolume;
+
+                backgroundMusicVolume = 0;
+                sfxVolume = 0;
+            }
         }
         if (isMuted) {
             instance.backgroundMusicPlayer.setVolume(backgroundMusicVolume);
