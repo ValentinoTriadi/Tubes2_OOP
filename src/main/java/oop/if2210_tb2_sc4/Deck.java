@@ -1,7 +1,9 @@
 package oop.if2210_tb2_sc4;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
@@ -35,7 +37,7 @@ public class Deck {
     }
 
     public List<Card> generateCards() {
-        List<Card> cards = new ArrayList<>();
+        Set<Card> cards = new HashSet<>();
 
         if(currentDeck.isEmpty()){
             return null;
@@ -44,22 +46,25 @@ public class Deck {
         int amountToGenerate = Math.min(GENERATED_CARD_COUNT, getCardsInDeckCount());
 
         // Get 4 random cards
-        for (int i = 0; i < amountToGenerate; i++) {
+        while(cards.size() < amountToGenerate){
             int randomIndex = (int) (Math.random() * currentDeck.size());
             cards.add(currentDeck.get(randomIndex));
         }
-        return cards;
+        return cards.stream().toList();
     }
 
     public Deck initializeDeck(Deck deck){
-        List<Card> allCards = getAllCards();
-        while(!isDeckFull()){
-            for(Card card : allCards){
-                if(isDeckFull()){
-                    break;
-                }
-                deck.addCardToDeck(GameData.createCard(card.getName()));
+        List<Card> allCards = GameData.getAllCards();
+        int counter = 0;
+        while(!(deck.isDeckFull())){
+            Card newCard = GameData.returnCard(allCards.get(counter));
+            if(deck.getCurrentDeck().contains(newCard)){
+                counter--;
+                continue;
             }
+            deck.addCardToDeck(newCard);
+            counter++;
+            counter %= allCards.size();
         }
         return deck;
     }
@@ -109,8 +114,9 @@ public class Deck {
         cardsInHand--;
     }
 
-    public void removeCardFromDeck(){
+    public void removeCardFromDeck(Card c){
         cardsInDeck--;
+        currentDeck.remove(c);
     }
         
     public void addActiveCard(Card card) throws FullActiveHandsException {

@@ -33,10 +33,14 @@ public class PotionUI extends ItemUI{
 
                 FarmResourceCard cardLadang = ((FarmResourceCard)((CardUI)dz.getChildren().get(0)).getCardData());
                 ItemCard potion = (ItemCard)this.getCard();
-                potion.applyEffect(cardLadang);
 
                 droppedOnDropZone = true;
                 dz.onItemDrop();
+
+                if(potion instanceof DestroyCard){
+                    ((DestroyCard) potion).setDestroyedCardContainer(dz);
+                }
+                potion.applyEffect(cardLadang);
             }
         }
 

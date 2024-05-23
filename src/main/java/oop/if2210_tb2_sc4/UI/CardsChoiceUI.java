@@ -104,7 +104,7 @@ public class CardsChoiceUI {
             GameWindowController.addItem(card);
         }
 
-        playerDeck.removeCardFromDeck();
+        playerDeck.removeCardFromDeck(card);
         if(playerDeck.isHandFull()){
             for (int i = 0; i < cardImages.length; i++) {
                 removeImage(i);

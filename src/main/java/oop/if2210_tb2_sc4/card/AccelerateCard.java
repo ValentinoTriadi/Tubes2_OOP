@@ -1,6 +1,6 @@
 package oop.if2210_tb2_sc4.card;
 
-public class AccelerateCard extends ItemCard{
+public class AccelerateCard extends GoodPotion{
     
     public AccelerateCard(String name) {
         super(name);

@@ -152,8 +152,8 @@ public class UpdateThread implements Runnable {
     }
 
     private void updateAvailableDeck(Player currentPlayer) {
-        int maxDeck = currentPlayer.getDeck().getCurrentDeck().size();
-        int usedCard = maxDeck - currentPlayer.getJumlahDeck();
+        int maxDeck = Deck.DECK_SIZE;
+        int usedCard = currentPlayer.getJumlahDeck();
         String availableDeckText = usedCard + "/" + maxDeck;
 
         Platform.runLater(() -> {

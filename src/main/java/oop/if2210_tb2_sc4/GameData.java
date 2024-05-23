@@ -74,21 +74,16 @@ public class GameData {
         return null;
     }
 
-    private static Card returnCard(Card card) {
-        if (card instanceof CarnivoreAnimal) {
-            CarnivoreAnimal carnivore = (CarnivoreAnimal) card;
+    public static Card returnCard(Card card) {
+        if (card instanceof CarnivoreAnimal carnivore) {
             return new CarnivoreAnimal(carnivore.getName(), carnivore.getWeight(), carnivore.getHarvestWeight(), carnivore.getProductResult());
-        } else if (card instanceof HerbivoreAnimal) {
-            HerbivoreAnimal herbivore = (HerbivoreAnimal) card;
-            return new CarnivoreAnimal(herbivore.getName(), herbivore.getWeight(), herbivore.getHarvestWeight(), herbivore.getProductResult());
-        } else if (card instanceof OmnivoreAnimal) {
-            OmnivoreAnimal omnivore = (OmnivoreAnimal) card;
-            return new CarnivoreAnimal(omnivore.getName(), omnivore.getWeight(), omnivore.getHarvestWeight(), omnivore.getProductResult());
-        } else if (card instanceof PlantCard) {
-            PlantCard plant = (PlantCard) card;
+        } else if (card instanceof HerbivoreAnimal herbivore) {
+            return new HerbivoreAnimal(herbivore.getName(), herbivore.getWeight(), herbivore.getHarvestWeight(), herbivore.getProductResult());
+        } else if (card instanceof OmnivoreAnimal omnivore) {
+            return new OmnivoreAnimal(omnivore.getName(), omnivore.getWeight(), omnivore.getHarvestWeight(), omnivore.getProductResult());
+        } else if (card instanceof PlantCard plant) {
             return new PlantCard(plant.getName(), plant.getAge(), plant.getHarvestAge(), plant.getProductResult());
-        } else if (card instanceof ProductCard) {
-            ProductCard product = (ProductCard) card;
+        } else if (card instanceof ProductCard product) {
             return new ProductCard(product.getName(), product.getPrice(), product.getWeightAddition());
         } else if (card instanceof DelayCard) {
             return new DelayCard(card.getName());
