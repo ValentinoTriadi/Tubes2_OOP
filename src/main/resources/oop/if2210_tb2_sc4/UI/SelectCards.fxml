@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="outerPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.SelectCardsController">
+   <children>
+      <StackPane prefHeight="720.0" prefWidth="1024.0">
+         <children>
+            <Pane opacity="0.61" prefHeight="720.0" prefWidth="984.0" style="-fx-background-color: #000000;" />
+            <Pane prefHeight="720.0" prefWidth="996.0">
+               <children>
+                  <Pane layoutX="70.0" layoutY="75.0" prefHeight="570.0" prefWidth="884.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ImageView fitHeight="611.0" fitWidth="890.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@componentImage/BoxBg.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="335.0" layoutY="56.0" prefHeight="93.0" prefWidth="220.0" text="Shuffle" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Impact" size="64.0" />
+                           </font>
+                           <effect>
+                              <DropShadow blurType="TWO_PASS_BOX" spread="1.0" />
+                           </effect></Label>
+                        <HBox fx:id="HboxCards" layoutX="112.0" layoutY="184.0" prefHeight="215.0" prefWidth="669.0" spacing="10.0">
+                           <children>
+                              <StackPane prefHeight="215.0" prefWidth="140.0">
+                                 <children>
+                                    <ImageView fitHeight="215.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@componentImage/shuffleCardBg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children></StackPane>
+                              <StackPane layoutX="10.0" layoutY="10.0" prefHeight="215.0" prefWidth="140.0">
+                                 <children>
+                                    <ImageView fitHeight="215.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@componentImage/shuffleCardBg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="180.0" layoutY="10.0" prefHeight="215.0" prefWidth="140.0">
+                                 <children>
+                                    <ImageView fitHeight="215.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@componentImage/shuffleCardBg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="350.0" layoutY="10.0" prefHeight="215.0" prefWidth="140.0">
+                                 <children>
+                                    <ImageView fitHeight="215.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@componentImage/shuffleCardBg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <Button layoutX="365.0" layoutY="433.0" mnemonicParsing="false" onAction="#ShuffleCards" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: transparent;" stylesheets="@ShuffleButton.css" text="Shuffle" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                           <font>
+                              <Font name="Century Schoolbook" size="18.0" />
+                           </font>
+                        </Button>
+                     </children></Pane>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

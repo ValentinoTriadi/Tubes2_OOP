@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="501.0" prefWidth="732.0" style="-fx-background-color: rgba(0,0,0,0.3);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.AddPlugin">
+    <children>
+        <Pane layoutX="82.0" layoutY="107.0" prefHeight="338.0" prefWidth="606.0" style="-fx-background-color: transparent;">
+            <children>
+                <ImageView fitHeight="443.0" fitWidth="663.0" layoutX="-54.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@componentImage/BoxBg.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="131.0" fitWidth="157.0" layoutX="31.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@componentImage/MascotNgumpet.png" />
+                    </image></ImageView>
+                <ImageView fitHeight="131.0" fitWidth="125.0" layoutX="394.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@componentImage/MascotNgumpet.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="2.0" layoutY="8.0" prefHeight="72.0" prefWidth="556.0" text="Plugins" textFill="WHITE">
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                    <font>
+                        <Font name="Impact" size="50.0" />
+                    </font>
+                    <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" height="15.0" radius="5.75" spread="1.0" width="10.0" />
+                    </effect>
+                </Label>
+                <Button  layoutX="208.0" layoutY="235.0" mnemonicParsing="false" onAction="#onUploadJar" prefHeight="51.0" prefWidth="151.0" stylesheets="@SaveLoad.css" text="Upload" />
+            <Button  alignment="CENTER" layoutX="61.0" layoutY="94.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="51.0" prefWidth="137.0" stylesheets="@FileChooser.css" text="Choose File">
+               <effect>
+                  <DropShadow height="10.0" offsetY="3.0" radius="7.25" />
+               </effect></Button>
+            <Label fx:id="message" layoutX="208.0" layoutY="99.0" prefHeight="44.0" prefWidth="300.0" text="Label">
+               <font>
+                  <Font name="Candara Bold" size="16.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

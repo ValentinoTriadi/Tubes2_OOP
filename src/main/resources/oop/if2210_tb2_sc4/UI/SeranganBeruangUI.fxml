@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" prefHeight="160.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.SeranganBeruangUI">
+   <children>
+      <StackPane prefHeight="172.0" prefWidth="212.0">
+         <children>
+            <ImageView fx:id="ShockWaveImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="BearImage" fitHeight="160.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane prefHeight="144.0" prefWidth="175.0">
+               <children>
+                  <Pane fx:id="Hitbox" layoutX="54.0" layoutY="86.0" prefHeight="62.0" prefWidth="121.0" />
+               </children></Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
