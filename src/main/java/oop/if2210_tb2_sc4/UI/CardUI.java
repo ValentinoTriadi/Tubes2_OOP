@@ -86,7 +86,6 @@ public class CardUI extends DraggablePane implements UICard {
                         FXMLLoader loadCardPicker = new FXMLLoader(Objects.requireNonNull(getClass().getResource("HarvestedPanel.fxml")));
                         AnchorPane HarvestedPane = loadCardPicker.load();
                         HarvestedPanelController controller = loadCardPicker.getController();
-                        controller.setProductName(cardData);
                         controller.setInformation(cardData);
                         controller.setActiveItem(cardData);
                         controller.setImage(cardData);

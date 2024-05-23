@@ -21,15 +21,7 @@
             </ImageView>
             <AnchorPane layoutX="70.0" layoutY="34.0" prefHeight="491.0" prefWidth="737.0" translateX="50.0" translateY="50.0">
                <children>
-                  <Label fx:id="productname" alignment="CENTER" contentDisplay="CENTER" layoutX="191.0" layoutY="13.0" prefHeight="58.0" prefWidth="355.0" style="-fx-background-color: TRANSPARENT;" text="STRAWBERRIES" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Black" size="36.0" />
-                     </font>
-                     <effect>
-                        <DropShadow blurType="ONE_PASS_BOX" spread="1.0" />
-                     </effect>
-                  </Label>
-                  <ImageView fx:id="imageView" fitHeight="247.0" fitWidth="246.0" layoutX="391.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView" fitHeight="258.0" fitWidth="237.0" layoutX="421.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
                   <Label fx:id="information" contentDisplay="CENTER" layoutX="39.0" layoutY="99.0" prefHeight="37.0" prefWidth="211.0" style="-fx-background-color: transparent;" text="Beratt" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="20.0" />
