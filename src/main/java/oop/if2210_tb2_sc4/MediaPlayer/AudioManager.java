@@ -82,14 +82,17 @@ public class AudioManager {
             if (isMuted){
                 backgroundMusicVolume = volumeBGMBeforeMute;
                 sfxVolume = volumeSFXBeforeMute;
+                return;
             } else {
                 volumeBGMBeforeMute = backgroundMusicVolume;
                 volumeSFXBeforeMute = sfxVolume;
 
                 backgroundMusicVolume = 0;
                 sfxVolume = 0;
+                return;
             }
         }
+
         if (isMuted) {
             instance.backgroundMusicPlayer.setVolume(backgroundMusicVolume);
             instance.sfxPlayer.setVolume(sfxVolume);
@@ -97,6 +100,7 @@ public class AudioManager {
             instance.backgroundMusicPlayer.setVolume(0);
             instance.sfxPlayer.setVolume(0);
         }
+
         instance.isMuted = !instance.isMuted;
     }
 
