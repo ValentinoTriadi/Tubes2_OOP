@@ -30,7 +30,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 public class GameWindowController {
@@ -83,6 +82,8 @@ public class GameWindowController {
     private UpdateThread gameThread;
     private SaveUI saver;
     private LoadUi loader;
+    public static SaveLoad saveLoad;
+    public static SaveLoad saveLoadLoad;
 
     private final Color currentSelectedButtonColor  = Color.GREEN;
 
@@ -397,6 +398,8 @@ public class GameWindowController {
         load.setContent(MakeSaveLoadPanel(loadPane));
         saver = new SaveUI(saverLoader.getController());
         loader = new LoadUi(loadLoader.getController(), this);
+        saveLoad = saverLoader.getController();
+        saveLoadLoad = loadLoader.getController();
     }
 
     private StackPane MakeSaveLoadPanel(AnchorPane savePane){

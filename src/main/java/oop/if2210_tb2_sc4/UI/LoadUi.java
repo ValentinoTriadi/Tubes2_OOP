@@ -6,12 +6,15 @@ import oop.if2210_tb2_sc4.Exception.FolderNotExistException;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.Exception.GameException;
 import oop.if2210_tb2_sc4.Exception.InvalidInputException;
+import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.Plugins;
 import oop.if2210_tb2_sc4.save_load.Load;
 import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Objects;
 
@@ -37,6 +40,8 @@ public class LoadUi {
             OnSaveLoad(event);
             System.out.println("Button clicked!");
         });
+
+        controller.clickButton.setText("Load");
         controller.ActivateMascot(this);
 
     }
@@ -47,16 +52,15 @@ public class LoadUi {
             case "txt":
                 loader = new LoadTXT(path);
                 break;
-            case "yaml":
-                // Handle YAML choice
-                System.out.println("YAML chosen");
-                break;
-            case "json":
-                // Handle JSON choice
-                System.out.println("JSON chosen");
-                break;
             default:
-                loader = null;
+                Class loaderClass = Plugins.getInstance().getPlugin(choice).getClass();
+                try {
+                    loader = (Load) loaderClass.getConstructor(String.class).newInstance(path);
+                } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                         InvocationTargetException e) {
+                    throw new RuntimeException(e);
+                }
+
                 break;
         }
     }
@@ -121,7 +125,7 @@ public class LoadUi {
     }
 
     private boolean isFolderExist(String folderPath){
-        URL path = Save.class.getResource("save_load" + "/" + folderPath);
+        URL path = Save.class.getResource(folderPath);
         if (path != null) {
             File folder = new File(path.getFile());
             return folder.exists() && folder.isDirectory();
@@ -133,12 +137,15 @@ public class LoadUi {
 
     private void LoadPlayer(){
         PlayerUI playerUI1 = GameWindowController.getPlayer1();
-        playerUI1.setPlayerData(loader.loadPlayer(1));
-        GameWindowController.getPlayer2().setPlayerData(loader.loadPlayer(2));
+        playerUI1.setPlayerData(GameState.getInstance().getPlayer(1));
 
+        PlayerUI playerUI2 = GameWindowController.getPlayer2();
+        playerUI2.setPlayerData(GameState.getInstance().getPlayer(2));
     }
 
     private void LoadState(){
         loader.loadGameState();
+        loader.loadPlayer(1);
+        loader.loadPlayer(2);
     }
 }

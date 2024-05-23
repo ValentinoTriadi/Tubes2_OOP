@@ -15,6 +15,9 @@ public class GameState {
         return instance;
     }
 
+    private Player player1;
+    private Player player2;
+
     private int current_turn = 1;
     private Shop shop = new Shop();
 
@@ -34,6 +37,7 @@ public class GameState {
     public Shop getShop(){
         return instance.shop;
     }
+
     public Integer getCountItems(){
         int itemCount= 0;
         for(Map.Entry<ProductCard, Integer> entry : instance.shop.getCardStock().entrySet()){
@@ -51,4 +55,21 @@ public class GameState {
     public void setShop(Shop shop){
         instance.shop = new Shop(shop);
     }
+
+    public Player getPlayer(int player){
+        if(player == 1){
+            return player1;
+        } else {
+            return player2;
+        }
+    }
+
+    public void setPlayer(int player, Player p){
+        if(player == 1){
+            player1 = p;
+        } else {
+            player2 = p;
+        }
+    }
 }
+

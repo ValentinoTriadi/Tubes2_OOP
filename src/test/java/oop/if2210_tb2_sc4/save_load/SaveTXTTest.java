@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4.save_load;
 
+import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
 import org.junit.jupiter.api.Test;
 
@@ -14,11 +15,11 @@ class SaveTXTTest {
     void save() {
         LoadTXT load = new LoadTXT();
         load.loadGameState();
-        Player p1 = load.loadPlayer(1);
-        Player p2 = load.loadPlayer(2);
+        load.loadPlayer(1);
+        load.loadPlayer(2);
 
-        SaveTXT save = new SaveTXT("SAVETEST", p1, p2);
-        save.save();
+        SaveTXT save = new SaveTXT("SAVETEST");
+        save.save("SAVETEST");
 
         try {
             Scanner sc1 = new Scanner(new File("src/main/resources/oop/if2210_tb2_sc4/save_load/default/gamestate.txt"));

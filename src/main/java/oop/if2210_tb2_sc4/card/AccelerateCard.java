@@ -7,7 +7,7 @@ public class AccelerateCard extends ItemCard{
     }
 
     public AccelerateCard(AccelerateCard accelerateCard) {
-        super(accelerateCard.name);
+        super(accelerateCard.getName());
     }
 
     @Override

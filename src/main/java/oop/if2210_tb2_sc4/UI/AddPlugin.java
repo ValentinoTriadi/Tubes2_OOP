@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import oop.if2210_tb2_sc4.Plugins;
+
 import java.io.File;
 
 public class AddPlugin {
@@ -21,7 +23,12 @@ public class AddPlugin {
 
     public void onUploadJar(ActionEvent actionEvent) {
         try{
-            //TODO: Make The Add Jar Function
+            if(fileChoosen != null){
+                Plugins.getInstance().loadJar(fileChoosen.getAbsolutePath());
+                MessageBox.getInstance().showErrorMessage("Success", "Plugin Added");
+            }else{
+                MessageBox.getInstance().showErrorMessage("Error", "File is Empty");
+            }
         }catch(Exception e){
             MessageBox.getInstance().showErrorMessage("Error", " File is Empty");
         }

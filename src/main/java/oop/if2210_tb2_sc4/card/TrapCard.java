@@ -6,7 +6,7 @@ public class TrapCard extends GoodPotion {
     }
 
     public TrapCard(TrapCard trapCard) {
-        super(trapCard.name);
+        super(trapCard.getName());
     }
 
     @Override

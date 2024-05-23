@@ -3,6 +3,7 @@ package oop.if2210_tb2_sc4.save_load;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,18 +14,15 @@ import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
 
 public class SaveTXT implements Save {
-    private final String folderName;
-    private final Player player1;
-    private final Player player2;
+    private String folderName;
 
-    public SaveTXT(String folderName, Player player1, Player player2){
+    public SaveTXT(String folderName){
         this.folderName = folderName;
-        this.player1 = player1;
-        this.player2 = player2;
     }
 
     @Override
-    public void save() {
+    public void save(String folderName) {
+        this.folderName = folderName;
         saveGameState();
         savePlayer(1);
         savePlayer(2);
@@ -32,10 +30,13 @@ public class SaveTXT implements Save {
 
     private void savePlayer(int no_player){
         // Save player {no_player}
-        Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/player" + no_player + ".txt");
+        URL url = this.getClass().getResource("");
+        assert url != null;
+        String cwd = url.getPath().startsWith("/") ? url.getPath().substring(1) : url.getPath();
+        Path path = Paths.get(cwd + folderName + "/player" + no_player + ".txt");
         File file = handleNewFile(path);
 
-        Player player = (no_player == 1) ? player1 : player2;
+        Player player = GameState.getInstance().getPlayer(no_player);
         try {
             FileWriter writer = new FileWriter(file);
 
@@ -99,7 +100,10 @@ public class SaveTXT implements Save {
     }
 
     private void saveGameState(){
-        Path path = Paths.get("src/main/resources/oop/if2210_tb2_sc4/save_load/" + folderName + "/gamestate.txt");
+        URL url = this.getClass().getResource("");
+        assert url != null;
+        String cwd = url.getPath().startsWith("/") ? url.getPath().substring(1) : url.getPath();
+        Path path = Paths.get( cwd+ folderName + "/gamestate.txt");
         File file = handleNewFile(path);
 
         try {
@@ -112,7 +116,9 @@ public class SaveTXT implements Save {
             Map<ProductCard, Integer> items = instance.getShopItems();
             items.forEach((key, value) -> {
                 try {
-                    writer.write("\n" + key.getName() + " " + value );
+                    if (!value.equals(0)) {
+                        writer.write("\n" + key.getName() + " " + value );
+                    }
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
