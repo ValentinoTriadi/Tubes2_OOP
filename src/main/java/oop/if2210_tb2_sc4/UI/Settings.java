@@ -7,6 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 
 import javax.swing.event.ChangeListener;
 
@@ -22,6 +23,21 @@ public class Settings {
     public AnchorPane Root;
 
     public Settings() {
+
+    }
+    @FXML
+    public void initialize() {
+        // Add a listener to the slider's value property
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            AudioManager.getInstance().setBackgroundMusicVolume((double)newValue);
+        });
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            AudioManager.getInstance().setSFXVolume((double)newValue);
+        });
+        muteCheckBox.setSelected(false);
+        muteCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            AudioManager.getInstance().mute();
+        });
 
     }
 
