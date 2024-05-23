@@ -6,7 +6,7 @@ public class DestroyCard  extends BadPotion {
     }
 
     public DestroyCard(DestroyCard destroyCard) {
-        super(destroyCard.name);
+        super(destroyCard.getName());
     }
 
     @Override

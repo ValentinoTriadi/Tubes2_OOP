@@ -53,7 +53,7 @@ public class JarLoader {
             SaveLoadAnnotation annotation = saveLoadClass.getAnnotation(SaveLoadAnnotation.class);
 
             if (annotation == null) {
-                System.out.println("No SaveLoadAnnotation found on the implementation class.");
+                System.out.println("No SaveLoad Annotation found on the implementation class.");
                 return null;
             }
 

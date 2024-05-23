@@ -46,6 +46,8 @@ public class GameData {
         allCards.add(new DestroyCard("DESTROY"));
     }
 
+
+
     public static void ResetData(){
         allCards.clear();
     }
@@ -72,15 +74,37 @@ public class GameData {
         return null;
     }
 
-    private static Card returnCard(Card card){
-        if (card instanceof AnimalCard){
-            return (AnimalCard) card;
-        } else if (card instanceof PlantCard){
-            return (PlantCard) card;
-        } else if (card instanceof ProductCard){
-            return (ProductCard) card;
+    private static Card returnCard(Card card) {
+        if (card instanceof CarnivoreAnimal) {
+            CarnivoreAnimal carnivore = (CarnivoreAnimal) card;
+            return new CarnivoreAnimal(carnivore.getName(), carnivore.getWeight(), carnivore.getHarvestWeight(), carnivore.getProductResult());
+        } else if (card instanceof HerbivoreAnimal) {
+            HerbivoreAnimal herbivore = (HerbivoreAnimal) card;
+            return new CarnivoreAnimal(herbivore.getName(), herbivore.getWeight(), herbivore.getHarvestWeight(), herbivore.getProductResult());
+        } else if (card instanceof OmnivoreAnimal) {
+            OmnivoreAnimal omnivore = (OmnivoreAnimal) card;
+            return new CarnivoreAnimal(omnivore.getName(), omnivore.getWeight(), omnivore.getHarvestWeight(), omnivore.getProductResult());
+        } else if (card instanceof PlantCard) {
+            PlantCard plant = (PlantCard) card;
+            return new PlantCard(plant.getName(), plant.getAge(), plant.getHarvestAge(), plant.getProductResult());
+        } else if (card instanceof ProductCard) {
+            ProductCard product = (ProductCard) card;
+            return new ProductCard(product.getName(), product.getPrice(), product.getWeightAddition());
+        } else if (card instanceof DelayCard) {
+            return new DelayCard(card.getName());
+        } else if (card instanceof AccelerateCard) {
+            return new AccelerateCard(card.getName());
+        } else if (card instanceof ProtectCard) {
+            return new ProtectCard(card.getName());
+        } else if (card instanceof TrapCard) {
+            return new TrapCard(card.getName());
+        } else if (card instanceof InstantHarvestCard) {
+            return new InstantHarvestCard(card.getName());
+        } else if (card instanceof DestroyCard) {
+            return new DestroyCard(card.getName());
         }
-        return card;
+        // Add more else if clauses for any other specific card types
+        return new Card(card.getName());
     }
 
     public GameData() {

@@ -118,8 +118,6 @@ public class CardsChoiceUI {
         }
     }
        public void randomGenerateCards() {
-
-
         List<Card> generatedCard= playerDeck.generateCards();
         System.out.println("Amount of deck: "+ playerDeck.getCardsInDeckCount());
         // Check if the total number of images is sufficient

@@ -53,12 +53,13 @@ public class Deck {
 
     public Deck initializeDeck(Deck deck){
         List<Card> allCards = getAllCards();
-        deck.addCardToDeck(allCards);
-        for(Card card : allCards){
-            if(deck.isDeckFull()){
-                break;
+        while(!isDeckFull()){
+            for(Card card : allCards){
+                if(isDeckFull()){
+                    break;
+                }
+                deck.addCardToDeck(GameData.createCard(card.getName()));
             }
-            deck.addCardToDeck(card);
         }
         return deck;
     }

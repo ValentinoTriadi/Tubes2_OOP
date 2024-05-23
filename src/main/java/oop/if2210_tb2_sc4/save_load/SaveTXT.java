@@ -48,7 +48,7 @@ public class SaveTXT implements Save {
             
             Card[] active_deck = player.getActiveDeck();
 
-            for (int i = 0; i < player.getJumlahDeckActive(); i++) {
+            for (int i = 0; i < Deck.HAND_SIZE; i++) {
                 Card card = active_deck[i];
                 try {
                     if(card == null){

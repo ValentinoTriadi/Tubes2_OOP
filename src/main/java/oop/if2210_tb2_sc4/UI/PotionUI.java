@@ -37,8 +37,6 @@ public class PotionUI extends ItemUI{
 
                 droppedOnDropZone = true;
                 dz.onItemDrop();
-
-
             }
         }
 
