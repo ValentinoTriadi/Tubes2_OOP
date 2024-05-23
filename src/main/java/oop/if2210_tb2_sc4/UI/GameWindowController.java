@@ -1,5 +1,6 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,8 @@ import javafx.scene.text.Font;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
+import oop.if2210_tb2_sc4.card.FarmResourceCard;
+import oop.if2210_tb2_sc4.card.PlantCard;
 import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.GameData;
 import oop.if2210_tb2_sc4.GameState;
@@ -205,6 +208,12 @@ public class GameWindowController {
     }
 
     public void switchToNextPlayer() {
+        FarmResourceCard[] cardlistLadang = currentPlayerPane.getLadang().getLadangData().getCardListinLadang();
+        for(FarmResourceCard card : cardlistLadang) {
+            if(card instanceof PlantCard){
+                ((PlantCard) card).setAge(((PlantCard) card).getAge()+1);
+            }
+        }
         // Hide the current player's pane
         currentPlayerPane.setVisible(false);
 
@@ -283,7 +292,7 @@ public class GameWindowController {
         return nextPlayerPane;
     }
 
-    public static void addItem(Card card) {
+    public static void addItem(Card card){
         try {
             currentPlayerPane.addItem(card);
         }catch (FullActiveHandsException ignored){
@@ -354,7 +363,7 @@ public class GameWindowController {
         StackPane temp_shop = new StackPane();
         temp_shop.setAlignment(Pos.CENTER);
         temp_shop.getChildren().add(shopPane);
-        temp_shop.setPadding(new Insets(0,50,100,10));
+        temp_shop.setPadding(new Insets(10, 10, 10, 10));
         shop.setContent(temp_shop);
         shopUI = loaderShop.getController();
         shopUI.initializeShopData();
@@ -375,7 +384,7 @@ public class GameWindowController {
         StackPane temp_save = new StackPane();
         temp_save.setAlignment(Pos.CENTER);
         temp_save.getChildren().add(savePane);
-        temp_save.setPadding(new Insets(0, 10, 0, 10));
+        temp_save.setPadding(new Insets(10, 10, 10, 100));
         return  temp_save;
     }
 
@@ -406,6 +415,7 @@ public class GameWindowController {
         Tab tabPane = new Tab();
         tabPane.setClosable(false);
         tabPane.setContent(new Pane());
+
         return tabPane;
     }
 
