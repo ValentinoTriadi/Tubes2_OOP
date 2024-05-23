@@ -15,6 +15,8 @@ import javafx.scene.text.Font;
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
+import oop.if2210_tb2_sc4.card.FarmResourceCard;
+import oop.if2210_tb2_sc4.card.PlantCard;
 import oop.if2210_tb2_sc4.deck.Deck;
 import oop.if2210_tb2_sc4.game_manager.GameData;
 import oop.if2210_tb2_sc4.game_manager.GameState;
@@ -171,6 +173,12 @@ public class GameWindowController {
     }
 
     public void switchToNextPlayer() {
+        FarmResourceCard[] cardlistLadang = currentPlayerPane.getLadang().getLadangData().getCardListinLadang();
+        for(FarmResourceCard card : cardlistLadang) {
+            if(card instanceof PlantCard){
+                ((PlantCard) card).setAge(((PlantCard) card).getAge()+1);
+            }
+        }
         // Hide the current player's pane
         currentPlayerPane.setVisible(false);
 
@@ -235,7 +243,7 @@ public class GameWindowController {
         return nextPlayerPane;
     }
 
-    public static void addItem(Card card) {
+    public static void addItem(Card card){
         try {
             currentPlayerPane.addItem(card);
         }catch (FullActiveHandsException ignored){
@@ -396,7 +404,7 @@ public class GameWindowController {
     }
 
     public void openLadangMusuh(){
-        currentPlayerPane.disableField();
+        nextPlayerPane.disableField();
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladangMusuh);
         } else {

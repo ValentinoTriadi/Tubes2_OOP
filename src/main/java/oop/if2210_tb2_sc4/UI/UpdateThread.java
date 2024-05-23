@@ -111,7 +111,7 @@ public class UpdateThread implements Runnable {
 
     private void updateLadang(LadangUI ladangUI){
         ladangUI.UpdateLadangData();
-        System.out.println("Jumlah Terbaru: "+ladangUI.getLadangData());
+        //System.out.println("Jumlah Terbaru: "+ladangUI.getLadangData());
     }
 
     private void updatePlayerDeck(DeckUI deck){

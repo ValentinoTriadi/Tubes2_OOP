@@ -3,17 +3,7 @@ package oop.if2210_tb2_sc4.game_manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import oop.if2210_tb2_sc4.card.AccelerateCard;
-import oop.if2210_tb2_sc4.card.AnimalCard;
-import oop.if2210_tb2_sc4.card.AnimalType;
-import oop.if2210_tb2_sc4.card.Card;
-import oop.if2210_tb2_sc4.card.DelayCard;
-import oop.if2210_tb2_sc4.card.DestroyCard;
-import oop.if2210_tb2_sc4.card.InstantHarvestCard;
-import oop.if2210_tb2_sc4.card.PlantCard;
-import oop.if2210_tb2_sc4.card.ProductCard;
-import oop.if2210_tb2_sc4.card.ProtectCard;
-import oop.if2210_tb2_sc4.card.TrapCard;
+import oop.if2210_tb2_sc4.card.*;
 
 public class GameData {
     public static List<Card> allCards = new ArrayList<>();
@@ -34,12 +24,12 @@ public class GameData {
 
 
         // ANIMAL
-        allCards.add(new AnimalCard("HIU_DARAT", 0, 20, AnimalType.CARNIVORE, (ProductCard) getCard("SIRIP_HIU")));
-        allCards.add(new AnimalCard("SAPI", 0, 10, AnimalType.HERBIVORE, (ProductCard) getCard("SUSU")));
-        allCards.add(new AnimalCard("DOMBA", 0, 12, AnimalType.HERBIVORE, (ProductCard) getCard("DAGING_DOMBA")));
-        allCards.add(new AnimalCard("KUDA", 0, 14, AnimalType.HERBIVORE, (ProductCard) getCard("DAGING_KUDA")));
-        allCards.add(new AnimalCard("AYAM", 0, 5, AnimalType.OMNIVORE, (ProductCard) getCard("TELUR")));
-        allCards.add(new AnimalCard("BERUANG", 0, 25, AnimalType.OMNIVORE, (ProductCard) getCard("DAGING_BERUANG")));
+        allCards.add(new CarnivoreAnimal("HIU_DARAT", 0, 20, (ProductCard) getCard("SIRIP_HIU")));
+        allCards.add(new HerbivoreAnimal("SAPI", 0, 10, (ProductCard) getCard("SUSU")));
+        allCards.add(new HerbivoreAnimal("DOMBA", 0, 12, (ProductCard) getCard("DAGING_DOMBA")));
+        allCards.add(new HerbivoreAnimal("KUDA", 0, 14, (ProductCard) getCard("DAGING_KUDA")));
+        allCards.add(new OmnivoreAnimal("AYAM", 0, 5,  (ProductCard) getCard("TELUR")));
+        allCards.add(new OmnivoreAnimal("BERUANG", 0, 25,  (ProductCard) getCard("DAGING_BERUANG")));
 
         // PLANT
         allCards.add(new PlantCard("BIJI_JAGUNG", 0, 3, (ProductCard) getCard("JAGUNG")));

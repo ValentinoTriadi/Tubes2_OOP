@@ -58,20 +58,25 @@ public class CardUI extends DraggablePane implements UICard {
             // Double click detected at nearly the same position
             System.out.println("Double click detected at the same position!");
             if (isOnLadang) {
-                try {
-                    FXMLLoader loadCardPicker = new FXMLLoader(Objects.requireNonNull(getClass().getResource("HarvestedPanel.fxml")));
-                    AnchorPane HarvestedPane = loadCardPicker.load();
-                    HarvestedPanelController controller = loadCardPicker.getController();
-                    controller.setProductName(cardData);
-                    controller.setInformation(cardData);
-                    controller.setActiveItem(cardData);
-                    controller.setImage(cardData);
-                    controller.setRoot(HarvestedPane);
-                    controller.handlePanenButton(cardData);
-                    GameWindowController.rootStatic.getChildren().add(HarvestedPane);
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                if(!((DropZone)this.tempParent).isDisabled()){
+                    try {
+                        FXMLLoader loadCardPicker = new FXMLLoader(Objects.requireNonNull(getClass().getResource("HarvestedPanel.fxml")));
+                        AnchorPane HarvestedPane = loadCardPicker.load();
+                        HarvestedPanelController controller = loadCardPicker.getController();
+                        controller.setProductName(cardData);
+                        controller.setInformation(cardData);
+                        controller.setActiveItem(cardData);
+                        controller.setImage(cardData);
+                        controller.setRoot(HarvestedPane);
+                        controller.setCard(cardData);
+                        controller.setDropZones((DropZone)this.tempParent);
+                        controller.handlePanenButton(cardData);
+                        GameWindowController.rootStatic.getChildren().add(HarvestedPane);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
+
             }
         } else {
             firstClickX = currentX;

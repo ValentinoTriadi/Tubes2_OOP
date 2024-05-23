@@ -5,7 +5,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.layout.*;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.*;
-import oop.if2210_tb2_sc4.ladang.Ladang;
 import oop.if2210_tb2_sc4.player.Player;
 
 import java.util.Arrays;
@@ -85,10 +84,19 @@ public class PlayerUI extends StackPane {
     public void addItem(Card cardData) throws FullActiveHandsException {
 
         DropZone[] dropZones = DropZoneAlocation(cardData);
-        ItemUI card = new ItemUI(root, dropZones);
-        card.setCard(cardData);
-        playerData.getDeck().addActiveCard(cardData);
-        activeDeckHBox.addCard(card);
+
+        if(cardData instanceof ItemCard){
+            PotionUI card = new PotionUI(cardData,root, dropZones);
+            card.setCard(cardData);
+            playerData.getDeck().addActiveCard(cardData);
+            activeDeckHBox.addCard(card);
+        } else if(cardData instanceof ProductCard){
+            ProductUI card = new ProductUI(cardData,root,dropZones);
+            card.setCard(cardData);
+            playerData.getDeck().addActiveCard(cardData);
+            activeDeckHBox.addCard(card);
+        }
+
     }
 
     public DropZone[] DropZoneAlocation(Card cardData){
@@ -96,7 +104,7 @@ public class PlayerUI extends StackPane {
         if(cardData instanceof FarmResourceCard){ // Add Animal and Plants
             dropZones = myLadang.getLadang();
         }else{ // Add Product and Power Card
-            if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
+            if(cardData instanceof GoodPotion || cardData instanceof ProductCard){
                 dropZones = GameWindowController.getCurrentPlayerPane().getLadang().getLadang();
             }else{
                 dropZones = GameWindowController.getNextPlayerPane().getLadang().getLadang();

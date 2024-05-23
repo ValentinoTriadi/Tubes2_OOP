@@ -126,4 +126,13 @@ public class LadangUI extends GridPane {
         }
     }
 
+    public boolean isOnCurrentLadang(CardUI cardUI){
+        for (DropZone dropZone : ladang) {
+            if (dropZone.getChildren().contains(cardUI)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

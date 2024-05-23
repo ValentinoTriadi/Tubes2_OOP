@@ -3,11 +3,11 @@ package oop.if2210_tb2_sc4.card;
 /**
  * Base class for animal card object
  */
-public class AnimalCard extends FarmResourceCard {
+public abstract class AnimalCard extends FarmResourceCard {
 
-    private int weight;
-    private AnimalType type;
-    private int harvestWeight;
+    protected int weight;
+    protected AnimalType type;
+    protected int harvestWeight;
 
     public AnimalCard(String name) {
         super(name);
@@ -28,6 +28,7 @@ public class AnimalCard extends FarmResourceCard {
         this.type = type;
         this.harvestWeight = harvestWeight;
     }
+
 
     public int getWeight() {
         return weight;
@@ -57,37 +58,9 @@ public class AnimalCard extends FarmResourceCard {
         return weight >= harvestWeight || this.isInstantHarvest();
     }
 
-    public boolean isFoodSuitable(ProductCard food) {
-        String[] herbivoreFoodStrings = {"Jagung", "Labu", "Stroberi"};
-        String[] carnivoreFoodStrings = {"Daging Beruang", "Daging Domba", "Daging Kuda", "Sirip Hiu", "Telur", "Susu"};
+    public abstract boolean isFoodSuitable(ProductCard food);
 
-        if (type == AnimalType.HERBIVORE) {
-            for (String herbivoreFoodString : herbivoreFoodStrings) {
-                if (food.getName().equals(herbivoreFoodString)) {
-                    return true;
-                }
-            }
-        } else if (type == AnimalType.CARNIVORE) {
-            for (String carnivoreFoodString : carnivoreFoodStrings) {
-                if (food.getName().equals(carnivoreFoodString)) {
-                    return true;
-                }
-            }
-        } else {
-            return true;
-        }
-
-        return false;
-    }
-
-    public boolean feed(ProductCard food) {
-        if (isFoodSuitable(food)) {
-            weight += food.getWeightAddition();
-            return true;
-        }
-
-        return false;
-    }
+    public abstract boolean feed(ProductCard food);
 }
 
 

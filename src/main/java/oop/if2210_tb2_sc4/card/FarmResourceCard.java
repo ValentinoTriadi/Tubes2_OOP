@@ -1,9 +1,8 @@
 package oop.if2210_tb2_sc4.card;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public abstract class FarmResourceCard extends Card{
     protected ProductCard productResult;
@@ -65,21 +64,4 @@ public abstract class FarmResourceCard extends Card{
         return new ProductCard(this.productResult);
     }
 
-    public Map<String, Integer> countEffectTypes() {
-        Map<EffectType, Integer> countMap = new HashMap<>();
-        for (EffectType type : EffectType.values()) {
-            countMap.put(type, 0);
-        }
-
-        for (EffectType effect : effectApplied) {
-            countMap.put(effect, countMap.getOrDefault(effect, 0) + 1);
-        }
-
-        Map<String, Integer> result = new HashMap<>();
-        for (Map.Entry<EffectType, Integer> entry : countMap.entrySet()) {
-            result.put(entry.getKey().toString(), entry.getValue());
-        }
-
-        return result;
-    }
 }
