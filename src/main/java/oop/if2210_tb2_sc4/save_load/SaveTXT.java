@@ -13,14 +13,15 @@ import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
 
 public class SaveTXT implements Save {
-    private final String folderName;
+    private String folderName;
 
     public SaveTXT(String folderName){
         this.folderName = folderName;
     }
 
     @Override
-    public void save() {
+    public void save(String folderName) {
+        this.folderName = folderName;
         saveGameState();
         savePlayer(1);
         savePlayer(2);

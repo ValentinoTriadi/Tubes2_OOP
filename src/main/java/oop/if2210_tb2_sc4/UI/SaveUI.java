@@ -63,7 +63,7 @@ public class SaveUI {
             GameState.getInstance().setPlayer(1, GameWindowController.getPlayer1().getPlayerData());
             GameState.getInstance().setPlayer(2, GameWindowController.getPlayer2().getPlayerData());
 
-            saver.save();
+            saver.save(controller.getFolderName());
         }catch (GameException e){
             e.ShowErrorPanel();
         }

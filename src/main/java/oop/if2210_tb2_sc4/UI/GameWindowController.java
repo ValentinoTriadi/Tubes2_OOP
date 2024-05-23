@@ -78,6 +78,7 @@ public class GameWindowController {
     private SaveUI saver;
     private LoadUi loader;
     public static SaveLoad saveLoad;
+    public static SaveLoad saveLoadLoad;
 
     private final Color currentSelectedLadang  = Color.GREEN;
 
@@ -372,6 +373,7 @@ public class GameWindowController {
         saver = new SaveUI(saverLoader.getController());
         loader = new LoadUi(loadLoader.getController(), this);
         saveLoad = saverLoader.getController();
+        saveLoadLoad = loadLoader.getController();
     }
 
     private StackPane MakeSaveLoadPanel(AnchorPane savePane){

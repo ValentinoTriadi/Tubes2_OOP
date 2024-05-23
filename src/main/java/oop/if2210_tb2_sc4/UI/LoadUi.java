@@ -14,6 +14,7 @@ import oop.if2210_tb2_sc4.save_load.LoadTXT;
 import oop.if2210_tb2_sc4.save_load.Save;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Objects;
 
@@ -50,7 +51,14 @@ public class LoadUi {
                 loader = new LoadTXT(path);
                 break;
             default:
-                loader = Plugins.getInstance().getPlugin(choice);
+                Class loaderClass = Plugins.getInstance().getPlugin(choice).getClass();
+                try {
+                    loader = (Load) loaderClass.getConstructor(String.class).newInstance(path);
+                } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                         InvocationTargetException e) {
+                    throw new RuntimeException(e);
+                }
+
                 break;
         }
     }
@@ -113,7 +121,7 @@ public class LoadUi {
     }
 
     private boolean isFolderExist(String folderPath){
-        URL path = Save.class.getResource("save_load" + "/" + folderPath);
+        URL path = Save.class.getResource(folderPath);
         if (path != null) {
             File folder = new File(path.getFile());
             return folder.exists() && folder.isDirectory();

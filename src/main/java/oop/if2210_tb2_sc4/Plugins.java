@@ -3,9 +3,7 @@ package oop.if2210_tb2_sc4;
 import oop.if2210_tb2_sc4.UI.GameWindowController;
 import oop.if2210_tb2_sc4.save_load.SaveLoad;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Plugins {
@@ -39,6 +37,7 @@ public class Plugins {
             if (entry != null) {
                 addClass(entry);
                 GameWindowController.saveLoad.choice.getItems().add(entry.getKey());
+                GameWindowController.saveLoadLoad.choice.getItems().add(entry.getKey());
             }
 
         } catch (Exception e) {
