@@ -98,8 +98,8 @@ public class GameWindowController {
         rootStatic = root;
         instance.setCurrentPlayer(1);
         CurrentTurn.setText(String.valueOf(instance.getCurrentPlayer()));
-        initializeMessageBox();
         initializePlayer();
+        initializeMessageBox();
         initMainTab();
         startGame();
         initCardPicker();
@@ -109,6 +109,7 @@ public class GameWindowController {
         audioManager.playBackgroundMusic("FullBG.wav");
         initializeEndPanel();
         setActiveMenuButton(MyFieldButton);
+        openLadang();
     }
 
     private void startGame(){
@@ -121,6 +122,10 @@ public class GameWindowController {
     private void initializeDeck(Player player){
         Deck newDeck = player.getDeck().initializeDeck(new Deck());
         player.setDeck(newDeck);
+    }
+
+    public SeranganBeruang getSeranganBeruang(){
+        return seranganBeruang;
     }
 
     private void initializeEndPanel() throws IOException {

@@ -7,6 +7,7 @@ import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
 import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.card.ItemCard;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 
 public class DeckUI extends HBox {
@@ -98,14 +99,17 @@ public class DeckUI extends HBox {
         for(int i = 0; i < 6; i++){
             if(!(deckData.getActiveCards()[i] == null)){
                 Card cardData = deckData.getActiveCards()[i];
-
                 if(cardData instanceof FarmResourceCard){
                     CardUI cardUI = new CardUI(activeDeck[i], changedPlayer.DropZoneAlocation(cardData));
-                    cardUI.setCard((FarmResourceCard) cardData);
+                    cardUI.setCard(cardData);
                     setCard(cardUI, i);
                 }else{
-                    ItemUI itemUI = new ItemUI(activeDeck[i],changedPlayer.DropZoneAlocation(cardData));
-                    itemUI.setCard(cardData);
+                    ItemUI itemUI;
+                    if(cardData instanceof ItemCard){
+                        itemUI = new PotionUI(cardData, activeDeck[i], changedPlayer.DropZoneAlocation(cardData));
+                    }else{
+                        itemUI = new ProductUI(cardData, activeDeck[i],changedPlayer.DropZoneAlocation(cardData));
+                    }
                     setCard(itemUI, i);
                 }
             }

@@ -4,32 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="674d12c8-2780-4e0a-8137-1b188e69ab89" name="Changes" comment="fix: deck unfinished">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="674d12c8-2780-4e0a-8137-1b188e69ab89" name="Changes" comment="fix: deck generate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardsChoiceUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DeckUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DraggablePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/DropZone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/GameWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/HarvestedPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/HarvestedPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LadangUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/LoadUi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PotionUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/PotionUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ProductUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/ProductUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SaveUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SellZone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/SeranganBeruangUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AccelerateCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/AccelerateCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/DelayCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/card/InstantHarvestCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oop/if2210_tb2_sc4/UI/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/UpdateThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,18 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;fauzanazz&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Loxenary"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ValentinoTriadi/Tubes2_OOP.git&quot;,
-    &quot;accountId&quot;: &quot;90b8bb74-e167-427f-ac9b-121aceed12f3&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ValentinoTriadi/Tubes2_OOP.git",
+    "accountId": "86207a52-63ad-40ae-b5f1-74b13b468961"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -87,14 +66,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.CoordinateConversionExample.executor": "Run",
-    "Application.Main.executor": "Run",
+    "Application.CoordinateConversionExample.executor": "Debug",
+    "Application.Main.executor": "Debug",
     "Application.Testing.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "5-integrate",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Ojan/AppData/Local/SceneBuilder/SceneBuilder.exe",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -142,16 +120,16 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Testing" />
         <item itemvalue="Application.CoordinateConversionExample" />
+        <item itemvalue="Application.Testing" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -182,8 +160,7 @@
       <workItem from="1716386220669" duration="1762000" />
       <workItem from="1716389944322" duration="2467000" />
       <workItem from="1716485156445" duration="3703000" />
-      <workItem from="1716541581430" duration="6081000" />
-      <workItem from="1716554916043" duration="5269000" />
+      <workItem from="1716570113027" duration="4254000" />
     </task>
     <task id="LOCAL-00001" summary="fix: deck unfinished">
       <option name="closed" value="true" />
@@ -193,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716495978680</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix: deck generate">
+      <option name="closed" value="true" />
+      <created>1716499785633</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716499785633</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,15 +189,21 @@
     <MESSAGE value="fix: Beruang Into UI" />
     <MESSAGE value="fix: Size Window Bug" />
     <MESSAGE value="fix: deck unfinished" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: deck unfinished" />
+    <MESSAGE value="fix: deck generate" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: deck generate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/save_load/SaveTXT.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="133" />
+          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/EndPanel.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/oop/if2210_tb2_sc4/UI/CardUI.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="150" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -231,6 +222,7 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="RootPane" />
+        <watch expression="root.Player2Gold" />
       </configuration>
     </watches-manager>
   </component>

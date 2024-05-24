@@ -57,13 +57,8 @@ public class UpdateThread implements Runnable {
     // Method to stop the thread
     public void stopThread() {
         running = false;
-        try {
-            synchronized (monitor) {
-                monitor.notify(); // Ensure the waiting thread can exit
-            }
-            gameThread.join(); // Wait for the thread to terminate
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        synchronized (monitor) {
+            monitor.notify(); // Ensure the waiting thread can exit
         }
     }
 
@@ -86,6 +81,10 @@ public class UpdateThread implements Runnable {
                         Thread.currentThread().interrupt();
                     }
                 }
+            }
+
+            if(!running){
+                break;
             }
             long currentTimeNs = System.nanoTime();
             long passedTimeNs = currentTimeNs - lastUpdated;

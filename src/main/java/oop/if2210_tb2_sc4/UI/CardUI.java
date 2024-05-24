@@ -17,7 +17,7 @@ import java.util.Objects;
 public class CardUI extends DraggablePane implements UICard {
 
     private Card cardData;
-    private boolean isOnLadang = false;
+
 
     public CardUI(Pane parent, DropZone[] dropZone) {
         super(parent, dropZone);
@@ -81,7 +81,7 @@ public class CardUI extends DraggablePane implements UICard {
         double currentY = e.getSceneY();
 
         if (isDoubleClickAtSamePosition(currentX, currentY)) {
-            if (isOnLadang && !this.tempParent.isDisabled()) {
+            if (!this.tempParent.isDisabled()) {
                 try {
                     loadHarvestedPanel();
                 } catch (IOException ex) {
@@ -146,7 +146,6 @@ public class CardUI extends DraggablePane implements UICard {
                 setLayoutX(0);
                 setLayoutY(0);
                 droppedOnDropZone = true;
-                isOnLadang = true;
                 setParent(dz);
                 //Update Realtime LadangUI data
                 GameWindowController.getCurrentPlayerPane().getLadang().UpdateLadangData();
