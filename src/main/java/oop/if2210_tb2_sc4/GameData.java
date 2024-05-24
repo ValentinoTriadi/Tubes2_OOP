@@ -7,10 +7,15 @@ import oop.if2210_tb2_sc4.card.*;
 
 public class GameData {
     public static List<Card> allCards = new ArrayList<>();
+    public static List<Card> deckCards = new ArrayList<>();
 
     public static void initCards() {
         // Create all cards
+        setAllCards();
+        addDeckCard();
+    }
 
+    private static void setAllCards(){
         // PRODUCT
         allCards.add(new ProductCard("SIRIP_HIU", 500, 12));
         allCards.add(new ProductCard("SUSU", 100, 4));
@@ -46,7 +51,33 @@ public class GameData {
         allCards.add(new DestroyCard("DESTROY"));
     }
 
+    private static void addDeckCard(){
 
+        // ANIMAL
+        deckCards.add(new CarnivoreAnimal("HIU_DARAT", 0, 20, (ProductCard) getCard("SIRIP_HIU")));
+        deckCards.add(new HerbivoreAnimal("SAPI", 0, 10, (ProductCard) getCard("SUSU")));
+        deckCards.add(new HerbivoreAnimal("DOMBA", 0, 12, (ProductCard) getCard("DAGING_DOMBA")));
+        deckCards.add(new HerbivoreAnimal("KUDA", 0, 14, (ProductCard) getCard("DAGING_KUDA")));
+        deckCards.add(new OmnivoreAnimal("AYAM", 0, 5,  (ProductCard) getCard("TELUR")));
+
+        // PLANT
+        deckCards.add(new PlantCard("BIJI_JAGUNG", 0, 3, (ProductCard) getCard("JAGUNG")));
+        deckCards.add(new PlantCard("BIJI_LABU", 0, 5, (ProductCard) getCard("LABU")));
+        deckCards.add(new PlantCard("BIJI_STROBERI", 0, 4, (ProductCard) getCard("STROBERI")));
+
+        // PRODUCT
+        deckCards.add(new ProductCard("SUSU", 100, 4));
+        deckCards.add(new ProductCard("DAGING_DOMBA", 100, 6));
+        deckCards.add(new ProductCard("TELUR", 50, 2));
+
+        // ITEM
+        deckCards.add(new DelayCard("DELAY"));
+        deckCards.add(new AccelerateCard("ACCELERATE"));
+        deckCards.add(new ProtectCard("PROTECTION"));
+        deckCards.add(new TrapCard("TRAP"));
+        deckCards.add(new InstantHarvestCard("INSTANT HARVEST"));
+        deckCards.add(new DestroyCard("DESTROY"));
+    }
 
     public static void ResetData(){
         allCards.clear();
@@ -54,6 +85,10 @@ public class GameData {
 
     public static List<Card> getAllCards() {
         return allCards;
+    }
+
+    public static List<Card> getDeckCards() {
+        return deckCards;
     }
 
     public static Card createCard(String name) {

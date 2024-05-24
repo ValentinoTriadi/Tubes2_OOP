@@ -20,6 +20,7 @@ public class LadangUI extends GridPane {
     private Ladang ladangData;
     int columns = 5;
 
+
     public LadangUI(Ladang ladangData) {
 
         this.setTranslateY(10);
@@ -67,6 +68,16 @@ public class LadangUI extends GridPane {
             this.add(ladang[i], col, row);
         }
         this.ladangData = ladangData;
+    }
+
+    public void setIsDisabled(Boolean isDisabled){
+        for (DropZone dz : ladang) {
+            dz.setMusuhDisabilitas(isDisabled);
+        }
+    }
+
+    public Boolean getIsDisabled(){
+        return ladang[0].isMusuhDisabilitas();
     }
 
     public DropZone[] getLadang() {

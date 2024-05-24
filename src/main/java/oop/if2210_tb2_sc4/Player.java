@@ -5,8 +5,8 @@ import oop.if2210_tb2_sc4.card.Card;
 
 public class Player {
     private Integer jumlah_gulden;
-    private oop.if2210_tb2_sc4.Deck deck;
-    private oop.if2210_tb2_sc4.Ladang ladang;
+    private Deck deck;
+    private Ladang ladang;
 
     public Player(){
         jumlah_gulden = 0;
@@ -20,7 +20,6 @@ public class Player {
 
     public void addGulden(Integer gulden){
         jumlah_gulden += gulden;
-        System.out.println("Jumlah Gulden: "+ gulden);
     }
 
     public void reduceGulden(int gulden, String Cardname) throws  NotEnoughMoneyException{
@@ -50,19 +49,19 @@ public class Player {
         return ladang.getCardinLadangCount();
     }
 
-    public void setLadang(oop.if2210_tb2_sc4.Ladang ladang){
+    public void setLadang(Ladang ladang){
         this.ladang = ladang;
     }
 
-    public void setDeck(oop.if2210_tb2_sc4.Deck deck){
+    public void setDeck(Deck deck){
         this.deck = deck;
     }
 
-    public oop.if2210_tb2_sc4.Ladang getLadang(){
+    public Ladang getLadang(){
         return ladang;
     }
 
-    public oop.if2210_tb2_sc4.Deck getDeck(){
+    public Deck getDeck(){
         return deck;
     }
 }

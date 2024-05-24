@@ -45,17 +45,6 @@ public class DeckUI extends HBox {
         return activeDeck[index].getChildren().isEmpty();
     }
 
-    public boolean isFull(){return activeDeck.length == 6;}
-    public int getCardCount() {
-        int count = 0;
-        for (CardHolder ch : activeDeck) {
-            if (!ch.getChildren().isEmpty()) {
-                count++;
-            }
-        }
-        return count;
-    }
-
     public void setDeckData(Deck deck){
         this.deckData = deck;
     }

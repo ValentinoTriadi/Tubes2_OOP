@@ -34,13 +34,8 @@ public class LoadUi {
 
         controller.title.setText("Load");
 
-        System.out.println("Load UI");
 
-        controller.clickButton.setOnMouseClicked(event -> {
-            OnSaveLoad(event);
-            System.out.println("Button clicked!");
-        });
-
+        controller.clickButton.setOnMouseClicked(this::OnSaveLoad);
         controller.clickButton.setText("Load");
         controller.ActivateMascot(this);
 

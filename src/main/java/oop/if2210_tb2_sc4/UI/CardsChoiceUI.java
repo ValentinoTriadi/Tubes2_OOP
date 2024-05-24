@@ -21,6 +21,7 @@ public class CardsChoiceUI {
     private final AnchorPane outerPane;
     private Deck playerDeck;
     private SelectionFinishListener selectionFinishListener;
+    private boolean isAlreadySelected = false;
 
     public CardsChoiceUI(HBox parent, AnchorPane outerPane, Deck currentDeck) {
         this.parent = parent;
@@ -40,7 +41,8 @@ public class CardsChoiceUI {
     }
 
 
-    public void  ResetCards(Deck currentDeck){
+    public void  ResetCards(Deck currentDeck) {
+        isAlreadySelected = false;
         playerDeck = currentDeck;
         if(currentDeck.isHandFull() || currentDeck.isDeckEmpty()){
             CloseCardPickMenu();
@@ -88,7 +90,7 @@ public class CardsChoiceUI {
 
     // Handle the click event for the card at the specified index
     private void handleCardClick(int index) {
-
+        isAlreadySelected = true;
         // Remove Image
         removeImage(index);
         // get the Card from random generated Card
@@ -118,7 +120,11 @@ public class CardsChoiceUI {
         }
     }
        public void randomGenerateCards() {
-        List<Card> generatedCard= playerDeck.generateCards();
+        if (isAlreadySelected) {
+            return;
+        }
+
+        List<Card> generatedCard = playerDeck.generateCards();
         System.out.println("Amount of deck: "+ playerDeck.getCardsInDeckCount());
         // Check if the total number of images is sufficient
         for (int i = 0; i < generatedCard.size(); i++) {

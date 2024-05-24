@@ -93,7 +93,6 @@ public class SeranganBeruang extends Thread {
         KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.1), event -> {
             long timeLeft = duration.getTime() - 100;
             duration.setTime(timeLeft < 0 ? 0 : timeLeft);
-            System.out.println("Time Left: " + duration.getTime() + "ms");
 
             if (duration.getTime() <= 0) {
                 timeline.stop();

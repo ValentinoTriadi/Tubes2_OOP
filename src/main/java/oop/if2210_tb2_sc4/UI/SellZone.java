@@ -47,7 +47,6 @@ public class SellZone extends DropZone{
             if (card instanceof ItemUI) {
                 Card checkedCard = ((ItemUI) card).getCard();
                 if(checkedCard instanceof ProductCard productCard){
-                    System.out.println("Intersected with sellzone");
                     card.setLayoutX(0);
                     card.setLayoutY(0);
                     card.setParent(dz);

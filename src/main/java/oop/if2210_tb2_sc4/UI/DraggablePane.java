@@ -24,6 +24,7 @@ public abstract class DraggablePane extends Pane {
         setOnMouseDragged(this::OnDrag);
         setOnMouseReleased(this::OnRelease);
     }
+
     protected void setAllignmentToCenter(Pane parent) {
 
         double parentWidth = parent.getWidth();

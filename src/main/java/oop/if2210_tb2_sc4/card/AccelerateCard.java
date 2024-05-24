@@ -12,6 +12,14 @@ public class AccelerateCard extends GoodPotion{
 
     @Override
     public void applyEffect(FarmResourceCard card) {
+        if (card instanceof PlantCard) {
+            ((PlantCard) card).setAge(((PlantCard) card).getAge() + 2);
+        }
+
+        if (card instanceof AnimalCard) {
+            ((AnimalCard) card).setWeight(((AnimalCard) card).getWeight() + 8);
+        }
+
         card.addEffect(EffectType.ACCELERATE);
     }
 }

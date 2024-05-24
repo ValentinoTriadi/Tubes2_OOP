@@ -70,44 +70,73 @@ public class CardUI extends DraggablePane implements UICard {
 
     private double firstClickX = 0;
     private double firstClickY = 0;
-    private final double POSITION_THRESHOLD = 5;
+
     @Override
     public void OnClick(@NotNull MouseEvent e) {
-        super.OnClick(e);
+        if (this.getParent() instanceof DropZone && !((DropZone) this.getParent()).isMusuhDisabilitas() || this.getParent() instanceof CardHolder) {
+            super.OnClick(e);
+        }
+
         double currentX = e.getSceneX();
         double currentY = e.getSceneY();
 
-        if ((Math.abs(currentX - firstClickX) < POSITION_THRESHOLD) && (Math.abs(currentY - firstClickY) < POSITION_THRESHOLD)) {
-            // Double click detected at nearly the same position
-            System.out.println("Double click detected at the same position!");
-            if (isOnLadang) {
-                if(!((DropZone)this.tempParent).isDisabled()){
-                    try {
-                        FXMLLoader loadCardPicker = new FXMLLoader(Objects.requireNonNull(getClass().getResource("HarvestedPanel.fxml")));
-                        AnchorPane HarvestedPane = loadCardPicker.load();
-                        HarvestedPanelController controller = loadCardPicker.getController();
-                        controller.setInformation(cardData);
-                        controller.setActiveItem(cardData);
-                        controller.setImage(cardData);
-                        controller.setRoot(HarvestedPane);
-                        controller.setCard(cardData);
-                        controller.setDropZones((DropZone)this.tempParent);
-                        controller.handlePanenButton(cardData);
-                        GameWindowController.rootStatic.getChildren().add(HarvestedPane);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+        if (isDoubleClickAtSamePosition(currentX, currentY)) {
+            if (isOnLadang && !this.tempParent.isDisabled()) {
+                try {
+                    loadHarvestedPanel();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
-
             }
         } else {
-            firstClickX = currentX;
-            firstClickY = currentY;
+            updateClickPosition(currentX, currentY);
         }
+    }
+
+    private boolean isDoubleClickAtSamePosition(double currentX, double currentY) {
+        double POSITION_THRESHOLD = 5;
+        return (Math.abs(currentX - firstClickX) < POSITION_THRESHOLD) && (Math.abs(currentY - firstClickY) < POSITION_THRESHOLD);
+    }
+
+    private void updateClickPosition(double currentX, double currentY) {
+        firstClickX = currentX;
+        firstClickY = currentY;
+    }
+
+    private void loadHarvestedPanel() throws IOException {
+        FXMLLoader loadCardPicker = new FXMLLoader(Objects.requireNonNull(getClass().getResource("HarvestedPanel.fxml")));
+        AnchorPane HarvestedPane = loadCardPicker.load();
+        HarvestedPanelController controller = loadCardPicker.getController();
+        controller.setInformation(cardData);
+        controller.setActiveItem(cardData);
+        controller.setImage(cardData);
+        controller.setRoot(HarvestedPane);
+        controller.setCard(cardData);
+        if (this.tempParent instanceof AnchorPane) {
+            controller.setHasHarvestAccess(false);
+            controller.setDropZones((DropZone) this.getParent());
+        } else {
+            controller.setHasHarvestAccess(true);
+            controller.setDropZones((DropZone) this.tempParent);
+        }
+        controller.handlePanenButton(cardData);
+        GameWindowController.rootStatic.getChildren().add(HarvestedPane);
+    }
+
+    @Override
+    public void OnDrag(@NotNull MouseEvent e) {
+        if (this.getParent() instanceof DropZone && ((DropZone) this.getParent()).isMusuhDisabilitas()) {
+            return;
+        }
+        super.OnDrag(e);
     }
 
     @Override
     public void OnRelease(MouseEvent e){
+        if (this.getParent() instanceof DropZone && ((DropZone) this.getParent()).isMusuhDisabilitas()) {
+            return;
+        }
+
         boolean droppedOnDropZone = false;
         for (DropZone dz : dropZone) {
             // Check if the mouse position is within the dropzone

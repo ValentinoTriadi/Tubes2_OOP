@@ -1,6 +1,5 @@
 package oop.if2210_tb2_sc4.UI;
 
-import com.almasb.fxgl.ui.UI;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import oop.if2210_tb2_sc4.card.*;
@@ -40,6 +39,11 @@ public class PotionUI extends ItemUI{
                 if(potion instanceof DestroyCard){
                     ((DestroyCard) potion).setDestroyedCardContainer(dz);
                 }
+
+                if(potion instanceof InstantHarvestCard){
+                    ((InstantHarvestCard) potion).setHarvestedCardContainer(dz);
+                }
+
                 potion.applyEffect(cardLadang);
             }
         }

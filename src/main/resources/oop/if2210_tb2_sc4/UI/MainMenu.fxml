@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane alignment="CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.if2210_tb2_sc4.UI.MainMenuController">
+<StackPane alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.MainMenuController">
    <children>
       <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0">
          <children>
@@ -24,10 +24,10 @@
                         <Image url="@componentImage/BoxBg.png" />
                      </image>
                   </ImageView>
-                  <HBox fillHeight="false" layoutX="120.0" layoutY="470.0" prefHeight="78.0" prefWidth="665.0" spacing="33.6" stylesheets="@MenuButton.css">
+                  <HBox fillHeight="false" layoutX="120.0" layoutY="470.0" prefHeight="59.0" prefWidth="665.0" spacing="33.6" stylesheets="@MenuButton.css">
                      <children>
                         <Button layoutX="30.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#Settings" prefHeight="51.0" prefWidth="200.0" stylesheets="@MenuButton.css" text="Setting" />
-                        <Button layoutX="30.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#NewGame" prefHeight="51.0" prefWidth="200.0" stylesheets="@MenuButton.css" text="Start" />
+                        <Button alignment="CENTER" layoutX="30.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#NewGame" prefHeight="51.0" prefWidth="200.0" stylesheets="@MenuButton.css" text="Start" />
                         <Button alignment="CENTER" layoutX="30.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#Exit" prefHeight="51.0" prefWidth="200.0" stylesheets="@MenuButton.css" text="Exit" textAlignment="CENTER" />
                      </children>
                   </HBox>

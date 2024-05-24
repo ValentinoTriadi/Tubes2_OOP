@@ -19,7 +19,6 @@ public class ProductUI extends ItemUI{
                 droppedOnDropZone = true;
                 break;
             }
-            System.out.println(dz.getChildren().size());
             // Check if the mouse position is within the dropzone
             if (isMouseInDropZone(e, dz) && !dz.getChildren().isEmpty() && !dz.isDisabled()) {
 

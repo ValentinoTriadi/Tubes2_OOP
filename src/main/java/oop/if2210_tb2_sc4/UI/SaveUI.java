@@ -27,7 +27,6 @@ public class SaveUI {
 
         controller.clickButton.setOnMouseClicked(event -> {
             OnSaveLoad(event);
-            System.out.println("Button clicked!");
         });
 
         controller.clickButton.setText("Save");

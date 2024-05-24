@@ -54,7 +54,7 @@ public class Deck {
     }
 
     public Deck initializeDeck(Deck deck){
-        List<Card> allCards = GameData.getAllCards();
+        List<Card> allCards = GameData.getDeckCards();
         int counter = 0;
         while(!(deck.isDeckFull())){
             Card newCard = GameData.returnCard(allCards.get(counter));
@@ -72,20 +72,6 @@ public class Deck {
     public void addCardToDeck(Card card) {
         cardsInDeck++;
         currentDeck.add(card);
-    }
-
-    public void addCardToDeck(List<Card> cards) {
-        for (Card card : cards) {
-            cardsInDeck++;
-            currentDeck.add(card);
-        }
-    }
-
-    public void setActiveCards(Card[] activeCards) {
-        // Dalam setiap waktu, tiap pemain hanya bisa memiliki 6 kartu dalam deck aktif, bila kartu yang di-generate oleh deck melebihi kapasitas deck aktif maka hanya sebagian kartu yang bisa masuk ke dalam deck aktif sesuai dengan sisa kapasitas deck yang tersedia
-        for (int i = 0; i < HAND_SIZE; i++) {
-            this.activeCards[i] = activeCards[i];
-        }
     }
 
     public void setActiveCard(int index, Card card) {

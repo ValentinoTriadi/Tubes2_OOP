@@ -30,14 +30,12 @@ public class SeranganBeruangUI {
 
     private int currentImageIndex = 0;
     private int currentShockWaveIndex = 0;
-    private int currentIndexCage = 0;
 
     private final Image[] imageBearUp = new Image[3];
     private final Image[] imageBearDown = new Image[3];
     private final Image[] imageBearLeft = new Image[3];
     private final Image[] imageBearRight = new Image[3];
     private final Image[] imageShockWave = new Image[8];
-    private final Image[] imageCaught = new Image[8];
 
     private DropZone[] dropZone;
     private boolean startAnimation = false;
@@ -159,13 +157,14 @@ public class SeranganBeruangUI {
         animations.add(animateLeave());
 
         while (!animations.isEmpty()) {
+            ladang.disableField();
             if (isStartAnimation()){
                 currentAnimation = animations.remove(0);
                 currentAnimation.play();
                 startAnimation = false;
             }
         }
-
+        ladang.enableField();
         ladang.resetLadangColor();
         AudioManager.getInstance().stopSFX();
     }
@@ -175,10 +174,17 @@ public class SeranganBeruangUI {
         timeline.setCycleCount(Timeline.INDEFINITE);
 
         final long[] previousTime = {System.nanoTime()};
+        final boolean[] starter = {true};
         BearImage.setImage(imageBearDown[0]);
         float speed = 300.0f;
 
         KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 18), event -> {
+            if (starter[0]) {
+                previousTime[0] = System.nanoTime();
+                starter[0] = false;
+            }
+
+
             long currentTime = System.nanoTime();
             double deltaTime = (currentTime - previousTime[0]) / 1_000_000_000.0;
             previousTime[0] = currentTime;
@@ -261,25 +267,6 @@ public class SeranganBeruangUI {
             }
 
             updateImageAndPosition(currentPosition, point, deltaTime);
-        });
-
-        timeline.getKeyFrames().add(keyFrame);
-        return timeline;
-    }
-
-    private Animation animateBearCaught(){
-        Timeline timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        final long[] previousTime = {System.nanoTime()};
-
-        KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 8), event -> {
-            long currentTime = System.nanoTime();
-            previousTime[0] = currentTime;
-            changeImageShockWave(ShockWaveImage);
-            if (currentShockWaveIndex == 0) {
-                timeline.stop();
-                setStartAnimation(true);
-            }
         });
 
         timeline.getKeyFrames().add(keyFrame);
@@ -412,8 +399,4 @@ public class SeranganBeruangUI {
         currentShockWaveIndex = (currentShockWaveIndex + 1) % imageShockWave.length;
     }
 
-    private void changeImageCaught(ImageView image) {
-        image.setImage(imageShockWave[currentIndexCage]);
-        currentIndexCage = (currentIndexCage + 1) % imageShockWave.length;
-    }
 }

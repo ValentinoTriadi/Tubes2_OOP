@@ -213,11 +213,7 @@ public class GameWindowController {
         SaveButton.setTextFill(Color.WHITE);
         AddPluginButton.setTextFill(Color.WHITE);
         selectedButton.setTextFill(currentSelectedButtonColor);
-        if(selectedButton == MyFieldButton){
-            SetActiveBeruangPane(true);
-        }else{
-            SetActiveBeruangPane(false);
-        }
+        SetActiveBeruangPane(selectedButton == MyFieldButton);
     }
 
     public void switchToNextPlayer() {
@@ -279,14 +275,14 @@ public class GameWindowController {
     private void resetFieldLock(){
         currentPlayerPane.enableField();
         nextPlayerPane.enableField();
+        nextPlayerPane.getLadang().setIsDisabled(false);
+        currentPlayerPane.getLadang().setIsDisabled(false);
     }
 
     public static void addCard(Card card) {
         try {
             currentPlayerPane.addCard(card);
-        } catch (FullActiveHandsException ignored){
-
-        }
+        } catch (FullActiveHandsException ignored){}
     }
 
     public static PlayerUI getPlayer1(){
@@ -303,7 +299,6 @@ public class GameWindowController {
             return nextPlayerPane;
         }
     }
-
 
     public static PlayerUI getCurrentPlayerPane(){
         return currentPlayerPane;
@@ -323,6 +318,7 @@ public class GameWindowController {
     public static ShopUI getShop(){
         return shopUI;
     }
+
     public void initMainTab() throws IOException {
         // Disable tab closing and enable tab reordering
         tabPane.setTabDragPolicy(TabPane.TabDragPolicy.REORDER);
@@ -476,7 +472,7 @@ public class GameWindowController {
     }
 
     public void openLadangMusuh(){
-        nextPlayerPane.disableField();
+        nextPlayerPane.getLadang().setIsDisabled(true);
         currentPlayerPane.disableField();
         setActiveMenuButton(EnemyFieldButton);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
@@ -484,6 +480,8 @@ public class GameWindowController {
         } else {
             tabPane.getSelectionModel().select(ladang);
         }
+
+
     }
 
     public void openShop(){
@@ -497,7 +495,6 @@ public class GameWindowController {
         currentPlayerPane.disableField();
         saver.initialize();
         tabPane.getSelectionModel().select(save);
-
     }
 
     public void openLoad(){

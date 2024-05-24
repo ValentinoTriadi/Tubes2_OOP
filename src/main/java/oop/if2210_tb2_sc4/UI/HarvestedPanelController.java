@@ -25,6 +25,7 @@ import java.util.EnumMap;
 
 
 public class HarvestedPanelController {
+    private boolean hasHarvestAccess;
     public Label information;
     public TextArea activeItem;
     public Button panenButton;
@@ -32,6 +33,10 @@ public class HarvestedPanelController {
     public ImageView imageView;
     public Card card;
     private DropZone dropZones;
+
+    public void setHasHarvestAccess(boolean hasHarvestAccess) {
+        this.hasHarvestAccess = hasHarvestAccess;
+    }
 
     public void setCard(Card card) {
         this.card = card;
@@ -45,8 +50,6 @@ public class HarvestedPanelController {
         Image image = ImageUtil.getCardImage(cardData);
         imageView.setImage(image);
     }
-
-
 
     public void setInformation(Card cardData){
         if(cardData instanceof AnimalCard){
@@ -95,7 +98,6 @@ public class HarvestedPanelController {
 
 
     public void close(MouseEvent mouseEvent) throws IOException {
-        System.out.println("close");
         GameWindowController.rootStatic.getChildren().remove(root);
     }
 
@@ -103,21 +105,17 @@ public class HarvestedPanelController {
         if(card instanceof AnimalCard && ((AnimalCard) card).isHarvestable()){
             panenButton.setDisable(false);
 
-        } else if(card instanceof PlantCard && ((PlantCard) card).isHarvestable()){
-            panenButton.setDisable(false);
-        } else {
-            panenButton.setDisable(true);
-        }
+        } else panenButton.setDisable(!(card instanceof PlantCard) || !((PlantCard) card).isHarvestable() || !hasHarvestAccess);
     }
 
     public void panen(MouseEvent mouseEvent) {
-       try{
-           ProductCard cardHarvest = ((FarmResourceCard)card).getProductResult();
-           GameWindowController.getCurrentPlayerPane().addItem(cardHarvest);
-           this.dropZones.getChildren().remove(0);
-       }catch (FullActiveHandsException e){
-           e.ShowErrorPanel();
-       }
+        try{
+            ProductCard cardHarvest = ((FarmResourceCard)card).getProductResult();
+            GameWindowController.getCurrentPlayerPane().addItem(cardHarvest);
+            this.dropZones.getChildren().remove(0);
+        }catch (FullActiveHandsException e){
+            e.ShowErrorPanel();
+        }
         GameWindowController.rootStatic.getChildren().remove(root);
     }
 

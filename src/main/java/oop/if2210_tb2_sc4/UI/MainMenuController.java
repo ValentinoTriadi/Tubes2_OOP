@@ -18,7 +18,6 @@ public class MainMenuController {
     public void initialize() {
         try {
             AudioManager.getInstance().playBackgroundMusic("MainMenuMusic.wav");
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Settings.fxml"));
             settings = loader.load();
             settings.setVisible(false);
