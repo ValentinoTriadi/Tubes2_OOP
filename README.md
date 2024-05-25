@@ -1,6 +1,5 @@
 # Tubes2_OOP
-> This project is a Java-based farm management application with a graphical user interface (GUI) created using JavaFX, designed for two players to plant crops, raise animals, sell products, harvest, use beneficial or harmful item cards, and defend against bear attacks, with the goal of accumulating the most money after 20 turns, featuring save & load functionality in txt format and a plugin for additional file format support.
-
+> <p align="center">This project is a Java-based farm management application with a graphical user interface (GUI) created using JavaFX, designed for two players to plant crops, raise animals, sell products, harvest, use beneficial or harmful item cards, and defend against bear attacks, with the goal of accumulating the most money after 20 turns, featuring save & load functionality in txt format and a plugin for additional file format support.</p>
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
