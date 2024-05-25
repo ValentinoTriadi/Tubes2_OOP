@@ -8,7 +8,10 @@
 
 
 
-<!-- PROJECT LOGO -->
+<div align="center">
+  <img src="img/logo.png" alt="mediQ Logo" />
+</div>
+
 <br />
 <div align="center">
 
