@@ -52,23 +52,24 @@ IF2210 Pemrograman Berorientasi Objek</h3>
 
 ## About The Project
 <p align = "center">This project is a Java-based farm management application with a graphical user interface (GUI) created using JavaFX, designed for two players to plant crops, raise animals, sell products, harvest, use beneficial or harmful item cards, and defend against bear attacks, with the goal of accumulating the most money after 20 turns, featuring save & load functionality in txt format and a plugin for additional file format support. </p>
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
-
+- Java 17
+- Maven
+- JavaFX
+- Scene Builder
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+
+- [x] Play Game : Start a new game with 2 players
+- [x] Bear Attack : Randomly attack a player's farm
+- [x] Save and Load : Save and load game progress
+- [x] Item Card : Use beneficial or harmful item cards
+- [x] Shops : Buy and sell your products
+- [x] Attack Enemy : Attack the enemy's farm
+- [x] Full Sound : Full sound effect and background music
+- [x] Plugin : Additional file format support
 
 
 ## Screenshots
@@ -77,27 +78,45 @@ List the ready features here:
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+### Local Environment Setup
+1. Clone the repo
+   ```sh
+   git clone
+    ```
+2. Install JavaFX
+    ```sh
+    sudo apt install openjfx
+    ```
+3. Install Java
+    ```sh
+    sudo apt install default-jdk
+    ```
+4. Install Maven
+    ```sh
+    sudo apt install maven
+    ```
+
+### Compile to JAR
+1. Compile the program
+    ```sh
+    mvn clean compile assembly:single
+    ```
 
 
 ## Usage
 How does one go about using it?
 Provide various use cases and code examples here.
 
-`write-your-code-here`
+`java -jar target/Tubes2_OOP-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 
 ## Project Status
-Project is: _complete_
+Project is: _completed_
 
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+- This project was made as a Programming Object Oriented course assignment at Institut Teknologi Bandung
 
 
 ## Contact
