@@ -98,10 +98,10 @@ public class LoadUi {
     }
     private void LoadDeck(){
         DeckUI deckUI1 = GameWindowController.getPlayer1().getDeckUI();
-        Deck newDeck = deckUI1.getDeckData().initializeDeck(deckUI1.getDeckData());
+        Deck newDeck = deckUI1.getDeckData().initializeDeck(deckUI1.getDeckData(), 1);
         deckUI1.setDeckData(newDeck);
         DeckUI deckUI2 = GameWindowController.getPlayer2().getDeckUI();
-        newDeck = deckUI2.getDeckData().initializeDeck(deckUI2.getDeckData());
+        newDeck = deckUI2.getDeckData().initializeDeck(deckUI2.getDeckData(), 2);
         deckUI2.setDeckData(newDeck);
         try{
             deckUI1.UpdateUIDeck(GameWindowController.getPlayer1());

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
+import oop.if2210_tb2_sc4.UI.GameWindowController;
 import oop.if2210_tb2_sc4.card.Card;
 
 import static oop.if2210_tb2_sc4.GameData.getAllCards;
@@ -24,7 +25,7 @@ public class Deck {
     public Deck() {
         activeCards = new Card[HAND_SIZE];
         currentDeck = new ArrayList<>();
-        cardsInDeck = 0;
+        cardsInDeck = DECK_SIZE;
     }
 
     //Deck in terms of hands
@@ -53,10 +54,11 @@ public class Deck {
         return cards.stream().toList();
     }
 
-    public Deck initializeDeck(Deck deck){
+    public Deck initializeDeck(Deck deck, int no_player){
         List<Card> allCards = GameData.getDeckCards();
         int counter = 0;
-        while(!(deck.isDeckFull())){
+        int max_count = no_player == 1 ? GameWindowController.getPlayer1().getPlayerData().getJumlahDeck() : GameWindowController.getPlayer2().getPlayerData().getJumlahDeck();
+        while(!(deck.isDeckFull(max_count))){
             Card newCard = GameData.returnCard(allCards.get(counter));
             if(deck.getCurrentDeck().contains(newCard)){
                 counter--;
@@ -70,7 +72,7 @@ public class Deck {
     }
 
     public void addCardToDeck(Card card) {
-        cardsInDeck++;
+//        cardsInDeck++;
         currentDeck.add(card);
     }
 
@@ -145,7 +147,7 @@ public class Deck {
     public boolean isHandFull(){
         return this.cardsInHand == HAND_SIZE;
     }
-    public boolean isDeckFull(){
-        return this.currentDeck.size() == DECK_SIZE;
+    public boolean isDeckFull(int countDeck){
+        return this.currentDeck.size() >= countDeck;
     }
 }
