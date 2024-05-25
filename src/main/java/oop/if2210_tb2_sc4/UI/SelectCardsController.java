@@ -33,8 +33,8 @@ public class SelectCardsController implements SelectionFinishListener {
 
     @Override
     public void selectionFinished() {
-        if (seranganBeruangPhase.isAlive()) {
-            seranganBeruangPhase.stopThread();
+        if (Math.random() < 0.5) {
+            return;
         }
         seranganBeruangPhase.start();
     }

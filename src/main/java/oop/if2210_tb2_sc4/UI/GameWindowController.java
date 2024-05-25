@@ -1,7 +1,6 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
+import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -12,9 +11,8 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 
+import javafx.util.Duration;
 import oop.if2210_tb2_sc4.Exception.FullActiveHandsException;
 import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
@@ -24,17 +22,14 @@ import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.GameData;
 import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
-import oop.if2210_tb2_sc4.save_load.Load;
 import org.jetbrains.annotations.NotNull;
 
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
 public class GameWindowController {
 
-//  Ui Related Variable
+    //  Ui Related Variable
     private static PlayerUI currentPlayerPane;
     private static PlayerUI nextPlayerPane;
 
@@ -59,9 +54,11 @@ public class GameWindowController {
     public StackPane RootStack;
     public Label AvailableDeck;
     public Button nextTurn;
-    public Label ladangLabel;
-    public Label enemyLadangLabel;
     public Pane bearroot;
+    public Label SBLabel;
+    public Pane Clock;
+
+    public static Label SBLabelStatic;
 
     private Tab ladang;
     private Tab ladangMusuh;
@@ -69,7 +66,6 @@ public class GameWindowController {
     private Tab save;
     private Tab load;
     private Tab addPlugin;
-    private final Pane Bear = new Pane();
     private SeranganBeruang seranganBeruang;
 
     private EndPanel endGamePanel;
@@ -77,7 +73,6 @@ public class GameWindowController {
     public static SellZone sellZone;
     public static LadangUI ladang1;
     public static LadangUI ladang2;
-    private static boolean running;
 
     private UpdateThread gameThread;
     private SaveUI saver;
@@ -86,9 +81,7 @@ public class GameWindowController {
     public static SaveLoad saveLoadLoad;
 
     private final Color currentSelectedButtonColor  = Color.GREEN;
-
     private SelectCardsController cardPicker;
-
     private final AudioManager audioManager = AudioManager.getInstance();
 
     public void initialize() throws IOException {
@@ -96,28 +89,39 @@ public class GameWindowController {
         GameData.ResetData();
         instance.ResetData();
         rootStatic = root;
+        SBLabelStatic = SBLabel;
         instance.setCurrentPlayer(1);
         CurrentTurn.setText(String.valueOf(instance.getCurrentPlayer()));
+
+        // Initialize
+        initializeMessageBox();
         initializePlayer();
         initializeMessageBox();
         initMainTab();
-        startGame();
         initCardPicker();
+        initializeEndPanel();
+        initSBLabel();
+
+        // Shuffle Cards and Start Game
         cardPicker.ShuffleCards();
         gameThread = new UpdateThread(Player1Gold, Player2Gold, AvailableDeck, CurrentTurn);
         gameThread.initializeThread();
         audioManager.playBackgroundMusic("FullBG.wav");
-        initializeEndPanel();
         setActiveMenuButton(MyFieldButton);
-        openLadang();
+
+        startGame();
     }
 
     private void startGame(){
         nextPlayerPane.setVisible(false);
-
+        openLadang();
     }
 
-//    private void initialize
+    private void initSBLabel(){
+        SBLabel.setVisible(false);
+        SBLabel.setMouseTransparent(true);
+        SBLabel.getParent().setMouseTransparent(true);
+    }
 
     private void initializeDeck(Player player){
         Deck newDeck = player.getDeck().initializeDeck(new Deck());
@@ -187,9 +191,9 @@ public class GameWindowController {
             gameThread.stopThread();
             int player1gold = getPlayer1().getPlayerData().getJumlahGulden();
             int player2gold = getPlayer2().getPlayerData().getJumlahGulden();
-            String title = "";
+            String title;
             String winner = "";
-            String Message = "";
+            String Message;
             if (player1gold > player2gold)
             {
                 title = "Congratulations";
@@ -222,6 +226,7 @@ public class GameWindowController {
     }
 
     public void switchToNextPlayer() {
+
         if(seranganBeruang.isAlive()){
             return;
         }
@@ -261,6 +266,7 @@ public class GameWindowController {
         BeruangMenyerangPhase();
         cardPicker.InvokePanel(seranganBeruang);
     }
+
     private void BeruangMenyerangPhase(){
         if (seranganBeruang.isAlive()) {
             seranganBeruang.stopThread();
@@ -271,10 +277,11 @@ public class GameWindowController {
         int col = currentladang.getColumnCount();
         int row = currentladang.getRowCount();
         seranganBeruang = new SeranganBeruang(col, row, currentPlayerPane.getLadang());
+        seranganBeruang.setSBLabel(SBLabel);
+        seranganBeruang.setClock(Clock);
 
         seranganBeruang.initializer();
         bearroot.getChildren().add(seranganBeruang.getPane());
-//        seranganBeruang.start();
     }
 
     private void resetFieldLock(){
@@ -411,7 +418,7 @@ public class GameWindowController {
         return  temp_save;
     }
 
-    private FXMLLoader MakeSaveLoadFXMLLoader() throws IOException {
+    private FXMLLoader MakeSaveLoadFXMLLoader() {
         return new FXMLLoader(Objects.requireNonNull(getClass().getResource("SaveLoad.fxml")));
     }
 
@@ -468,6 +475,7 @@ public class GameWindowController {
 
     public void openLadang(){
         currentPlayerPane.enableField();
+        nextPlayerPane.disableField();
         setActiveMenuButton(MyFieldButton);
         if (GameState.getInstance().getCurrentPlayer() % 2 == 1){
             tabPane.getSelectionModel().select(ladang);
@@ -477,6 +485,7 @@ public class GameWindowController {
     }
 
     public void openLadangMusuh(){
+        nextPlayerPane.enableField();
         nextPlayerPane.getLadang().setIsDisabled(true);
         currentPlayerPane.disableField();
         setActiveMenuButton(EnemyFieldButton);
@@ -485,19 +494,19 @@ public class GameWindowController {
         } else {
             tabPane.getSelectionModel().select(ladang);
         }
-
-
     }
 
     public void openShop(){
         setActiveMenuButton(ShopButton);
         currentPlayerPane.disableField();
+        nextPlayerPane.disableField();
         tabPane.getSelectionModel().select(shop);
     }
 
     public void openSave(){
         setActiveMenuButton(SaveButton);
         currentPlayerPane.disableField();
+        nextPlayerPane.disableField();
         saver.initialize();
         tabPane.getSelectionModel().select(save);
     }
@@ -505,6 +514,7 @@ public class GameWindowController {
     public void openLoad(){
         setActiveMenuButton(LoadButton);
         currentPlayerPane.disableField();
+        nextPlayerPane.disableField();
         loader.initialize();
         tabPane.getSelectionModel().select(load);
     }
@@ -516,6 +526,7 @@ public class GameWindowController {
     public void openAddPlugin(){
         setActiveMenuButton(AddPluginButton);
         currentPlayerPane.disableField();
+        nextPlayerPane.disableField();
         tabPane.getSelectionModel().select(addPlugin);
     }
 

@@ -1,6 +1,5 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -11,7 +10,6 @@ import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 
 import java.util.List;
-import java.util.Stack;
 
 public class CardsChoiceUI {
 
@@ -44,13 +42,13 @@ public class CardsChoiceUI {
     public void  ResetCards(Deck currentDeck) {
         isAlreadySelected = false;
         playerDeck = currentDeck;
+
         if(currentDeck.isHandFull() || currentDeck.isDeckEmpty()){
             CloseCardPickMenu();
             return;
         }
 
         outerPane.setVisible(true);
-        int generatedCount = Math.min(Deck.GENERATED_CARD_COUNT, playerDeck.getCardsInDeckCount());
 
         for (int i = 0; i < cardImages.length; i++) {
             cardImages[i] = new ImageView();
@@ -125,7 +123,6 @@ public class CardsChoiceUI {
         }
 
         List<Card> generatedCard = playerDeck.generateCards();
-        System.out.println("Amount of deck: "+ playerDeck.getCardsInDeckCount());
         // Check if the total number of images is sufficient
         for (int i = 0; i < generatedCard.size(); i++) {
            Card card = generatedCard.get(i);

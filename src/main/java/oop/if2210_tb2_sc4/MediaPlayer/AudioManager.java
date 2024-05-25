@@ -51,6 +51,7 @@ public class AudioManager {
         cardSoundMap.put("Harvest", "Gardening.wav");
         cardSoundMap.put("Win", "Winning.wav");
         cardSoundMap.put("BearAttack", "a.wav");
+        cardSoundMap.put("Coin", "Coin.wav");
     }
 
     public Map<String, String> getCardSoundMap() {

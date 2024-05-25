@@ -66,6 +66,10 @@ public class ItemUI extends DraggablePane implements UICard {
     public void OnRelease(MouseEvent e){
         boolean droppedOnDropZone = false;
         for (DropZone dz : dropZone) {
+            if (dz.isDisabled()) {
+                continue;
+            }
+
             if(SellZone.OnSellZoneDetected(dz, this,e )){
                 droppedOnDropZone = true;
                 break;
@@ -74,7 +78,6 @@ public class ItemUI extends DraggablePane implements UICard {
             // Check if the mouse position is within the dropzone
             if (isMouseInDropZone(e, dz) && !dz.getChildren().isEmpty()) {
 
-                System.out.println("Intersected with enemy dropzone");
                 setLayoutX(0);
                 setLayoutY(0);
                 droppedOnDropZone = true;

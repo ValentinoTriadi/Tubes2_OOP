@@ -115,9 +115,11 @@ public class CardUI extends DraggablePane implements UICard {
         if (this.tempParent instanceof AnchorPane) {
             controller.setHasHarvestAccess(false);
             controller.setDropZones((DropZone) this.getParent());
-        } else {
+        } else if (this.tempParent instanceof CardHolder) {
             controller.setHasHarvestAccess(true);
-            controller.setDropZones((DropZone) this.tempParent);
+            controller.setDropZones((DropZone) this.getParent());
+        } else {
+            System.out.println("Error");
         }
         controller.handlePanenButton(cardData);
         GameWindowController.rootStatic.getChildren().add(HarvestedPane);

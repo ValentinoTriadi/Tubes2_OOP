@@ -12,45 +12,47 @@ public class PotionUI extends ItemUI{
 
     @Override
     public void OnRelease(MouseEvent e){
-        boolean droppedOnDropZone = false;
-        for (DropZone dz : dropZone) {
-            if(SellZone.OnSellZoneDetected(dz, this,e )){
-                droppedOnDropZone = true;
-                break;
-            }
-
-            // Check if the mouse position is within the dropzone
-            if (isMouseInDropZone(e, dz) && !dz.getChildren().isEmpty() ) {
-
-                System.out.println("Intersected with enemy dropzone");
-                setLayoutX(0);
-                setLayoutY(0);
-
-
-                // Set the parent to the dropzone
-                setParent(dz);
-
-                FarmResourceCard cardLadang = ((FarmResourceCard)((CardUI)dz.getChildren().get(0)).getCardData());
-                ItemCard potion = (ItemCard)this.getCard();
-
-                droppedOnDropZone = true;
-                dz.onItemDrop();
-
-                if(potion instanceof DestroyCard){
-                    ((DestroyCard) potion).setDestroyedCardContainer(dz);
-                }
-
-                if(potion instanceof InstantHarvestCard){
-                    ((InstantHarvestCard) potion).setHarvestedCardContainer(dz);
-                }
-
-                potion.applyEffect(cardLadang);
-            }
-        }
-
-        // If not dropped on a dropzone, return to default position
+        boolean droppedOnDropZone = checkDropZones(e);
         if (!droppedOnDropZone) {
             resetPosition();
         }
+    }
+
+    private boolean checkDropZones(MouseEvent e) {
+        for (DropZone dz : dropZone) {
+            if (dz.isDisabled()) {
+                continue;
+            }
+
+            if(SellZone.OnSellZoneDetected(dz, this, e)){
+                return true;
+            }
+
+            if (isMouseInDropZone(e, dz) && !dz.getChildren().isEmpty()) {
+                handleDropOnZone(dz);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void handleDropOnZone(DropZone dz) {
+        setLayoutX(0);
+        setLayoutY(0);
+        setParent(dz);
+
+        FarmResourceCard cardLadang = ((FarmResourceCard)((CardUI)dz.getChildren().get(0)).getCardData());
+        ItemCard potion = (ItemCard)this.getCard();
+        dz.onItemDrop();
+
+        if(potion instanceof DestroyCard){
+            ((DestroyCard) potion).setDestroyedCardContainer(dz);
+        }
+
+        if(potion instanceof InstantHarvestCard){
+            ((InstantHarvestCard) potion).setHarvestedCardContainer(dz);
+        }
+
+        potion.applyEffect(cardLadang);
     }
 }

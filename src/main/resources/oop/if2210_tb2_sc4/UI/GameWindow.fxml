@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane scaleShape="false" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
+<AnchorPane scaleShape="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.if2210_tb2_sc4.UI.GameWindowController">
    <StackPane fx:id="RootStack" maxHeight="720" maxWidth="1024.0" minHeight="720.0" minWidth="1024" prefHeight="720.0" prefWidth="1024.0">
       <AnchorPane prefHeight="626.0" prefWidth="983.0">
          <children>
@@ -190,6 +190,28 @@
             <Pane layoutX="-18.0" layoutY="93.0" />
          </Pane>
          <AnchorPane fx:id="bearroot" prefHeight="200.0" prefWidth="200.0" />
+      </AnchorPane>
+      <AnchorPane mouseTransparent="true" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <StackPane prefHeight="720.0" prefWidth="1024.0">
+               <children>
+                  <AnchorPane mouseTransparent="true" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="SBLabel" alignment="CENTER" layoutX="115.0" layoutY="49.0" prefHeight="311.0" prefWidth="794.0" styleClass="label-stroke" stylesheets="@GameWindow.css" text="Serangan Beruang!" textAlignment="CENTER" textFill="#ff0d0d" wrapText="true">
+                           <font>
+                              <Font name="Impact" size="96.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane mouseTransparent="true" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="Clock" layoutX="412.0" layoutY="160.0" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </children>
       </AnchorPane>
    </StackPane>
 
