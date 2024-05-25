@@ -30,7 +30,7 @@ IF2210 Pemrograman Berorientasi Objek</h3>
 </div>
 
 
-</div>
+
 
 
 
@@ -129,3 +129,14 @@ Created by :
 
 
 
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/ValentinoTriadi/Tubes2_OOP.svg?style=for-the-badge
+[contributors-url]: https://github.com/ValentinoTriadi/Tubes2_OOP/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ValentinoTriadi/Tubes2_OOP.svg?style=for-the-badge
+[forks-url]: https://github.com/ValentinoTriadi/Tubes2_OOP/forks
+[stars-shield]: https://img.shields.io/github/stars/ValentinoTriadi/Tubes2_OOP.svg?style=for-the-badge
+[stars-url]: https://github.com/ValentinoTriadi/Tubes2_OOP/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ValentinoTriadi/Tubes2_OOP.svg?style=for-the-badge
+[issues-url]: https://github.com/ValentinoTriadi/Tubes2_OOP/issues
