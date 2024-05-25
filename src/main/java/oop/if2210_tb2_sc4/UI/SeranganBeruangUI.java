@@ -6,12 +6,17 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
+import oop.if2210_tb2_sc4.card.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static oop.if2210_tb2_sc4.GameData.getCard;
 
 public class SeranganBeruangUI {
 
@@ -19,6 +24,9 @@ public class SeranganBeruangUI {
     public ImageView BearImage;
     public ImageView ShockWaveImage;
     public Pane root;
+    private AnchorPane RootPane;
+
+    private LadangUI ladang;
 
     private int currentImageIndex = 0;
     private int currentShockWaveIndex = 0;
@@ -30,10 +38,11 @@ public class SeranganBeruangUI {
     private final Image[] imageShockWave = new Image[8];
 
     private DropZone[] dropZone;
-    private double x, y;
     private boolean startAnimation = false;
+    private final List<Animation> animations = new ArrayList<>();
+    private Animation currentAnimation;
 
-    private final float speed = 300.0f;
+    private final float range = 10.0f;
     private final Object lock = new Object();
 
     public void setStartAnimation(boolean value) {
@@ -51,6 +60,10 @@ public class SeranganBeruangUI {
 
     public SeranganBeruangUI() {
         super();
+    }
+
+    public void setLadang(LadangUI ladang) {
+        this.ladang = ladang;
     }
 
     public void setDropZone(DropZone[] dropZone) {
@@ -87,23 +100,33 @@ public class SeranganBeruangUI {
         BearImage.setImage(imageBearLeft[0]);
     }
 
-    private Point2D getDropZoneCenterRelativeToRoot(DropZone dz) {
-        Bounds dropzoneBounds = dz.localToScene(dz.getBoundsInLocal());
-        return new Point2D(dropzoneBounds.getMinX() + dropzoneBounds.getWidth() / 2, dropzoneBounds.getMinY() + dropzoneBounds.getHeight() / 2);
+    public Point2D getDropZoneCenterRelativeToLocal(DropZone dz) {
+        if (RootPane == null) {
+            RootPane = (AnchorPane) root.getParent();
+            assert RootPane != null;
+        }
+
+        double x = dz.getWidth() / 2;
+        double y = dz.getHeight() / 2;
+
+        Point2D scene = dz.localToScene(x,y);
+        Point2D local = RootPane.sceneToLocal(scene);
+
+        return new Point2D(local.getX() - dz.getPrefWidth(), local.getY() - dz.getPrefHeight());
     }
 
-    private Point2D getCurrentPositionRelativeToRoot() {
-        Bounds rootBounds = root.localToScene(root.getBoundsInLocal());
-        return new Point2D(rootBounds.getMinX(), rootBounds.getMinY());
+    private Point2D getCurrentPosition() {
+        return new Point2D(root.getLayoutX(), root.getLayoutY());
     }
 
     private Point2D dzIndexToCoordinate(Point2D p) {
+        // Find the index of the dropzone
         int i = 0;
-        for (int j = 0; j < p.getX(); j++) {
-            i += 5 - j;
-        }
-        DropZone dz = dropZone[i + (int) p.getX()];
-        return getDropZoneCenterRelativeToRoot(dz);
+        i += (int) p.getX() - 1;
+        i += (int) (p.getY() - 1) * 5;
+        DropZone dz = dropZone[i];
+
+        return getDropZoneCenterRelativeToLocal(dz);
     }
 
     private List<Point2D> dzIndexToCoordinate(List<Point2D> p) {
@@ -115,49 +138,64 @@ public class SeranganBeruangUI {
     }
 
     public void runAnimations(List<Point2D> p) {
-        BearImage.setX(dzIndexToCoordinate(p.get(0)).getX());
-        BearImage.setY(-100);
+
+        var dz = dzIndexToCoordinate(p);
+        double x = dz.get(0).getX();
+        root.setLayoutX(x);
+        root.setLayoutY(-100);
         BearImage.setImage(imageBearDown[0]);
 
-        Animation bearFall = animateBearFall(dzIndexToCoordinate(p.get(0)));
-        Animation bear = animateBear(dzIndexToCoordinate(p));
+        Animation bearFall = animateBearFall(dz.get(0));
+        Animation bear = animateBear(dz);
         Animation shockWave = animateShockWave();
-
         setStartAnimation(true);
 
-        List<Animation> animations = new ArrayList<>();
+
         animations.add(bearFall);
         animations.add(shockWave);
         animations.add(bear);
+        animations.add(animateLeave());
 
         while (!animations.isEmpty()) {
+            ladang.disableField();
             if (isStartAnimation()){
-                animations.get(0).play();
-                animations.remove(0);
+                currentAnimation = animations.remove(0);
+                currentAnimation.play();
                 startAnimation = false;
             }
         }
+        ladang.enableField();
+        ladang.resetLadangColor();
+        AudioManager.getInstance().stopSFX();
     }
 
     private Animation animateBearFall(Point2D p) {
         Timeline timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE); // Run only once
+        timeline.setCycleCount(Timeline.INDEFINITE);
 
         final long[] previousTime = {System.nanoTime()};
+        final boolean[] starter = {true};
         BearImage.setImage(imageBearDown[0]);
+        float speed = 300.0f;
 
-        KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 60), event -> {
+        KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 18), event -> {
+            if (starter[0]) {
+                previousTime[0] = System.nanoTime();
+                starter[0] = false;
+            }
+
+
             long currentTime = System.nanoTime();
             double deltaTime = (currentTime - previousTime[0]) / 1_000_000_000.0;
             previousTime[0] = currentTime;
 
-            Point2D currentPosition = getCurrentPositionRelativeToRoot();
+            Point2D currentPosition = getCurrentPosition();
 
             if (currentPosition.getY() < p.getY()) {
-                System.out.println("Current position: " + currentPosition + " Target position: " + p);
-                root.setLayoutY(currentPosition.getY() + speed * deltaTime);
+                root.setLayoutY(root.getLayoutY() + speed * deltaTime);
+                changeImageDown(BearImage);
             } else {
-                root.setLayoutY(p.getY()); // Ensure the bear reaches the exact target position
+                root.setLayoutY(p.getY());
                 BearImage.setImage(imageBearRight[0]);
                 timeline.stop();
                 setStartAnimation(true);
@@ -169,10 +207,10 @@ public class SeranganBeruangUI {
     }
 
     private Animation animateShockWave() {
-        BearImage.setImage(imageShockWave[0]);
+        ShockWaveImage.setImage(imageShockWave[0]);
 
         Timeline timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE); // Run only once
+        timeline.setCycleCount(Timeline.INDEFINITE);
 
         final long[] previousTime = {System.nanoTime()};
 
@@ -180,10 +218,7 @@ public class SeranganBeruangUI {
             long currentTime = System.nanoTime();
             previousTime[0] = currentTime;
             changeImageShockWave(ShockWaveImage);
-            System.out.println("Current shockwave index: " + currentShockWaveIndex);
-
             if (currentShockWaveIndex == 0) {
-                // Use a PauseTransition to signal the end of this animation
                 timeline.stop();
                 setStartAnimation(true);
             }
@@ -193,53 +228,144 @@ public class SeranganBeruangUI {
         return timeline;
     }
 
+
     public Animation animateBear(List<Point2D> path) {
         Timeline timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE); // Run only once
+        timeline.setCycleCount(Timeline.INDEFINITE);
 
         final long[] previousTime = {System.nanoTime()};
+        final boolean[] starter = {true};
+        KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 12), event -> {
+            if (starter[0]) {
+                previousTime[0] = System.nanoTime();
+                starter[0] = false;
+            }
 
-        KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 60), event -> {
             long currentTime = System.nanoTime();
             double deltaTime = (currentTime - previousTime[0]) / 1_000_000_000.0;
             previousTime[0] = currentTime;
 
             if (path.isEmpty()) {
-                // Use a PauseTransition to signal the end of this animation
                 timeline.stop();
                 setStartAnimation(true);
                 return;
             }
 
             Point2D point = path.get(0);
-            Point2D currentPosition = getCurrentPositionRelativeToRoot();
+            Point2D currentPosition = getCurrentPosition();
 
-            System.out.println("Bear");
-            System.out.println("Current position: " + currentPosition + " Target position: " + point);
-
-            if (currentPosition.equals(point)) {
+            if (isInRange(currentPosition, point)) {
+                updatePosition(point);
+                clearDropZoneChildren(point);
                 path.remove(0);
+
                 if (path.isEmpty()) {
-                    // Use a PauseTransition to signal the end of this animation
                     timeline.stop();
                     setStartAnimation(true);
                     return;
                 }
-                point = path.get(0);
             }
 
+            updateImageAndPosition(currentPosition, point, deltaTime);
+        });
+
+        timeline.getKeyFrames().add(keyFrame);
+        return timeline;
+    }
+
+    private boolean isInRange(Point2D currentPosition, Point2D point) {
+        return Math.abs(currentPosition.getX() - point.getX()) <= range && Math.abs(currentPosition.getY() - point.getY()) <= range;
+    }
+
+    private void updatePosition(Point2D point) {
+        root.setLayoutX(point.getX());
+        root.setLayoutY(point.getY());
+    }
+
+    private void clearDropZoneChildren(Point2D point) {
+        for (DropZone dz : dropZone) {
+            if (!dz.isTarget() || dz.getChildren().isEmpty()) continue;
+            if (isPointInBounds(point, dz)) {
+                processCardEffects(dz);
+            }
+        }
+    }
+
+    private boolean isPointInBounds(Point2D point, DropZone dz) {
+        Bounds bounds = dz.localToScene(dz.getBoundsInLocal());
+        return bounds.contains(point.getX() + dz.getPrefWidth(), point.getY() + dz.getPrefHeight());
+    }
+
+    private void processCardEffects(DropZone dz) {
+        CardUI card = (CardUI) dz.getChildren().get(0);
+        FarmResourceCard cardData = (FarmResourceCard) card.getCardData();
+
+        if (cardData.isTrapActivated()) {
+            BearuangTrap();
+            return;
+        }
+
+        if (cardData.isProtected()) {
+            return;
+        }
+
+        dz.getChildren().clear();
+    }
+
+    private void BearuangTrap(){
+        currentAnimation.stop();
+        animations.forEach(Animation::stop);
+        animations.clear();
+        root.setVisible(false);
+        // Add the bear to the active deck
+        GameWindowController.addCard(new AnimalCard("BERUANG", 0, 25, AnimalType.OMNIVORE, (ProductCard) getCard("DAGING_BERUANG")));
+    }
+
+    private void updateImageAndPosition(Point2D currentPosition, Point2D point, double deltaTime) {
+        float speed = 150.0f;
+        if (Math.abs(currentPosition.getX() - point.getX()) >= range) {
             if (currentPosition.getX() < point.getX()) {
                 changeImageRight(BearImage);
-                root.setLayoutX(currentPosition.getX() + speed * deltaTime);
-            } else if (currentPosition.getX() > point.getX()) {
+                root.setLayoutX(root.getLayoutX() + speed * deltaTime);
+            } else {
                 changeImageLeft(BearImage);
-                root.setLayoutX(currentPosition.getX() - speed * deltaTime);
-            } else if (currentPosition.getY() < point.getY()) {
+                root.setLayoutX(root.getLayoutX() - speed * deltaTime);
+            }
+        } else if (Math.abs(currentPosition.getY() - point.getY()) >= range) {
+            if (currentPosition.getY() < point.getY()) {
                 changeImageDown(BearImage);
-                root.setLayoutY(currentPosition.getY() + speed * deltaTime);
+                root.setLayoutY(root.getLayoutY() + speed * deltaTime);
             } else {
                 changeImageUp(BearImage);
-                root.setLayoutY(currentPosition.getY() - speed * deltaTime);
+                root.setLayoutY(root.getLayoutY() - speed * deltaTime);
+            }
+        }
+    }
+
+    public Animation animateLeave(){
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+
+        final long[] previousTime = {System.nanoTime()};
+        final boolean[] starter = {true};
+        final float speed = 500.0f;
+        KeyFrame keyFrame = new KeyFrame(Duration.millis((double) 1000 / 6), event -> {
+            if (starter[0]) {
+                previousTime[0] = System.nanoTime();
+                starter[0] = false;
+            }
+            long currentTime = System.nanoTime();
+            double deltaTime = (currentTime - previousTime[0]) / 1_000_000_000.0;
+            previousTime[0] = currentTime;
+
+            Point2D currentPosition = getCurrentPosition();
+
+            if (currentPosition.getY() < -500) {
+                timeline.stop();
+                setStartAnimation(true);
+            } else {
+                root.setLayoutY(root.getLayoutY() - speed * deltaTime);
+                changeImageUp(BearImage);
             }
         });
 
@@ -272,4 +398,5 @@ public class SeranganBeruangUI {
         image.setImage(imageShockWave[currentShockWaveIndex]);
         currentShockWaveIndex = (currentShockWaveIndex + 1) % imageShockWave.length;
     }
+
 }

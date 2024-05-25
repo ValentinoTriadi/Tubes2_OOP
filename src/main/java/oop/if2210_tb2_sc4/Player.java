@@ -10,8 +10,8 @@ public class Player {
 
     public Player(){
         jumlah_gulden = 0;
-        deck = new Deck();
-        ladang = new Ladang();
+        deck = new oop.if2210_tb2_sc4.Deck();
+        ladang = new oop.if2210_tb2_sc4.Ladang();
     }
 
     public Integer getJumlahGulden(){
@@ -20,7 +20,6 @@ public class Player {
 
     public void addGulden(Integer gulden){
         jumlah_gulden += gulden;
-        System.out.println("Jumlah Gulden: "+ gulden);
     }
 
     public void reduceGulden(int gulden, String Cardname) throws  NotEnoughMoneyException{

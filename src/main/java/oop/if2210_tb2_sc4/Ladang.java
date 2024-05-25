@@ -1,6 +1,7 @@
 package oop.if2210_tb2_sc4;
 
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
+import oop.if2210_tb2_sc4.card.PlantCard;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -105,5 +106,15 @@ public class Ladang {
         int row = location.charAt(0) - 'A';
         int column = Integer.parseInt(location.substring(1)) - 1;
         ladang[row][column] = null;
+    }
+
+    public void addAgeAllPlant(){
+        for (int i = 0; i < LADANG_ROW; i++) {
+            for (int j = 0; j < LADANG_COLUMN; j++) {
+                if (ladang[i][j] != null && ladang[i][j] instanceof PlantCard plant) {
+                    plant.setAge(plant.getAge() + 1);
+                }
+            }
+        }
     }
 }

@@ -1,12 +1,12 @@
 package oop.if2210_tb2_sc4.card;
 
-public class TrapCard extends ItemCard{
+public class TrapCard extends GoodPotion {
     public TrapCard(String name) {
         super(name);
     }
 
     public TrapCard(TrapCard trapCard) {
-        super(trapCard.name);
+        super(trapCard.getName());
     }
 
     @Override

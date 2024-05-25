@@ -1,19 +1,23 @@
 package oop.if2210_tb2_sc4.UI;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class CardUI extends DraggablePane implements UICard {
 
     private Card cardData;
+
 
     public CardUI(Pane parent, DropZone[] dropZone) {
         super(parent, dropZone);
@@ -63,16 +67,80 @@ public class CardUI extends DraggablePane implements UICard {
         setImage();
     }
 
+
+    private double firstClickX = 0;
+    private double firstClickY = 0;
+
     @Override
     public void OnClick(@NotNull MouseEvent e) {
-        super.OnClick(e);
+        if (this.getParent() instanceof DropZone && !((DropZone) this.getParent()).isMusuhDisabilitas() || this.getParent() instanceof CardHolder) {
+            super.OnClick(e);
+        }
+
+        double currentX = e.getSceneX();
+        double currentY = e.getSceneY();
+
+        if (isDoubleClickAtSamePosition(currentX, currentY)) {
+            if (!this.tempParent.isDisabled()) {
+                try {
+                    loadHarvestedPanel();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            updateClickPosition(currentX, currentY);
+        }
+    }
+
+    private boolean isDoubleClickAtSamePosition(double currentX, double currentY) {
+        double POSITION_THRESHOLD = 5;
+        return (Math.abs(currentX - firstClickX) < POSITION_THRESHOLD) && (Math.abs(currentY - firstClickY) < POSITION_THRESHOLD);
+    }
+
+    private void updateClickPosition(double currentX, double currentY) {
+        firstClickX = currentX;
+        firstClickY = currentY;
+    }
+
+    private void loadHarvestedPanel() throws IOException {
+        FXMLLoader loadCardPicker = new FXMLLoader(Objects.requireNonNull(getClass().getResource("HarvestedPanel.fxml")));
+        AnchorPane HarvestedPane = loadCardPicker.load();
+        HarvestedPanelController controller = loadCardPicker.getController();
+        controller.setInformation(cardData);
+        controller.setActiveItem(cardData);
+        controller.setImage(cardData);
+        controller.setRoot(HarvestedPane);
+        controller.setCard(cardData);
+        if (this.tempParent instanceof AnchorPane) {
+            controller.setHasHarvestAccess(false);
+            controller.setDropZones((DropZone) this.getParent());
+        } else if (this.tempParent instanceof CardHolder) {
+            controller.setHasHarvestAccess(true);
+            controller.setDropZones((DropZone) this.getParent());
+        } else {
+            System.out.println("Error");
+        }
+        controller.handlePanenButton(cardData);
+        GameWindowController.rootStatic.getChildren().add(HarvestedPane);
+    }
+
+    @Override
+    public void OnDrag(@NotNull MouseEvent e) {
+        if (this.getParent() instanceof DropZone && ((DropZone) this.getParent()).isMusuhDisabilitas()) {
+            return;
+        }
+        super.OnDrag(e);
     }
 
     @Override
     public void OnRelease(MouseEvent e){
+        if (this.getParent() instanceof DropZone && ((DropZone) this.getParent()).isMusuhDisabilitas()) {
+            return;
+        }
+
         boolean droppedOnDropZone = false;
         for (DropZone dz : dropZone) {
-
             // Check if the mouse position is within the dropzone
             if (isMouseInDropZone(e, dz) && dz.getChildren().isEmpty() && !dz.isDisabled()) {
 
@@ -90,10 +158,10 @@ public class CardUI extends DraggablePane implements UICard {
         // If not dropped on a dropzone, return to default position
         if (!droppedOnDropZone) {
             resetPosition();
+        }else{
+            // Play sfx sound
+            playCardSound();
         }
-
-        // Play sfx sound
-        playCardSound();
     }
 
     private void playCardSound() {

@@ -3,6 +3,8 @@ package oop.if2210_tb2_sc4.UI;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import oop.if2210_tb2_sc4.Exception.GameException;
+import oop.if2210_tb2_sc4.GameState;
+import oop.if2210_tb2_sc4.Plugins;
 import oop.if2210_tb2_sc4.save_load.Save;
 import oop.if2210_tb2_sc4.save_load.SaveTXT;
 
@@ -25,9 +27,9 @@ public class SaveUI {
 
         controller.clickButton.setOnMouseClicked(event -> {
             OnSaveLoad(event);
-            System.out.println("Button clicked!");
         });
 
+        controller.clickButton.setText("Save");
         controller.ActivateMascot(this);
 
     }
@@ -38,18 +40,10 @@ public class SaveUI {
 
         switch (choice.toLowerCase()) {
             case "txt":
-                saver = new SaveTXT(path, GameWindowController.getPlayer1().getPlayerData(), GameWindowController.getPlayer2().getPlayerData());
-                break;
-            case "yaml":
-                // Handle YAML choice
-                System.out.println("YAML chosen");
-                break;
-            case "json":
-                // Handle JSON choice
-                System.out.println("JSON chosen");
+                saver = new SaveTXT(path);
                 break;
             default:
-                saver = null;
+                saver = Plugins.getInstance().getPlugin(choice);
                 break;
         }
     }
@@ -67,8 +61,10 @@ public class SaveUI {
                 return;
             }
 
-            GameWindowController gamewindow;
-            saver.save();
+            GameState.getInstance().setPlayer(1, GameWindowController.getPlayer1().getPlayerData());
+            GameState.getInstance().setPlayer(2, GameWindowController.getPlayer2().getPlayerData());
+
+            saver.save(controller.getFolderName());
         }catch (GameException e){
             e.ShowErrorPanel();
         }

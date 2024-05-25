@@ -56,38 +56,6 @@ public class AnimalCard extends FarmResourceCard {
     public boolean isHarvestable() {
         return weight >= harvestWeight || this.isInstantHarvest();
     }
-
-    public boolean isFoodSuitable(ProductCard food) {
-        String[] herbivoreFoodStrings = {"Jagung", "Labu", "Stroberi"};
-        String[] carnivoreFoodStrings = {"Daging Beruang", "Daging Domba", "Daging Kuda", "Sirip Hiu", "Telur", "Susu"};
-
-        if (type == AnimalType.HERBIVORE) {
-            for (String herbivoreFoodString : herbivoreFoodStrings) {
-                if (food.getName().equals(herbivoreFoodString)) {
-                    return true;
-                }
-            }
-        } else if (type == AnimalType.CARNIVORE) {
-            for (String carnivoreFoodString : carnivoreFoodStrings) {
-                if (food.getName().equals(carnivoreFoodString)) {
-                    return true;
-                }
-            }
-        } else {
-            return true;
-        }
-
-        return false;
-    }
-
-    public boolean feed(ProductCard food) {
-        if (isFoodSuitable(food)) {
-            weight += food.getWeightAddition();
-            return true;
-        }
-
-        return false;
-    }
 }
 
 

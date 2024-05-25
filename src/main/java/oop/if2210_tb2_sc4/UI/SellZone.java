@@ -2,6 +2,7 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import oop.if2210_tb2_sc4.MediaPlayer.AudioManager;
 import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.ProductCard;
 import oop.if2210_tb2_sc4.GameState;
@@ -28,14 +29,11 @@ public class SellZone extends DropZone{
         this.setDisable(false);
     }
 
-    public void onSell(ProductCard card){
-        Pane droppedItems = (Pane) this.getChildren().get(0);
+    public void onSell(ProductCard card) {
+        AudioManager.getInstance().playSFX("Coin.wav");
         this.getChildren().remove(0);
-        // Make add money mechanism here
-
         Player currPlayer = GameWindowController.getCurrentPlayerPane().getPlayerData();
         currPlayer.addGulden(card.getPrice());
-
         GameState.getInstance().getShop().sellCardToShop(card);
     }
 
@@ -47,7 +45,6 @@ public class SellZone extends DropZone{
             if (card instanceof ItemUI) {
                 Card checkedCard = ((ItemUI) card).getCard();
                 if(checkedCard instanceof ProductCard productCard){
-                    System.out.println("Intersected with sellzone");
                     card.setLayoutX(0);
                     card.setLayoutY(0);
                     card.setParent(dz);

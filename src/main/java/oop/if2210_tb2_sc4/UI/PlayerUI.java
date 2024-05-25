@@ -60,7 +60,6 @@ public class PlayerUI extends StackPane {
         activeDeckHBox.setAlignment(Pos.CENTER);
         activeDeckHBox.initializeActiveDeck();
         playerUI.getChildren().add(activeDeckHBox);
-
     }
 
     public LadangUI getLadang() {
@@ -76,31 +75,36 @@ public class PlayerUI extends StackPane {
     }
 
     public void addCard(Card cardData) throws FullActiveHandsException {
-
         DropZone[] dropZones = DropZoneAlocation(cardData);
         CardUI card = new CardUI(root, dropZones);
         card.setCard(cardData);
         playerData.getDeck().addActiveCard(cardData);
-        System.out.println("Card" + cardData.getName() +" spawned");
-
         activeDeckHBox.addCard(card);
     }
 
     public void addItem(Card cardData) throws FullActiveHandsException {
-
         DropZone[] dropZones = DropZoneAlocation(cardData);
-        ItemUI card = new ItemUI(root, dropZones);
-        card.setCard(cardData);
-        playerData.getDeck().addActiveCard(cardData);
-        activeDeckHBox.addCard(card);
+
+        if(cardData instanceof ItemCard){
+            PotionUI card = new PotionUI(cardData,root, dropZones);
+            card.setCard(cardData);
+            playerData.getDeck().addActiveCard(cardData);
+            activeDeckHBox.addCard(card);
+        } else if(cardData instanceof ProductCard){
+            ProductUI card = new ProductUI(cardData,root,dropZones);
+            card.setCard(cardData);
+            playerData.getDeck().addActiveCard(cardData);
+            activeDeckHBox.addCard(card);
+        }
+
     }
 
     public DropZone[] DropZoneAlocation(Card cardData){
         DropZone[] dropZones;
-        if(cardData instanceof FarmResourceCard){ // Add Animal and Plants
+        if(cardData instanceof FarmResourceCard){
             dropZones = myLadang.getLadang();
         }else{ // Add Product and Power Card
-            if(cardData instanceof AccelerateCard || cardData instanceof InstantHarvestCard || cardData instanceof ProtectCard || cardData instanceof TrapCard){
+            if(cardData instanceof GoodPotion || cardData instanceof ProductCard){
                 dropZones = GameWindowController.getCurrentPlayerPane().getLadang().getLadang();
             }else{
                 dropZones = GameWindowController.getNextPlayerPane().getLadang().getLadang();

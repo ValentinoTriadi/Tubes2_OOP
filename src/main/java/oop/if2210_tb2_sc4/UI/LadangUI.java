@@ -5,16 +5,21 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import oop.if2210_tb2_sc4.card.Card;
 import oop.if2210_tb2_sc4.card.FarmResourceCard;
 import oop.if2210_tb2_sc4.Ladang;
 import javafx.scene.Node;
 import oop.if2210_tb2_sc4.util.ImageUtil;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LadangUI extends GridPane {
 
     private final DropZone[] ladang = new DropZone[20];
     private Ladang ladangData;
     int columns = 5;
+
 
     public LadangUI(Ladang ladangData) {
 
@@ -65,6 +70,16 @@ public class LadangUI extends GridPane {
         this.ladangData = ladangData;
     }
 
+    public void setIsDisabled(Boolean isDisabled){
+        for (DropZone dz : ladang) {
+            dz.setMusuhDisabilitas(isDisabled);
+        }
+    }
+
+    public Boolean getIsDisabled(){
+        return ladang[0].isMusuhDisabilitas();
+    }
+
     public DropZone[] getLadang() {
         return ladang;
     }
@@ -107,12 +122,15 @@ public class LadangUI extends GridPane {
 
             dz.setEffect(new javafx.scene.effect.Blend(
                     javafx.scene.effect.BlendMode.MULTIPLY, colorAdjust, dropShadow));
+
+            dz.setTarget(true);
         }
     }
 
     public void resetLadangColor() {
         for(DropZone dz : ladang) {
             dz.setEffect(null);
+            dz.setTarget(false);
         }
     }
 

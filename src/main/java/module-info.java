@@ -16,6 +16,9 @@ module oop.if2210_tb2_sc4 {
     exports oop.if2210_tb2_sc4.UI;
     opens oop.if2210_tb2_sc4.UI to javafx.fxml;
 
+    exports oop.if2210_tb2_sc4.Exception;
+
+
     exports oop.if2210_tb2_sc4.MediaPlayer;
     opens oop.if2210_tb2_sc4.MediaPlayer to javafx.fxml;
 
@@ -33,5 +36,7 @@ module oop.if2210_tb2_sc4 {
     opens oop.if2210_tb2_sc4.save_load to javafx.fxml;
     exports oop.if2210_tb2_sc4.util;
     opens oop.if2210_tb2_sc4.util to javafx.fxml;
+
+    uses oop.if2210_tb2_sc4.save_load.SaveLoad;
 
 }

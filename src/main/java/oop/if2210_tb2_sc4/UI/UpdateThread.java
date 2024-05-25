@@ -2,19 +2,21 @@ package oop.if2210_tb2_sc4.UI;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;
+import oop.if2210_tb2_sc4.Deck;
+import oop.if2210_tb2_sc4.GameData;
 import oop.if2210_tb2_sc4.GameState;
 import oop.if2210_tb2_sc4.Player;
 
 public class UpdateThread implements Runnable {
-    private boolean running;
+    private static volatile boolean running = true;
+    private final Object monitor = new Object();
     private Thread gameThread;
     private final Label player1GoldLabel;
     private final Label player2GoldLabel;
     private final Label availableDeckLabel;
     private final Label currentTurnLabel;
 
-    private Player player1;
-    private Player player2;
+    private SeranganBeruang beruang;
 
     // Constructor to pass UI components
     public UpdateThread(Label player1GoldLabel, Label player2GoldLabel, Label availableDeckLabel, Label currentTurnLabel) {
@@ -22,6 +24,10 @@ public class UpdateThread implements Runnable {
         this.player2GoldLabel = player2GoldLabel;
         this.availableDeckLabel = availableDeckLabel;
         this.currentTurnLabel = currentTurnLabel;
+    }
+
+    public void setBeruangPhase(SeranganBeruang beruangPhase){
+        beruang = beruangPhase;
     }
 
     // Method to start the thread
@@ -34,22 +40,25 @@ public class UpdateThread implements Runnable {
     }
 
     // Method to pause the thread
-    public void pauseThread(long milisecond) throws InterruptedException {
-        Thread.sleep(milisecond);
+    public void pauseThread() throws InterruptedException {
+        synchronized (monitor) {
+            running = false;
+        }
     }
 
     // Method to resume the thread
     public void resumeThread() {
-        running = true;
+        synchronized (monitor) {
+            running = true;
+            monitor.notify(); // Notify the waiting thread
+        }
     }
 
     // Method to stop the thread
     public void stopThread() {
         running = false;
-        try {
-            gameThread.join(); // Wait for the thread to terminate
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        synchronized (monitor) {
+            monitor.notify(); // Ensure the waiting thread can exit
         }
     }
 
@@ -62,7 +71,21 @@ public class UpdateThread implements Runnable {
         long lastUpdated = System.nanoTime();
         long elapsedTime = 0;
 
-        while (!Thread.currentThread().isInterrupted() && running) {
+        while (!Thread.currentThread().isInterrupted()) {
+            synchronized (monitor) {
+                while (!running) {
+                    try {
+                        monitor.wait(); // Wait until notified
+                    } catch (InterruptedException e) {
+                        // Restore the interrupted status
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+
+            if(!running){
+                break;
+            }
             long currentTimeNs = System.nanoTime();
             long passedTimeNs = currentTimeNs - lastUpdated;
             lastUpdated = currentTimeNs;
@@ -128,8 +151,8 @@ public class UpdateThread implements Runnable {
     }
 
     private void updateAvailableDeck(Player currentPlayer) {
-        int maxDeck = currentPlayer.getDeck().getCurrentDeck().size();
-        int usedCard = maxDeck - currentPlayer.getJumlahDeck();
+        int maxDeck = Deck.DECK_SIZE;
+        int usedCard = currentPlayer.getJumlahDeck();
         String availableDeckText = usedCard + "/" + maxDeck;
 
         Platform.runLater(() -> {

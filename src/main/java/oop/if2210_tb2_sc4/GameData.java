@@ -7,10 +7,15 @@ import oop.if2210_tb2_sc4.card.*;
 
 public class GameData {
     public static List<Card> allCards = new ArrayList<>();
+    public static List<Card> deckCards = new ArrayList<>();
 
     public static void initCards() {
         // Create all cards
+        setAllCards();
+        addDeckCard();
+    }
 
+    private static void setAllCards(){
         // PRODUCT
         allCards.add(new ProductCard("SIRIP_HIU", 500, 12));
         allCards.add(new ProductCard("SUSU", 100, 4));
@@ -24,12 +29,12 @@ public class GameData {
 
 
         // ANIMAL
-        allCards.add(new AnimalCard("HIU_DARAT", 0, 20, AnimalType.CARNIVORE, (ProductCard) getCard("SIRIP_HIU")));
-        allCards.add(new AnimalCard("SAPI", 0, 10, AnimalType.HERBIVORE, (ProductCard) getCard("SUSU")));
-        allCards.add(new AnimalCard("DOMBA", 0, 12, AnimalType.HERBIVORE, (ProductCard) getCard("DAGING_DOMBA")));
-        allCards.add(new AnimalCard("KUDA", 0, 14, AnimalType.HERBIVORE, (ProductCard) getCard("DAGING_KUDA")));
-        allCards.add(new AnimalCard("AYAM", 0, 5, AnimalType.OMNIVORE, (ProductCard) getCard("TELUR")));
-        allCards.add(new AnimalCard("BERUANG", 0, 25, AnimalType.OMNIVORE, (ProductCard) getCard("DAGING_BERUANG")));
+        allCards.add(new CarnivoreAnimal("HIU_DARAT", 0, 20, (ProductCard) getCard("SIRIP_HIU")));
+        allCards.add(new HerbivoreAnimal("SAPI", 0, 10, (ProductCard) getCard("SUSU")));
+        allCards.add(new HerbivoreAnimal("DOMBA", 0, 12, (ProductCard) getCard("DAGING_DOMBA")));
+        allCards.add(new HerbivoreAnimal("KUDA", 0, 14, (ProductCard) getCard("DAGING_KUDA")));
+        allCards.add(new OmnivoreAnimal("AYAM", 0, 5,  (ProductCard) getCard("TELUR")));
+        allCards.add(new OmnivoreAnimal("BERUANG", 0, 25,  (ProductCard) getCard("DAGING_BERUANG")));
 
         // PLANT
         allCards.add(new PlantCard("BIJI_JAGUNG", 0, 3, (ProductCard) getCard("JAGUNG")));
@@ -46,12 +51,44 @@ public class GameData {
         allCards.add(new DestroyCard("DESTROY"));
     }
 
+    private static void addDeckCard(){
+
+        // ANIMAL
+        deckCards.add(new CarnivoreAnimal("HIU_DARAT", 0, 20, (ProductCard) getCard("SIRIP_HIU")));
+        deckCards.add(new HerbivoreAnimal("SAPI", 0, 10, (ProductCard) getCard("SUSU")));
+        deckCards.add(new HerbivoreAnimal("DOMBA", 0, 12, (ProductCard) getCard("DAGING_DOMBA")));
+        deckCards.add(new HerbivoreAnimal("KUDA", 0, 14, (ProductCard) getCard("DAGING_KUDA")));
+        deckCards.add(new OmnivoreAnimal("AYAM", 0, 5,  (ProductCard) getCard("TELUR")));
+
+        // PLANT
+        deckCards.add(new PlantCard("BIJI_JAGUNG", 0, 3, (ProductCard) getCard("JAGUNG")));
+        deckCards.add(new PlantCard("BIJI_LABU", 0, 5, (ProductCard) getCard("LABU")));
+        deckCards.add(new PlantCard("BIJI_STROBERI", 0, 4, (ProductCard) getCard("STROBERI")));
+
+        // PRODUCT
+        deckCards.add(new ProductCard("SUSU", 100, 4));
+        deckCards.add(new ProductCard("DAGING_DOMBA", 100, 6));
+        deckCards.add(new ProductCard("TELUR", 50, 2));
+
+        // ITEM
+        deckCards.add(new DelayCard("DELAY"));
+        deckCards.add(new AccelerateCard("ACCELERATE"));
+        deckCards.add(new ProtectCard("PROTECTION"));
+        deckCards.add(new TrapCard("TRAP"));
+        deckCards.add(new InstantHarvestCard("INSTANT HARVEST"));
+        deckCards.add(new DestroyCard("DESTROY"));
+    }
+
     public static void ResetData(){
         allCards.clear();
     }
 
     public static List<Card> getAllCards() {
         return allCards;
+    }
+
+    public static List<Card> getDeckCards() {
+        return deckCards;
     }
 
     public static Card createCard(String name) {
@@ -72,15 +109,32 @@ public class GameData {
         return null;
     }
 
-    private static Card returnCard(Card card){
-        if (card instanceof AnimalCard){
-            return (AnimalCard) card;
-        } else if (card instanceof PlantCard){
-            return (PlantCard) card;
-        } else if (card instanceof ProductCard){
-            return (ProductCard) card;
+    public static Card returnCard(Card card) {
+        if (card instanceof CarnivoreAnimal carnivore) {
+            return new CarnivoreAnimal(carnivore.getName(), carnivore.getWeight(), carnivore.getHarvestWeight(), carnivore.getProductResult());
+        } else if (card instanceof HerbivoreAnimal herbivore) {
+            return new HerbivoreAnimal(herbivore.getName(), herbivore.getWeight(), herbivore.getHarvestWeight(), herbivore.getProductResult());
+        } else if (card instanceof OmnivoreAnimal omnivore) {
+            return new OmnivoreAnimal(omnivore.getName(), omnivore.getWeight(), omnivore.getHarvestWeight(), omnivore.getProductResult());
+        } else if (card instanceof PlantCard plant) {
+            return new PlantCard(plant.getName(), plant.getAge(), plant.getHarvestAge(), plant.getProductResult());
+        } else if (card instanceof ProductCard product) {
+            return new ProductCard(product.getName(), product.getPrice(), product.getWeightAddition());
+        } else if (card instanceof DelayCard) {
+            return new DelayCard(card.getName());
+        } else if (card instanceof AccelerateCard) {
+            return new AccelerateCard(card.getName());
+        } else if (card instanceof ProtectCard) {
+            return new ProtectCard(card.getName());
+        } else if (card instanceof TrapCard) {
+            return new TrapCard(card.getName());
+        } else if (card instanceof InstantHarvestCard) {
+            return new InstantHarvestCard(card.getName());
+        } else if (card instanceof DestroyCard) {
+            return new DestroyCard(card.getName());
         }
-        return card;
+        // Add more else if clauses for any other specific card types
+        return new Card(card.getName());
     }
 
     public GameData() {

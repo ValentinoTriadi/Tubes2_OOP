@@ -56,7 +56,7 @@ public class LoadTXT implements Load {
     }
 
     @Override
-    public Player loadPlayer(int no_player){
+    public void loadPlayer(int no_player){
         try {
             InputStream temp = (no_player == 1) ? player_1_file : player_2_file;
             Scanner scanner = new Scanner(temp);
@@ -117,12 +117,12 @@ public class LoadTXT implements Load {
             player.setLadang(tempLadang);
 
             scanner.close();
-            return player;
+
+            GameState.getInstance().setPlayer(no_player, player);
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         } 
-        return null;
     }
 
     public InputStream getGameStateFile() {

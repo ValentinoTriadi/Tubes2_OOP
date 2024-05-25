@@ -1,6 +1,5 @@
 package oop.if2210_tb2_sc4.UI;
 
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -11,7 +10,6 @@ import oop.if2210_tb2_sc4.Deck;
 import oop.if2210_tb2_sc4.util.ImageUtil;
 
 import java.util.List;
-import java.util.Stack;
 
 public class CardsChoiceUI {
 
@@ -20,6 +18,8 @@ public class CardsChoiceUI {
     private final HBox parent;
     private final AnchorPane outerPane;
     private Deck playerDeck;
+    private SelectionFinishListener selectionFinishListener;
+    private boolean isAlreadySelected = false;
 
     public CardsChoiceUI(HBox parent, AnchorPane outerPane, Deck currentDeck) {
         this.parent = parent;
@@ -27,16 +27,28 @@ public class CardsChoiceUI {
         this.outerPane = outerPane;
         ResetCards(currentDeck);
     }
+    public void setSelectionFinishListener(SelectionFinishListener listener) {
+        this.selectionFinishListener = listener;
+    }
 
-    public void  ResetCards(Deck currentDeck){
+    private void CloseCardPickMenu(){
+        if(selectionFinishListener != null) {
+            selectionFinishListener.selectionFinished();
+        }
+        outerPane.setVisible(false);
+    }
+
+
+    public void  ResetCards(Deck currentDeck) {
+        isAlreadySelected = false;
         playerDeck = currentDeck;
+
         if(currentDeck.isHandFull() || currentDeck.isDeckEmpty()){
-            GameWindowController.isShuffleDone = true;
+            CloseCardPickMenu();
             return;
         }
 
         outerPane.setVisible(true);
-        int generatedCount = Math.min(Deck.GENERATED_CARD_COUNT, playerDeck.getCardsInDeckCount());
 
         for (int i = 0; i < cardImages.length; i++) {
             cardImages[i] = new ImageView();
@@ -76,47 +88,41 @@ public class CardsChoiceUI {
 
     // Handle the click event for the card at the specified index
     private void handleCardClick(int index) {
-
+        isAlreadySelected = true;
         // Remove Image
         removeImage(index);
         // get the Card from random generated Card
         Card card = availableCard[index];
 
         // Check the card Instance
-        boolean isCardProduct = isCardProduct(card);
         StackPane pane  = (StackPane) parent.getChildren().get(index);
         pane.setDisable(true);
         pane.setCursor(Cursor.DEFAULT);
-        if(isCardProduct){
-            GameWindowController.addItem(card);
-        }else{
+        if((card instanceof FarmResourceCard)){
             GameWindowController.addCard(card);
+        }else{
+            GameWindowController.addItem(card);
         }
 
-        playerDeck.removeCardFromDeck();
+        playerDeck.removeCardFromDeck(card);
         if(playerDeck.isHandFull()){
-            outerPane.setVisible(false);
             for (int i = 0; i < cardImages.length; i++) {
                 removeImage(i);
             }
-            GameWindowController.isShuffleDone = true;
+            CloseCardPickMenu();
+            return;
         }
 
         if(isEmptyParent()){
-            outerPane.setVisible(false);
-            GameWindowController.isShuffleDone = true;
+            CloseCardPickMenu();
         }
     }
-
-    private boolean isCardProduct(Card card){
-        return !(card instanceof AnimalCard) && !(card instanceof PlantCard);
-    }
-
        public void randomGenerateCards() {
+        if (isAlreadySelected) {
+            return;
+        }
 
-
-        List<Card> generatedCard= playerDeck.generateCards();
-        System.out.println("Amount of deck: "+ playerDeck.getCardsInDeckCount());
+        List<Card> generatedCard = playerDeck.generateCards();
         // Check if the total number of images is sufficient
         for (int i = 0; i < generatedCard.size(); i++) {
            Card card = generatedCard.get(i);

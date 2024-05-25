@@ -54,8 +54,10 @@ class LoadTXTTest {
     void loadPlayer() {
         // load player
         load = new LoadTXT("default");
-        Player p1 = load.loadPlayer(1);
-        Player p2 = load.loadPlayer(2);
+        load.loadPlayer(1);
+        load.loadPlayer(2);
+        Player p1 = GameState.getInstance().getPlayer(1);
+        Player p2 = GameState.getInstance().getPlayer(2);
 
         // check loaded value
         load = new LoadTXT("default");

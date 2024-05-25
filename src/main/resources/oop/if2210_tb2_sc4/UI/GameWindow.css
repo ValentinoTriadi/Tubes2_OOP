@@ -2,3 +2,7 @@
     visibility: hidden;
 }
 
+.label-stroke {
+    -fx-effect: dropshadow( gaussian , black , 10 , 0 , 1 , 1 );
+    -fx-stroke: #000000;
+}
