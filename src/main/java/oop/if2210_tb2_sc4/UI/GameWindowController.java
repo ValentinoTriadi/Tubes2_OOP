@@ -123,8 +123,8 @@ public class GameWindowController {
         SBLabel.getParent().setMouseTransparent(true);
     }
 
-    private void initializeDeck(Player player){
-        Deck newDeck = player.getDeck().initializeDeck(new Deck());
+    private void initializeDeck(Player player, int no_player){
+        Deck newDeck = player.getDeck().initializeDeck(new Deck(), no_player);
         player.setDeck(newDeck);
     }
 
@@ -148,13 +148,19 @@ public class GameWindowController {
         Player player2Data = new Player();
 
         GameData.initCards();
-        //Initialize Decks
-        initializeDeck(player1Data);
-        initializeDeck(player2Data);
 
         // Initialize player current and next panes
         currentPlayerPane = new PlayerUI(player1Data);
         nextPlayerPane = new PlayerUI(player2Data);
+
+        //Initialize Decks
+        initializeDeck(player1Data, 1);
+        initializeDeck(player2Data, 2);
+
+        // Initialize player current and next panes
+        currentPlayerPane = new PlayerUI(player1Data);
+        nextPlayerPane = new PlayerUI(player2Data);
+
         ladang = new Tab();
         ladangMusuh = new Tab();
 
