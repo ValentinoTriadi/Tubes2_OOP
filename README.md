@@ -80,22 +80,41 @@ IF2210 Pemrograman Berorientasi Objek</h3>
 ## Setup
 
 ### Local Environment Setup
-1. Clone the repo
-   ```sh
-   git clone
-    ```
-2. Install JavaFX
-    ```sh
-    sudo apt install openjfx
-    ```
-3. Install Java
-    ```sh
-    sudo apt install default-jdk
-    ```
-4. Install Maven
-    ```sh
-    sudo apt install maven
-    ```
+
+- Linux
+  1. Clone the repo
+     ```sh
+     git clone https://github.com/ValentinoTriadi/Tubes2_OOP.git
+      ```
+  2. Install JavaFX
+      ```sh
+      sudo apt install openjfx
+      ```
+  3. Install Java
+      ```sh
+      sudo apt install default-jdk
+      ```
+  4. Install Maven
+      ```sh
+      sudo apt install maven
+      ```
+- Windows
+  1. Clone the repo
+     ```sh
+     git clone https://github.com/ValentinoTriadi/Tubes2_OOP.git
+      ```
+  2. Install JavaFX
+      ```sh
+      https://openjfx.io/
+      ```
+  3. Install Java
+      ```sh
+      https://www.oracle.com/id/java/technologies/downloads/
+      ```
+  4. Install Maven
+      ```sh
+      https://maven.apache.org/guides/getting-started/windows-prerequisites.html
+      ```
 
 ### Compile to JAR
 1. Compile the program
@@ -105,9 +124,6 @@ IF2210 Pemrograman Berorientasi Objek</h3>
 
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
 `java -jar target/Tubes2_OOP-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 
