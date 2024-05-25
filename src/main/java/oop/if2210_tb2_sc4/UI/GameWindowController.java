@@ -231,12 +231,9 @@ public class GameWindowController {
             return;
         }
 
-        FarmResourceCard[] cardlistLadang = currentPlayerPane.getLadang().getLadangData().getCardListinLadang();
-        for(FarmResourceCard card : cardlistLadang) {
-            if(card instanceof PlantCard){
-                ((PlantCard) card).setAge(((PlantCard) card).getAge()+1);
-            }
-        }
+        // Add age to all plant
+        currentPlayerPane.getLadang().getLadangData().addAgeAllPlant();
+
         // Hide the current player's pane
         currentPlayerPane.setVisible(false);
 
