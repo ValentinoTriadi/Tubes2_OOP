@@ -76,8 +76,13 @@ IF2210 Pemrograman Berorientasi Objek</h3>
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
+### Main Menu
+![Example screenshot](/img/MainMenu.png)
+
+### Game Screen
+![Example screenshot](/img/InGame1.png)
+![Example screenshot](/img/InGame2.png)
+![Example screenshot](/img/InGame3.png)
 
 
 ## Setup
@@ -127,7 +132,16 @@ IF2210 Pemrograman Berorientasi Objek</h3>
 
 
 ## Usage
+
+### Run GUI
 `java -jar target/Tubes2_OOP-1.0-SNAPSHOT-jar-with-dependencies.jar`
+
+### Play Game
+1. Start a new game
+2. Make your move
+3. End your turn
+4. Repeat until 20 turns
+5. The player with the most money wins
 
 
 ## Project Status
